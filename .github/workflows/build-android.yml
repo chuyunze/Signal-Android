@@ -56,6 +56,10 @@ jobs:
       run: |
         # 以 composite build 方式从源码编译补丁版 libsignal
         echo "libsignalClientPath=../libsignal" >> gradle.properties
+        # 只编译 arm64 的 Rust JNI 库（同时写入主工程和 included build
+        # 的 gradle.properties，确保 -P 属性能被 libsignal 构建读到）
+        echo "androidArchs=arm64" >> gradle.properties
+        echo "androidArchs=arm64" >> ../libsignal/java/gradle.properties
         # GitHub runner 为 16GB 内存，调小堆配置（官方默认 -Xmx12g 会 OOM）
         sed -i 's/-Xmx12g/-Xmx6g/' gradle.properties
         sed -i 's/kotlin.daemon.jvmargs=-Xmx4g/kotlin.daemon.jvmargs=-Xmx2g/' gradle.properties
@@ -76,8 +80,8 @@ jobs:
     - name: Upload APK
       uses: actions/upload-artifact@v4
       with:
-        name: Signal-selfhost-arm64-debug
-        path: android/app/build/outputs/apk/websiteProd/debug/*.apk
+        name: Signal-selfhost-arm64-spinner
+        path: android/app/build/outputs/apk/websiteProd/spinner/*.apk
         if-no-files-found: error
 
     - name: Archive reports on failure
