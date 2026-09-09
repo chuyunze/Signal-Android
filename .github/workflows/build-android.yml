@@ -60,6 +60,10 @@ jobs:
         # 的 gradle.properties，确保 -P 属性能被 libsignal 构建读到）
         echo "androidArchs=arm64" >> gradle.properties
         echo "androidArchs=arm64" >> ../libsignal/java/gradle.properties
+        # 从源码构建 libsignal 时，其构建插件(spotless/dokka 等)不在主工程的
+        # verification-metadata.xml 白名单内，按官方注释放宽校验为 lenient
+        echo "org.gradle.dependency.verification=lenient" >> gradle.properties
+        echo "org.gradle.dependency.verification=lenient" >> ../libsignal/java/gradle.properties
         # GitHub runner 为 16GB 内存，调小堆配置（官方默认 -Xmx12g 会 OOM）
         sed -i 's/-Xmx12g/-Xmx6g/' gradle.properties
         sed -i 's/kotlin.daemon.jvmargs=-Xmx4g/kotlin.daemon.jvmargs=-Xmx2g/' gradle.properties
@@ -76,6 +80,7 @@ jobs:
         # app 模块在 settings.gradle.kts 被重命名为 :Signal-Android
         ./gradlew :Signal-Android:assembleWebsiteProdSpinner \
           -PandroidArchs=arm64 \
+          -Dorg.gradle.dependency.verification=lenient \
           --no-daemon --stacktrace
 
     - name: Upload APK
