@@ -75,7 +75,12 @@ class LinkedDeviceInactiveCheckJob private constructor(
     val devices = when (val result = AppDependencies.linkDeviceApi.getDevices()) {
       is RequestResult.Success -> result.result.filter { it.id != SignalServiceAddress.DEFAULT_DEVICE_ID }
       is RequestResult.RetryableNetworkError -> return Result.retry(defaultBackoff())
-      is RequestResult.ApplicationError -> throw result.cause
+      // 自建服务器: chat 连接为 h1.1 时 gRPC API 不可用(requires an H2 connection panic)
+      // 此检查为非核心功能,失败时跳过而不是崩溃
+      is RequestResult.ApplicationError -> {
+        Log.w(TAG, "getDevices failed, skipping linked device check.", result.cause)
+        return Result.success()
+      }
       is RequestResult.NonSuccess -> error("Code branch is unreachable")
     }
 

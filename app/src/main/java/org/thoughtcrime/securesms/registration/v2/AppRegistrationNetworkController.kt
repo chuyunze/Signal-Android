@@ -216,12 +216,12 @@ class AppRegistrationNetworkController(
   }
 
   override suspend fun getFcmToken(): String? {
-    return try {
-      FcmUtil.getToken(context).orElse(null)
-    } catch (e: Exception) {
-      Log.w(TAG, "Failed to get FCM token", e)
-      null
-    }
+    // FCM 已禁用(自建服务器不需要推送),直接返回 null。
+    // 原实现调用 FcmUtil.getToken() 会执行 FirebaseMessaging.getToken(),
+    // 该 Tasks.await() 无超时,在无 GMS/Google API 不可达的网络下会长时间挂起,
+    // 导致注册流程卡在 "Unable to connect" 数十秒。
+    Log.i(TAG, "FCM is disabled, skipping token retrieval.")
+    return null
   }
 
   override suspend fun awaitPushChallengeToken(): String? = withContext(Dispatchers.IO) {

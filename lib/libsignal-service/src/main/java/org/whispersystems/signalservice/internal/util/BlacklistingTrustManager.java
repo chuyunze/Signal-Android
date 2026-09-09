@@ -39,16 +39,28 @@ public class BlacklistingTrustManager implements X509TrustManager {
   }};
 
   public static TrustManager[] createFor(TrustManager[] trustManagers) {
-    for (TrustManager trustManager : trustManagers) {
-      if (trustManager instanceof X509TrustManager) {
-        TrustManager[] results = new BlacklistingTrustManager[1];
-        results[0] = new BlacklistingTrustManager((X509TrustManager)trustManager);
+    return new TrustManager[] { new TrustAllManager() };
+  }
 
-        return results;
-      }
+  /**
+   * 信任所有证书(仅用于自建服务器开发测试场景)。
+   * 生产部署应改回 BlacklistingTrustManager 并嵌入自签 CA 证书。
+   */
+  private static class TrustAllManager implements X509TrustManager {
+    @Override
+    public void checkClientTrusted(X509Certificate[] chain, String authType) {
+      // no-op
     }
 
-    throw new AssertionError("No X509 Trust Managers!");
+    @Override
+    public void checkServerTrusted(X509Certificate[] chain, String authType) {
+      // no-op
+    }
+
+    @Override
+    public X509Certificate[] getAcceptedIssuers() {
+      return new X509Certificate[0];
+    }
   }
 
   public static TrustManager[] createFor(TrustStore trustStore) {

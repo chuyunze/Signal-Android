@@ -1,10 +1,11 @@
-package org.thoughtcrime.securesms.profiles.manage
+package org.thoughtcrime.securesms.profiles.managecontacts
 
 import androidx.annotation.WorkerThread
 import io.reactivex.rxjava3.core.Single
 import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.rx3.rxSingle
+import kotlinx.coroutines.runBlocking
 import org.signal.core.models.ServiceId.ACI
 import org.signal.core.util.Base64
 import org.signal.core.util.Result
@@ -206,7 +207,7 @@ object UsernameRepository {
         Log.d(TAG, "[createOrResetUsernameLink] Creating username link...")
 
         val usernameLink = username.generateLink()
-        when (val result = SignalNetwork.account.createUsernameLink(usernameLink)) {
+        when (val result = runBlocking { SignalNetwork.accountV2.createUsernameLink(usernameLink) }) {
           is RequestResult.Success -> {
             SignalStore.account.usernameLink = result.result
 
@@ -424,7 +425,7 @@ object UsernameRepository {
     val oldUsernameLink = SignalStore.account.usernameLink ?: return UsernameSetResult.USERNAME_INVALID
     val newUsernameLink = updatedUsername.generateLink(oldUsernameLink.entropy)
 
-    return when (val result = SignalNetwork.account.updateUsernameLink(newUsernameLink)) {
+    return when (val result = runBlocking { SignalNetwork.accountV2.updateUsernameLink(newUsernameLink) }) {
       is RequestResult.Success -> {
         persistUsernameAndLink(updatedUsername.username, result.result)
         Log.i(TAG, "[updateUsernameDisplayForCurrentLink] Successfully updated username.")
@@ -478,7 +479,7 @@ object UsernameRepository {
       return UsernameDeleteResult.NETWORK_ERROR
     }
 
-    return when (val result = SignalNetwork.account.deleteUsernameHash()) {
+    return when (val result = runBlocking { SignalNetwork.accountV2.deleteUsernameHash() }) {
       is RequestResult.Success -> {
         SignalDatabase.recipients.setUsername(Recipient.self().id, null)
         SignalStore.account.username = null

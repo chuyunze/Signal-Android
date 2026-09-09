@@ -1,0 +1,86 @@
+name: Build Self-host APK
+
+on:
+  push:
+    branches: [ selfhost-patch ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Signal-Android
+      uses: actions/checkout@v4
+      with:
+        path: android
+        lfs: true
+
+    - name: Checkout patched libsignal
+      uses: actions/checkout@v4
+      with:
+        repository: chuyunze/libsignal
+        ref: selfhost
+        path: libsignal
+
+    - name: Set up JDK 21
+      uses: actions/setup-java@v5
+      with:
+        distribution: temurin
+        java-version: 21
+
+    - name: Set up Gradle
+      uses: gradle/actions/setup-gradle@v4
+
+    - name: Set up Rust (nightly pinned by libsignal + Android target)
+      run: |
+        rustup toolchain install nightly-2026-07-15 --profile minimal
+        # arm64 真机只需要 aarch64；如需全 ABI，追加：
+        #   armv7-linux-androideabi x86_64-linux-android i686-linux-android
+        rustup target add aarch64-linux-android --toolchain nightly-2026-07-15
+
+    - name: Install protoc (libsignal/spqr 编译期依赖)
+      run: sudo apt-get update && sudo apt-get install -y protobuf-compiler
+
+    - name: Install Android NDK 28
+      run: yes | sdkmanager "ndk;28.0.13004108"
+
+    - name: Configure build
+      working-directory: android
+      run: |
+        # 以 composite build 方式从源码编译补丁版 libsignal
+        echo "libsignalClientPath=../libsignal" >> gradle.properties
+        # GitHub runner 为 16GB 内存，调小堆配置（官方默认 -Xmx12g 会 OOM）
+        sed -i 's/-Xmx12g/-Xmx6g/' gradle.properties
+        sed -i 's/kotlin.daemon.jvmargs=-Xmx4g/kotlin.daemon.jvmargs=-Xmx2g/' gradle.properties
+
+    - name: Build APK
+      working-directory: android
+      env:
+        ANDROID_NDK_HOME: ${{ env.ANDROID_HOME }}/ndk/28.0.13004108
+      run: |
+        # androidArchs=arm64 只编译 arm64-v8a 的 Rust 库（真机够用，速度快 4 倍）
+        # 出全 ABI 包去掉该参数即可（同时上面 rustup target add 要补齐 4 个 target）
+        ./gradlew :app:assembleWebsiteProdDebug \
+          -PandroidArchs=arm64 \
+          --no-daemon --stacktrace
+
+    - name: Upload APK
+      uses: actions/upload-artifact@v4
+      with:
+        name: Signal-selfhost-arm64-debug
+        path: android/app/build/outputs/apk/websiteProd/debug/*.apk
+        if-no-files-found: error
+
+    - name: Archive reports on failure
+      if: failure()
+      uses: actions/upload-artifact@v4
+      with:
+        name: build-reports
+        path: |
+          android/**/build/reports
+          android/**/build/outputs/logs
+        if-no-files-found: ignore

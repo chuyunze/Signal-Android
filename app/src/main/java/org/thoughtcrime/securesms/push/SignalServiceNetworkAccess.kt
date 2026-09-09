@@ -30,7 +30,6 @@ import org.thoughtcrime.securesms.net.DeviceTransferBlockingInterceptor
 import org.thoughtcrime.securesms.net.RemoteDeprecationDetectorInterceptor
 import org.thoughtcrime.securesms.net.SequentialDns
 import org.thoughtcrime.securesms.net.StandardUserAgentInterceptor
-import org.thoughtcrime.securesms.net.StaticDns
 import org.thoughtcrime.securesms.net.StorageServiceSizeLoggingInterceptor
 import java.io.IOException
 import java.util.Optional
@@ -46,20 +45,12 @@ class SignalServiceNetworkAccess(context: Context) {
     @JvmField
     val DNS: Dns = SequentialDns(
       Dns.SYSTEM,
-      CustomDns("1.1.1.1"),
-      StaticDns(
-        mapOf(
-          BuildConfig.SIGNAL_URL.stripProtocol() to BuildConfig.SIGNAL_SERVICE_IPS.toSet(),
-          BuildConfig.STORAGE_URL.stripProtocol() to BuildConfig.SIGNAL_STORAGE_IPS.toSet(),
-          BuildConfig.SIGNAL_CDN_URL.stripProtocol() to BuildConfig.SIGNAL_CDN_IPS.toSet(),
-          BuildConfig.SIGNAL_CDN2_URL.stripProtocol() to BuildConfig.SIGNAL_CDN2_IPS.toSet(),
-          BuildConfig.SIGNAL_CDN3_URL.stripProtocol() to BuildConfig.SIGNAL_CDN3_IPS.toSet(),
-          BuildConfig.SIGNAL_SFU_URL.stripProtocol() to BuildConfig.SIGNAL_SFU_IPS.toSet(),
-          BuildConfig.CONTENT_PROXY_HOST.stripProtocol() to BuildConfig.SIGNAL_CONTENT_PROXY_IPS.toSet(),
-          BuildConfig.SIGNAL_CDSI_URL.stripProtocol() to BuildConfig.SIGNAL_CDSI_IPS.toSet(),
-          BuildConfig.SIGNAL_SVR2_URL.stripProtocol() to BuildConfig.SIGNAL_SVR2_IPS.toSet()
-        )
-      )
+      CustomDns("1.1.1.1")
+      // 移除 StaticDns: static-ips.properties 由 resolveStaticIps 任务生成,
+      // 解析的是 Signal 官方域名,会产生指向官方服务器的错误 IP 映射。
+      // 当系统 DNS / Cloudflare DNS 解析失败回退到 StaticDns 时,
+      // 会连接到错误的 IP 导致超时和 "Unable to connect" 错误。
+      // 自建服务器域名(chat.i201314.cn / cdn.i201314.cn)应依赖正常 DNS 解析。
     )
 
     private fun String.stripProtocol(): String {

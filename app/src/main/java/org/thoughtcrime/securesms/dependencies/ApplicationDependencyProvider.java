@@ -340,6 +340,9 @@ public class ApplicationDependencyProvider implements AppDependencies.Provider {
 
   @Override
   public @NonNull Network provideLibsignalNetwork(@NonNull SignalServiceConfiguration config) {
+    // 注意: libsignal Rust 网络栈的服务器地址/证书是编译期硬编码的(见 libsignal/rust/net/src/env.rs),
+    // 远程配置键白名单(remote_config.rs)不包含服务器地址类配置, 无法从 Java 层覆盖。
+    // 自建服务器需要自行编译修改 env.rs 中 PROD 常量的 libsignal。
     Network network = new Network(BuildConfig.LIBSIGNAL_NET_ENV, StandardUserAgentInterceptor.USER_AGENT, RemoteConfig.getLibsignalConfigs(), Network.BuildVariant.PRODUCTION);
     LibSignalNetworkExtensions.applyConfiguration(network, config);
 
