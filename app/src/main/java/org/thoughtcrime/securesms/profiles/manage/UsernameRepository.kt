@@ -1,4 +1,4 @@
-package org.thoughtcrime.securesms.profiles.managecontacts
+package org.thoughtcrime.securesms.profiles.manage
 
 import androidx.annotation.WorkerThread
 import io.reactivex.rxjava3.core.Single
@@ -29,9 +29,6 @@ import org.thoughtcrime.securesms.jobs.MultiDeviceUsernameChangeSyncJob
 import org.thoughtcrime.securesms.keyvalue.AccountValues
 import org.thoughtcrime.securesms.keyvalue.SignalStore
 import org.thoughtcrime.securesms.net.SignalNetwork
-import org.thoughtcrime.securesms.profiles.manage.UsernameRepository.confirmUsernameAndCreateNewLink
-import org.thoughtcrime.securesms.profiles.manage.UsernameRepository.reserveUsername
-import org.thoughtcrime.securesms.profiles.manage.UsernameRepository.updateUsernameDisplayForCurrentLink
 import org.thoughtcrime.securesms.recipients.Recipient
 import org.thoughtcrime.securesms.storage.StorageSyncHelper
 import org.thoughtcrime.securesms.util.NetworkUtil
