@@ -11,6 +11,7 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
+    timeout-minutes: 90  # 正常全量构建约 30 分钟；卡死时快速失败而不是跑满 6 小时
 
     steps:
     - name: Checkout Signal-Android
@@ -42,6 +43,12 @@ jobs:
         #   armv7-linux-androideabi x86_64-linux-android i686-linux-android
         rustup target add aarch64-linux-android --toolchain nightly-2026-07-15
 
+    - name: Cache Rust (libsignal cargo registry + arm64 编译产物)
+      uses: Swatinem/rust-cache@v2
+      with:
+        workspaces: libsignal
+        key: android-arm64
+
     - name: Install protoc (libsignal/spqr 编译期依赖)
       run: sudo apt-get update && sudo apt-get install -y protobuf-compiler
 
@@ -64,23 +71,23 @@ jobs:
         # verification-metadata.xml 白名单内，按官方注释放宽校验为 lenient
         echo "org.gradle.dependency.verification=lenient" >> gradle.properties
         echo "org.gradle.dependency.verification=lenient" >> ../libsignal/java/gradle.properties
-        # GitHub runner 为 16GB 内存，调小堆配置（官方默认 -Xmx12g 会 OOM）
-        sed -i 's/-Xmx12g/-Xmx6g/' gradle.properties
-        sed -i 's/kotlin.daemon.jvmargs=-Xmx4g/kotlin.daemon.jvmargs=-Xmx2g/' gradle.properties
+        # GitHub runner 为 16GB 内存：Gradle 8g + Kotlin 4g(官方默认，不能调小，
+        # 巨型工程 codegen 阶段堆太小会 GC 死循环表现为构建挂死)，留 4g 给系统
+        sed -i 's/-Xmx12g/-Xmx8g/' gradle.properties
 
     - name: Build APK
       working-directory: android
       run: |
         # NDK 路径传给 libsignal 的 build_jni.sh
         export ANDROID_NDK_HOME="$ANDROID_SDK_ROOT/ndk/28.0.13004108"
-        # androidArchs=arm64 只编译 arm64-v8a 的 Rust 库（真机够用，速度快 4 倍）
-        # 出全 ABI 包去掉该参数即可（同时上面 rustup target add 要补齐 4 个 target）
         # website 渠道在 selectableVariants 白名单里只启用了 spinner(=debug 等价，
         # 不混淆、debug 签名) 和 release(R8 混淆)；测试包用 spinner。
-        # app 模块在 settings.gradle.kts 被重命名为 :Signal-Android
+        # app 模块在 settings.gradle.kts 被重命名为 :Signal-Android。
+        # --console=plain 让日志逐行输出任务名，卡住时能直接看到卡在哪个任务。
         ./gradlew :Signal-Android:assembleWebsiteProdSpinner \
           -PandroidArchs=arm64 \
           -Dorg.gradle.dependency.verification=lenient \
+          --console=plain \
           --no-daemon --stacktrace
 
     - name: Upload APK
@@ -91,7 +98,7 @@ jobs:
         if-no-files-found: error
 
     - name: Archive reports on failure
-      if: failure()
+      if: always()
       uses: actions/upload-artifact@v4
       with:
         name: build-reports
