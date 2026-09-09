@@ -67,7 +67,9 @@ jobs:
         export ANDROID_NDK_HOME="$ANDROID_SDK_ROOT/ndk/28.0.13004108"
         # androidArchs=arm64 只编译 arm64-v8a 的 Rust 库（真机够用，速度快 4 倍）
         # 出全 ABI 包去掉该参数即可（同时上面 rustup target add 要补齐 4 个 target）
-        ./gradlew :app:assembleWebsiteProdDebug \
+        # settings.gradle.kts 中 app 模块被重命名为 :Signal-Android，
+        # 直接用任务名（Gradle 自动在所有子项目匹配）
+        ./gradlew assembleWebsiteProdDebug \
           -PandroidArchs=arm64 \
           --no-daemon --stacktrace
 
