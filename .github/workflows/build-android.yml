@@ -71,9 +71,10 @@ jobs:
         export ANDROID_NDK_HOME="$ANDROID_SDK_ROOT/ndk/28.0.13004108"
         # androidArchs=arm64 只编译 arm64-v8a 的 Rust 库（真机够用，速度快 4 倍）
         # 出全 ABI 包去掉该参数即可（同时上面 rustup target add 要补齐 4 个 target）
-        # settings.gradle.kts 中 app 模块被重命名为 :Signal-Android，
-        # 直接用任务名（Gradle 自动在所有子项目匹配）
-        ./gradlew assembleWebsiteProdDebug \
+        # website 渠道在 selectableVariants 白名单里只启用了 spinner(=debug 等价，
+        # 不混淆、debug 签名) 和 release(R8 混淆)；测试包用 spinner。
+        # app 模块在 settings.gradle.kts 被重命名为 :Signal-Android
+        ./gradlew :Signal-Android:assembleWebsiteProdSpinner \
           -PandroidArchs=arm64 \
           --no-daemon --stacktrace
 
