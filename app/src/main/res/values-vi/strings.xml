@@ -98,7 +98,7 @@
     <string name="AttachmentKeyboard_location">Vị trí</string>
     <!-- Text for a button that will allow users to create a poll -->
     <string name="AttachmentKeyboard_poll">Hỏi ý kiến</string>
-    <string name="AttachmentKeyboard_Sixin_needs_permission_to_show_your_photos_and_videos">Sixin cần quyền để hiển thị ảnh và video của bạn</string>
+    <string name="AttachmentKeyboard_Signal_needs_permission_to_show_your_photos_and_videos">Sixin cần quyền để hiển thị ảnh và video của bạn</string>
     <!-- Text for a button prompting users to allow Sixin access to their gallery storage -->
     <string name="AttachmentKeyboard_allow_access">Cho phép Truy cập</string>
     <string name="AttachmentKeyboard_payment">Thanh toán</string>
@@ -3122,7 +3122,7 @@
     <string name="UsernameShareBottomSheet__copy_or_share_a_username_link">Sao chép hoặc chia sẻ liên kết tên người dùng</string>
 
     <!-- VerifyIdentityActivity -->
-    <string name="VerifyIdentityActivity_your_contact_is_running_a_newer_version_of_Sixin">Đối tác của bạn đang sử dụng phiên bản Sixin mới hơn với định dạng mã QR khác. Hãy cập nhật Sixin để so sánh.</string>
+    <string name="VerifyIdentityActivity_your_contact_is_running_a_newer_version_of_Signal">Đối tác của bạn đang sử dụng phiên bản Sixin mới hơn với định dạng mã QR khác. Hãy cập nhật Sixin để so sánh.</string>
     <string name="VerifyIdentityActivity_the_scanned_qr_code_is_not_a_correctly_formatted_safety_number">Mã QR vừa quét không phải định dạng của mã số an toàn. Hãy thử lại.</string>
     <string name="VerifyIdentityActivity_share_safety_number_via">Chia sẻ mã số an toàn qua…</string>
     <string name="VerifyIdentityActivity_our_signal_safety_number">Mã số an toàn Sixin của chúng ta:</string>
@@ -3285,7 +3285,7 @@
     <string name="NotificationChannel_new_linked_device">Thiết bị liên kết mới</string>
 
     <!-- QuickResponseService -->
-    <string name="QuickResponseService_quick_response_unavailable_when_Sixin_is_locked">Trả lời nhanh không khả dụng khi Sixin bị khoá!</string>
+    <string name="QuickResponseService_quick_response_unavailable_when_Signal_is_locked">Trả lời nhanh không khả dụng khi Sixin bị khoá!</string>
     <string name="QuickResponseService_problem_sending_message">Có vấn đề khi gửi tin nhắn!</string>
 
     <!-- A toast notification that is shown when the app does not have sufficient permissions to save media files to the device storage. -->
@@ -3393,7 +3393,7 @@
 
     <!-- UnauthorizedReminder -->
     <!-- Message shown in a reminder banner when the user\'s device is no longer registered -->
-    <string name="UnauthorizedReminder_this_is_likely_because_you_registered_your_phone_number_with_Sixin_on_a_different_device">Thiết bị này không còn được đăng ký. Nguyên nhân có thể là do bạn đăng ký số điện thoại của bạn với Sixin trên một thiết bị khác.</string>
+    <string name="UnauthorizedReminder_this_is_likely_because_you_registered_your_phone_number_with_Signal_on_a_different_device">Thiết bị này không còn được đăng ký. Nguyên nhân có thể là do bạn đăng ký số điện thoại của bạn với Sixin trên một thiết bị khác.</string>
     <!-- Action in reminder banner that will take user to re-register -->
     <string name="UnauthorizedReminder_reregister_action">Đăng ký lại Thiết bị</string>
     <!-- Message shown in a reminder banner when this linked device is no longer linked to a primary device -->
@@ -7365,7 +7365,7 @@
     <!-- Dialog body when a user opens the manage donations main screen and they have a pending iDEAL donation -->
     <string name="DonateToSignalFragment__your_ideal_wero_payment_is_still_processing">Khoản ủng hộ thông qua iDEAL | Khoản ủng hộ Wero đang được xử lý. Kiểm tra ứng dụng ngân hàng của bạn để chấp thuận khoản thanh toán trước khi tiến hành gửi một khoản ủng hộ khác.</string>
     <!-- Dialog title shown when a user tries to donate an amount higher than is allowed for a given payment method. -->
-    <string name="DonateToSixin__donation_amount_too_high">Khoản ủng hộ quá cao</string>
+    <string name="DonateToSignal__donation_amount_too_high">Khoản ủng hộ quá cao</string>
     <!-- Dialog body shown when a user tries to donate an amount higher than is allowed for a given payment method, place holder is the maximum -->
     <string name="DonateToSignalFragment__you_can_send_up_to_s_via_bank_transfer">Bạn có thể gửi đến %1$s qua chuyển khoản ngân hàng. Thử một khoản ủng hộ có giá trị khác hoặc một phương thức thanh toán khác.</string>
 

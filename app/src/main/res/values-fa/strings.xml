@@ -98,7 +98,7 @@
     <string name="AttachmentKeyboard_location">مکان</string>
     <!-- Text for a button that will allow users to create a poll -->
     <string name="AttachmentKeyboard_poll">نظرسنجی</string>
-    <string name="AttachmentKeyboard_Sixin_needs_permission_to_show_your_photos_and_videos">سیگنال برای نشان دادن عکس‌ها و ویدیوهایتان به مجوز نیاز دارد</string>
+    <string name="AttachmentKeyboard_Signal_needs_permission_to_show_your_photos_and_videos">سیگنال برای نشان دادن عکس‌ها و ویدیوهایتان به مجوز نیاز دارد</string>
     <!-- Text for a button prompting users to allow Sixin access to their gallery storage -->
     <string name="AttachmentKeyboard_allow_access">اجازۀ دسترسی بدهید</string>
     <string name="AttachmentKeyboard_payment">پرداخت</string>
@@ -3223,7 +3223,7 @@
     <string name="UsernameShareBottomSheet__copy_or_share_a_username_link">کپی یا اشتراک‌گذاری پیوند نام کاربری</string>
 
     <!-- VerifyIdentityActivity -->
-    <string name="VerifyIdentityActivity_your_contact_is_running_a_newer_version_of_Sixin">مخاطب شما در حال اجرای نسخهٔ جدیدتر سیگنال با یک کد QR ناسازگار است. لطفاً برای مقایسه به‌روزرسانی کنید.</string>
+    <string name="VerifyIdentityActivity_your_contact_is_running_a_newer_version_of_Signal">مخاطب شما در حال اجرای نسخهٔ جدیدتر سیگنال با یک کد QR ناسازگار است. لطفاً برای مقایسه به‌روزرسانی کنید.</string>
     <string name="VerifyIdentityActivity_the_scanned_qr_code_is_not_a_correctly_formatted_safety_number">کد QR اسکن شده، یک کد وارسی شمارهٔ ایمنی است که بدرستی قالب‌بندی نشده است. لطفاً دوباره اسکن کنید.</string>
     <string name="VerifyIdentityActivity_share_safety_number_via">اشتراک‌گذاری شمارهٔ ایمنی از طریق…</string>
     <string name="VerifyIdentityActivity_our_signal_safety_number">شمارهٔ ایمنی سیگنال ما:</string>
@@ -3388,7 +3388,7 @@
     <string name="NotificationChannel_new_linked_device">دستگاه متصل‌شده جدید</string>
 
     <!-- QuickResponseService -->
-    <string name="QuickResponseService_quick_response_unavailable_when_Sixin_is_locked">پاسخ سریع هنگام قفل بودن سیگنال در دسترس نیست!</string>
+    <string name="QuickResponseService_quick_response_unavailable_when_Signal_is_locked">پاسخ سریع هنگام قفل بودن سیگنال در دسترس نیست!</string>
     <string name="QuickResponseService_problem_sending_message">خطا در ارسال پیام!</string>
 
     <!-- A toast notification that is shown when the app does not have sufficient permissions to save media files to the device storage. -->
@@ -3501,7 +3501,7 @@
 
     <!-- UnauthorizedReminder -->
     <!-- Message shown in a reminder banner when the user\'s device is no longer registered -->
-    <string name="UnauthorizedReminder_this_is_likely_because_you_registered_your_phone_number_with_Sixin_on_a_different_device">این دستگاه دیگر ثبت‌شده نیست. دلیل آن احتمالاً این است که شماره تلفن خود را روی دستگاه دیگری در سیگنال ثبت کرده‌اید.</string>
+    <string name="UnauthorizedReminder_this_is_likely_because_you_registered_your_phone_number_with_Signal_on_a_different_device">این دستگاه دیگر ثبت‌شده نیست. دلیل آن احتمالاً این است که شماره تلفن خود را روی دستگاه دیگری در سیگنال ثبت کرده‌اید.</string>
     <!-- Action in reminder banner that will take user to re-register -->
     <string name="UnauthorizedReminder_reregister_action">دستگاه را مجدداْ ثبت کنید</string>
     <!-- Message shown in a reminder banner when this linked device is no longer linked to a primary device -->
@@ -7546,7 +7546,7 @@
     <!-- Dialog body when a user opens the manage donations main screen and they have a pending iDEAL donation -->
     <string name="DonateToSignalFragment__your_ideal_wero_payment_is_still_processing">کمک مالی شما با iDEAL | Wero هنوز در حال پردازش است. برای تأیید پرداخت‌تان و قبل از کمک مالی دیگر، برنامه بانک‌تان را بررسی کنید.</string>
     <!-- Dialog title shown when a user tries to donate an amount higher than is allowed for a given payment method. -->
-    <string name="DonateToSixin__donation_amount_too_high">مبلغ اهدای مالی بیش‌ازحد زیاد است</string>
+    <string name="DonateToSignal__donation_amount_too_high">مبلغ اهدای مالی بیش‌ازحد زیاد است</string>
     <!-- Dialog body shown when a user tries to donate an amount higher than is allowed for a given payment method, place holder is the maximum -->
     <string name="DonateToSignalFragment__you_can_send_up_to_s_via_bank_transfer">می‌توانید تا سقف %1$s از طریق انتقال بانکی ارسال کنید. مبلغ یا روش پرداخت دیگری را امتحان کنید.</string>
 

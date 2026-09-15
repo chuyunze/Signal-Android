@@ -98,7 +98,7 @@
     <string name="AttachmentKeyboard_location">Lokacija</string>
     <!-- Text for a button that will allow users to create a poll -->
     <string name="AttachmentKeyboard_poll">Anketa</string>
-    <string name="AttachmentKeyboard_Sixin_needs_permission_to_show_your_photos_and_videos">Sixin zahtijeva dopuštenje za prikazivanje vaših fotografija i videozapisa</string>
+    <string name="AttachmentKeyboard_Signal_needs_permission_to_show_your_photos_and_videos">Sixin zahtijeva dopuštenje za prikazivanje vaših fotografija i videozapisa</string>
     <!-- Text for a button prompting users to allow Sixin access to their gallery storage -->
     <string name="AttachmentKeyboard_allow_access">Omogući pristup</string>
     <string name="AttachmentKeyboard_payment">Plaćanja</string>
@@ -3425,7 +3425,7 @@
     <string name="UsernameShareBottomSheet__copy_or_share_a_username_link">Kopiranje ili dijeljenje poveznice s korisničkim imenom</string>
 
     <!-- VerifyIdentityActivity -->
-    <string name="VerifyIdentityActivity_your_contact_is_running_a_newer_version_of_Sixin">Vaš kontakt koristi noviju verziju Signala s nekompatibilnim formatom QR kôda. Molimo ažurirajte za usporedbu.</string>
+    <string name="VerifyIdentityActivity_your_contact_is_running_a_newer_version_of_Signal">Vaš kontakt koristi noviju verziju Signala s nekompatibilnim formatom QR kôda. Molimo ažurirajte za usporedbu.</string>
     <string name="VerifyIdentityActivity_the_scanned_qr_code_is_not_a_correctly_formatted_safety_number">Skenirani QR kôd nije ispravno oblikovan kôd za provjeru sigurnosnog broja. Pokušajte ponovo skenirati.</string>
     <string name="VerifyIdentityActivity_share_safety_number_via">Podijelite sigurnosni broj putem…</string>
     <string name="VerifyIdentityActivity_our_signal_safety_number">Naš Sixin sigurnosni broj:</string>
@@ -3594,7 +3594,7 @@
     <string name="NotificationChannel_new_linked_device">Novi povezani uređaj</string>
 
     <!-- QuickResponseService -->
-    <string name="QuickResponseService_quick_response_unavailable_when_Sixin_is_locked">Brzi odgovor nije dostupan kada je Sixin zaključan!</string>
+    <string name="QuickResponseService_quick_response_unavailable_when_Signal_is_locked">Brzi odgovor nije dostupan kada je Sixin zaključan!</string>
     <string name="QuickResponseService_problem_sending_message">Pogreška prilikom slanja poruke!</string>
 
     <!-- A toast notification that is shown when the app does not have sufficient permissions to save media files to the device storage. -->
@@ -3717,7 +3717,7 @@
 
     <!-- UnauthorizedReminder -->
     <!-- Message shown in a reminder banner when the user\'s device is no longer registered -->
-    <string name="UnauthorizedReminder_this_is_likely_because_you_registered_your_phone_number_with_Sixin_on_a_different_device">Ovaj uređaj više nije registriran. To je vjerojatno zato što ste svoj broj telefona na Signalu registrirali na drugom uređaju.</string>
+    <string name="UnauthorizedReminder_this_is_likely_because_you_registered_your_phone_number_with_Signal_on_a_different_device">Ovaj uređaj više nije registriran. To je vjerojatno zato što ste svoj broj telefona na Signalu registrirali na drugom uređaju.</string>
     <!-- Action in reminder banner that will take user to re-register -->
     <string name="UnauthorizedReminder_reregister_action">Ponovno registrirajte uređaj</string>
     <!-- Message shown in a reminder banner when this linked device is no longer linked to a primary device -->
@@ -7908,7 +7908,7 @@
     <!-- Dialog body when a user opens the manage donations main screen and they have a pending iDEAL donation -->
     <string name="DonateToSignalFragment__your_ideal_wero_payment_is_still_processing">Vaša donacija putem platforme iDEAL | Wero još uvijek se obrađuje. Provjerite svoju aplikaciju mobilnog bankarstva kako biste odobrili plaćanje prije nego što izvršite novu donaciju.</string>
     <!-- Dialog title shown when a user tries to donate an amount higher than is allowed for a given payment method. -->
-    <string name="DonateToSixin__donation_amount_too_high">Iznos donacije je previsok</string>
+    <string name="DonateToSignal__donation_amount_too_high">Iznos donacije je previsok</string>
     <!-- Dialog body shown when a user tries to donate an amount higher than is allowed for a given payment method, place holder is the maximum -->
     <string name="DonateToSignalFragment__you_can_send_up_to_s_via_bank_transfer">Moguće je poslati do %1$s putem bankovnog transfera. Pokušajte s nižim iznosom ili drugim načinom plaćanja.</string>
 

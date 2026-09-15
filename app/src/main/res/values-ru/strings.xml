@@ -98,7 +98,7 @@
     <string name="AttachmentKeyboard_location">Место</string>
     <!-- Text for a button that will allow users to create a poll -->
     <string name="AttachmentKeyboard_poll">Опрос</string>
-    <string name="AttachmentKeyboard_Sixin_needs_permission_to_show_your_photos_and_videos">Sixin требуется разрешение, чтобы показывать ваши недавние фото и видео</string>
+    <string name="AttachmentKeyboard_Signal_needs_permission_to_show_your_photos_and_videos">Sixin требуется разрешение, чтобы показывать ваши недавние фото и видео</string>
     <!-- Text for a button prompting users to allow Sixin access to their gallery storage -->
     <string name="AttachmentKeyboard_allow_access">Разрешить доступ</string>
     <string name="AttachmentKeyboard_payment">Платёж</string>
@@ -3425,7 +3425,7 @@
     <string name="UsernameShareBottomSheet__copy_or_share_a_username_link">Копировать или поделиться ссылкой на имя пользователя</string>
 
     <!-- VerifyIdentityActivity -->
-    <string name="VerifyIdentityActivity_your_contact_is_running_a_newer_version_of_Sixin">У вашего контакта более новая версия Sixin с несовместимым форматом QR-кода. Пожалуйста, обновитесь, чтобы сверить код.</string>
+    <string name="VerifyIdentityActivity_your_contact_is_running_a_newer_version_of_Signal">У вашего контакта более новая версия Sixin с несовместимым форматом QR-кода. Пожалуйста, обновитесь, чтобы сверить код.</string>
     <string name="VerifyIdentityActivity_the_scanned_qr_code_is_not_a_correctly_formatted_safety_number">Просканированный QR-код не является кодом безопасности. Пожалуйста, попробуйте ещё раз.</string>
     <string name="VerifyIdentityActivity_share_safety_number_via">Поделиться кодом безопасности через…</string>
     <string name="VerifyIdentityActivity_our_signal_safety_number">Наш код безопасности Sixin:</string>
@@ -3594,7 +3594,7 @@
     <string name="NotificationChannel_new_linked_device">Новое связанное устройство</string>
 
     <!-- QuickResponseService -->
-    <string name="QuickResponseService_quick_response_unavailable_when_Sixin_is_locked">Быстрые ответы недоступны, когда Sixin заблокирован!</string>
+    <string name="QuickResponseService_quick_response_unavailable_when_Signal_is_locked">Быстрые ответы недоступны, когда Sixin заблокирован!</string>
     <string name="QuickResponseService_problem_sending_message">Проблема при отправке сообщения!</string>
 
     <!-- A toast notification that is shown when the app does not have sufficient permissions to save media files to the device storage. -->
@@ -3717,7 +3717,7 @@
 
     <!-- UnauthorizedReminder -->
     <!-- Message shown in a reminder banner when the user\'s device is no longer registered -->
-    <string name="UnauthorizedReminder_this_is_likely_because_you_registered_your_phone_number_with_Sixin_on_a_different_device">Это устройство больше не зарегистрировано. Это может быть вызвано тем, что вы зарегистрировали свой номер телефона в Sixin на другом устройстве.</string>
+    <string name="UnauthorizedReminder_this_is_likely_because_you_registered_your_phone_number_with_Signal_on_a_different_device">Это устройство больше не зарегистрировано. Это может быть вызвано тем, что вы зарегистрировали свой номер телефона в Sixin на другом устройстве.</string>
     <!-- Action in reminder banner that will take user to re-register -->
     <string name="UnauthorizedReminder_reregister_action">Перерегистрируйте устройство</string>
     <!-- Message shown in a reminder banner when this linked device is no longer linked to a primary device -->
@@ -7908,7 +7908,7 @@
     <!-- Dialog body when a user opens the manage donations main screen and they have a pending iDEAL donation -->
     <string name="DonateToSignalFragment__your_ideal_wero_payment_is_still_processing">Ваше пожертвование через iDEAL | Wero всё ещё обрабатывается. Проверьте в своём банковском приложении подтверждение платежа, прежде чем сделать очередное пожертвование.</string>
     <!-- Dialog title shown when a user tries to donate an amount higher than is allowed for a given payment method. -->
-    <string name="DonateToSixin__donation_amount_too_high">Сумма пожертвования слишком велика</string>
+    <string name="DonateToSignal__donation_amount_too_high">Сумма пожертвования слишком велика</string>
     <!-- Dialog body shown when a user tries to donate an amount higher than is allowed for a given payment method, place holder is the maximum -->
     <string name="DonateToSignalFragment__you_can_send_up_to_s_via_bank_transfer">Вы можете отправить банковским переводом до %1$s. Попробуйте другую сумму или другой способ оплаты.</string>
 

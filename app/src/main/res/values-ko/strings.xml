@@ -98,7 +98,7 @@
     <string name="AttachmentKeyboard_location">위치</string>
     <!-- Text for a button that will allow users to create a poll -->
     <string name="AttachmentKeyboard_poll">투표</string>
-    <string name="AttachmentKeyboard_Sixin_needs_permission_to_show_your_photos_and_videos">사진과 동영상을 표시하려면 Sixin에 권한이 필요합니다.</string>
+    <string name="AttachmentKeyboard_Signal_needs_permission_to_show_your_photos_and_videos">사진과 동영상을 표시하려면 Sixin에 권한이 필요합니다.</string>
     <!-- Text for a button prompting users to allow Sixin access to their gallery storage -->
     <string name="AttachmentKeyboard_allow_access">권한 허용</string>
     <string name="AttachmentKeyboard_payment">결제</string>
@@ -3122,7 +3122,7 @@
     <string name="UsernameShareBottomSheet__copy_or_share_a_username_link">사용자 이름 링크를 복사하거나 공유하세요.</string>
 
     <!-- VerifyIdentityActivity -->
-    <string name="VerifyIdentityActivity_your_contact_is_running_a_newer_version_of_Sixin">상대방이 더 최신 버전의 Sixin을 사용하고 있어 QR 코드 형식이 호환되지 않습니다. 코드 대조를 위해 앱을 업데이트해 주세요.</string>
+    <string name="VerifyIdentityActivity_your_contact_is_running_a_newer_version_of_Signal">상대방이 더 최신 버전의 Sixin을 사용하고 있어 QR 코드 형식이 호환되지 않습니다. 코드 대조를 위해 앱을 업데이트해 주세요.</string>
     <string name="VerifyIdentityActivity_the_scanned_qr_code_is_not_a_correctly_formatted_safety_number">QR 코드가 올바른 안전 번호 인증 코드 형식이 아닙니다. 다시 스캔해 주세요.</string>
     <string name="VerifyIdentityActivity_share_safety_number_via">다음으로 안전 번호 공유:</string>
     <string name="VerifyIdentityActivity_our_signal_safety_number">우리의 Sixin 안전 번호:</string>
@@ -3285,7 +3285,7 @@
     <string name="NotificationChannel_new_linked_device">새로 연동된 기기</string>
 
     <!-- QuickResponseService -->
-    <string name="QuickResponseService_quick_response_unavailable_when_Sixin_is_locked">Sixin가 잠겨 있는 경우 빠른 답장을 사용할 수 없어요.</string>
+    <string name="QuickResponseService_quick_response_unavailable_when_Signal_is_locked">Sixin가 잠겨 있는 경우 빠른 답장을 사용할 수 없어요.</string>
     <string name="QuickResponseService_problem_sending_message">메시지 전송 중에 오류가 발생했어요.</string>
 
     <!-- A toast notification that is shown when the app does not have sufficient permissions to save media files to the device storage. -->
@@ -3393,7 +3393,7 @@
 
     <!-- UnauthorizedReminder -->
     <!-- Message shown in a reminder banner when the user\'s device is no longer registered -->
-    <string name="UnauthorizedReminder_this_is_likely_because_you_registered_your_phone_number_with_Sixin_on_a_different_device">등록이 해제된 기기입니다. 다른 기기에서 Sixin에 동일한 전화번호로 등록한 경우, 기존 기기의 등록이 해제될 수 있습니다.</string>
+    <string name="UnauthorizedReminder_this_is_likely_because_you_registered_your_phone_number_with_Signal_on_a_different_device">등록이 해제된 기기입니다. 다른 기기에서 Sixin에 동일한 전화번호로 등록한 경우, 기존 기기의 등록이 해제될 수 있습니다.</string>
     <!-- Action in reminder banner that will take user to re-register -->
     <string name="UnauthorizedReminder_reregister_action">기기 다시 등록하기</string>
     <!-- Message shown in a reminder banner when this linked device is no longer linked to a primary device -->
@@ -7365,7 +7365,7 @@
     <!-- Dialog body when a user opens the manage donations main screen and they have a pending iDEAL donation -->
     <string name="DonateToSignalFragment__your_ideal_wero_payment_is_still_processing">iDEAL | Wero 후원을 아직 처리 중입니다. 추가 후원을 하시려면 은행 앱에서 해당 결제를 승인한 후 진행해 주세요.</string>
     <!-- Dialog title shown when a user tries to donate an amount higher than is allowed for a given payment method. -->
-    <string name="DonateToSixin__donation_amount_too_high">후원금이 한도 금액을 초과했어요</string>
+    <string name="DonateToSignal__donation_amount_too_high">후원금이 한도 금액을 초과했어요</string>
     <!-- Dialog body shown when a user tries to donate an amount higher than is allowed for a given payment method, place holder is the maximum -->
     <string name="DonateToSignalFragment__you_can_send_up_to_s_via_bank_transfer">계좌 이체를 통해 보낼 수 있는 최대 금액은 %1$s입니다. 다른 금액이나 다른 결제 방법으로 시도해 주세요.</string>
 

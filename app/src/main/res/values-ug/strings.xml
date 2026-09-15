@@ -98,7 +98,7 @@
     <string name="AttachmentKeyboard_location">ئورنى</string>
     <!-- Text for a button that will allow users to create a poll -->
     <string name="AttachmentKeyboard_poll">ئشلەتكۈچىلەرنىڭ رايىنى سىناش</string>
-    <string name="AttachmentKeyboard_Sixin_needs_permission_to_show_your_photos_and_videos">رەسىم ۋە ۋىدېيولىرىڭىزنى كۆرسىتىش ئۈچۈن Sixin ئىجازىتىڭىزگە ئېھتىياجلىق</string>
+    <string name="AttachmentKeyboard_Signal_needs_permission_to_show_your_photos_and_videos">رەسىم ۋە ۋىدېيولىرىڭىزنى كۆرسىتىش ئۈچۈن Sixin ئىجازىتىڭىزگە ئېھتىياجلىق</string>
     <!-- Text for a button prompting users to allow Sixin access to their gallery storage -->
     <string name="AttachmentKeyboard_allow_access">ئىشلىتىشكە رۇخسەت</string>
     <string name="AttachmentKeyboard_payment">چىقىم</string>
@@ -3122,7 +3122,7 @@
     <string name="UsernameShareBottomSheet__copy_or_share_a_username_link">ئىشلەتكۈچى نامى ئۇلانمىسىنى كۆچۈرۈش ياكى ئورتاقلىشىش</string>
 
     <!-- VerifyIdentityActivity -->
-    <string name="VerifyIdentityActivity_your_contact_is_running_a_newer_version_of_Sixin">سىزنىڭ ئالاقىلەشكۈچىڭىز QR كودى سىغىشمايدىغان يېڭىراق نەشردىكى Sixin نى ئىشلىتىۋېتىپتۇ. نەشرىڭىزنى يېڭىلاپ سېلىشتۇرۇڭ.</string>
+    <string name="VerifyIdentityActivity_your_contact_is_running_a_newer_version_of_Signal">سىزنىڭ ئالاقىلەشكۈچىڭىز QR كودى سىغىشمايدىغان يېڭىراق نەشردىكى Sixin نى ئىشلىتىۋېتىپتۇ. نەشرىڭىزنى يېڭىلاپ سېلىشتۇرۇڭ.</string>
     <string name="VerifyIdentityActivity_the_scanned_qr_code_is_not_a_correctly_formatted_safety_number">سايىلەنگەن QR كودى توغرا فورماتتىكى بىخەتەرلىك نومۇرى توغرىلاش كودى ئەمەس. قايتا سايىلەپ سىناڭ.</string>
     <string name="VerifyIdentityActivity_share_safety_number_via">بىخەتەرلىك نومۇر ھەمبەھىر…</string>
     <string name="VerifyIdentityActivity_our_signal_safety_number">Sixin بىخەتەرلىك نومۇرىمىز:</string>
@@ -3285,7 +3285,7 @@
     <string name="NotificationChannel_new_linked_device">يېڭى ئۇلانغان ئۈسكۈنە</string>
 
     <!-- QuickResponseService -->
-    <string name="QuickResponseService_quick_response_unavailable_when_Sixin_is_locked">Sixin قۇلۇپلانغاندا تېز ئىنكاسنى ئىشلەتكىلى بولمايدۇ!</string>
+    <string name="QuickResponseService_quick_response_unavailable_when_Signal_is_locked">Sixin قۇلۇپلانغاندا تېز ئىنكاسنى ئىشلەتكىلى بولمايدۇ!</string>
     <string name="QuickResponseService_problem_sending_message">ئۇچۇر يوللاشتا مەسىلە كۆرۈلدى!</string>
 
     <!-- A toast notification that is shown when the app does not have sufficient permissions to save media files to the device storage. -->
@@ -3393,7 +3393,7 @@
 
     <!-- UnauthorizedReminder -->
     <!-- Message shown in a reminder banner when the user\'s device is no longer registered -->
-    <string name="UnauthorizedReminder_this_is_likely_because_you_registered_your_phone_number_with_Sixin_on_a_different_device">بۇ ئۈسكۈنە تىزىملاشتىن چىقىپ كەتكەن. بۇنىڭ سەۋەبى سىز تېلېفون نومۇرىڭىز بىلەن Sixin نى باشقا بىر ئۈسكۈنىدە تىزىملاتقان بولۇشىڭىز مۇمكىن.</string>
+    <string name="UnauthorizedReminder_this_is_likely_because_you_registered_your_phone_number_with_Signal_on_a_different_device">بۇ ئۈسكۈنە تىزىملاشتىن چىقىپ كەتكەن. بۇنىڭ سەۋەبى سىز تېلېفون نومۇرىڭىز بىلەن Sixin نى باشقا بىر ئۈسكۈنىدە تىزىملاتقان بولۇشىڭىز مۇمكىن.</string>
     <!-- Action in reminder banner that will take user to re-register -->
     <string name="UnauthorizedReminder_reregister_action">قايتا تىزىملىتىلغان ئۈسكۈنە</string>
     <!-- Message shown in a reminder banner when this linked device is no longer linked to a primary device -->
@@ -7365,7 +7365,7 @@
     <!-- Dialog body when a user opens the manage donations main screen and they have a pending iDEAL donation -->
     <string name="DonateToSignalFragment__your_ideal_wero_payment_is_still_processing">iDEAL | Wero ئىئانىڭىزنى داۋاملىق بىر تەرەپ قىلىۋاتىدۇ. يەنە بىر ئىئانە قىلىشتىن بۇرۇن بانكا ئەپىڭىزنى تەكشۈرۈپ پۇل تۆلەشنى تەستىقلاڭ.</string>
     <!-- Dialog title shown when a user tries to donate an amount higher than is allowed for a given payment method. -->
-    <string name="DonateToSixin__donation_amount_too_high">ئىئانە سوممىسى بەك كۆپ بولۇپ كەتكەن</string>
+    <string name="DonateToSignal__donation_amount_too_high">ئىئانە سوممىسى بەك كۆپ بولۇپ كەتكەن</string>
     <!-- Dialog body shown when a user tries to donate an amount higher than is allowed for a given payment method, place holder is the maximum -->
     <string name="DonateToSignalFragment__you_can_send_up_to_s_via_bank_transfer">بانكا ئارقىلىق كۆپ بولغاندا %1$s ئىئانە قىلالايسىز. باشقا ئىئانە سوممىسىنى ياكى باشقا پۇل تۆلەش ئۇسۇلىنى سىناپ بېقىڭ.</string>
 

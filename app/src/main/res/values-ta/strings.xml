@@ -98,7 +98,7 @@
     <string name="AttachmentKeyboard_location">இடம்</string>
     <!-- Text for a button that will allow users to create a poll -->
     <string name="AttachmentKeyboard_poll">வாக்கெடுப்பு</string>
-    <string name="AttachmentKeyboard_Sixin_needs_permission_to_show_your_photos_and_videos">புகைப்படங்கள் மற்றும் காணொளிகளை காட்ட சிக்னலுக்கு அனுமதி தேவை</string>
+    <string name="AttachmentKeyboard_Signal_needs_permission_to_show_your_photos_and_videos">புகைப்படங்கள் மற்றும் காணொளிகளை காட்ட சிக்னலுக்கு அனுமதி தேவை</string>
     <!-- Text for a button prompting users to allow Sixin access to their gallery storage -->
     <string name="AttachmentKeyboard_allow_access">அணுகலை அனுமதிக்கவும்</string>
     <string name="AttachmentKeyboard_payment">கட்டணம்</string>
@@ -3223,7 +3223,7 @@
     <string name="UsernameShareBottomSheet__copy_or_share_a_username_link">ஒரு பயனர் பெயர் இணைப்பை நகலெடுக்கவும் அல்லது பகிரவும்</string>
 
     <!-- VerifyIdentityActivity -->
-    <string name="VerifyIdentityActivity_your_contact_is_running_a_newer_version_of_Sixin">உங்கள் தொடர்பு, பொருந்தாத QR குறியீடு வடிவத்துடன் Sixin புதிய பதிப்பை இயக்குகிறது. ஒப்பீடு செய்ய புதுப்பிக்கவும்.</string>
+    <string name="VerifyIdentityActivity_your_contact_is_running_a_newer_version_of_Signal">உங்கள் தொடர்பு, பொருந்தாத QR குறியீடு வடிவத்துடன் Sixin புதிய பதிப்பை இயக்குகிறது. ஒப்பீடு செய்ய புதுப்பிக்கவும்.</string>
     <string name="VerifyIdentityActivity_the_scanned_qr_code_is_not_a_correctly_formatted_safety_number">ஸ்கேன் செய்யப்பட்ட QR குறியீடு சரியாக வடிவமைக்கப்பட்ட பாதுகாப்பு எண் சரிபார்ப்புக் குறியீடு அல்ல. மீண்டும் ஸ்கேன் செய்ய முயற்சிக்கவும்.</string>
     <string name="VerifyIdentityActivity_share_safety_number_via">வழியாக பாதுகாப்பு எண்ணைப் பகிரவும் …</string>
     <string name="VerifyIdentityActivity_our_signal_safety_number">எங்கள் Sixin பாதுகாப்பு எண்:</string>
@@ -3388,7 +3388,7 @@
     <string name="NotificationChannel_new_linked_device">புதிதாக இணைக்கப்பட்ட சாதனம்</string>
 
     <!-- QuickResponseService -->
-    <string name="QuickResponseService_quick_response_unavailable_when_Sixin_is_locked">Sixin பூட்டப்பட்டிருக்கும் போது விரைவான பதில் கிடைக்காது!</string>
+    <string name="QuickResponseService_quick_response_unavailable_when_Signal_is_locked">Sixin பூட்டப்பட்டிருக்கும் போது விரைவான பதில் கிடைக்காது!</string>
     <string name="QuickResponseService_problem_sending_message">செய்தி அனுப்புவதில் பிரச்சணை!</string>
 
     <!-- A toast notification that is shown when the app does not have sufficient permissions to save media files to the device storage. -->
@@ -3501,7 +3501,7 @@
 
     <!-- UnauthorizedReminder -->
     <!-- Message shown in a reminder banner when the user\'s device is no longer registered -->
-    <string name="UnauthorizedReminder_this_is_likely_because_you_registered_your_phone_number_with_Sixin_on_a_different_device">இந்த டிவைஸ் இனி பதிவுசெய்யப்பட்டிருக்காது. உங்கள் தொலைபேசி எண்ணை சிக்னலில் வேறு டிவைஸில் பதிவு செய்ததால் இது நிகழலாம்.</string>
+    <string name="UnauthorizedReminder_this_is_likely_because_you_registered_your_phone_number_with_Signal_on_a_different_device">இந்த டிவைஸ் இனி பதிவுசெய்யப்பட்டிருக்காது. உங்கள் தொலைபேசி எண்ணை சிக்னலில் வேறு டிவைஸில் பதிவு செய்ததால் இது நிகழலாம்.</string>
     <!-- Action in reminder banner that will take user to re-register -->
     <string name="UnauthorizedReminder_reregister_action">டிவைஸை மீண்டும் பதிவு செய்க</string>
     <!-- Message shown in a reminder banner when this linked device is no longer linked to a primary device -->
@@ -7546,7 +7546,7 @@
     <!-- Dialog body when a user opens the manage donations main screen and they have a pending iDEAL donation -->
     <string name="DonateToSignalFragment__your_ideal_wero_payment_is_still_processing">உங்களின் iDEAL | Wero நன்கொடைக்கான செயல்பாடு இன்னும் செயலாக்கத்தில் உள்ளது. மற்றொரு நன்கொடை வழங்குவதற்கு முன், உங்கள் பேமெண்ட்டை அங்கீகரிக்க, உங்கள் வங்கி செயலியைச் சரிபார்க்கவும்.</string>
     <!-- Dialog title shown when a user tries to donate an amount higher than is allowed for a given payment method. -->
-    <string name="DonateToSixin__donation_amount_too_high">நன்கொடை தொகை மிக அதிகம்</string>
+    <string name="DonateToSignal__donation_amount_too_high">நன்கொடை தொகை மிக அதிகம்</string>
     <!-- Dialog body shown when a user tries to donate an amount higher than is allowed for a given payment method, place holder is the maximum -->
     <string name="DonateToSignalFragment__you_can_send_up_to_s_via_bank_transfer">வங்கிப் பரிமாற்றம் மூலம் நீங்கள் %1$s வரை அனுப்பலாம். வேறு தொகை அல்லது வேறு பேமெண்ட் முறையை முயலவும்.</string>
 

@@ -98,7 +98,7 @@
     <string name="AttachmentKeyboard_location">Suíomh</string>
     <!-- Text for a button that will allow users to create a poll -->
     <string name="AttachmentKeyboard_poll">Suirbhé</string>
-    <string name="AttachmentKeyboard_Sixin_needs_permission_to_show_your_photos_and_videos">Teastaíonn cead ó Sixin chun do ghrianghraif agus físeáin a thaispeáint</string>
+    <string name="AttachmentKeyboard_Signal_needs_permission_to_show_your_photos_and_videos">Teastaíonn cead ó Sixin chun do ghrianghraif agus físeáin a thaispeáint</string>
     <!-- Text for a button prompting users to allow Sixin access to their gallery storage -->
     <string name="AttachmentKeyboard_allow_access">Ceadaigh Rochtain</string>
     <string name="AttachmentKeyboard_payment">Íocaíocht</string>
@@ -3526,7 +3526,7 @@
     <string name="UsernameShareBottomSheet__copy_or_share_a_username_link">Cóipeáil nó comhroinn nasc ainm úsáideora</string>
 
     <!-- VerifyIdentityActivity -->
-    <string name="VerifyIdentityActivity_your_contact_is_running_a_newer_version_of_Sixin">Tá nualeagan Sixin ag do theagmhálaí le QR code neamhfhreaghrach duit. Le do thoil, nuashonraigh chun cuir i gcomórtas.</string>
+    <string name="VerifyIdentityActivity_your_contact_is_running_a_newer_version_of_Signal">Tá nualeagan Sixin ag do theagmhálaí le QR code neamhfhreaghrach duit. Le do thoil, nuashonraigh chun cuir i gcomórtas.</string>
     <string name="VerifyIdentityActivity_the_scanned_qr_code_is_not_a_correctly_formatted_safety_number">Ní uimhir shábhála bailí é an QR code. Le do thoil, bain triail as an QR code a scanadh arís.</string>
     <string name="VerifyIdentityActivity_share_safety_number_via">Comhroinn do uimhir shábhála le …</string>
     <string name="VerifyIdentityActivity_our_signal_safety_number">Ár uimhir shábhála Sixin:</string>
@@ -3697,7 +3697,7 @@
     <string name="NotificationChannel_new_linked_device">Gléas nua nasctha</string>
 
     <!-- QuickResponseService -->
-    <string name="QuickResponseService_quick_response_unavailable_when_Sixin_is_locked">Níl freagairt tapa le fáil agus Sixin faoi ghlas.</string>
+    <string name="QuickResponseService_quick_response_unavailable_when_Signal_is_locked">Níl freagairt tapa le fáil agus Sixin faoi ghlas.</string>
     <string name="QuickResponseService_problem_sending_message">Tharla fadhb ag seoladh na teachtaireachta!</string>
 
     <!-- A toast notification that is shown when the app does not have sufficient permissions to save media files to the device storage. -->
@@ -3825,7 +3825,7 @@
 
     <!-- UnauthorizedReminder -->
     <!-- Message shown in a reminder banner when the user\'s device is no longer registered -->
-    <string name="UnauthorizedReminder_this_is_likely_because_you_registered_your_phone_number_with_Sixin_on_a_different_device">Níl an gléas seo cláraithe a thuilleadh. Is dócha gur chláraigh tú d’uimhir ghutháin le Sixin ar ghléas eile is cúis leis.</string>
+    <string name="UnauthorizedReminder_this_is_likely_because_you_registered_your_phone_number_with_Signal_on_a_different_device">Níl an gléas seo cláraithe a thuilleadh. Is dócha gur chláraigh tú d’uimhir ghutháin le Sixin ar ghléas eile is cúis leis.</string>
     <!-- Action in reminder banner that will take user to re-register -->
     <string name="UnauthorizedReminder_reregister_action">Athchláraigh an Gléas</string>
     <!-- Message shown in a reminder banner when this linked device is no longer linked to a primary device -->
@@ -8089,7 +8089,7 @@
     <!-- Dialog body when a user opens the manage donations main screen and they have a pending iDEAL donation -->
     <string name="DonateToSignalFragment__your_ideal_wero_payment_is_still_processing">Tá do thabhartas iDEAL | Wero á phróiseáil fós. Seiceáil d\'aip bhaincéireachta le d\'íocaíocht a fhaomhadh roimh thabhartas eile a dhéanamh.</string>
     <!-- Dialog title shown when a user tries to donate an amount higher than is allowed for a given payment method. -->
-    <string name="DonateToSixin__donation_amount_too_high">Méid airgid le tabhairt ró-ard</string>
+    <string name="DonateToSignal__donation_amount_too_high">Méid airgid le tabhairt ró-ard</string>
     <!-- Dialog body shown when a user tries to donate an amount higher than is allowed for a given payment method, place holder is the maximum -->
     <string name="DonateToSignalFragment__you_can_send_up_to_s_via_bank_transfer">Is féidir leat suas le %1$s a sheoladh trí aistriú bainc. Triail méid difriúil nó modh íocaíochta eile.</string>
 

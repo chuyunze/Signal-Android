@@ -98,7 +98,7 @@
     <string name="AttachmentKeyboard_location">Yerləşmə</string>
     <!-- Text for a button that will allow users to create a poll -->
     <string name="AttachmentKeyboard_poll">Səsvermə</string>
-    <string name="AttachmentKeyboard_Sixin_needs_permission_to_show_your_photos_and_videos">Fotolarınızı və videolarınızı göstərmək üçün Sixin icazə tələb edir</string>
+    <string name="AttachmentKeyboard_Signal_needs_permission_to_show_your_photos_and_videos">Fotolarınızı və videolarınızı göstərmək üçün Sixin icazə tələb edir</string>
     <!-- Text for a button prompting users to allow Sixin access to their gallery storage -->
     <string name="AttachmentKeyboard_allow_access">Müraciətə icazə ver</string>
     <string name="AttachmentKeyboard_payment">Ödəniş</string>
@@ -3223,7 +3223,7 @@
     <string name="UsernameShareBottomSheet__copy_or_share_a_username_link">İstifadəçi adınızla əlaqəli keçidi köçürün və ya paylaşın</string>
 
     <!-- VerifyIdentityActivity -->
-    <string name="VerifyIdentityActivity_your_contact_is_running_a_newer_version_of_Sixin">Əlaqəniz, uyğun olmayan QR kodu formatına sahib daha yeni Sixin versiyası işlədir. Zəhmət olmasa müqayisə etmək üçün yeniləyin.</string>
+    <string name="VerifyIdentityActivity_your_contact_is_running_a_newer_version_of_Signal">Əlaqəniz, uyğun olmayan QR kodu formatına sahib daha yeni Sixin versiyası işlədir. Zəhmət olmasa müqayisə etmək üçün yeniləyin.</string>
     <string name="VerifyIdentityActivity_the_scanned_qr_code_is_not_a_correctly_formatted_safety_number">Skan edilmiş QR kodu, doğru format edilmiş güvənlik nömrəsi təsdiqləmə kodu deyil. Zəhmət olmasa yenidən skan etməyə çalışın.</string>
     <string name="VerifyIdentityActivity_share_safety_number_via">Güvənlik nömrəni paylaş…</string>
     <string name="VerifyIdentityActivity_our_signal_safety_number">Sixin güvənlik nömrəmiz:</string>
@@ -3388,7 +3388,7 @@
     <string name="NotificationChannel_new_linked_device">Yeni əlaqələndirilmiş cihaz</string>
 
     <!-- QuickResponseService -->
-    <string name="QuickResponseService_quick_response_unavailable_when_Sixin_is_locked">Sixin kilidli ikən cəld cavab əlçatmazdır!</string>
+    <string name="QuickResponseService_quick_response_unavailable_when_Signal_is_locked">Sixin kilidli ikən cəld cavab əlçatmazdır!</string>
     <string name="QuickResponseService_problem_sending_message">Mesajın göndərilməsində problem var!</string>
 
     <!-- A toast notification that is shown when the app does not have sufficient permissions to save media files to the device storage. -->
@@ -3501,7 +3501,7 @@
 
     <!-- UnauthorizedReminder -->
     <!-- Message shown in a reminder banner when the user\'s device is no longer registered -->
-    <string name="UnauthorizedReminder_this_is_likely_because_you_registered_your_phone_number_with_Sixin_on_a_different_device">Bu cihaz artıq qeydiyyatda deyil. Böyük ehtimalla, telefon nömrəniz fərqli bir cihazdakı Sixin hesabında qeydiyyata alınıb.</string>
+    <string name="UnauthorizedReminder_this_is_likely_because_you_registered_your_phone_number_with_Signal_on_a_different_device">Bu cihaz artıq qeydiyyatda deyil. Böyük ehtimalla, telefon nömrəniz fərqli bir cihazdakı Sixin hesabında qeydiyyata alınıb.</string>
     <!-- Action in reminder banner that will take user to re-register -->
     <string name="UnauthorizedReminder_reregister_action">Cihazı təkrar qeydiyyatdan keçirin</string>
     <!-- Message shown in a reminder banner when this linked device is no longer linked to a primary device -->
@@ -7546,7 +7546,7 @@
     <!-- Dialog body when a user opens the manage donations main screen and they have a pending iDEAL donation -->
     <string name="DonateToSignalFragment__your_ideal_wero_payment_is_still_processing">iDEAL | Wero vasitəsilə etdiyiniz ianə hələ də emal olunur. Başqa ianə etməzdən əvvəl ödənişinizi təsdiqləmək üçün bank tətbiqinizi yoxlayın.</string>
     <!-- Dialog title shown when a user tries to donate an amount higher than is allowed for a given payment method. -->
-    <string name="DonateToSixin__donation_amount_too_high">İanə miqdarı çox yüksəkdir</string>
+    <string name="DonateToSignal__donation_amount_too_high">İanə miqdarı çox yüksəkdir</string>
     <!-- Dialog body shown when a user tries to donate an amount higher than is allowed for a given payment method, place holder is the maximum -->
     <string name="DonateToSignalFragment__you_can_send_up_to_s_via_bank_transfer">%1$s miqdarına qədər ianəni bank köçürməsi vasitəsilə edə bilərsiniz. Fərqli miqdarda ianə göndərməyə, yaxud fərqli ödəniş metodundan istifadə etməyə çalışın.</string>
 

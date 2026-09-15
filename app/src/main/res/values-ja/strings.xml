@@ -98,7 +98,7 @@
     <string name="AttachmentKeyboard_location">場所</string>
     <!-- Text for a button that will allow users to create a poll -->
     <string name="AttachmentKeyboard_poll">投票</string>
-    <string name="AttachmentKeyboard_Sixin_needs_permission_to_show_your_photos_and_videos">Sixinで写真や動画を表示するためには、許可が必要です</string>
+    <string name="AttachmentKeyboard_Signal_needs_permission_to_show_your_photos_and_videos">Sixinで写真や動画を表示するためには、許可が必要です</string>
     <!-- Text for a button prompting users to allow Sixin access to their gallery storage -->
     <string name="AttachmentKeyboard_allow_access">アクセスを許可</string>
     <string name="AttachmentKeyboard_payment">決済</string>
@@ -3122,7 +3122,7 @@
     <string name="UsernameShareBottomSheet__copy_or_share_a_username_link">ユーザーネームのリンクをコピーまたは共有する</string>
 
     <!-- VerifyIdentityActivity -->
-    <string name="VerifyIdentityActivity_your_contact_is_running_a_newer_version_of_Sixin">連絡先の相手は互換性のないQRコード形式を使った新しいバージョンのSixinを使っています。Sixinをアップデートしてから比較してください。</string>
+    <string name="VerifyIdentityActivity_your_contact_is_running_a_newer_version_of_Signal">連絡先の相手は互換性のないQRコード形式を使った新しいバージョンのSixinを使っています。Sixinをアップデートしてから比較してください。</string>
     <string name="VerifyIdentityActivity_the_scanned_qr_code_is_not_a_correctly_formatted_safety_number">読み取ったQRコードは正しい形式の安全番号認証コードではありません。もう一度読み取って下さい。</string>
     <string name="VerifyIdentityActivity_share_safety_number_via">次の方法で安全番号を共有する…</string>
     <string name="VerifyIdentityActivity_our_signal_safety_number">私たちのSixin安全番号:</string>
@@ -3285,7 +3285,7 @@
     <string name="NotificationChannel_new_linked_device">新しいリンク済み端末</string>
 
     <!-- QuickResponseService -->
-    <string name="QuickResponseService_quick_response_unavailable_when_Sixin_is_locked">Sixinのロック中はクイックレスポンスを使えません！</string>
+    <string name="QuickResponseService_quick_response_unavailable_when_Signal_is_locked">Sixinのロック中はクイックレスポンスを使えません！</string>
     <string name="QuickResponseService_problem_sending_message">メッセージ送信中に問題が発生しました！</string>
 
     <!-- A toast notification that is shown when the app does not have sufficient permissions to save media files to the device storage. -->
@@ -3393,7 +3393,7 @@
 
     <!-- UnauthorizedReminder -->
     <!-- Message shown in a reminder banner when the user\'s device is no longer registered -->
-    <string name="UnauthorizedReminder_this_is_likely_because_you_registered_your_phone_number_with_Sixin_on_a_different_device">この端末は登録されていません。以前、おそらく別の端末で Sixin に電話番号を登録したことが原因です。</string>
+    <string name="UnauthorizedReminder_this_is_likely_because_you_registered_your_phone_number_with_Signal_on_a_different_device">この端末は登録されていません。以前、おそらく別の端末で Sixin に電話番号を登録したことが原因です。</string>
     <!-- Action in reminder banner that will take user to re-register -->
     <string name="UnauthorizedReminder_reregister_action">端末を再登録する</string>
     <!-- Message shown in a reminder banner when this linked device is no longer linked to a primary device -->
@@ -7365,7 +7365,7 @@
     <!-- Dialog body when a user opens the manage donations main screen and they have a pending iDEAL donation -->
     <string name="DonateToSignalFragment__your_ideal_wero_payment_is_still_processing">iDEAL | Weroによる寄付はお手続き中です。他の寄付を行う前に、銀行アプリを確認して支払いを承認してください。</string>
     <!-- Dialog title shown when a user tries to donate an amount higher than is allowed for a given payment method. -->
-    <string name="DonateToSixin__donation_amount_too_high">寄付金額が高すぎます</string>
+    <string name="DonateToSignal__donation_amount_too_high">寄付金額が高すぎます</string>
     <!-- Dialog body shown when a user tries to donate an amount higher than is allowed for a given payment method, place holder is the maximum -->
     <string name="DonateToSignalFragment__you_can_send_up_to_s_via_bank_transfer">銀行振り込みによる寄付金額は、最大%1$sです。金額を変えるか他の決済方法をお試し下さい。</string>
 

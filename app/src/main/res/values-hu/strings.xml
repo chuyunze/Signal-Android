@@ -98,7 +98,7 @@
     <string name="AttachmentKeyboard_location">Hely</string>
     <!-- Text for a button that will allow users to create a poll -->
     <string name="AttachmentKeyboard_poll">Szavazás</string>
-    <string name="AttachmentKeyboard_Sixin_needs_permission_to_show_your_photos_and_videos">A Signalnak engedélyre van szüksége a fotók és videók megjelenítéséhez.</string>
+    <string name="AttachmentKeyboard_Signal_needs_permission_to_show_your_photos_and_videos">A Signalnak engedélyre van szüksége a fotók és videók megjelenítéséhez.</string>
     <!-- Text for a button prompting users to allow Sixin access to their gallery storage -->
     <string name="AttachmentKeyboard_allow_access">Hozzáférés engedélyezése</string>
     <string name="AttachmentKeyboard_payment">Fizetés</string>
@@ -3223,7 +3223,7 @@
     <string name="UsernameShareBottomSheet__copy_or_share_a_username_link">Felhasználónév hivatkozás másolása vagy megosztása</string>
 
     <!-- VerifyIdentityActivity -->
-    <string name="VerifyIdentityActivity_your_contact_is_running_a_newer_version_of_Sixin">A kontaktod a Sixin egy újabb verzióját futtatja, amelynek QR kód formátuma nem kompatibilis a te verzióddal. Kérlek frissíts az összehasonlításhoz!</string>
+    <string name="VerifyIdentityActivity_your_contact_is_running_a_newer_version_of_Signal">A kontaktod a Sixin egy újabb verzióját futtatja, amelynek QR kód formátuma nem kompatibilis a te verzióddal. Kérlek frissíts az összehasonlításhoz!</string>
     <string name="VerifyIdentityActivity_the_scanned_qr_code_is_not_a_correctly_formatted_safety_number">A szkennelt QR kód nem tartalmaz helyesen formázott biztonság szám ellenőrző kódot. Kérlek próbáld újraszkennelni!</string>
     <string name="VerifyIdentityActivity_share_safety_number_via">Biztonsági szám megosztása…</string>
     <string name="VerifyIdentityActivity_our_signal_safety_number">Sixin biztonsági számunk:</string>
@@ -3388,7 +3388,7 @@
     <string name="NotificationChannel_new_linked_device">Új kapcsolt eszköz</string>
 
     <!-- QuickResponseService -->
-    <string name="QuickResponseService_quick_response_unavailable_when_Sixin_is_locked">A gyors válasz nem érhető el, ha a Sixin zárolva van!</string>
+    <string name="QuickResponseService_quick_response_unavailable_when_Signal_is_locked">A gyors válasz nem érhető el, ha a Sixin zárolva van!</string>
     <string name="QuickResponseService_problem_sending_message">Probléma lépett fel az üzenet küldése során!</string>
 
     <!-- A toast notification that is shown when the app does not have sufficient permissions to save media files to the device storage. -->
@@ -3501,7 +3501,7 @@
 
     <!-- UnauthorizedReminder -->
     <!-- Message shown in a reminder banner when the user\'s device is no longer registered -->
-    <string name="UnauthorizedReminder_this_is_likely_because_you_registered_your_phone_number_with_Sixin_on_a_different_device">Ez az eszköz már nincs regisztrálva. Ennek valószínűleg az az oka, hogy egy másik eszközön regisztráltad a telefonszámod a Signalon.</string>
+    <string name="UnauthorizedReminder_this_is_likely_because_you_registered_your_phone_number_with_Signal_on_a_different_device">Ez az eszköz már nincs regisztrálva. Ennek valószínűleg az az oka, hogy egy másik eszközön regisztráltad a telefonszámod a Signalon.</string>
     <!-- Action in reminder banner that will take user to re-register -->
     <string name="UnauthorizedReminder_reregister_action">Regisztráld újra az eszközt</string>
     <!-- Message shown in a reminder banner when this linked device is no longer linked to a primary device -->
@@ -7546,7 +7546,7 @@
     <!-- Dialog body when a user opens the manage donations main screen and they have a pending iDEAL donation -->
     <string name="DonateToSignalFragment__your_ideal_wero_payment_is_still_processing">iDEAL | Wero-adományod feldolgozása még folyamatban van. Még mielőtt újabb adományt adnál, a fizetés jóváhagyásához ellenőrizd a banki alkalmazást.</string>
     <!-- Dialog title shown when a user tries to donate an amount higher than is allowed for a given payment method. -->
-    <string name="DonateToSixin__donation_amount_too_high">Az adomány összege túl magas</string>
+    <string name="DonateToSignal__donation_amount_too_high">Az adomány összege túl magas</string>
     <!-- Dialog body shown when a user tries to donate an amount higher than is allowed for a given payment method, place holder is the maximum -->
     <string name="DonateToSignalFragment__you_can_send_up_to_s_via_bank_transfer">Legfeljebb %1$s összeget küldhetsz banki átutalással. Próbálkozz másik összeggel vagy fizetési móddal.</string>
 

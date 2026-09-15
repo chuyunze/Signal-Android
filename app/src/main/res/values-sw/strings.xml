@@ -98,7 +98,7 @@
     <string name="AttachmentKeyboard_location">Eneo</string>
     <!-- Text for a button that will allow users to create a poll -->
     <string name="AttachmentKeyboard_poll">Kura ya maoni</string>
-    <string name="AttachmentKeyboard_Sixin_needs_permission_to_show_your_photos_and_videos">Sixin inahitaji ruhusa ili kuonyesha picha zako na video.</string>
+    <string name="AttachmentKeyboard_Signal_needs_permission_to_show_your_photos_and_videos">Sixin inahitaji ruhusa ili kuonyesha picha zako na video.</string>
     <!-- Text for a button prompting users to allow Sixin access to their gallery storage -->
     <string name="AttachmentKeyboard_allow_access">Ruhusu Ufikiaji</string>
     <string name="AttachmentKeyboard_payment">Malipo</string>
@@ -3223,7 +3223,7 @@
     <string name="UsernameShareBottomSheet__copy_or_share_a_username_link">Nakili au shiriki kiungo cha jina la mtumiaji</string>
 
     <!-- VerifyIdentityActivity -->
-    <string name="VerifyIdentityActivity_your_contact_is_running_a_newer_version_of_Sixin">Mawasiliano yako yanaendesha toleo jipya la Sixin na muundo wa msimbo wa QR usiopatanisha. Tafadhali sasisha ili upatanishe</string>
+    <string name="VerifyIdentityActivity_your_contact_is_running_a_newer_version_of_Signal">Mawasiliano yako yanaendesha toleo jipya la Sixin na muundo wa msimbo wa QR usiopatanisha. Tafadhali sasisha ili upatanishe</string>
     <string name="VerifyIdentityActivity_the_scanned_qr_code_is_not_a_correctly_formatted_safety_number">Scani ya msimbo wa QR sio ya muundo sahihi wa nambari ya msimbo salama wa kuthibitisha. Tafadhali jaribu kuscani tena.</string>
     <string name="VerifyIdentityActivity_share_safety_number_via">Shiriki nambari salama kupitia…</string>
     <string name="VerifyIdentityActivity_our_signal_safety_number">Nambari yetu ya usalama ya Sixin</string>
@@ -3388,7 +3388,7 @@
     <string name="NotificationChannel_new_linked_device">Kifaa kipya kimeunganishwa</string>
 
     <!-- QuickResponseService -->
-    <string name="QuickResponseService_quick_response_unavailable_when_Sixin_is_locked">Jibu la haraka halipatikani wakati Sixin imefungwa!</string>
+    <string name="QuickResponseService_quick_response_unavailable_when_Signal_is_locked">Jibu la haraka halipatikani wakati Sixin imefungwa!</string>
     <string name="QuickResponseService_problem_sending_message">Tatizo kutuma ujumbe</string>
 
     <!-- A toast notification that is shown when the app does not have sufficient permissions to save media files to the device storage. -->
@@ -3501,7 +3501,7 @@
 
     <!-- UnauthorizedReminder -->
     <!-- Message shown in a reminder banner when the user\'s device is no longer registered -->
-    <string name="UnauthorizedReminder_this_is_likely_because_you_registered_your_phone_number_with_Sixin_on_a_different_device">Kifaa hiki hakijasajiliwa tena. Huenda hii ni kwa sababu ulisajili nambari yako ya simu kwa Sixin kwenye kifaa cha tofauti.</string>
+    <string name="UnauthorizedReminder_this_is_likely_because_you_registered_your_phone_number_with_Signal_on_a_different_device">Kifaa hiki hakijasajiliwa tena. Huenda hii ni kwa sababu ulisajili nambari yako ya simu kwa Sixin kwenye kifaa cha tofauti.</string>
     <!-- Action in reminder banner that will take user to re-register -->
     <string name="UnauthorizedReminder_reregister_action">Sajili tena kifaa</string>
     <!-- Message shown in a reminder banner when this linked device is no longer linked to a primary device -->
@@ -7546,7 +7546,7 @@
     <!-- Dialog body when a user opens the manage donations main screen and they have a pending iDEAL donation -->
     <string name="DonateToSignalFragment__your_ideal_wero_payment_is_still_processing">Mchango wako wa iDEAL | Wero bado unachakatwa. Angalia programu yako ya benki ili kuthibitisha malipo kabla kutoa mchango mwingine.</string>
     <!-- Dialog title shown when a user tries to donate an amount higher than is allowed for a given payment method. -->
-    <string name="DonateToSixin__donation_amount_too_high">Kiwango cha mchango ni kikubwa sana</string>
+    <string name="DonateToSignal__donation_amount_too_high">Kiwango cha mchango ni kikubwa sana</string>
     <!-- Dialog body shown when a user tries to donate an amount higher than is allowed for a given payment method, place holder is the maximum -->
     <string name="DonateToSignalFragment__you_can_send_up_to_s_via_bank_transfer">Unaweza kutuma hadi %1$s kupitia benki. Jaribu kiasi tofauti au njia tofauti ya malipo.</string>
 

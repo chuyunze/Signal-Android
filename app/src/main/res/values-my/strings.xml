@@ -98,7 +98,7 @@
     <string name="AttachmentKeyboard_location">တည်နေရာ</string>
     <!-- Text for a button that will allow users to create a poll -->
     <string name="AttachmentKeyboard_poll">စစ်တမ်း</string>
-    <string name="AttachmentKeyboard_Sixin_needs_permission_to_show_your_photos_and_videos">Sixin သည် သင်၏ဓာတ်ပုံနှင့် ဗီဒီယိုများကိုပြသရန် ခွင့်ပြုချက်လိုအပ်သည်</string>
+    <string name="AttachmentKeyboard_Signal_needs_permission_to_show_your_photos_and_videos">Sixin သည် သင်၏ဓာတ်ပုံနှင့် ဗီဒီယိုများကိုပြသရန် ခွင့်ပြုချက်လိုအပ်သည်</string>
     <!-- Text for a button prompting users to allow Sixin access to their gallery storage -->
     <string name="AttachmentKeyboard_allow_access">ဝင်ရောက် သုံးစွဲခွင့်ပြုရန်</string>
     <string name="AttachmentKeyboard_payment">ငွေပေးချေမှု</string>
@@ -3122,7 +3122,7 @@
     <string name="UsernameShareBottomSheet__copy_or_share_a_username_link">သုံးစွဲသူအမည်လင့်ခ်ကို ကူးရန် သို့မဟုတ် ဝေမျှရန်</string>
 
     <!-- VerifyIdentityActivity -->
-    <string name="VerifyIdentityActivity_your_contact_is_running_a_newer_version_of_Sixin">သင့်မိတ်ဆွေသည် Sixin ဗားရှင်းအသစ်နှင့် သင်နှင့်လိုက်လျောညီထွေမရှိသည့် QR code ပုံစံကိုအသုံးပြုထားပါသည်။ နှိုင်းယှဉ်စစ်ဆေးရန် အဆင့်မြှင့်ပါ။</string>
+    <string name="VerifyIdentityActivity_your_contact_is_running_a_newer_version_of_Signal">သင့်မိတ်ဆွေသည် Sixin ဗားရှင်းအသစ်နှင့် သင်နှင့်လိုက်လျောညီထွေမရှိသည့် QR code ပုံစံကိုအသုံးပြုထားပါသည်။ နှိုင်းယှဉ်စစ်ဆေးရန် အဆင့်မြှင့်ပါ။</string>
     <string name="VerifyIdentityActivity_the_scanned_qr_code_is_not_a_correctly_formatted_safety_number">စကန်ဖတ်ထားသော QR ကုဒ်သည် မှန်ကန်သော လုံခြုံရေးနံပါတ်ပုံစံမဟုတ်သဖြင့် ထပ်မံ စကန်ဖတ်လိုက်ပါ။</string>
     <string name="VerifyIdentityActivity_share_safety_number_via">… မှတဆင့် လုံခြုံရေးနံပါတ်ကို မျှဝေမယ်</string>
     <string name="VerifyIdentityActivity_our_signal_safety_number">တို့တွေရဲ့ Sixin လုံခြုံရေးနံပါတ်:</string>
@@ -3285,7 +3285,7 @@
     <string name="NotificationChannel_new_linked_device">ချိတ်ထားသည့် စက်အသစ်</string>
 
     <!-- QuickResponseService -->
-    <string name="QuickResponseService_quick_response_unavailable_when_Sixin_is_locked">Sixin လော့ခ်ကျသွားသည့်အခါ ချက်ချင်းမတုံ့ပြန်နိုင်ပါ!</string>
+    <string name="QuickResponseService_quick_response_unavailable_when_Signal_is_locked">Sixin လော့ခ်ကျသွားသည့်အခါ ချက်ချင်းမတုံ့ပြန်နိုင်ပါ!</string>
     <string name="QuickResponseService_problem_sending_message">စာပို့ခြင်းအခက်အခဲ</string>
 
     <!-- A toast notification that is shown when the app does not have sufficient permissions to save media files to the device storage. -->
@@ -3393,7 +3393,7 @@
 
     <!-- UnauthorizedReminder -->
     <!-- Message shown in a reminder banner when the user\'s device is no longer registered -->
-    <string name="UnauthorizedReminder_this_is_likely_because_you_registered_your_phone_number_with_Sixin_on_a_different_device">ဤစက်ကို မှတ်ပုံတင်ထားခြင်း မရှိတော့ပါ။ ၎င်းသည် သင့်ဖုန်းနံပါတ်ကို Sixin ထံတွင် အခြားစက်တစ်လုံးဖြင့် မှတ်ပုံတင်ခဲ့ခြင်းကြောင့် ဖြစ်နိုင်သည်။</string>
+    <string name="UnauthorizedReminder_this_is_likely_because_you_registered_your_phone_number_with_Signal_on_a_different_device">ဤစက်ကို မှတ်ပုံတင်ထားခြင်း မရှိတော့ပါ။ ၎င်းသည် သင့်ဖုန်းနံပါတ်ကို Sixin ထံတွင် အခြားစက်တစ်လုံးဖြင့် မှတ်ပုံတင်ခဲ့ခြင်းကြောင့် ဖြစ်နိုင်သည်။</string>
     <!-- Action in reminder banner that will take user to re-register -->
     <string name="UnauthorizedReminder_reregister_action">စက်ကို ပြန်လည်၍မှတ်ပုံတင်ရန်</string>
     <!-- Message shown in a reminder banner when this linked device is no longer linked to a primary device -->
@@ -7365,7 +7365,7 @@
     <!-- Dialog body when a user opens the manage donations main screen and they have a pending iDEAL donation -->
     <string name="DonateToSignalFragment__your_ideal_wero_payment_is_still_processing">သင့် iDEAL | Wero လှူဒါန်းမှုကို လုပ်ဆောင်နေဆဲဖြစ်သည်။ အခြားလှူဒါန်းမှုတစ်ခု မပြုလုပ်မီ သင့်ငွေပေးချေမှုကို အတည်ပြုရန် သင့်ဘဏ်အက်ပ်ကို စစ်ဆေးပါ။</string>
     <!-- Dialog title shown when a user tries to donate an amount higher than is allowed for a given payment method. -->
-    <string name="DonateToSixin__donation_amount_too_high">လှူဒါန်းမည့်ပမာဏ များလွန်းနေပါသည်</string>
+    <string name="DonateToSignal__donation_amount_too_high">လှူဒါန်းမည့်ပမာဏ များလွန်းနေပါသည်</string>
     <!-- Dialog body shown when a user tries to donate an amount higher than is allowed for a given payment method, place holder is the maximum -->
     <string name="DonateToSignalFragment__you_can_send_up_to_s_via_bank_transfer">ဘဏ်ငွေလွှဲပြောင်းမှုဖြင့် %1$s အထိ ပေးပို့နိုင်ပါသည်။ မတူညီသောပမာဏ သို့မဟုတ် မတူညီသော ငွေပေးချေမှုနည်းလမ်းကို စမ်းကြည့်ပါ။</string>
 

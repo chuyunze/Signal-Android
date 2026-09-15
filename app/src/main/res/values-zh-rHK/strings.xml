@@ -98,7 +98,7 @@
     <string name="AttachmentKeyboard_location">位置</string>
     <!-- Text for a button that will allow users to create a poll -->
     <string name="AttachmentKeyboard_poll">投票</string>
-    <string name="AttachmentKeyboard_私訊_needs_permission_to_show_your_photos_and_videos">私訊需要獲取權限以顯示你的相片和影片</string>
+    <string name="AttachmentKeyboard_Signal_needs_permission_to_show_your_photos_and_videos">私訊需要獲取權限以顯示你的相片和影片</string>
     <!-- Text for a button prompting users to allow 私訊access to their gallery storage -->
     <string name="AttachmentKeyboard_allow_access">允許存取</string>
     <string name="AttachmentKeyboard_payment">付款</string>
@@ -3122,7 +3122,7 @@
     <string name="UsernameShareBottomSheet__copy_or_share_a_username_link">複製或分享用戶名稱連結</string>
 
     <!-- VerifyIdentityActivity -->
-    <string name="VerifyIdentityActivity_your_contact_is_running_a_newer_version_of_私訊">您的聯絡人現正執行較新版本的 私訊，二維碼格式並不相容。請更新以進行比對。</string>
+    <string name="VerifyIdentityActivity_your_contact_is_running_a_newer_version_of_Signal">您的聯絡人現正執行較新版本的 私訊，二維碼格式並不相容。請更新以進行比對。</string>
     <string name="VerifyIdentityActivity_the_scanned_qr_code_is_not_a_correctly_formatted_safety_number">已掃描的二維碼並非正確格式的安全碼驗證碼。請嘗試再次掃描。</string>
     <string name="VerifyIdentityActivity_share_safety_number_via">分享安全碼…</string>
     <string name="VerifyIdentityActivity_our_signal_safety_number">我們的 私訊安全碼：</string>
@@ -3285,7 +3285,7 @@
     <string name="NotificationChannel_new_linked_device">新的已連結裝置</string>
 
     <!-- QuickResponseService -->
-    <string name="QuickResponseService_quick_response_unavailable_when_私訊_is_locked">私訊在鎖定時無法使用快速回應！</string>
+    <string name="QuickResponseService_quick_response_unavailable_when_Signal_is_locked">私訊在鎖定時無法使用快速回應！</string>
     <string name="QuickResponseService_problem_sending_message">傳送訊息時發生問題！</string>
 
     <!-- A toast notification that is shown when the app does not have sufficient permissions to save media files to the device storage. -->
@@ -3393,7 +3393,7 @@
 
     <!-- UnauthorizedReminder -->
     <!-- Message shown in a reminder banner when the user\'s device is no longer registered -->
-    <string name="UnauthorizedReminder_this_is_likely_because_you_registered_your_phone_number_with_私訊_on_a_different_device">此裝置已不再註冊。通常是因為你已在另一部裝置上使用你的電話號碼註冊 私訊。</string>
+    <string name="UnauthorizedReminder_this_is_likely_because_you_registered_your_phone_number_with_Signal_on_a_different_device">此裝置已不再註冊。通常是因為你已在另一部裝置上使用你的電話號碼註冊 私訊。</string>
     <!-- Action in reminder banner that will take user to re-register -->
     <string name="UnauthorizedReminder_reregister_action">重新註冊裝置</string>
     <!-- Message shown in a reminder banner when this linked device is no longer linked to a primary device -->
@@ -7365,7 +7365,7 @@
     <!-- Dialog body when a user opens the manage donations main screen and they have a pending iDEAL donation -->
     <string name="DonateToSignalFragment__your_ideal_wero_payment_is_still_processing">你的 iDEAL | Wero 捐款仍在處理中。請檢查銀行應用程式以核准你的付款，然後才進行另一次捐款。</string>
     <!-- Dialog title shown when a user tries to donate an amount higher than is allowed for a given payment method. -->
-    <string name="DonateTo私訊__donation_amount_too_high">捐款金額太高</string>
+    <string name="DonateToSignal__donation_amount_too_high">捐款金額太高</string>
     <!-- Dialog body shown when a user tries to donate an amount higher than is allowed for a given payment method, place holder is the maximum -->
     <string name="DonateToSignalFragment__you_can_send_up_to_s_via_bank_transfer">你可以透過銀行轉帳寄送最多 %1$s 。嘗試不同金額或不同付款方式。</string>
 

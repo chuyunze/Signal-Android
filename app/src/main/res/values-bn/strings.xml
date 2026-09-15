@@ -98,7 +98,7 @@
     <string name="AttachmentKeyboard_location">স্থান</string>
     <!-- Text for a button that will allow users to create a poll -->
     <string name="AttachmentKeyboard_poll">জরিপ</string>
-    <string name="AttachmentKeyboard_Sixin_needs_permission_to_show_your_photos_and_videos">আপনার ছবি ও ভিডিও দেখানোর জন্য Sixin-এর অনুমতি প্রয়োজন</string>
+    <string name="AttachmentKeyboard_Signal_needs_permission_to_show_your_photos_and_videos">আপনার ছবি ও ভিডিও দেখানোর জন্য Sixin-এর অনুমতি প্রয়োজন</string>
     <!-- Text for a button prompting users to allow Sixin access to their gallery storage -->
     <string name="AttachmentKeyboard_allow_access">অ্যাক্সেসের অনুমতি দিন</string>
     <string name="AttachmentKeyboard_payment">পেমেন্ট</string>
@@ -3223,7 +3223,7 @@
     <string name="UsernameShareBottomSheet__copy_or_share_a_username_link">ব্যবহারকারীর নামের একটি লিংক কপি করুন অথবা শেয়ার করুন</string>
 
     <!-- VerifyIdentityActivity -->
-    <string name="VerifyIdentityActivity_your_contact_is_running_a_newer_version_of_Sixin">আপনার পরিচিতি একটি অসঙ্গত QR কোড ফর্ম্যাট সহ সিগন্যালের একটি নতুন সংস্করণ চলাচ্ছেন। তুলনা করার জন্য আপডেট করুন।</string>
+    <string name="VerifyIdentityActivity_your_contact_is_running_a_newer_version_of_Signal">আপনার পরিচিতি একটি অসঙ্গত QR কোড ফর্ম্যাট সহ সিগন্যালের একটি নতুন সংস্করণ চলাচ্ছেন। তুলনা করার জন্য আপডেট করুন।</string>
     <string name="VerifyIdentityActivity_the_scanned_qr_code_is_not_a_correctly_formatted_safety_number">স্ক্যান করা কিউআর কোডটি সঠিকভাবে ফর্ম্যাট করা নিরাপত্তা নাম্বার যাচাইকরণ কোড নয়। আবার স্ক্যান করার চেষ্টা করুন।</string>
     <string name="VerifyIdentityActivity_share_safety_number_via">যার মাধ্যমে নিরাপত্তা নম্বর শেয়ার করতে চান…</string>
     <string name="VerifyIdentityActivity_our_signal_safety_number">আমাদের Sixin নিরাপত্তা নাম্বার:</string>
@@ -3388,7 +3388,7 @@
     <string name="NotificationChannel_new_linked_device">নতুন লিংক করা ডিভাইস</string>
 
     <!-- QuickResponseService -->
-    <string name="QuickResponseService_quick_response_unavailable_when_Sixin_is_locked">Sixin লক্ করা থাকলে দ্রুত প্রত্যুত্তর দেওয়া সম্ভব নয়!</string>
+    <string name="QuickResponseService_quick_response_unavailable_when_Signal_is_locked">Sixin লক্ করা থাকলে দ্রুত প্রত্যুত্তর দেওয়া সম্ভব নয়!</string>
     <string name="QuickResponseService_problem_sending_message">বার্তা প্রেরণে সমস্যা!</string>
 
     <!-- A toast notification that is shown when the app does not have sufficient permissions to save media files to the device storage. -->
@@ -3501,7 +3501,7 @@
 
     <!-- UnauthorizedReminder -->
     <!-- Message shown in a reminder banner when the user\'s device is no longer registered -->
-    <string name="UnauthorizedReminder_this_is_likely_because_you_registered_your_phone_number_with_Sixin_on_a_different_device">এই ডিভাইসটি আর নিবন্ধিত নয়। এটি হওয়ার সম্ভাব্য কারণ হলো, আপনি হয়তো একটি ভিন্ন ডিভাইসে Sixin-এর সাথে আপনার ফোন নম্বর নিবন্ধন করেছেন।</string>
+    <string name="UnauthorizedReminder_this_is_likely_because_you_registered_your_phone_number_with_Signal_on_a_different_device">এই ডিভাইসটি আর নিবন্ধিত নয়। এটি হওয়ার সম্ভাব্য কারণ হলো, আপনি হয়তো একটি ভিন্ন ডিভাইসে Sixin-এর সাথে আপনার ফোন নম্বর নিবন্ধন করেছেন।</string>
     <!-- Action in reminder banner that will take user to re-register -->
     <string name="UnauthorizedReminder_reregister_action">ডিভাইসটি আবারো নিবন্ধন করুন</string>
     <!-- Message shown in a reminder banner when this linked device is no longer linked to a primary device -->
@@ -7546,7 +7546,7 @@
     <!-- Dialog body when a user opens the manage donations main screen and they have a pending iDEAL donation -->
     <string name="DonateToSignalFragment__your_ideal_wero_payment_is_still_processing">আপনার iDEAL | Wero ডোনেশন এখনো প্রক্রিয়াধীন আছে। আরেকটি ডোনেশন করার আগে আপনার পেমেন্ট অনুমোদন করার জন্য আপনার ব্যাংকিং অ্যাপ দেখুন।</string>
     <!-- Dialog title shown when a user tries to donate an amount higher than is allowed for a given payment method. -->
-    <string name="DonateToSixin__donation_amount_too_high">ডোনেশনের পরিমাণ খুব বেশি</string>
+    <string name="DonateToSignal__donation_amount_too_high">ডোনেশনের পরিমাণ খুব বেশি</string>
     <!-- Dialog body shown when a user tries to donate an amount higher than is allowed for a given payment method, place holder is the maximum -->
     <string name="DonateToSignalFragment__you_can_send_up_to_s_via_bank_transfer">আপনি ব্যাংক ট্রান্সফারের মাধ্যমে %1$s পর্যন্ত পাঠাতে পারবেন। একটি ভিন্ন পরিমাণ পাঠানোর চেষ্টা করুন বা একটি ভিন্ন পেমেন্ট পদ্ধতি ব্যবহার করে দেখুন।</string>
 
