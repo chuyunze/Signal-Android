@@ -1,6 +1,5 @@
 package org.thoughtcrime.securesms.components.settings.app.appearance
 
-import android.os.Build
 import android.os.Bundle
 import android.view.View
 import androidx.compose.foundation.layout.padding
@@ -141,14 +140,7 @@ private fun AppearanceSettingsScreen(
         )
       }
 
-      if (Build.VERSION.SDK_INT >= 26) {
-        item {
-          Rows.TextRow(
-            text = stringResource(R.string.preferences__app_icon),
-            onClick = callbacks::onAppIconClick
-          )
-        }
-      }
+      // Self-host debrand: alternate app-icon picker entry removed.
 
       item {
         Rows.RadioListRow(

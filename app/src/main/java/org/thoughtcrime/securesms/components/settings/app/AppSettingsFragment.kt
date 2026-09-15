@@ -78,7 +78,6 @@ import org.thoughtcrime.securesms.database.model.InAppPaymentSubscriberRecord
 import org.thoughtcrime.securesms.keyvalue.SignalStore
 import org.thoughtcrime.securesms.profiles.ProfileName
 import org.thoughtcrime.securesms.recipients.Recipient
-import org.thoughtcrime.securesms.util.CommunicationActions
 import org.thoughtcrime.securesms.util.SignalE164Util
 import org.thoughtcrime.securesms.util.navigation.safeNavigate
 import org.signal.appsettings.R as AppSettingsR
@@ -318,44 +317,7 @@ private fun AppSettingsContent(
           }
         }
 
-        item {
-          val context = LocalContext.current
-          val donateUrl = stringResource(R.string.donate_url)
-
-          Rows.TextRow(
-            text = {
-              Text(
-                text = stringResource(R.string.preferences__donate_to_signal),
-                modifier = Modifier.weight(1f)
-              )
-
-              if (state.hasExpiredGiftBadge) {
-                Icon(
-                  painter = painterResource(R.drawable.symbol_info_fill_24),
-                  tint = colorResource(R.color.signal_accent_primary),
-                  contentDescription = null
-                )
-              }
-            },
-            icon = {
-              Icon(
-                painter = painterResource(R.drawable.symbol_heart_24),
-                contentDescription = null,
-                tint = MaterialTheme.colorScheme.onSurface
-              )
-            },
-            onClick = {
-              if (state.allowUserToGoToDonationManagementScreen) {
-                callbacks.navigate(AppSettingsRoute.DonationsRoute.Donations())
-              } else {
-                CommunicationActions.openBrowserLink(context, donateUrl)
-              }
-            },
-            onLongClick = {
-              callbacks.copyDonorBadgeSubscriberIdToClipboard()
-            }
-          )
-        }
+        // Self-host debrand: donation entry removed.
 
         item {
           Dividers.Default()
@@ -500,15 +462,7 @@ private fun AppSettingsContent(
           Dividers.Default()
         }
 
-        item {
-          Rows.TextRow(
-            text = stringResource(R.string.preferences__help),
-            icon = painterResource(R.drawable.symbol_help_24),
-            onClick = {
-              callbacks.navigate(AppSettingsRoute.HelpRoute.Settings())
-            }
-          )
-        }
+        // Self-host debrand: official help/support-center entry removed.
 
         item {
           Rows.TextRow(

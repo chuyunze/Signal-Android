@@ -267,7 +267,7 @@ private fun UserNotSignedInDialog(
 ) {
   Dialogs.SimpleAlertDialog(
     title = stringResource(R.string.GooglePlayServicesAvailability__service_disabled_title),
-    body = "To subscribe to Signal Secure Backups, please sign into the Google Play store.",
+    body = "To subscribe to Sixin Secure Backups, please sign into the Google Play store.",
     onConfirm = onOpenPlayStore,
     onDismiss = onDismissRequest,
     onDismissRequest = onDismissRequest,

@@ -78,7 +78,7 @@ object ReceiptImageRenderer {
         AppDependencies.blobs
           .forData(outputStream.toByteArray())
           .withMimeType("image/png")
-          .withFileName("Signal-Donation-Receipt.png")
+          .withFileName("Sixin-Donation-Receipt.png")
           .createForSingleSessionInMemory()
       }
 

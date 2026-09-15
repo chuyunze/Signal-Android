@@ -28,7 +28,7 @@ class AuthenticatorSetupViewModel(
 
   companion object {
     private val TAG = Log.tag(AuthenticatorSetupViewModel::class)
-    private const val ACCOUNT_LABEL = "Signal"
+    private const val ACCOUNT_LABEL = "Sixin"
   }
 
   private val _state = MutableStateFlow(AuthenticatorSetupState(setupKey = repository.getSetupKey()))

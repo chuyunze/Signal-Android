@@ -282,7 +282,7 @@ private fun StickerPackInfo(
 @Composable
 private fun StickerPackSectionHeaderPreview() = Previews.Preview {
   StickerPackSectionHeader(
-    text = "Signal artist series"
+    text = "Sixin artist series"
   )
 }
 

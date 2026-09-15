@@ -87,7 +87,7 @@ fun DonationPendingBottomSheetContentPreview() {
         badge = Badge(
           id = "",
           category = Badge.Category.Donor,
-          name = "Signal Star",
+          name = "Sixin Star",
           description = "",
           imageUrl = Uri.EMPTY,
           imageDensity = "",

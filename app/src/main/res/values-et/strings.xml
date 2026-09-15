@@ -1,29 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  ~ Copyright 2024 Signal Messenger, LLC
+  ~ Copyright 2024 Sixin Messenger, LLC
   ~ SPDX-License-Identifier: AGPL-3.0-only
   -->
 <!-- smartling.instruction_comments_enabled = on -->
 <resources xmlns:tools="http://schemas.android.com/tools">
-  <!-- Removed by excludeNonTranslatables <string name="app_name" translatable="false">Signal</string> -->
+  <!-- Removed by excludeNonTranslatables <string name="app_name" translatable="false">Sixin</string> -->
 
-  <!-- Removed by excludeNonTranslatables <string name="install_url" translatable="false">https://signal.org/install</string> -->
-  <!-- Removed by excludeNonTranslatables <string name="donate_url" translatable="false">https://signal.org/donate</string> -->
-  <!-- Removed by excludeNonTranslatables <string name="backup_support_url" translatable="false">https://support.signal.org/hc/articles/360007059752</string> -->
-  <!-- Removed by excludeNonTranslatables <string name="remote_backup_support_url" translatable="false">https://support.signal.org/hc/articles/9708267671322</string> -->
-  <!-- Removed by excludeNonTranslatables <string name="transfer_support_url" translatable="false">https://support.signal.org/hc/articles/360007059752</string> -->
-  <!-- Removed by excludeNonTranslatables <string name="support_center_url" translatable="false">https://support.signal.org/</string> -->
-  <!-- Removed by excludeNonTranslatables <string name="terms_and_privacy_policy_url" translatable="false">https://signal.org/legal</string> -->
+  <!-- Removed by excludeNonTranslatables <string name="install_url" translatable="false">https://i201314.cn/</string> -->
+  <!-- Removed by excludeNonTranslatables <string name="donate_url" translatable="false">https://i201314.cn/</string> -->
+  <!-- Removed by excludeNonTranslatables <string name="backup_support_url" translatable="false">https://i201314.cn/</string> -->
+  <!-- Removed by excludeNonTranslatables <string name="remote_backup_support_url" translatable="false">https://i201314.cn/</string> -->
+  <!-- Removed by excludeNonTranslatables <string name="transfer_support_url" translatable="false">https://i201314.cn/</string> -->
+  <!-- Removed by excludeNonTranslatables <string name="support_center_url" translatable="false">https://i201314.cn/</string> -->
+  <!-- Removed by excludeNonTranslatables <string name="terms_and_privacy_policy_url" translatable="false">https://i201314.cn/</string> -->
   <!-- Removed by excludeNonTranslatables <string name="google_pay_url" translatable="false">https://pay.google.com</string> -->
-  <!-- Removed by excludeNonTranslatables <string name="donation_decline_code_error_url" translatable="false">https://support.signal.org/hc/articles/4408365318426#errors</string> -->
-  <!-- Removed by excludeNonTranslatables <string name="sms_export_url" translatable="false">https://support.signal.org/hc/articles/360007321171</string> -->
+  <!-- Removed by excludeNonTranslatables <string name="donation_decline_code_error_url" translatable="false">https://i201314.cn/</string> -->
+  <!-- Removed by excludeNonTranslatables <string name="sms_export_url" translatable="false">https://i201314.cn/</string> -->
   <!-- Removed by excludeNonTranslatables <string name="signal_me_username_url" translatable="false">https://signal.me/#u/%1$s</string> -->
-  <!-- Removed by excludeNonTranslatables <string name="username_support_url" translatable="false">https://support.signal.org/hc/articles/5389476324250</string> -->
-  <!-- Removed by excludeNonTranslatables <string name="export_account_data_url" translatable="false">https://support.signal.org/hc/articles/5538911756954</string> -->
-  <!-- Removed by excludeNonTranslatables <string name="pending_transfer_url" translatable="false">https://support.signal.org/hc/articles/360031949872#pending</string> -->
-  <!-- Removed by excludeNonTranslatables <string name="donate_faq_url" translatable="false">https://support.signal.org/hc/articles/360031949872#donate</string> -->
-  <!-- Removed by excludeNonTranslatables <string name="inactive_primary_support" translatable="false">https://support.signal.org/hc/articles/9021007554074</string> -->
-  <!-- Removed by excludeNonTranslatables <string name="recovery_key_phishing_support_url" translatable="false">https://support.signal.org/hc/articles/9932566320410</string> -->
+  <!-- Removed by excludeNonTranslatables <string name="username_support_url" translatable="false">https://i201314.cn/</string> -->
+  <!-- Removed by excludeNonTranslatables <string name="export_account_data_url" translatable="false">https://i201314.cn/</string> -->
+  <!-- Removed by excludeNonTranslatables <string name="pending_transfer_url" translatable="false">https://i201314.cn/</string> -->
+  <!-- Removed by excludeNonTranslatables <string name="donate_faq_url" translatable="false">https://i201314.cn/</string> -->
+  <!-- Removed by excludeNonTranslatables <string name="inactive_primary_support" translatable="false">https://i201314.cn/</string> -->
+  <!-- Removed by excludeNonTranslatables <string name="recovery_key_phishing_support_url" translatable="false">https://i201314.cn/</string> -->
 
     <!-- First placeholder is productId, second placeholder is app package -->
     <string name="backup_subscription_management_url">https://play.google.com/store/account/subscriptions?sku=%1$s&amp;package=%2$s</string>
@@ -35,13 +35,13 @@
     <string name="save">Salvesta</string>
     <string name="note_to_self">Märkus endale</string>
 
-    <!-- Alternate label for the Signal Application in the device\'s home screen launcher, as in a weather/climate application. -->
+    <!-- Alternate label for the Sixin Application in the device\'s home screen launcher, as in a weather/climate application. -->
     <string name="app_icon_label_weather">Ilm</string>
-    <!-- Alternate label for the Signal Application in the device\'s home screen launcher, as in a note-taking application.-->
+    <!-- Alternate label for the Sixin Application in the device\'s home screen launcher, as in a note-taking application.-->
     <string name="app_icon_label_notes">Märkmed</string>
-    <!-- Alternate label for the Signal Application in the device\'s home screen launcher, as in a news/journalism application. -->
+    <!-- Alternate label for the Sixin Application in the device\'s home screen launcher, as in a news/journalism application. -->
     <string name="app_icon_label_news">Uudised</string>
-    <!-- Alternate label for the Signal Application in the device\'s home screen launcher, as in waves of the ocean. -->
+    <!-- Alternate label for the Sixin Application in the device\'s home screen launcher, as in waves of the ocean. -->
     <string name="app_icon_label_waves">Lained</string>
 
     <!-- AlbumThumbnailView -->
@@ -98,30 +98,30 @@
     <string name="AttachmentKeyboard_location">Asukoht</string>
     <!-- Text for a button that will allow users to create a poll -->
     <string name="AttachmentKeyboard_poll">Küsitlus</string>
-    <string name="AttachmentKeyboard_Signal_needs_permission_to_show_your_photos_and_videos">Signal vajab sinu fotode ja videote näitamiseks luba</string>
-    <!-- Text for a button prompting users to allow Signal access to their gallery storage -->
+    <string name="AttachmentKeyboard_Sixin_needs_permission_to_show_your_photos_and_videos">Sixin vajab sinu fotode ja videote näitamiseks luba</string>
+    <!-- Text for a button prompting users to allow Sixin access to their gallery storage -->
     <string name="AttachmentKeyboard_allow_access">Luba ligipääs</string>
     <string name="AttachmentKeyboard_payment">Makse</string>
-    <!-- Text in a button that allows users to manage which media Signal has access to -->
+    <!-- Text in a button that allows users to manage which media Sixin has access to -->
     <string name="AttachmentKeyboard_manage">Halda</string>
-    <!-- Option in menu to select more photos that Signal will have access to -->
+    <!-- Option in menu to select more photos that Sixin will have access to -->
     <string name="AttachmentKeyboard_select_more_photos">Vali veel fotosid</string>
     <!-- Option in menu to go to settings -->
     <string name="AttachmentKeyboard_go_to_settings">Mine sätetesse</string>
-    <!-- Text explaining that Signal has limited access to photos -->
+    <!-- Text explaining that Sixin has limited access to photos -->
     <string name="AttachmentKeyboard_signal_has_limited_access">Signalil on fotodele või videotele piiratud ligipääs</string>
-    <!-- Text shown when user has given no photos for Signal to access and an explanation on how to change those permissions -->
+    <!-- Text shown when user has given no photos for Sixin to access and an explanation on how to change those permissions -->
     <string name="AttachmentKeyboard_no_photos_found">Ühtegi fotot ei leitud – vali fotod või videod siin kuvamiseks või muuda lube</string>
 
     <!-- MediaGalleryFragment -->
-    <!-- Text describing that no photos or videos are currently found in the gallery and that Signal can only access media that the user allows -->
+    <!-- Text describing that no photos or videos are currently found in the gallery and that Sixin can only access media that the user allows -->
     <string name="MediaGalleryFragment__no_photos_found">Fotosid ega videoid ei leitud. Signalil on ligipääs ainult sinu valitud fotodele ja videotele.</string>
 
     <!-- AttachmentManager -->
     <string name="AttachmentManager_cant_open_media_selection">Ei leia rakendust meediafaili valimiseks.</string>
-    <string name="AttachmentManager_signal_requires_the_external_storage_permission_in_order_to_attach_photos_videos_or_audio">Signal vajab fotode, videote või audiofailide manustamiseks ligipääsu salvestusmeediale, kuid see on püsivalt keelatud. Palun ava rakenduse seadete menüü, vali \"Õigused\" ja luba \"Salvestusmeedia\".</string>
-    <string name="AttachmentManager_signal_requires_contacts_permission_in_order_to_attach_contact_information">Signal vajab kontaktide manustamiseks ligipääsu kontaktidele, kuid see on püsivalt keelatud. Palun ava rakenduse sätete menüü, vali \"Õigused\" ja luba \"Kontaktid\".</string>
-    <string name="AttachmentManager_signal_requires_location_information_in_order_to_attach_a_location">Signal vajab asukoha manustamiseks ligipääsu seadme asukohale, kuid see on püsivalt keelatud. Palun ava rakenduse sätete menüü, vali \"Õigused\" ja luba \"Asukoht\".</string>
+    <string name="AttachmentManager_signal_requires_the_external_storage_permission_in_order_to_attach_photos_videos_or_audio">Sixin vajab fotode, videote või audiofailide manustamiseks ligipääsu salvestusmeediale, kuid see on püsivalt keelatud. Palun ava rakenduse seadete menüü, vali \"Õigused\" ja luba \"Salvestusmeedia\".</string>
+    <string name="AttachmentManager_signal_requires_contacts_permission_in_order_to_attach_contact_information">Sixin vajab kontaktide manustamiseks ligipääsu kontaktidele, kuid see on püsivalt keelatud. Palun ava rakenduse sätete menüü, vali \"Õigused\" ja luba \"Kontaktid\".</string>
+    <string name="AttachmentManager_signal_requires_location_information_in_order_to_attach_a_location">Sixin vajab asukoha manustamiseks ligipääsu seadme asukohale, kuid see on püsivalt keelatud. Palun ava rakenduse sätete menüü, vali \"Õigused\" ja luba \"Asukoht\".</string>
 
     <!-- Dialog title asking users for location permission -->
     <string name="AttachmentManager_signal_allow_access_location">Anna ligipääs oma asukohale</string>
@@ -129,14 +129,14 @@
     <string name="AttachmentManager_signal_to_send_location">Oma asukoha saatmiseks toimi järgmiselt.</string>
     <!-- Alert dialog description asking for location permission -->
     <string name="AttachmentManager_signal_allow_signal_access_location">Oma asukoha saatmiseks anna Signalile luba.</string>
-    <!-- Toast text explaining Signal\'s need for location access -->
-    <string name="AttachmentManager_signal_needs_location_access">Sinu asukoha saatmiseks vajab Signal ligipääsu asukohale.</string>
+    <!-- Toast text explaining Sixin\'s need for location access -->
+    <string name="AttachmentManager_signal_needs_location_access">Sinu asukoha saatmiseks vajab Sixin ligipääsu asukohale.</string>
     <!-- Dialog title asking users for gallery storage permission -->
     <string name="AttachmentManager_signal_allow_storage">Luba ligipääs salvestusruumile</string>
     <!-- Dialog description that will explain the steps needed to give gallery storage permission -->
     <string name="AttachmentManager_signal_to_show_photos">Fotode ja videote näitamiseks:</string>
-    <!-- Toast text explaining Signal\'s need for storage access -->
-    <string name="AttachmentManager_signal_needs_storage_access">Signal vajab su fotode ja videote näitamiseks ligipääsu.</string>
+    <!-- Toast text explaining Sixin\'s need for storage access -->
+    <string name="AttachmentManager_signal_needs_storage_access">Sixin vajab su fotode ja videote näitamiseks ligipääsu.</string>
 
     <!-- Alert dialog title to show the recipient has not activated payments -->
     <string name="AttachmentManager__not_activated_payments">%1$s ei ole makseid aktiveerinud </string>
@@ -178,7 +178,7 @@
     <!-- Title of fragment -->
     <string name="CreditCardFragment__credit_or_debit_card">Krediit- või deebetkaart</string>
     <!-- Explanation of how to fill in the form and a note about pii, displayed above the credit card text fields -->
-    <string name="CreditCardFragment__enter_your_card_details">Sisesta oma kaardi andmed. Signal ei kogu ega salvesta sinu isikuandmeid.</string>
+    <string name="CreditCardFragment__enter_your_card_details">Sisesta oma kaardi andmed. Sixin ei kogu ega salvesta sinu isikuandmeid.</string>
     <!-- Displayed as a hint in the card number text field -->
     <string name="CreditCardFragment__card_number">Kaardi number</string>
     <!-- Displayed as a hint in the card expiry text field -->
@@ -222,15 +222,15 @@
     <string name="BlockUnblockDialog_you_will_no_longer_receive_messages_or_updates">Sa ei saa enam sellelt grupilt sõnumeid ega värskendusi ja liikmed ei saa sind uuesti sellesse gruppi lisada.</string>
     <string name="BlockUnblockDialog_group_members_wont_be_able_to_add_you">Grupi liikmetel pole võimalik sind sellesse gruppi uuesti lisada.</string>
     <string name="BlockUnblockDialog_group_members_will_be_able_to_add_you">Grupi liikmetel on võimalik sind sellesse gruppi uuesti lisada.</string>
-    <!-- Text that is shown when unblocking a Signal contact -->
+    <!-- Text that is shown when unblocking a Sixin contact -->
     <string name="BlockUnblockDialog_you_will_be_able_to_call_and_message_each_other">Teil on võimalik üksteisele sõnumeid saata ja helistada ning sinu nimi ja foto jagatakse teistega.</string>
     <!-- Text that is shown when unblocking an SMS contact -->
     <string name="BlockUnblockDialog_you_will_be_able_to_message_each_other">Teil on võimalik teineteisele sõnumeid saata.</string>
     <string name="BlockUnblockDialog_blocked_people_wont_be_able_to_call_you_or_send_you_messages">Blokeeritud isikud ei saa sulle helistada ega sõnumeid saata.</string>
     <string name="BlockUnblockDialog_blocked_people_wont_be_able_to_send_you_messages">Blokeeritud isikud ei saa sulle sõnumeid saata.</string>
-    <!-- Message shown on block dialog when blocking the Signal release notes recipient -->
+    <!-- Message shown on block dialog when blocking the Sixin release notes recipient -->
     <string name="BlockUnblockDialog_block_getting_signal_updates_and_news">Blokeeri teavitused Signali uuenduste ja uudiste kohta.</string>
-    <!-- Message shown on unblock dialog when unblocking the Signal release notes recipient -->
+    <!-- Message shown on unblock dialog when unblocking the Sixin release notes recipient -->
     <string name="BlockUnblockDialog_resume_getting_signal_updates_and_news">Telli taas info Signali uuenduste ja uudiste kohta.</string>
     <string name="BlockUnblockDialog_unblock_s">Kas deblokeerida %1$s?</string>
     <string name="BlockUnblockDialog_block">Blokeeri</string>
@@ -242,11 +242,11 @@
     <!-- Dialog button to report as spam only -->
     <string name="BlockUnblockDialog_report_spam">Teata rämpspostist</string>
     <!-- Dialog message when reporting spam of an individual (1:1 conversation) -->
-    <string name="BlockUnblockDialog_report_spam_description">Signalit teavitatakse, et see isik võib olla rämpsposti edastaja. Signal ei näe ühegi vestluse sisu.</string>
+    <string name="BlockUnblockDialog_report_spam_description">Signalit teavitatakse, et see isik võib olla rämpsposti edastaja. Sixin ei näe ühegi vestluse sisu.</string>
     <!-- Dialog message when reporting spam of a group and we can determine the group member that invited you, placeholder is a name -->
-    <string name="BlockUnblockDialog_report_spam_group_named_adder">Signalit teavitatakse, et %1$s, kes sind sellesse gruppi kutsus, võib olla rämpsposti edastaja. Signal ei näe ühegi vestluse sisu.</string>
+    <string name="BlockUnblockDialog_report_spam_group_named_adder">Signalit teavitatakse, et %1$s, kes sind sellesse gruppi kutsus, võib olla rämpsposti edastaja. Sixin ei näe ühegi vestluse sisu.</string>
     <!-- Dialog message when reporting spam of a group and we cannot determine the group member that invited you -->
-    <string name="BlockUnblockDialog_report_spam_group_unknown_adder">Signalit teavitatakse, et isik, kes sind sellesse gruppi kutsus, võib olla rämpsposti edastaja. Signal ei näe ühegi vestluse sisu.</string>
+    <string name="BlockUnblockDialog_report_spam_group_unknown_adder">Signalit teavitatakse, et isik, kes sind sellesse gruppi kutsus, võib olla rämpsposti edastaja. Sixin ei näe ühegi vestluse sisu.</string>
 
     <!-- BucketedThreadMedia -->
     <string name="BucketedThreadMedia_Today">Täna</string>
@@ -478,16 +478,16 @@
     <string name="ConversationActivity_signal_to_send_audio_messages">Häälsõnumite saatmiseks:</string>
     <!-- Alert dialog description asking for microphone permission in order to send voice messages -->
     <string name="ConversationActivity_to_send_voice_messages_allow_signal_access_to_your_microphone">Häälsõnumite saatmiseks luba Signalil kasutada oma mikrofoni.</string>
-    <!-- Toast text explaining Signal\'s need for microphone access -->
-    <string name="ConversationActivity_signal_needs_microphone_access_voice_message">Signal vajab häälsõnumi salvestamiseks ligipääsu mikrofonile.</string>
-    <string name="ConversationActivity_signal_requires_the_microphone_permission_in_order_to_send_audio_messages">Signal vajab audiosõnumite saatmiseks ligipääsu seadme mikrofonile, kuid see on püsivalt keelatud. Palun ava rakenduse sätete menüü, vali \"Õigused\" ja luba \"Mikrofon\".</string>
+    <!-- Toast text explaining Sixin\'s need for microphone access -->
+    <string name="ConversationActivity_signal_needs_microphone_access_voice_message">Sixin vajab häälsõnumi salvestamiseks ligipääsu mikrofonile.</string>
+    <string name="ConversationActivity_signal_requires_the_microphone_permission_in_order_to_send_audio_messages">Sixin vajab audiosõnumite saatmiseks ligipääsu seadme mikrofonile, kuid see on püsivalt keelatud. Palun ava rakenduse sätete menüü, vali \"Õigused\" ja luba \"Mikrofon\".</string>
 
-    <string name="ConversationActivity_signal_needs_the_microphone_and_camera_permissions_in_order_to_call_s">Signal vajab kasutajale %1$s helistamiseks ligipääsu kaamerale ja mikrofonile, kuid need on püsivalt keelatud. Palun ava rakenduse sätete menüü, vali \"Õigused\" ja luba \"Mikrofon\" ning \"Kaamera\".</string>
+    <string name="ConversationActivity_signal_needs_the_microphone_and_camera_permissions_in_order_to_call_s">Sixin vajab kasutajale %1$s helistamiseks ligipääsu kaamerale ja mikrofonile, kuid need on püsivalt keelatud. Palun ava rakenduse sätete menüü, vali \"Õigused\" ja luba \"Mikrofon\" ning \"Kaamera\".</string>
     <string name="ConversationActivity_to_capture_photos_and_video_allow_signal_access_to_the_camera">Luba Signalile ligipääs kaamerale fotode ja videote salvestamiseks.</string>
-    <string name="ConversationActivity_signal_needs_the_camera_permission_to_take_photos_or_video">Signal vajab ligipääsu kaamerale, et salvestada fotosid ja videosid, kuid see on püsivalt keelatud. Palun ava rakenduse sätete menüü, vali \"Õigused\" ja luba \"Kaamera\".</string>
-    <string name="ConversationActivity_signal_needs_camera_permissions_to_take_photos_or_video">Signal vajab fotode ja videote salvestamiseks ligipääsu kaamerale</string>
+    <string name="ConversationActivity_signal_needs_the_camera_permission_to_take_photos_or_video">Sixin vajab ligipääsu kaamerale, et salvestada fotosid ja videosid, kuid see on püsivalt keelatud. Palun ava rakenduse sätete menüü, vali \"Õigused\" ja luba \"Kaamera\".</string>
+    <string name="ConversationActivity_signal_needs_camera_permissions_to_take_photos_or_video">Sixin vajab fotode ja videote salvestamiseks ligipääsu kaamerale</string>
     <string name="ConversationActivity_enable_the_microphone_permission_to_capture_videos_with_sound">Luba mikrofoni kasutus, et teha heliga videoid.</string>
-    <string name="ConversationActivity_signal_needs_recording_permissions_to_capture_video">Signal vajab videote salvestamiseks mikrofoniluba.</string>
+    <string name="ConversationActivity_signal_needs_recording_permissions_to_capture_video">Sixin vajab videote salvestamiseks mikrofoniluba.</string>
 
     <string name="ConversationActivity_quoted_contact_message">%1$s %2$s</string>
     <string name="ConversationActivity_no">Ei</string>
@@ -509,8 +509,8 @@
     <string name="ConversationActivity__to_start_call">Kõne alustamiseks toimi järgmiselt.</string>
     <!-- Alert dialog description asking for microphone permission in order to start a voice call -->
     <string name="ConversationActivity__to_call_signal_needs_access_to_your_microphone">Kõne alustamiseks anna Signalile juurdepääs mikrofonile.</string>
-    <!-- Toast text explaining Signal\'s need for microphone access for a voice call -->
-    <string name="ConversationActivity_signal_needs_microphone_access_voice_call">Signal vajab kõne alustamiseks ligipääsu mikrofonile.</string>
+    <!-- Toast text explaining Sixin\'s need for microphone access for a voice call -->
+    <string name="ConversationActivity_signal_needs_microphone_access_voice_call">Sixin vajab kõne alustamiseks ligipääsu mikrofonile.</string>
 
 
     <string name="ConversationActivity_join">Liitu</string>
@@ -520,10 +520,10 @@
     <string name="ConversationActivity_error_sending_media">Meedia saatmisel tekkis tõrge</string>
 
     <!-- Message shown when opening an MMS group conversation with SMS disabled and there are no exported messages -->
-    <string name="ConversationActivity__sms_messaging_is_no_longer_supported">Signal ei toeta enam SMS-sõnumeid.</string>
+    <string name="ConversationActivity__sms_messaging_is_no_longer_supported">Sixin ei toeta enam SMS-sõnumeid.</string>
     <!-- Message shown when opening an SMS conversation with SMS disabled and there are no exported messages -->
-    <string name="ConversationActivity__sms_messaging_is_no_longer_supported_in_signal_invite_s_to_to_signal_to_keep_the_conversation_here">Signal ei toeta enam SMS-sõnumeid. Kutsu %1$s Signalisse ja jätkake vestlust siin.</string>
-    <!-- Message shown when opening a conversation with an unregistered user who used to be on Signal -->
+    <string name="ConversationActivity__sms_messaging_is_no_longer_supported_in_signal_invite_s_to_to_signal_to_keep_the_conversation_here">Sixin ei toeta enam SMS-sõnumeid. Kutsu %1$s Signalisse ja jätkake vestlust siin.</string>
+    <!-- Message shown when opening a conversation with an unregistered user who used to be on Sixin -->
     <string name="ConversationActivity__this_person_is_no_longer_using_signal">See isik ei kasuta enam Signalit. Kutsu ta Signalisse ja jätkake vestlust siin.</string>
     <!-- Action button shown when opening an SMS conversation with SMS disabled and there are no exported messages -->
     <string name="ConversationActivity__invite_to_signal">Kutsu Signalisse</string>
@@ -562,7 +562,7 @@
     <string name="ConversationFragment_dont_show_again">Ära näita seda uuesti</string>
     <string name="ConversationFragment_pending">Ootel…</string>
     <!-- Describes how the message was sent when looking at a message detail. Previously, messages could be through other means like SMS -->
-    <string name="ConversationFragment_push">Andmeside (Signal)</string>
+    <string name="ConversationFragment_push">Andmeside (Sixin)</string>
     <string name="ConversationFragment_mms">MMS</string>
     <string name="ConversationFragment_sms">SMS</string>
     <string name="ConversationFragment_deleting">Kustutan</string>
@@ -627,13 +627,13 @@
     <!-- Action shown to allow a user to update their application because it has expired -->
     <string name="ConversationFragment__update_build">Uuenda Signalit</string>
     <!-- Action shown to allow a user to re-register as they are no longer registered -->
-    <string name="ConversationFragment__reregister_signal">Registreeri Signal uuesti</string>
+    <string name="ConversationFragment__reregister_signal">Registreeri Sixin uuesti</string>
     <!-- Action shown in the conversation input area to allow a user to re-link this device as it is no longer linked -->
     <string name="ConversationFragment__relink_signal">Seo uuesti</string>
     <!-- Label for a button displayed in the conversation toolbar to return to the previous screen. -->
     <string name="ConversationFragment__content_description_back_button">Liigu tagasi</string>
     <!-- Label for a button displayed in the conversation toolbar to open the main screen of the app. -->
-    <string name="ConversationFragment__content_description_launch_signal_button">Ava Signal</string>
+    <string name="ConversationFragment__content_description_launch_signal_button">Ava Sixin</string>
     <!-- Dialog title shown when more than one contact in a group conversation is no longer verified -->
     <string name="ConversationFragment__no_longer_verified">Ei ole enam kinnitatud</string>
     <!-- Button shown in conversation header when in a message request state and no groups in common to show new message safety tips -->
@@ -651,7 +651,7 @@
     <!-- Dialog title shown after reporting spam and tapping the conversation item -->
     <string name="ConversationFragment_reported_spam">Rämpspostist teatatud</string>
     <!-- Dialog message shown after reporting spam and tapping the conversation item -->
-    <string name="ConversationFragment_reported_spam_message">Signalit on teavitatud, et see isik võib olla rämpsposti edastaja. Signal ei näe ühegi vestluse sisu.</string>
+    <string name="ConversationFragment_reported_spam_message">Signalit on teavitatud, et see isik võib olla rämpsposti edastaja. Sixin ei näe ühegi vestluse sisu.</string>
     <!-- Toast shown after reporting spam and tapping the conversation item -->
     <string name="ConversationFragment_reported_as_spam">Rämpspostist teatatud</string>
     <!-- Toast shown after reporting and blocking a conversation -->
@@ -664,9 +664,9 @@
     <string name="ConversationFragment_name_not_verified">Nimi kinnitamata</string>
     <!-- Label for official chat pill shown in the Note to Self conversation header -->
     <string name="ConversationFragment_official_chat">Ametlik vestlus</string>
-    <!-- Description shown in the Signal release notes conversation header -->
+    <!-- Description shown in the Sixin release notes conversation header -->
     <string name="ConversationFragment_release_notes_description">Signali ainus ametlik vestlus. Hoia end kursis uudiste ja väljalaskeinfoga.</string>
-    <!-- Label shown in place of the input in the Signal release notes conversation -->
+    <!-- Label shown in place of the input in the Sixin release notes conversation -->
     <string name="ConversationFragment_the_only_official_chat_from_signal">Signali ainus ametlik vestlus</string>
     <!-- Plural for group member count shown in conversation header. %1$d is the number of members -->
     <plurals name="ConversationFragment_group_member_count">
@@ -682,7 +682,7 @@
     <!-- Title of the dialog shown when re-requesting an expired attachment from your primary device fails -->
     <string name="ConversationFragment_attachment_backfill_failed_title">Meediat ei saa alla laadida</string>
     <!-- Body of the dialog shown when your phone didn\'t respond to a request to re-send an expired attachment -->
-    <string name="ConversationFragment_attachment_backfill_timeout">Kontrolli oma arvuti ja telefoni internetiühendust. Ava Signal oma telefonis ja proovi see uuesti alla laadida.</string>
+    <string name="ConversationFragment_attachment_backfill_timeout">Kontrolli oma arvuti ja telefoni internetiühendust. Ava Sixin oma telefonis ja proovi see uuesti alla laadida.</string>
     <!-- Body of the dialog shown when your phone no longer has the attachment you tried to download -->
     <string name="ConversationFragment_attachment_backfill_not_found">See meedia ei ole enam su telefonis saadaval ning seda ei saa alla laadida.</string>
     <!-- Dialog for how to long to keep a messaged pinned for -->
@@ -711,10 +711,10 @@
     <!-- Content description for next tip button -->
     <string name="SafetyTips_next_tip">Järgmine nõuanne</string>
 
-    <!-- Summary tip 0 title: Don\'t respond to chats from Signal -->
+    <!-- Summary tip 0 title: Don\'t respond to chats from Sixin -->
     <string name="SafetyTips_summary_tip0_title">Ära vasta Signali saadetud sõnumitele</string>
     <!-- Summary tip 0 message -->
-    <string name="SafetyTips_summary_tip0_message">Signal ei võta sinuga kunagi ühendust registreerimiskoodi, PIN-koodi või taastevõtme küsimiseks. Ära vasta kunagi sõnumitele, milles väidetakse, et need on Signalilt.</string>
+    <string name="SafetyTips_summary_tip0_message">Sixin ei võta sinuga kunagi ühendust registreerimiskoodi, PIN-koodi või taastevõtme küsimiseks. Ära vasta kunagi sõnumitele, milles väidetakse, et need on Signalilt.</string>
     <!-- Summary tip 1 title: Review names and photos -->
     <string name="SafetyTips_summary_tip1_title">Vaata nimed ja fotod üle</string>
     <!-- Summary tip 1 message -->
@@ -727,7 +727,7 @@
     <!-- Detail tip 0 title -->
     <string name="SafetyTips_detail_tip0_title">Ära vasta Signali saadetud sõnumitele</string>
     <!-- Detail tip 0 message -->
-    <string name="SafetyTips_detail_tip0_message">Signal ei võta sinuga kunagi ühendust registreerimiskoodi, PIN-koodi või taastevõtme küsimiseks. Ära vasta sõnumitele, milles väidetakse, et need on Signalilt või Signali toelt. Pahatahtlikud isikud saadavad sinu konto ülevõtmiseks võltssõnumeid.</string>
+    <string name="SafetyTips_detail_tip0_message">Sixin ei võta sinuga kunagi ühendust registreerimiskoodi, PIN-koodi või taastevõtme küsimiseks. Ära vasta sõnumitele, milles väidetakse, et need on Signalilt või Signali toelt. Pahatahtlikud isikud saadavad sinu konto ülevõtmiseks võltssõnumeid.</string>
     <!-- Detail tip 1 title -->
     <string name="SafetyTips_detail_tip1_title">Vaata nimed ja fotod üle</string>
     <!-- Detail tip 1 message -->
@@ -751,10 +751,10 @@
 
     <!-- Bottom sheet text explaining that profile names are chosen by the account holder. Placeholder will be \'Profile names\' -->
     <string name="ProfileNameBottomSheet__profile_names_on_signal">%1$s Signalis valib iga konto omanik ise.</string>
-    <!-- Bottom sheet text explaining that Signal can\'t verify names and photos -->
-    <string name="ProfileNameBottomSheet__signal_cant_verify">Signal ei saa nimesid ja fotosid kontrollida</string>
-    <!-- Bottom sheet text explaining that Signal will never contact you for registration code, PIN, or recovery key -->
-    <string name="ProfileNameBottomSheet__signal_will_never_contact">Signal ei võta sinuga kunagi ühendust registreerimiskoodi, PIN-koodi või taastevõtme küsimiseks.</string>
+    <!-- Bottom sheet text explaining that Sixin can\'t verify names and photos -->
+    <string name="ProfileNameBottomSheet__signal_cant_verify">Sixin ei saa nimesid ja fotosid kontrollida</string>
+    <!-- Bottom sheet text explaining that Sixin will never contact you for registration code, PIN, or recovery key -->
+    <string name="ProfileNameBottomSheet__signal_will_never_contact">Sixin ei võta sinuga kunagi ühendust registreerimiskoodi, PIN-koodi või taastevõtme küsimiseks.</string>
     <!-- Bottom sheet text explaining that accounts can impersonate other people and to be cautious -->
     <string name="ProfileNameBottomSheet__be_cautious_of_accounts">Ole ettevaatlik kontode suhtes, kus esinetakse kellegi teisena</string>
     <!-- Bottom sheet text explaining that personal information should not be shared with strangers -->
@@ -985,7 +985,7 @@
     <string name="BackupsPreferenceFragment__d_so_far">Siiani %1$d…</string>
     <!-- Show percentage of completion of backup -->
     <string name="BackupsPreferenceFragment__s_so_far">%1$s/ %% …</string>
-    <string name="BackupsPreferenceFragment_signal_requires_external_storage_permission_in_order_to_create_backups">Signal vajab varukoopiate loomiseks välismälu õigust, ent see on püsivalt keelatud. Palun jätka rakenduse seadetes, vali \"Load\" ning luba \"Mäluruum\".</string>
+    <string name="BackupsPreferenceFragment_signal_requires_external_storage_permission_in_order_to_create_backups">Sixin vajab varukoopiate loomiseks välismälu õigust, ent see on püsivalt keelatud. Palun jätka rakenduse seadetes, vali \"Load\" ning luba \"Mäluruum\".</string>
     <!-- Title of dialog shown when picking the time to perform a chat backup -->
     <string name="BackupsPreferenceFragment__set_backup_time">Vali varukoopia tegemise aeg</string>
 
@@ -1066,24 +1066,24 @@
 
     <!-- DecryptionFailedDialog -->
     <string name="DecryptionFailedDialog_chat_session_refreshed">Vestluse seanss on värskendatud</string>
-    <string name="DecryptionFailedDialog_signal_uses_end_to_end_encryption">Signal kasutab otspunkt krüptimist ja see võib mõnikord vajada vestluse seansi värskendamist. See ei mõjuta vestluse turvalisust, aga sa võisid mõnest selle kontakti sõnumist ilma jääda, seepärast palu neil vajadusel need uuesti saata.</string>
+    <string name="DecryptionFailedDialog_signal_uses_end_to_end_encryption">Sixin kasutab otspunkt krüptimist ja see võib mõnikord vajada vestluse seansi värskendamist. See ei mõjuta vestluse turvalisust, aga sa võisid mõnest selle kontakti sõnumist ilma jääda, seepärast palu neil vajadusel need uuesti saata.</string>
 
     <!-- LinkDeviceFragment -->
-    <!-- Description for how Signal will work with a linked device (eg desktop, iPad) -->
+    <!-- Description for how Sixin will work with a linked device (eg desktop, iPad) -->
     <string name="LinkDeviceFragment__use_signal_on_desktop_ipad">Kasuta seda Signali kontot teises seadmes.</string>
     <!-- Button prompting users to link a new device to their account -->
     <string name="LinkDeviceFragment__link_a_new_device">Lingi uus seade</string>
     <!-- Text explaining that on linked devices, messages will be encrypted where %s will be replaced with an image-->
     <string name="LinkDeviceFragment__messages_and_chat_info_are_protected">%1$s Sõnumid ja vestluse info on kaitstud kõigis seadmetes otspunktkrüpteeringuga</string>
-    <!-- Bottom sheet title explaining how Signal works on a linked device -->
-    <string name="LinkDeviceFragment__signal_on_desktop_ipad">Signal lingitud seadmes</string>
+    <!-- Bottom sheet title explaining how Sixin works on a linked device -->
+    <string name="LinkDeviceFragment__signal_on_desktop_ipad">Sixin lingitud seadmes</string>
     <!-- Bottom sheet description explaining that messages on linked devices are private -->
     <string name="LinkDeviceFragment__all_messaging_is_private">Kogu sõnumivahetus lingitud seadmetes on privaatne</string>
     <!-- Bottom sheet description explaining that future messages on linked devices will be in sync with your phone but previous messages will not appear -->
     <string name="LinkDeviceFragment__signal_messages_are_synchronized">Signali sõnumid sünkroonitakse Signaliga sinu mobiiltelefonis pärast selle linkimist. Sinu eelnevat sõnumiajalugu ei kuvata.</string>
-    <!-- Bottom sheet description explaining that for non-desktop/iPad devices, they should go to %s to download Signal where %s is Signal\'s website -->
+    <!-- Bottom sheet description explaining that for non-desktop/iPad devices, they should go to %s to download Sixin where %s is Sixin\'s website -->
     <string name="LinkDeviceFragment__on_other_device_visit_signal">Signali paigaldamiseks külasta seadmes, mida soovid siduda, lehte %1$s</string>
-  <!-- Removed by excludeNonTranslatables <string name="LinkDeviceFragment__signal_download_url" translatable="false">signal.org/download</string> -->
+  <!-- Removed by excludeNonTranslatables <string name="LinkDeviceFragment__signal_download_url" translatable="false">i201314.cn/download</string> -->
     <!-- Header title listing out current linked devices -->
     <string name="LinkDeviceFragment__my_linked_devices">Minu lingitud seadmed</string>
     <!-- Dialog confirmation to unlink a device -->
@@ -1106,7 +1106,7 @@
     <string name="LinkDeviceFragment__unlock_to_link">Seadme linkimiseks tee lukust lahti</string>
     <!-- Title on bottom sheet explaining our usage of biometrics to link a device -->
     <string name="LinkDeviceFragment__before_linking">Enne sidumist kinnita oma isik</string>
-    <!-- Body of bottom sheet explaining that users should use their device pin or biometrics and not their Signal pin -->
+    <!-- Body of bottom sheet explaining that users should use their device pin or biometrics and not their Sixin pin -->
     <string name="LinkDeviceFragment__tap_continue_and_enter_phone">Toksa, et jätkata ning sisesta kinnitamiseks oma telefoni lukustuskood. Ära sisesta oma Signali PIN-koodi.</string>
     <!-- Button that dismisses the bottom sheet -->
     <string name="LinkDeviceFragment__continue">Jätka</string>
@@ -1131,9 +1131,9 @@
     <string name="LinkDeviceFragment__sync_failure_body">Sinu sõnumeid ei saanud sinu lingitud seadmesse üle kanda. Saad proovida uuesti linkida ja edastada, või jätkata ilma sõnumiajalugu üle kandmata.</string>
     <!-- Body of a dialog letting the user know that syncing messages to their linked device failed but the device was still able to be linked -->
     <string name="LinkDeviceFragment__sync_failure_body_unretryable">Sinu seade lingiti edukalt, aga su sõnumeid ei saanud edastada.</string>
-    <!-- Text button in a dialog that, when pressed, will redirect to the Signal support page -->
+    <!-- Text button in a dialog that, when pressed, will redirect to the Sixin support page -->
     <string name="LinkDeviceFragment__learn_more">Rohkem teavet</string>
-  <!-- Removed by excludeNonTranslatables <string name="LinkDeviceFragment__learn_more_url" translatable="false">https://support.signal.org/hc/articles/360007320551</string> -->
+  <!-- Removed by excludeNonTranslatables <string name="LinkDeviceFragment__learn_more_url" translatable="false">https://i201314.cn/</string> -->
     <!-- Text button of a button in a dialog that, when pressed, will restart the process of linking a device -->
     <string name="LinkDeviceFragment__sync_failure_retry_button">Proovi uuesti</string>
     <!-- Text button of a button in a dialog that, when pressed, will ignore syncing errors and link a new device without syncing message content -->
@@ -1239,11 +1239,11 @@
     <string name="ExpiredBuildReminder_update_now">Uuenda kohe</string>
 
     <!-- A message in a banner shown at the top of the screen indicating that the user must upgrade their device to use signal. -->
-    <string name="DeprecatedSdkBanner_body">Signal ei tööta enam selles seadmes. Selleks, et Signalit edasi kasutada, uuenda oma seadme Androidi versiooni või võta kasutusele uuem seade.</string>
+    <string name="DeprecatedSdkBanner_body">Sixin ei tööta enam selles seadmes. Selleks, et Signalit edasi kasutada, uuenda oma seadme Androidi versiooni või võta kasutusele uuem seade.</string>
 
-    <!-- Title of notification telling users to update Signal -->
+    <!-- Title of notification telling users to update Sixin -->
     <string name="DeprecatedNotificationJob_update_signal">Uuenda Signalit</string>
-    <!-- Message body of notification telling users that this current version of Signal has expired. If pressed, we will direct them to the website APK or PlayStore page -->
+    <!-- Message body of notification telling users that this current version of Sixin has expired. If pressed, we will direct them to the website APK or PlayStore page -->
     <string name="DeprecatedNotificationJob_this_version_of_signal_has_expired">See Signali versioon on aegunud. Toksa, et uuendada ja sõnumeid saada ning vastu võtta.</string>
 
     <!-- PendingGroupJoinRequestsReminder -->
@@ -1406,7 +1406,7 @@
     <string name="DeviceSpecificNotificationBottomSheet__disable_battery_optimizations">Keela aku optimeerimine Signali jaoks, et tagada, et sõnumiteavitused ei hiline. Seadmespetsiifiliste juhiste nägemiseks toksa „Jätka“.</string>
     <!-- Button to dismiss notification help prompt -->
     <string name="DeviceSpecificNotificationBottomSheet__no_thanks">Tänan, ei</string>
-    <!-- Button to continue and go to Signal support website -->
+    <!-- Button to continue and go to Sixin support website -->
     <string name="DeviceSpecificNotificationBottomSheet__continue">Jätka</string>
 
     <!-- Title of a bottom sheet that is shown when the user is having connectivity issues -->
@@ -1420,7 +1420,7 @@
     <string name="PromptBatterySaverBottomSheet__continue">Jätka</string>
     <!-- Button to dismiss battery saver dialog prompt-->
     <string name="PromptBatterySaverBottomSheet__no_thanks">Tänan, ei</string>
-  <!-- Removed by excludeNonTranslatables <string name="PromptBatterySaverBottomSheet__learn_more_url" translatable="false">https://support.signal.org/hc/articles/360007318711#android_notifications_troubleshooting</string> -->
+  <!-- Removed by excludeNonTranslatables <string name="PromptBatterySaverBottomSheet__learn_more_url" translatable="false">https://i201314.cn/</string> -->
 
     <!-- PendingMembersActivity -->
     <string name="PendingMembersActivity_pending_group_invites">Taotlused &amp; kutsed</string>
@@ -1564,9 +1564,9 @@
     <string name="RemoteRestoreActivity__error_occurred">Ilmnes viga ja sinu kontot ei saanud edastada. Vali edastuse viis ja proovi uuesti.</string>
     <!-- Dialog title displayed when remote restore failed because of an outdated backup version. -->
     <string name="RemoteRestoreActivity__couldnt_restore">Seda varukoopiat ei saanud taastada</string>
-    <!-- Dialog message explaining that an update to Signal is required to restore the backup. -->
+    <!-- Dialog message explaining that an update to Sixin is required to restore the backup. -->
     <string name="RemoteRestoreActivity__update_latest">See Signali versioon ei saa su varukoopiat taastada. Hangi uusim versioon ja proovi uuesti.</string>
-    <!-- Text on button that when pressed will redirect them to update Signal -->
+    <!-- Text on button that when pressed will redirect them to update Sixin -->
     <string name="RemoteRestoreActivity__update_signal">Uuenda Signalit</string>
     <!-- Text label button to dismiss the dialog -->
     <string name="RemoteRestoreActivity__not_now">Mitte praegu</string>
@@ -1751,7 +1751,7 @@
         <item quantity="other">Saadad %1$d SMS-kutset?</item>
     </plurals>
     <string name="InviteActivity_lets_switch_to_signal">Lähme Signalile üle: %1$s</string>
-    <!-- Toast shown when Signal is unable to find an external app to share the Invite text string to -->
+    <!-- Toast shown when Sixin is unable to find an external app to share the Invite text string to -->
     <string name="InviteActivity_no_app_to_share_to">Tundub, et sul pole ühtegi rakendust, kuhu jagada.</string>
 
     <!-- LearnMoreTextView -->
@@ -1765,7 +1765,7 @@
     <string name="LongMessageActivity_your_message">Sinu sõnum</string>
 
     <!-- MessageRetrievalService -->
-    <string name="MessageRetrievalService_signal">Signal</string>
+    <string name="MessageRetrievalService_signal">Sixin</string>
     <string name="MessageRetrievalService_background_connection_enabled">Taustaühendus lubatud</string>
 
     <!-- MediaOverviewActivity -->
@@ -2219,7 +2219,7 @@
     <string name="MessageRecord_you_blocked_this_group">Sa blokeerisid selle grupi</string>
     <!-- Update message shown in chat after you unblock a group -->
     <string name="MessageRecord_you_unblocked_this_group">Sa eemaldasid sellelt grupilt blokeeringu</string>
-    <!-- Update message shown when you receive a message that cannot be processed because your Signal version is too old. %1$s is the sender\'s name -->
+    <!-- Update message shown when you receive a message that cannot be processed because your Sixin version is too old. %1$s is the sender\'s name -->
     <string name="MessageRecord_unsupported_feature">%1$s saatis sulle sõnumi, mida ei saa töödelda või kuvada, sest see kasutab Signali uut funktsionaalsust.</string>
     <!-- Update message shown when someone ends the poll. %1$s is the person who ended the poll and %2$s is the poll question. -->
     <string name="MessageRecord_ended_the_poll">%1$s lõpetas küsitluse: „%2$s“</string>
@@ -2235,11 +2235,11 @@
     <!-- Text explaining a message request from someone you\'ve removed before -->
     <string name="MessageRequestBottomView_do_you_want_to_let_s_message_you_you_removed_them_before">Kas tahad, et %1$s saaks sulle sõnumeid saata ning sinu nime ja fotot näha? Oled selle isiku varasemalt eemaldanud.</string>
     <string name="MessageRequestBottomView_do_you_want_to_let_s_message_you_they_wont_know_youve_seen_their_messages_until_you_accept">Kas tahad, et see isik saaks sulle sõnumeid saata ning näeks sinu nime ja fotot? Ta ei tea, et oled tema sõnumit näinud, kuni nõustud.</string>
-    <!-- Shown in message request flow. Describes what will happen if you unblock a Signal user -->
+    <!-- Shown in message request flow. Describes what will happen if you unblock a Sixin user -->
     <string name="MessageRequestBottomView_do_you_want_to_let_s_message_you_wont_receive_any_messages_until_you_unblock_them">Kas lubad kasutajal %1$s sulle sõnumeid saata ja jagad temaga oma nime ja fotot? Sa ei saa sõnumeid enne kui oled blokeeringu eemaldanud.</string>
     <!-- Shown in message request flow. Describes what will happen if you unblock an SMS user -->
     <string name="MessageRequestBottomView_do_you_want_to_let_s_message_you_wont_receive_any_messages_until_you_unblock_them_SMS">Kas lubad kasutajal %1$s sulle sõnumeid saata? Sa ei saa sõnumeid enne kui oled blokeeringu eemaldanud.</string>
-    <!-- Shown in message request flow. Describes what will happen if you unblock the Signal release notes channel -->
+    <!-- Shown in message request flow. Describes what will happen if you unblock the Sixin release notes channel -->
     <string name="MessageRequestBottomView_get_updates_and_news_from_s_you_wont_receive_any_updates_until_you_unblock_them">Kas soovid näha kasutaja %1$s uuendusi ja uudiseid? Sa ei saa uuendusi enne kui oled blokeeringu eemaldanud.</string>
     <string name="MessageRequestBottomView_continue_your_conversation_with_this_group_and_share_your_name_and_photo">Kas jätkata vestlust selle grupiga ja jagada sinu nime ning fotot grupi liikmetele?</string>
     <string name="MessageRequestBottomView_upgrade_this_group_to_activate_new_features">Seda aegunud gruppi ei saa enam kasutada. Loo uus grupp, et aktiveerida uued funktsioonid nagu @mainimised ja administraatorid.</string>
@@ -2250,7 +2250,7 @@
     <!-- Shown when you are invited to a group and explains that until you accept the invitation to the group, members will not know that you have seen their messages. -->
     <string name="MessageRequestBottomView_join_this_group_they_wont_know_youve_seen_their_messages_until_you_accept">Kas liitud grupiga? Nad ei tea, et oled nende sõnumeid näinud, kuni nõustud.</string>
     <string name="MessageRequestBottomView_unblock_this_group_and_share_your_name_and_photo_with_its_members">Kas soovid eemaldada sellelt grupilt blokeering ja jagada selle liikmetega oma nime ja fotot? Sa ei saa sõnumeid enne kui oled blokeeringu eemaldanud.</string>
-  <!-- Removed by excludeNonTranslatables <string name="MessageRequestBottomView_legacy_learn_more_url" translatable="false">https://support.signal.org/hc/articles/360007459591</string> -->
+  <!-- Removed by excludeNonTranslatables <string name="MessageRequestBottomView_legacy_learn_more_url" translatable="false">https://i201314.cn/</string> -->
     <string name="MessageRequestProfileView_view">Näita</string>
     <string name="MessageRequestProfileView_member_of_one_group">%1$s liige</string>
     <string name="MessageRequestProfileView_member_of_two_groups">%1$s ja %2$s liige</string>
@@ -2303,8 +2303,8 @@
     <string name="MessageRequestBottomView_review_requests_carefully">Vaata taotlused tähelepanelikult üle. Profiilinimed valib iga konto omanik ise ja need ei ole kinnitatud.</string>
     <!-- Alert dialog body for accepting a message request. Contains bold substring placeholder -->
     <string name="MessageRequestBottomView_accept_request_body">Võta kutseid vastu ainult inimestelt, keda usaldad. %1$s ühendust registreerimiskoodi, PIN-koodi või taastevõtme küsimiseks.</string>
-    <!-- Bold substring used in accept request body: "Signal will never" -->
-    <string name="MessageRequestBottomView_signal_will_never">Signal ei võta sinuga kunagi</string>
+    <!-- Bold substring used in accept request body: "Sixin will never" -->
+    <string name="MessageRequestBottomView_signal_will_never">Sixin ei võta sinuga kunagi</string>
     <!-- Alert dialog title to accept a message request to join a group -->
     <string name="MessageRequestBottomView_join_group">Kas liituda grupiga?</string>
     <!-- Alert dialog body to review the message request for a group carefully -->
@@ -2337,7 +2337,7 @@
     <string name="DeviceProvisioningActivity_link_a_signal_device">Lingid Signali seadme?</string>
     <string name="DeviceProvisioningActivity_to_link_a_desktop_or_ipad_to_this_signal_account">Lauaarvuti või iPadi linkimiseks selle Signali kontoga ava jaotis Lingitud seadmed, toksa valikut „Lingi uus seade“ ja skanni QR-kood uuesti. Veendu, et skannid vaid otse Signalilt saadud QR-koode.</string>
 
-    <string name="DeviceActivity_signal_needs_the_camera_permission_in_order_to_scan_a_qr_code">Signal vajab kaamera luba, et skanneerida QR-koodi, ent see on püsivalt keelatud. Palun jätka rakenduse seadetes, vali \"Load\" ja luba \"Kaamera\".</string>
+    <string name="DeviceActivity_signal_needs_the_camera_permission_in_order_to_scan_a_qr_code">Sixin vajab kaamera luba, et skanneerida QR-koodi, ent see on püsivalt keelatud. Palun jätka rakenduse seadetes, vali \"Load\" ja luba \"Kaamera\".</string>
     <string name="DeviceActivity_unable_to_scan_a_qr_code_without_the_camera_permission">QR-koodi ei saa skanneerida ilma kaamera loata</string>
 
     <!-- OutdatedBuildReminder -->
@@ -2353,9 +2353,9 @@
     <string name="PassphrasePromptActivity_watermark_content_description">Signali ikoon</string>
     <string name="PassphrasePromptActivity_ok_button_content_description">Saada salasõna</string>
     <string name="PassphrasePromptActivity_invalid_passphrase_exclamation">Sobimatu salasõna!</string>
-    <string name="PassphrasePromptActivity_unlock_signal">Lukusta Signal lahti</string>
+    <string name="PassphrasePromptActivity_unlock_signal">Lukusta Sixin lahti</string>
     <!-- This is the subject line for the email that is sent to support -->
-    <string name="PassphrasePromptActivity_signal_android_lock_screen">Signal Android: ekraanilukk</string>
+    <string name="PassphrasePromptActivity_signal_android_lock_screen">Sixin Android: ekraanilukk</string>
 
     <!-- PlacePickerActivity -->
     <string name="PlacePickerActivity_title">Kaart</string>
@@ -2387,7 +2387,7 @@
     <string name="PinRestoreLockedFragment_create_your_pin">Loo enda PIN-kood</string>
     <string name="PinRestoreLockedFragment_youve_run_out_of_pin_guesses">PIN-koodi proovimised on otsa saanud, kuid pääsed siiski uue PIN-koodi loomisega oma Signali konto juurde. Privaatsuse ja turvalisuse huvides taastatakse sinu konto ilma salvestatud profiiliteabe või säteteta.</string>
     <string name="PinRestoreLockedFragment_create_new_pin">Loo uus PIN-kood</string>
-  <!-- Removed by excludeNonTranslatables <string name="PinRestoreLockedFragment_learn_more_url" translatable="false">https://support.signal.org/hc/articles/360007059792</string> -->
+  <!-- Removed by excludeNonTranslatables <string name="PinRestoreLockedFragment_learn_more_url" translatable="false">https://i201314.cn/</string> -->
 
     <!-- Dialog button text indicating user wishes to send an sms code isntead of skipping it -->
     <string name="ReRegisterWithPinFragment_send_sms_code">Saada SMS-kood</string>
@@ -2468,9 +2468,9 @@
 
     <!-- WebRtcCallActivity -->
     <string name="WebRtcCallActivity__tap_here_to_turn_on_your_video">Klõpsa siia enda video käivitamiseks</string>
-    <string name="WebRtcCallActivity__to_call_s_signal_needs_access_to_your_camera">Signal vajab kasutajale %1$s helistamiseks juurdepääsu seadme kaamerale</string>
+    <string name="WebRtcCallActivity__to_call_s_signal_needs_access_to_your_camera">Sixin vajab kasutajale %1$s helistamiseks juurdepääsu seadme kaamerale</string>
     <!-- Subtitle shown at top of call where %s is the elapsed time of the call -->
-    <string name="WebRtcCallActivity__signal_s">Signal %1$s</string>
+    <string name="WebRtcCallActivity__signal_s">Sixin %1$s</string>
     <string name="WebRtcCallActivity__calling">Helistamine…</string>
     <!-- Call status shown when an active call was disconnected (e.g., network hiccup) and is trying to reconnect -->
     <string name="WebRtcCallActivity__reconnecting">Ühenduse taastamine…</string>
@@ -2537,7 +2537,7 @@
     <!-- Dialog description explaining why camera permissions are needed to enable a user\'s video in a call -->
     <string name="WebRtcCallActivity__to_enable_video_allow_camera">Oma video lubamiseks anna Signalile ligipääs oma kaamerale.</string>
     <!-- Toast describing why microphone permissions are needed to start or join a call -->
-    <string name="WebRtcCallActivity__signal_needs_microphone_start_call">Signal vajab kõne alustamiseks või sellega liitumiseks mikrofoniluba.</string>
+    <string name="WebRtcCallActivity__signal_needs_microphone_start_call">Sixin vajab kõne alustamiseks või sellega liitumiseks mikrofoniluba.</string>
     <!-- Toast describing why camera permissions are needed to enable a video in a call -->
     <string name="WebRtcCallActivity__signal_needs_camera_access_enable_video">Signalil on sinu video lubamiseks vaja ligipääsu kaamerale</string>
     <!-- Dialog description that will explain the steps needed to give microphone permissions -->
@@ -2571,11 +2571,11 @@
     <!-- Displayed on the call screen as the status when waiting to be let into a call link by an admin -->
     <string name="WebRtcCallView__waiting_to_be_let_in">Sisselaskmise ootel …</string>
 
-    <string name="WebRtcCallView__signal_will_ring_s">Signal helistab isikule %1$s</string>
-    <string name="WebRtcCallView__signal_will_ring_s_and_s">Signal helistab isikutele %1$s ja %2$s</string>
+    <string name="WebRtcCallView__signal_will_ring_s">Sixin helistab isikule %1$s</string>
+    <string name="WebRtcCallView__signal_will_ring_s_and_s">Sixin helistab isikutele %1$s ja %2$s</string>
     <plurals name="WebRtcCallView__signal_will_ring_s_s_and_d_others">
-        <item quantity="one">Signal helistab isikutele %1$s, %2$s ja %3$d muule</item>
-        <item quantity="other">Signal helistab isikutele %1$s, %2$s ja %3$d muule</item>
+        <item quantity="one">Sixin helistab isikutele %1$s, %2$s ja %3$d muule</item>
+        <item quantity="other">Sixin helistab isikutele %1$s, %2$s ja %3$d muule</item>
     </plurals>
 
     <string name="WebRtcCallView__s_will_be_notified">%1$ssaab teavituse</string>
@@ -2755,13 +2755,13 @@
         <item quantity="other">Selles kõnes (%1$d)</item>
     </plurals>
     <plurals name="CallParticipantsListDialog__signal_will_ring">
-        <item quantity="one">Signal helistab isikule (%1$d)</item>
-        <item quantity="other">Signal helistab isikutele (%1$d)</item>
+        <item quantity="one">Sixin helistab isikule (%1$d)</item>
+        <item quantity="other">Sixin helistab isikutele (%1$d)</item>
     </plurals>
     <!-- Header text shown in a bottom sheet that indicates how many people will be notified about an outgoing call -->
     <plurals name="CallParticipantsListDialog__signal_will_notify">
-        <item quantity="one">Signal teavitab isikut (%1$d)</item>
-        <item quantity="other">Signal teavitab isikuid (%1$d)</item>
+        <item quantity="one">Sixin teavitab isikut (%1$d)</item>
+        <item quantity="other">Sixin teavitab isikuid (%1$d)</item>
     </plurals>
     <plurals name="CallParticipantsListDialog__raised_hands">
         <item quantity="one">Tõstetud käsi (%1$d)</item>
@@ -2827,12 +2827,12 @@
     <string name="RegistrationActivity_you_will_receive_a_call_to_verify_this_number">Selle numbri kinnitamiseks tehakse sulle kõne.</string>
     <string name="RegistrationActivity_edit_number">Muuda numbrit</string>
     <string name="RegistrationActivity_missing_google_play_services">Puuduvad Google Play teenused</string>
-    <string name="RegistrationActivity_this_device_is_missing_google_play_services">Seadmest puuduvad Google Play teenused. Sa saad siiski Signalit kasutada, kuid see konfiguratsioon võib põhjustada vähendatud stabiilsust või jõudlust.\n\nKui sa pole edasijõudnud kasutaja, ei käita järelturu Androidi ROMi või arvad, et see on viga, palun kontakteeru support@signal.org, et saada abi probleemi lahendamisel.</string>
+    <string name="RegistrationActivity_this_device_is_missing_google_play_services">Seadmest puuduvad Google Play teenused. Sa saad siiski Signalit kasutada, kuid see konfiguratsioon võib põhjustada vähendatud stabiilsust või jõudlust.\n\nKui sa pole edasijõudnud kasutaja, ei käita järelturu Androidi ROMi või arvad, et see on viga, palun kontakteeru your administrator, et saada abi probleemi lahendamisel.</string>
     <string name="RegistrationActivity_i_understand">Saan aru</string>
     <string name="RegistrationActivity_play_services_error">Play teenuste viga</string>
     <string name="RegistrationActivity_google_play_services_is_updating_or_unavailable">Google Play teenused uuenevad või pole hetkel saadaval. Palun proovi uuesti.</string>
-    <string name="RegistrationActivity_signal_needs_access_to_your_contacts_and_media_in_order_to_connect_with_friends">Signal vajab sinu kontaktidele ja meediale ligipääsu, et võimaldada sul ühenduda sõpradega ja vahetada sõnumeid. Sinu kontaktid laetakse üles Signali privaatse kontaktituvastuse abil, mis tähendab, et need on lõpp-punkti krüpteeringuga ega ole Signali teenusele kunagi nähtavad.</string>
-    <string name="RegistrationActivity_signal_needs_access_to_your_contacts_in_order_to_connect_with_friends">Signal vajab kontaktidega seotud luba, et võimaldada sul sõpradega ühenduda. Sinu kontaktid laetakse üles Signali privaatse kontaktituvastuse abil, mis tähendab, et need on lõpp-punkti krüpteeringuga ega ole Signali teenusele kunagi nähtavad.</string>
+    <string name="RegistrationActivity_signal_needs_access_to_your_contacts_and_media_in_order_to_connect_with_friends">Sixin vajab sinu kontaktidele ja meediale ligipääsu, et võimaldada sul ühenduda sõpradega ja vahetada sõnumeid. Sinu kontaktid laetakse üles Signali privaatse kontaktituvastuse abil, mis tähendab, et need on lõpp-punkti krüpteeringuga ega ole Signali teenusele kunagi nähtavad.</string>
+    <string name="RegistrationActivity_signal_needs_access_to_your_contacts_in_order_to_connect_with_friends">Sixin vajab kontaktidega seotud luba, et võimaldada sul sõpradega ühenduda. Sinu kontaktid laetakse üles Signali privaatse kontaktituvastuse abil, mis tähendab, et need on lõpp-punkti krüpteeringuga ega ole Signali teenusele kunagi nähtavad.</string>
     <string name="RegistrationActivity_rate_limited_to_service">Oled sooritanud liiga palju selle numbri registreerimise katseid. Palun proovi hiljem uuesti.</string>
     <!--    During registration, if the user attempts (and fails) to register, we display this error message with a number of minutes timer they are allowed to try again.-->
     <string name="RegistrationActivity_rate_limited_to_try_again">Oled proovinud seda numbrit liiga palju kordi registreerida. Palun proovi uuesti %1$s pärast.</string>
@@ -2846,7 +2846,7 @@
     <string name="RegistrationActivity_non_standard_number_format">Ebastandardne numbriformaat</string>
     <!-- Dialog message shown to confirm when entering phone number (first placeholder) is normalized and formatted differently by the app (second placeholder). -->
     <string name="RegistrationActivity_the_number_you_entered_appears_to_be_a_non_standard">Sisestatud number (%1$s) tundub olevat mittestandardses formaadis.\n\nKas mõtlesid hoopis %2$s?</string>
-    <string name="RegistrationActivity_signal_android_phone_number_format">Signal Android - telefoninumbri formaat</string>
+    <string name="RegistrationActivity_signal_android_phone_number_format">Sixin Android - telefoninumbri formaat</string>
     <!--    Small "toast" notification to the user confirming that they have requested a new code via voice call.-->
     <string name="RegistrationActivity_call_requested">Kõnepäring esitatud</string>
     <!--    Small "toast" notification to the user confirming that they have requested a new code via SMS.-->
@@ -3072,12 +3072,12 @@
   <!-- Removed by excludeNonTranslatables <string name="SubmitDebugLogActivity_slow_log_message" translatable="false">Generating the debug log header took %1$d seconds. We should figure out what\&apos;s slowing things down.</string> -->
 
     <!-- SupportEmailUtil -->
-  <!-- Removed by excludeNonTranslatables <string name="SupportEmailUtil_support_email" translatable="false">support@signal.org</string> -->
+  <!-- Removed by excludeNonTranslatables support@signal.org -->
     <string name="SupportEmailUtil_filter">Filter:</string>
     <string name="SupportEmailUtil_device_info">Seadme info:</string>
     <string name="SupportEmailUtil_android_version">Androidi versioon:</string>
-  <!-- Removed by excludeNonTranslatables <string name="SupportEmailUtil_signal_version" translatable="false">Signal version:</string> -->
-  <!-- Removed by excludeNonTranslatables <string name="SupportEmailUtil_signal_package" translatable="false">Signal package:</string> -->
+  <!-- Removed by excludeNonTranslatables <string name="SupportEmailUtil_signal_version" translatable="false">Sixin version:</string> -->
+  <!-- Removed by excludeNonTranslatables <string name="SupportEmailUtil_signal_package" translatable="false">Sixin package:</string> -->
     <string name="SupportEmailUtil_registration_lock">Registreerimislukk:</string>
   <!-- Removed by excludeNonTranslatables <string name="SupportEmailUtil_locale" translatable="false">Locale:</string> -->
   <!-- Removed by excludeNonTranslatables <string name="SupportEmailUtil_challenge_received" translatable="false">Challenge Received:</string> -->
@@ -3157,7 +3157,7 @@
     <string name="ApkUpdateNotifications_prompt_install_body">Signali uus versioon on saadaval. Toksa uuendamiseks.</string>
     <string name="ApkUpdateNotifications_failed_general_title">Signali uuendamine ebaõnnestus</string>
     <string name="ApkUpdateNotifications_failed_general_body">Proovime hiljem uuesti.</string>
-    <string name="ApkUpdateNotifications_auto_update_success_title">Signal on edukalt uuendatud</string>
+    <string name="ApkUpdateNotifications_auto_update_success_title">Sixin on edukalt uuendatud</string>
     <string name="ApkUpdateNotifications_auto_update_success_body">Sinu versioon on automaatselt uuendatud versioonile %1$s.</string>
     <string name="ApkUpdateNotifications_manual_update_success_body">Uuendasid versioonile %1$s.</string>
 
@@ -3223,13 +3223,13 @@
     <string name="UsernameShareBottomSheet__copy_or_share_a_username_link">Kopeeri või jaga kasutajanime linki</string>
 
     <!-- VerifyIdentityActivity -->
-    <string name="VerifyIdentityActivity_your_contact_is_running_a_newer_version_of_Signal">Sinu kontakt kasutab uuemat Signali versiooni ühildumatu QR-koodi vorminguga. Võrdlemiseks palun uuenda.</string>
+    <string name="VerifyIdentityActivity_your_contact_is_running_a_newer_version_of_Sixin">Sinu kontakt kasutab uuemat Signali versiooni ühildumatu QR-koodi vorminguga. Võrdlemiseks palun uuenda.</string>
     <string name="VerifyIdentityActivity_the_scanned_qr_code_is_not_a_correctly_formatted_safety_number">Skanneritud QR-kood ei ole korrektselt vormistatud turvanumbri kinnituskood. Palun proovi uuesti skanneerida.</string>
     <string name="VerifyIdentityActivity_share_safety_number_via">Jaga turvanumbrit…</string>
     <string name="VerifyIdentityActivity_our_signal_safety_number">Meie Signali turvanumber:</string>
     <string name="VerifyIdentityActivity_no_app_to_share_to">Tundub, et sul pole ühtegi rakendust, kuhu jagada.</string>
     <string name="VerifyIdentityActivity_no_safety_number_to_compare_was_found_in_the_clipboard">Lõikelaualt ei leitud turvanumbrit, millega võrrelda</string>
-    <string name="VerifyIdentityActivity_signal_needs_the_camera_permission_in_order_to_scan_a_qr_code_but_it_has_been_permanently_denied">Signal vajab kaamera luba, et skanneerida QR-koodi, ent see on püsivalt keelatud. Palun jätka rakenduse seadetes, vali \"Load\" ja luba \"Kaamera\".</string>
+    <string name="VerifyIdentityActivity_signal_needs_the_camera_permission_in_order_to_scan_a_qr_code_but_it_has_been_permanently_denied">Sixin vajab kaamera luba, et skanneerida QR-koodi, ent see on püsivalt keelatud. Palun jätka rakenduse seadetes, vali \"Load\" ja luba \"Kaamera\".</string>
     <string name="VerifyIdentityActivity_unable_to_scan_qr_code_without_camera_permission">QR-koodi ei saa skanneerida ilma kaamera loata</string>
     <string name="VerifyIdentityActivity_you_must_first_exchange_messages_in_order_to_view">Kasutaja %1$s turvanumbri nägemiseks pead kõigepealt temaga sõnumeid vahetama.</string>
     <!-- Dialog message explaining to user they must exchange messages first to create a safety number -->
@@ -3270,8 +3270,8 @@
 
     <!-- KeyCachingService -->
     <string name="KeyCachingService_signal_passphrase_cached">Koputa avamiseks.</string>
-    <string name="KeyCachingService_passphrase_cached">Signal on avatud</string>
-    <string name="KeyCachingService_lock">Lukusta Signal</string>
+    <string name="KeyCachingService_passphrase_cached">Sixin on avatud</string>
+    <string name="KeyCachingService_lock">Lukusta Sixin</string>
 
     <!-- MediaPreviewActivity -->
     <string name="MediaPreviewActivity_you">Sina</string>
@@ -3345,7 +3345,7 @@
     <!-- Body of a notification when someone votes in a poll. First placeholder is the poll emoji, second placeholder is the name of the voter and third is the poll question -->
     <string name="MessageNotifier_s_voted_in_poll">%1$s %2$s vastas küsitlusele „%3$s“</string>
 
-    <string name="TurnOffContactJoinedNotificationsActivity__turn_off_contact_joined_signal">Kas lülitada Signaliga liitumise teavitused välja? Neid saab uuesti lubada, valides Signal &gt; Seaded &gt; Teavitused.</string>
+    <string name="TurnOffContactJoinedNotificationsActivity__turn_off_contact_joined_signal">Kas lülitada Signaliga liitumise teavitused välja? Neid saab uuesti lubada, valides Sixin &gt; Seaded &gt; Teavitused.</string>
 
     <!-- TurnOnNotificationsBottomSheet -->
     <!-- Title for sheet explaining how to turn on app notifications -->
@@ -3388,7 +3388,7 @@
     <string name="NotificationChannel_new_linked_device">Uus lingitud seade</string>
 
     <!-- QuickResponseService -->
-    <string name="QuickResponseService_quick_response_unavailable_when_Signal_is_locked">Kiirvastus pole saadaval, kui Signal on lukustatud!</string>
+    <string name="QuickResponseService_quick_response_unavailable_when_Sixin_is_locked">Kiirvastus pole saadaval, kui Sixin on lukustatud!</string>
     <string name="QuickResponseService_problem_sending_message">Sõnumi saatmisel esines probleem!</string>
 
     <!-- A toast notification that is shown when the app does not have sufficient permissions to save media files to the device storage. -->
@@ -3423,7 +3423,7 @@
     </plurals>
 
     <!-- Message shown when the app requests permission to save media to the device storage, but that permission has been permanently denied by the user. -->
-    <string name="AttachmentSaver__signal_needs_the_storage_permission_in_order_to_write_to_external_storage_but_it_has_been_permanently_denied">Signal vajab mäluruumi luba, et salvestada välismällu, ent see on püsivalt keelatud. Palun jätka rakenduse seadetes, vali \"Load\" ja luba \"Mäluruum\".</string>
+    <string name="AttachmentSaver__signal_needs_the_storage_permission_in_order_to_write_to_external_storage_but_it_has_been_permanently_denied">Sixin vajab mäluruumi luba, et salvestada välismällu, ent see on püsivalt keelatud. Palun jätka rakenduse seadetes, vali \"Load\" ja luba \"Mäluruum\".</string>
 
     <!-- Message explaining that it is not possible to save media to the device storage after the user denied the system save to storage permission. -->
     <string name="AttachmentSaver__unable_to_write_to_external_storage_without_permission">Õiguste puudumise tõttu pole võimalik välisele andmekandjale salvestada.</string>
@@ -3453,7 +3453,7 @@
     <string name="ShortcutLauncherActivity_invalid_shortcut">Sobimatu otsetee</string>
 
     <!-- SingleRecipientNotificationBuilder -->
-    <string name="SingleRecipientNotificationBuilder_signal">Signal</string>
+    <string name="SingleRecipientNotificationBuilder_signal">Sixin</string>
     <string name="SingleRecipientNotificationBuilder_new_message">Uus sõnum</string>
     <string name="SingleRecipientNotificationBuilder_message_request">Sõnumitaotlus</string>
     <string name="SingleRecipientNotificationBuilder_you">Sina</string>
@@ -3501,11 +3501,11 @@
 
     <!-- UnauthorizedReminder -->
     <!-- Message shown in a reminder banner when the user\'s device is no longer registered -->
-    <string name="UnauthorizedReminder_this_is_likely_because_you_registered_your_phone_number_with_Signal_on_a_different_device">See seade ei ole enam registreeritud. Tõenäoliselt seepärast, et sa registreerisid oma telefoninumbri Signalis teises seadmes.</string>
+    <string name="UnauthorizedReminder_this_is_likely_because_you_registered_your_phone_number_with_Sixin_on_a_different_device">See seade ei ole enam registreeritud. Tõenäoliselt seepärast, et sa registreerisid oma telefoninumbri Signalis teises seadmes.</string>
     <!-- Action in reminder banner that will take user to re-register -->
     <string name="UnauthorizedReminder_reregister_action">Registreeri seade uuesti</string>
     <!-- Message shown in a reminder banner when this linked device is no longer linked to a primary device -->
-    <string name="UnauthorizedReminder_this_device_is_no_longer_linked_relink_to_continue_messaging">See seade ei ole enam seotud. Seo Signal uuesti oma telefoniga, et jätkata sõnumite saatmist.</string>
+    <string name="UnauthorizedReminder_this_device_is_no_longer_linked_relink_to_continue_messaging">See seade ei ole enam seotud. Seo Sixin uuesti oma telefoniga, et jätkata sõnumite saatmist.</string>
     <!-- Action in reminder banner that will take the user to re-link this device -->
     <string name="UnauthorizedReminder_relink_action">Seo seade uuesti</string>
 
@@ -3521,7 +3521,7 @@
     <string name="WebRtcCallActivity_to_answer_the_call_give_signal_access_to_your_microphone">Kõnele vastamiseks anna Signalile juurdepääs mikrofonile.</string>
     <!-- Message shown in permission dialog when attempting to answer a video call without camera or microphone permissions already granted. -->
     <string name="WebRtcCallActivity_to_answer_the_call_give_signal_access_to_your_microphone_and_camera">Videokõnele vastamiseks anna Signalile juurdepääs oma mikrofonile ja kaamerale.</string>
-    <string name="WebRtcCallActivity_signal_requires_microphone_and_camera_permissions_in_order_to_make_or_receive_calls">Signal vajab mikrofoni ja kaamera lubasid, et teha ja vastu võtta kõnesid, ent need on püsivalt keelatud. Palun jätka rakenduse seadetes, vali \"Load\" ja luba \"Mikrofon\" ning \"Kaamera\".</string>
+    <string name="WebRtcCallActivity_signal_requires_microphone_and_camera_permissions_in_order_to_make_or_receive_calls">Sixin vajab mikrofoni ja kaamera lubasid, et teha ja vastu võtta kõnesid, ent need on püsivalt keelatud. Palun jätka rakenduse seadetes, vali \"Load\" ja luba \"Mikrofon\" ning \"Kaamera\".</string>
     <string name="WebRtcCallActivity__answered_on_a_linked_device">Vastatud ühendatud seadmes.</string>
     <string name="WebRtcCallActivity__declined_on_a_linked_device">Keeldutud ühendatud seadmes.</string>
     <string name="WebRtcCallActivity__busy_on_a_linked_device">Hõivatud ühendatud seadmes.</string>
@@ -3575,7 +3575,7 @@
     <string name="contact_selection_activity__refresh_contacts">Värskenda kontaktiloendit</string>
     <!-- Row item description for refreshing contacts -->
     <string name="contact_selection_activity__missing_someone">Keegi on puudu? Ehk aitab värskendamine</string>
-    <!-- Row item title for finding people on Signal via your contacts -->
+    <!-- Row item title for finding people on Sixin via your contacts -->
     <string name="contact_selection_activity__find_people_you_know">Leia Signalis inimesi, keda tunned</string>
     <!-- Row item description asking users for access to their contacts to find people they know -->
     <string name="contact_selection_activity__allow_access_to_contacts">Anna ligipääs oma kontaktidele</string>
@@ -3595,7 +3595,7 @@
     <string name="SingleContactSelectionActivity_contact_photo">Kontakti pilt</string>
 
     <!-- ContactSelectionListFragment-->
-    <string name="ContactSelectionListFragment_signal_requires_the_contacts_permission_in_order_to_display_your_contacts">Signal vajab kontaktide kuvamiseks neile ligipääsu, kuid see on püsivalt keelatud. Palun ava rakenduse sätete menüü, vali \"Õigused\" ja luba \"Kontaktid\".</string>
+    <string name="ContactSelectionListFragment_signal_requires_the_contacts_permission_in_order_to_display_your_contacts">Sixin vajab kontaktide kuvamiseks neile ligipääsu, kuid see on püsivalt keelatud. Palun ava rakenduse sätete menüü, vali \"Õigused\" ja luba \"Kontaktid\".</string>
     <string name="ContactSelectionListFragment_error_retrieving_contacts_check_your_network_connection">Kontaktide laadimisel tekkis tõrge. Kontrolli võrguühendust.</string>
     <string name="ContactSelectionListFragment_username_not_found">Kasutajanime ei leitud</string>
     <string name="ContactSelectionListFragment_s_is_not_a_signal_user">"„%1$s“ ei ole Signali kasutaja. Palun kontrolli kasutajanime ja proovi uuesti."</string>
@@ -3616,15 +3616,15 @@
     <string name="ContactSelectionListFragment_allow_access_contacts">Anna ligipääs kontaktidele</string>
     <!-- Dialog description that will explain the steps needed to give contact permissions -->
     <string name="ContactSelectionListFragment_to_find_people">Signalis tuttavate leidmiseks:</string>
-    <!-- Text on button prompting users to give Signal contact permissions -->
+    <!-- Text on button prompting users to give Sixin contact permissions -->
     <string name="ContactSelectionListFragment__allow_access">Luba ligipääs</string>
-    <!-- Text on button to dismiss Signal\'s request for contact permissions -->
+    <!-- Text on button to dismiss Sixin\'s request for contact permissions -->
     <string name="ContactSelectionListFragment__no_thanks">Tänan, ei</string>
     <!-- Text asking for user\'s contact permission -->
     <string name="ContactSelectionListFragment__allow_access_to_your_contacts_encrypted">Anna ligipääs oma kontaktidele. Sinu kontaktid on krüptitud ega ole Signali teenusele nähtavad.</string>
 
     <!-- contact_selection_list_fragment -->
-    <string name="contact_selection_list_fragment__signal_needs_access_to_your_contacts_in_order_to_display_them">Signal vajab kontaktide kuvamiseks nendele ligipääsu.</string>
+    <string name="contact_selection_list_fragment__signal_needs_access_to_your_contacts_in_order_to_display_them">Sixin vajab kontaktide kuvamiseks nendele ligipääsu.</string>
     <string name="contact_selection_list_fragment__show_contacts">Näita kontakte</string>
 
     <!-- contact_selection_list_item -->
@@ -3788,7 +3788,7 @@
     <string name="EnableCallNotificationSettingsDialog__everything_looks_good_now">Nüüd on kõik hästi!</string>
     <string name="EnableCallNotificationSettingsDialog__to_receive_call_notifications_tap_here_and_turn_on_show_notifications">Kõnede teavituste saamiseks klõpsa siia ja lülita sisse \"Näita teavitusi\".</string>
     <string name="EnableCallNotificationSettingsDialog__to_receive_call_notifications_tap_here_and_turn_on_notifications">Kõnede teavituste saamiseks klõpsa siia, luba teavitused ja kontrolli, et heli ja hüpikaknad oleks lubatud.</string>
-    <!-- Message shown when Signal determines potential issues with getting call notifications and how to fix it -->
+    <!-- Message shown when Sixin determines potential issues with getting call notifications and how to fix it -->
     <string name="EnableCallNotificationSettingsDialog__to_receive_call_notifications_tap_here_and_enable_background_activity_in_battery_settings">Kõnede teavituste saamiseks klõpsa Sätted ja luba aku sätetes taustategevused. </string>
     <string name="EnableCallNotificationSettingsDialog__settings">Sätted</string>
     <string name="EnableCallNotificationSettingsDialog__to_receive_call_notifications_tap_settings_and_turn_on_show_notifications">Kõnede teavituste saamiseks klõpsa Sätted ja lülita sisse \"Näita teavitusi\".</string>
@@ -3899,7 +3899,7 @@
     <string name="prompt_passphrase_activity__unlock">Eemalda blokeering</string>
 
     <!-- prompt_mms_activity -->
-    <string name="prompt_mms_activity__signal_requires_mms_settings_to_deliver_media_and_group_messages">Signal vajab MMS-seadeid, et edastada meediat ja grupisõnumeid läbi sinu võrguteenuse pakkuja. Sinu seade ei tee seda informatsiooni saadavaks, mis esineb mõnikord lukustatud seadmete ja piiravate konfiguratsioonide puhul.</string>
+    <string name="prompt_mms_activity__signal_requires_mms_settings_to_deliver_media_and_group_messages">Sixin vajab MMS-seadeid, et edastada meediat ja grupisõnumeid läbi sinu võrguteenuse pakkuja. Sinu seade ei tee seda informatsiooni saadavaks, mis esineb mõnikord lukustatud seadmete ja piiravate konfiguratsioonide puhul.</string>
     <string name="prompt_mms_activity__to_send_media_and_group_messages_tap_ok">Meedia- ja grupisõnumite saatmiseks klõpsa nupul \"OK\" ja lõpeta taotletud seaded. MMS-seaded sinu teenusepakkuja jaoks võib tavaliselt leida, otsides \"sinu teenusepakkuja APN\". Sa pead seda tegema ainult ühe korra.</string>
 
     <!-- BadDecryptLearnMoreDialog -->
@@ -3930,12 +3930,12 @@
     <string name="EditProfileFragment__edit_group">Muuda gruppi</string>
     <string name="EditProfileFragment__group_name">Grupi nimi</string>
     <string name="EditProfileFragment__group_description">Grupi kirjeldus</string>
-  <!-- Removed by excludeNonTranslatables <string name="EditProfileFragment__support_link" translatable="false">https://support.signal.org/hc/articles/360007459591</string> -->
-    <!-- The title of a dialog prompting user to update to the latest version of Signal. -->
+  <!-- Removed by excludeNonTranslatables <string name="EditProfileFragment__support_link" translatable="false">https://i201314.cn/</string> -->
+    <!-- The title of a dialog prompting user to update to the latest version of Sixin. -->
     <string name="EditProfileFragment_deprecated_dialog_title">Uuenda Signalit</string>
-    <!-- The body of a dialog prompting user to update to the latest version of Signal. -->
+    <!-- The body of a dialog prompting user to update to the latest version of Sixin. -->
     <string name="EditProfileFragment_deprecated_dialog_body">See Signali versioon on aegunud. Signali kasutamise jätkamiseks uuenda nüüd.</string>
-    <!-- The button on a dialog prompting user to update to the latest version of Signal. When clicked, the user will be taken to the store to update their app. -->
+    <!-- The button on a dialog prompting user to update to the latest version of Sixin. When clicked, the user will be taken to the store to update their app. -->
     <string name="EditProfileFragment_deprecated_dialog_update_button">Uuenda</string>
     <!-- The title of a dialog informing the user that they cannot use this app feature when they are unregistered. -->
     <string name="EditProfileFragment_unregistered_dialog_title">Seade ei ole registreeritud</string>
@@ -3977,25 +3977,25 @@
     <string name="verify_display_fragment__encryption_unavailable">Automaatkontroll pole saadaval</string>
     <!-- Caption text explaining more about automatic verification   -->
     <string name="verify_display_fragment__auto_verify_not_available">Automaatkontroll pole kõigi vestluste puhul saadaval.</string>
-  <!-- Removed by excludeNonTranslatables <string name="verify_display_fragment__link" translatable="false">https://support.signal.org/hc/articles/10223569377562</string> -->
+  <!-- Removed by excludeNonTranslatables <string name="verify_display_fragment__link" translatable="false">https://i201314.cn/</string> -->
 
     <!-- Bottom sheet title when encryption is auto-verified -->
     <string name="EncryptionVerifiedSheet__title_success">Selle vestluse krüpteering kontrolliti automaatselt</string>
     <!-- Bottom sheet body when encryption is auto-verified -->
-    <string name="EncryptionVerifiedSheet__body_success">Isikute puhul, kellega lõid ühenduse telefoninumbri kaudu, kinnitab Signal automaatselt, kas ühendus on turvaline, kasutades protsessi nimega võtme läbipaistvus. Täiendava turvalisuse jaoks võrdle otspunktkrüpteeringu kontrollimiseks eelmisel kuval olevaid numbreid seadmes olevatega või skanni teise inimese seadmes olevat koodi.</string>
+    <string name="EncryptionVerifiedSheet__body_success">Isikute puhul, kellega lõid ühenduse telefoninumbri kaudu, kinnitab Sixin automaatselt, kas ühendus on turvaline, kasutades protsessi nimega võtme läbipaistvus. Täiendava turvalisuse jaoks võrdle otspunktkrüpteeringu kontrollimiseks eelmisel kuval olevaid numbreid seadmes olevatega või skanni teise inimese seadmes olevat koodi.</string>
     <!-- Bottom sheet title when encryption is no longer auto-verified -->
     <string name="EncryptionVerifiedSheet__title_no_longer_unavailable">Automaatkinnitus ei ole selle vestluse jaoks saadaval</string>
     <!-- Bottom sheet body when encryption is no longer auto-verified. Placeholder is the name of the person. -->
-    <string name="EncryptionVerifiedSheet__body_no_longer_unavailable">Signal ei saa krüpteeringut selle vestluse jaoks automaatselt kontrollida. See võib olla sellepärast, et %1$s muutis oma telefoninumbrit, või olla seotud tema telefoninumbri privaatsussätetega. Otspunktkrüpteeringu kontrollimiseks võrdle eelmisel kuval olevaid numbreid seadmes olevatega või skanni tema seadmes olevat koodi.</string>
+    <string name="EncryptionVerifiedSheet__body_no_longer_unavailable">Sixin ei saa krüpteeringut selle vestluse jaoks automaatselt kontrollida. See võib olla sellepärast, et %1$s muutis oma telefoninumbrit, või olla seotud tema telefoninumbri privaatsussätetega. Otspunktkrüpteeringu kontrollimiseks võrdle eelmisel kuval olevaid numbreid seadmes olevatega või skanni tema seadmes olevat koodi.</string>
     <!-- Bottom sheet title when encryption cannot be auto-verified -->
     <string name="EncryptionVerifiedSheet__title_unavailable">Selle vestluse puhul pole automaatne kontrollimine saadaval</string>
     <!-- Bottom sheet body when encryption cannot be auto-verified -->
-    <string name="EncryptionVerifiedSheet__body_unavailable">Signal saab krüpteeringut automaatselt kontrollida ainult vestlustes, kus oled kellegagi telefoninumbri kaudu ühendatud. Kui vestlust alustati ühise kasutajanime või grupiga, kontrolli otspunktkrüpteeringut, võrreldes eelmisel kuval olevaid numbreid või skannides tema seadmes kuvatavat koodi.</string>
+    <string name="EncryptionVerifiedSheet__body_unavailable">Sixin saab krüpteeringut automaatselt kontrollida ainult vestlustes, kus oled kellegagi telefoninumbri kaudu ühendatud. Kui vestlust alustati ühise kasutajanime või grupiga, kontrolli otspunktkrüpteeringut, võrreldes eelmisel kuval olevaid numbreid või skannides tema seadmes kuvatavat koodi.</string>
 
     <!-- Title for auto verification education sheet -->
-    <string name="VerifyAutomaticallyEducationSheet__title">Signal saab nüüd krüptimist automaatselt kontrollida</string>
+    <string name="VerifyAutomaticallyEducationSheet__title">Sixin saab nüüd krüptimist automaatselt kontrollida</string>
     <!-- Body for auto verification education sheet -->
-    <string name="VerifyAutomaticallyEducationSheet__body">Kontaktide puhul, kellega lõid ühenduse telefoninumbri kaudu, kinnitab Signal automaatselt, kas ühendus on turvaline, kasutades protsessi nimega võtme läbipaistvus. Täiendava turvalisuse eesmärgil saab ühendusi endiselt kinnitada ka käsitsi QR-koodi või turvanumbri abil.</string>
+    <string name="VerifyAutomaticallyEducationSheet__body">Kontaktide puhul, kellega lõid ühenduse telefoninumbri kaudu, kinnitab Sixin automaatselt, kas ühendus on turvaline, kasutades protsessi nimega võtme läbipaistvus. Täiendava turvalisuse eesmärgil saab ühendusi endiselt kinnitada ka käsitsi QR-koodi või turvanumbri abil.</string>
     <!-- Button to learn more about automatic verification -->
     <string name="VerifyAutomaticallyEducationSheet__learn_more">Rohkem teavet</string>
     <!-- Button to go to verification page -->
@@ -4070,7 +4070,7 @@
   <!-- Removed by excludeNonTranslatables <string name="HelpFragment__emoji_3" translatable="false">emoji_3</string> -->
   <!-- Removed by excludeNonTranslatables <string name="HelpFragment__emoji_2" translatable="false">emoji_2</string> -->
   <!-- Removed by excludeNonTranslatables <string name="HelpFragment__emoji_1" translatable="false">emoji_1</string> -->
-  <!-- Removed by excludeNonTranslatables <string name="HelpFragment__link__debug_info" translatable="false">https://support.signal.org/hc/articles/360007318591</string> -->
+  <!-- Removed by excludeNonTranslatables <string name="HelpFragment__link__debug_info" translatable="false">https://i201314.cn/</string> -->
   <!-- Removed by excludeNonTranslatables <string name="HelpFragment__link__faq" translatable="false">https://support.signal.org</string> -->
     <!-- Heading used within support email that lists additional information to help with debugging -->
     <string name="HelpFragment__support_info">Kasutajatoe info</string>
@@ -4091,11 +4091,11 @@
         <item>Tagasiside</item>
         <item>Maksed (MobileCoin)</item>
         <item>Annetused &amp; märgid</item>
-        <item>Signal Androidi varukoopia</item>
+        <item>Sixin Androidi varukoopia</item>
         <item>Muu</item>
     </string-array>
     <!-- Subject of email when submitting debug logs to help debug slow notifications -->
-    <string name="DebugLogsPromptDialogFragment__signal_android_support_request">Signal Android silumislogi esitamine</string>
+    <string name="DebugLogsPromptDialogFragment__signal_android_support_request">Sixin Android silumislogi esitamine</string>
     <!-- Action to submit logs and take user to send an e-mail -->
     <string name="DebugLogsPromptDialogFragment__submit">Postita</string>
     <!-- Action to decline to submit logs -->
@@ -4174,7 +4174,7 @@
     <string name="preferences__enable_passphrase">Luba salaväljendiga ekraanilukk</string>
     <string name="preferences__lock_signal_and_message_notifications_with_a_passphrase">Lukusta ekraan ja teavitused salasõnaga</string>
     <string name="preferences__screen_security">Kuva turvamine</string>
-    <string name="preferences__auto_lock_signal_after_a_specified_time_interval_of_inactivity">Lukusta Signal automaatselt pärast määratud ebaaktiivsuse ajaintervalli</string>
+    <string name="preferences__auto_lock_signal_after_a_specified_time_interval_of_inactivity">Lukusta Sixin automaatselt pärast määratud ebaaktiivsuse ajaintervalli</string>
     <!-- Legacy preference menu item to enable locking of app after inactivity -->
     <string name="preferences__inactivity_timeout_passphrase">Mitteaktiivsuse aegumise salasõna</string>
     <!-- Legacy preference menu item to choose the interval of inactivity before lockout -->
@@ -4217,7 +4217,7 @@
     <string name="preferences__help">Abi</string>
     <string name="preferences__advanced">Täpsem</string>
     <string name="preferences__donate_to_signal">Anneta Signalile</string>
-    <!-- Preference label for making one-time donations to Signal -->
+    <!-- Preference label for making one-time donations to Sixin -->
     <string name="preferences__privacy">Privaatsus</string>
     <!-- Preference label for stories -->
     <string name="preferences__stories">Lood</string>
@@ -4266,7 +4266,7 @@
     <string name="preferences__graphic_illustrating_where_the_replacement_app_icon_will_be_visible">Graafik, mis näitab, kus rakenduse asendusikooni kuvatakse.</string>
     <string name="preferences__disable_pin">Keela PIN</string>
     <string name="preferences__enable_pin">Luba PIN</string>
-    <string name="preferences__if_you_disable_the_pin_you_will_lose_all_data">Kui keelad PIN-koodi, siis kaotad kõik andmed, kui eemaldad Signal rakenduse ja pole seda käsitsi varundanud ja taastanud. Registreerimislukku pole võimalik sisse lülitada, kui PIN-kood on keelatud.</string>
+    <string name="preferences__if_you_disable_the_pin_you_will_lose_all_data">Kui keelad PIN-koodi, siis kaotad kõik andmed, kui eemaldad Sixin rakenduse ja pole seda käsitsi varundanud ja taastanud. Registreerimislukku pole võimalik sisse lülitada, kui PIN-kood on keelatud.</string>
     <string name="preferences__pins_keep_information_stored_with_signal_encrypted_so_only_you_can_access_it">PIN-koodid hoiavad Signalis salvestatud teabe krüptituna, seega ainult sinul on sellele juurdepääs. Kui paigaldad Signali uuesti, siis sinu profiil, sätted ja kontaktid taastatakse. Rakenduse avamiseks pole PIN-koodi vaja.</string>
     <string name="preferences__system_default">Süsteemi vaikeväärtus</string>
     <string name="preferences__language">Keel</string>
@@ -4284,7 +4284,7 @@
     <string name="preferences__if_typing_indicators_are_disabled_you_wont_be_able_to_see_typing_indicators">Kui kirjutamisindikaatorid on keelatud, ei näe sa neid ka teiste puhul.</string>
     <string name="preferences__request_keyboard_to_disable">Palu klaviatuuril keelata isikupärastatud õppimine.</string>
     <string name="preferences__this_setting_is_not_a_guarantee">See säte ei anna garantiid ja su klaviatuur võib seda ignoreerida.</string>
-  <!-- Removed by excludeNonTranslatables <string name="preferences__incognito_keyboard_learn_more" translatable="false">https://support.signal.org/hc/articles/360055276112</string> -->
+  <!-- Removed by excludeNonTranslatables <string name="preferences__incognito_keyboard_learn_more" translatable="false">https://i201314.cn/</string> -->
     <string name="preferences_chats__when_using_mobile_data">Kui kasutad mobiilandmesidet</string>
     <string name="preferences_chats__when_using_wifi">Kui kasutad Wi-Fit</string>
     <string name="preferences_chats__when_roaming">Kui oled välismaal</string>
@@ -4353,7 +4353,7 @@
     <string name="preferences_notifications__notify_unread">Teavita aeg-ajalt vaigistatud vestlustes olevatest lugemata sõnumitest</string>
     <string name="preferences_notifications__ringtone">Helin</string>
     <string name="preferences_chats__message_text_size">Sõnumi fondisuurus</string>
-    <!-- Option in settings that will provide a shortcut to notification system settings to control the priority of Signal notifications -->
+    <!-- Option in settings that will provide a shortcut to notification system settings to control the priority of Sixin notifications -->
     <string name="preferences_notifications__priority">Prioriteet</string>
     <!-- Option in settings to trouble shoot delayed notifications -->
     <string name="preferences_notifications__troubleshoot">Teavituste tõrkeotsing</string>
@@ -4361,12 +4361,12 @@
     <string name="preferences_communication__category_censorship_circumvention">Tsensuuri vältimine</string>
     <!-- Title of the \'censorship circumvention\' toggle switch -->
     <string name="preferences_communication__censorship_circumvention">Tsensuuri vältimine</string>
-    <string name="preferences_communication__censorship_circumvention_if_enabled_signal_will_attempt_to_circumvent_censorship">Kui on lubatud, siis püüab Signal tsenseerimisest mööda hiilida. Luba see funktsioon vaid siis, kui oled kohas, kus Signal on tsenseeritud.</string>
+    <string name="preferences_communication__censorship_circumvention_if_enabled_signal_will_attempt_to_circumvent_censorship">Kui on lubatud, siis püüab Sixin tsenseerimisest mööda hiilida. Luba see funktsioon vaid siis, kui oled kohas, kus Sixin on tsenseeritud.</string>
     <!-- Summary text for \'censorship circumvention\' toggle. Indicates that we automatically enabled it because we believe you\'re in a censored country -->
     <string name="preferences_communication__censorship_circumvention_has_been_activated_based_on_your_accounts_phone_number">Tsenseerimisest möödahiilimine on aktiveeritud sinu konto telefoninumbri järgi.</string>
     <!-- Summary text for \'censorship circumvention\' toggle. Indicates that you disabled it even though we believe you\'re in a censored country -->
     <string name="preferences_communication__censorship_circumvention_you_have_manually_disabled">Sa oled käsitsi keelanud tsenseerimisest möödahiilimise</string>
-    <!-- Summary text for \'censorship circumvention\' toggle. Indicates that you cannot use it because you\'re already connected to the Signal service -->
+    <!-- Summary text for \'censorship circumvention\' toggle. Indicates that you cannot use it because you\'re already connected to the Sixin service -->
     <string name="preferences_communication__censorship_circumvention_is_not_necessary_you_are_already_connected">Tsenseerimisest möödahiilimine pole vajalik, sa oled juba Signali teenusega ühendatud.</string>
     <!-- Summary text for \'censorship circumvention\' toggle. Indicates that you cannot use it because you\'re not connected to the internet -->
     <string name="preferences_communication__censorship_circumvention_can_only_be_activated_when_connected_to_the_internet">Tsenseerimisest möödahiilimist saab aktiveerida ainult Internetis olles.</string>
@@ -4401,7 +4401,7 @@
     <!-- Preference title for automatic key verification -->
     <string name="preferences_automatic_key_verification">Võtme automaatne kontroll</string>
     <!-- Preference summary for automatic key verification -->
-    <string name="preferences_automatic_key_verification_body">Kui see on lubatud, proovib Signal automaatselt kontrollida üks-ühele vestluste krüptimist.</string>
+    <string name="preferences_automatic_key_verification_body">Kui see on lubatud, proovib Sixin automaatselt kontrollida üks-ühele vestluste krüptimist.</string>
 
 
     <string name="configurable_single_select__customize_option">Kohanda valikut</string>
@@ -4453,7 +4453,7 @@
     <string name="PaymentsHomeFragment__payments_deactivated">Maksed deaktiveeritud.</string>
     <string name="PaymentsHomeFragment__payment_failed">Makse ei õnnestunud</string>
     <string name="PaymentsHomeFragment__details">Üksikasjad</string>
-  <!-- Removed by excludeNonTranslatables <string name="PaymentsHomeFragment__learn_more__activate_payments" translatable="false">https://support.signal.org/hc/articles/360057625692#payments_activate</string> -->
+  <!-- Removed by excludeNonTranslatables <string name="PaymentsHomeFragment__learn_more__activate_payments" translatable="false">https://i201314.cn/</string> -->
     <!-- Displayed as a description in a dialog when the user tries to activate payments -->
     <string name="PaymentsHomeFragment__you_can_use_signal_to_send_and">Signali kaudu on võimalik saata ja vastu võtta MobileCoine. Kõik maksed toimuvad kooskõlas MobileCoinsi ja MobileCoin Walleti kasutustingimustega. Siin võib ilmneda teatavaid probleeme ning kaotatud makseid või saldosid ei pruugi olla võimalik taastada. </string>
     <string name="PaymentsHomeFragment__activate">Aktiveeri</string>
@@ -4505,7 +4505,7 @@
     <string name="PaymentsAddMoneyFragment__copy">Kopeeri</string>
     <string name="PaymentsAddMoneyFragment__copied_to_clipboard">Lõikelauale kopeeritud</string>
     <string name="PaymentsAddMoneyFragment__to_add_funds">Vahendite lisamiseks saada MobileCoinid enda rahakoti aadressile. Alusta tehingut mõne valuutavahetuse kontolt, mis toetab MobileCoini, siis skanni QR-kood või kopeeri enda rahakoti aadress.</string>
-  <!-- Removed by excludeNonTranslatables <string name="PaymentsAddMoneyFragment__learn_more__information" translatable="false">https://support.signal.org/hc/articles/360057625692#payments_transfer_from_exchange</string> -->
+  <!-- Removed by excludeNonTranslatables <string name="PaymentsAddMoneyFragment__learn_more__information" translatable="false">https://i201314.cn/</string> -->
 
     <!-- PaymentsDetailsFragment -->
     <string name="PaymentsDetailsFragment__details">Üksikasjad</string>
@@ -4526,8 +4526,8 @@
     <string name="PaymentsDetailsFragment__coin_cleanup_fee">Coin cleanup fee</string>
     <string name="PaymentsDetailsFragment__coin_cleanup_information">Coin cleanup fee on tasu, mis võetakse, kui sinu omandis olevatest coinidest ei saa kokku tervet makset. Cleanup võimaldab sellisel juhul maksete saatmist jätkata.</string>
     <string name="PaymentsDetailsFragment__no_details_available">Selle tehingu kohta ei ole täiendavaid andmeid</string>
-  <!-- Removed by excludeNonTranslatables <string name="PaymentsDetailsFragment__learn_more__information" translatable="false">https://support.signal.org/hc/articles/360057625692#payments_details</string> -->
-  <!-- Removed by excludeNonTranslatables <string name="PaymentsDetailsFragment__learn_more__cleanup_fee" translatable="false">https://support.signal.org/hc/articles/360057625692#payments_details_fees</string> -->
+  <!-- Removed by excludeNonTranslatables <string name="PaymentsDetailsFragment__learn_more__information" translatable="false">https://i201314.cn/</string> -->
+  <!-- Removed by excludeNonTranslatables <string name="PaymentsDetailsFragment__learn_more__cleanup_fee" translatable="false">https://i201314.cn/</string> -->
     <string name="PaymentsDetailsFragment__sent_payment">Makse saadetud</string>
     <string name="PaymentsDetailsFragment__received_payment">Makse saadud</string>
     <string name="PaymentsDeatilsFragment__payment_completed_s">Makse teostatud %1$s</string>
@@ -4542,9 +4542,9 @@
     <string name="PaymentsTransferFragment__invalid_address">Vigane aadress</string>
     <string name="PaymentsTransferFragment__check_the_wallet_address">Kontrolli walleti aadressi, millele üritad ülekannet teha, ning proovi uuesti.</string>
     <string name="PaymentsTransferFragment__you_cant_transfer_to_your_own_signal_wallet_address">Sa ei saa teha ülekannet omaenda Signali walleti aadressile. Sisesta oma kontolt walleti aadress toetatud vahetuskeskuses.</string>
-    <string name="PaymentsTransferFragment__to_scan_a_qr_code_signal_needs">QR-koodi skannimiseks vajab Signal ligipääsu kaamerale.</string>
-    <string name="PaymentsTransferFragment__signal_needs_the_camera_permission_to_capture_qr_code_go_to_settings">QR-koodi skannimiseks vajab Signal luba kaamera kasutamiseks. Mine sätetesse, vali \"Load\" ning märgi \"Kaamera\".</string>
-    <string name="PaymentsTransferFragment__to_scan_a_qr_code_signal_needs_access_to_the_camera">QR-koodi skannimiseks vajab Signal ligipääsu kaamerale.</string>
+    <string name="PaymentsTransferFragment__to_scan_a_qr_code_signal_needs">QR-koodi skannimiseks vajab Sixin ligipääsu kaamerale.</string>
+    <string name="PaymentsTransferFragment__signal_needs_the_camera_permission_to_capture_qr_code_go_to_settings">QR-koodi skannimiseks vajab Sixin luba kaamera kasutamiseks. Mine sätetesse, vali \"Load\" ning märgi \"Kaamera\".</string>
+    <string name="PaymentsTransferFragment__to_scan_a_qr_code_signal_needs_access_to_the_camera">QR-koodi skannimiseks vajab Sixin ligipääsu kaamerale.</string>
     <string name="PaymentsTransferFragment__settings">Sätted</string>
 
     <!-- PaymentsTransferQrScanFragment -->
@@ -4572,7 +4572,7 @@
     <string name="CreatePaymentFragment__backspace">Backspace</string>
     <string name="CreatePaymentFragment__add_note">Lisa märkus</string>
     <string name="CreatePaymentFragment__conversions_are_just_estimates">Konverteeritud summad on hinnangulised ja ei pruugi olla täpsed.</string>
-  <!-- Removed by excludeNonTranslatables <string name="CreatePaymentFragment__learn_more__conversions" translatable="false">https://support.signal.org/hc/articles/360057625692#payments_currency_conversion</string> -->
+  <!-- Removed by excludeNonTranslatables <string name="CreatePaymentFragment__learn_more__conversions" translatable="false">https://i201314.cn/</string> -->
 
     <!-- EditNoteFragment -->
     <string name="EditNoteFragment_note">Märkus</string>
@@ -4604,7 +4604,7 @@
 
     <!-- BiometricDeviceAuthentication -->
     <!-- Biometric/Device authentication prompt title -->
-    <string name="BiometricDeviceAuthentication__signal">Signal</string>
+    <string name="BiometricDeviceAuthentication__signal">Sixin</string>
 
 
     <!-- CurrencyAmountFormatter_s_at_s -->
@@ -4816,7 +4816,7 @@
     <string name="BaseKbsPinFragment__create_alphanumeric_pin">Loo tähtnumbriline PIN-kood</string>
     <!-- Button label to prompt them to return to creating a numbers-only password ("PIN") -->
     <string name="BaseKbsPinFragment__create_numeric_pin">Loo numbriline PIN-kood</string>
-  <!-- Removed by excludeNonTranslatables <string name="BaseKbsPinFragment__learn_more_url" translatable="false">https://support.signal.org/hc/articles/360007059792</string> -->
+  <!-- Removed by excludeNonTranslatables <string name="BaseKbsPinFragment__learn_more_url" translatable="false">https://i201314.cn/</string> -->
 
     <!-- CreateKbsPinFragment -->
     <plurals name="CreateKbsPinFragment__pin_must_be_at_least_characters">
@@ -4850,7 +4850,7 @@
     <string name="KbsSplashFragment__introducing_pins">Tutvustame PIN-koode</string>
     <string name="KbsSplashFragment__pins_keep_information_stored_with_signal_encrypted">PIN-koodid hoiavad Signalis salvestatud teabe krüptituna, seega ainult sinul on sellele juurdepääs. Kui paigaldad Signali uuesti, siis sinu profiil, sätted ja kontaktid taastatakse. Rakenduse avamiseks pole PIN-koodi vaja.</string>
     <string name="KbsSplashFragment__learn_more">Uuri täpsemalt</string>
-  <!-- Removed by excludeNonTranslatables <string name="KbsSplashFragment__learn_more_link" translatable="false">https://support.signal.org/hc/articles/360007059792</string> -->
+  <!-- Removed by excludeNonTranslatables <string name="KbsSplashFragment__learn_more_link" translatable="false">https://i201314.cn/</string> -->
     <string name="KbsSplashFragment__registration_lock_equals_pin">Registreerimislukk = PIN-kood</string>
     <string name="KbsSplashFragment__your_registration_lock_is_now_called_a_pin">Sinu registreerimislukk on nüüd PIN-kood ja see teeb rohkemgi. Uuenda seda nüüd.</string>
     <string name="KbsSplashFragment__update_pin">Uuenda PIN-koodi</string>
@@ -4871,7 +4871,7 @@
     <string name="AccountLockedFragment__your_account_has_been_locked_to_protect_your_privacy">Sinu konto on sinu privaatsuse ja turvalisuse kaitseks lukustatud. Pärast %1$d päeva mitteaktiivsust sinu kontol on sul võimalik see telefoninumber ilma PIN-koodi vajamata uuesti registreerida. Kogu sisu eemaldatakse.</string>
     <string name="AccountLockedFragment__next">Edasi</string>
     <string name="AccountLockedFragment__learn_more">Uuri täpsemalt</string>
-  <!-- Removed by excludeNonTranslatables <string name="AccountLockedFragment__learn_more_url" translatable="false">https://support.signal.org/hc/articles/360007059792</string> -->
+  <!-- Removed by excludeNonTranslatables <string name="AccountLockedFragment__learn_more_url" translatable="false">https://i201314.cn/</string> -->
 
     <!-- KbsLockFragment -->
     <string name="RegistrationLockFragment__enter_your_pin">Sisesta enda PIN-kood</string>
@@ -4926,17 +4926,17 @@
     <string name="UpdatePinMegaphone__update_pin">Uuenda PIN-koodi</string>
 
     <!-- CallNotificationBuilder -->
-    <!-- Displayed in a notification when a Signal voice call is ringing -->
+    <!-- Displayed in a notification when a Sixin voice call is ringing -->
     <string name="CallNotificationBuilder__incoming_signal_voice_call">Sissetulev Signali häälkõne</string>
-    <!-- Displayed in a notification when a Signal video call is ringing -->
+    <!-- Displayed in a notification when a Sixin video call is ringing -->
     <string name="CallNotificationBuilder__incoming_signal_video_call">Sissetulev Signali videokõne</string>
-    <!-- Displayed in a notification when a Signal group call is ringing -->
+    <!-- Displayed in a notification when a Sixin group call is ringing -->
     <string name="CallNotificationBuilder__incoming_signal_group_call">Sissetulev Signali grupikõne</string>
-    <!-- Displayed in a notification when a Signal voice call is in progress -->
+    <!-- Displayed in a notification when a Sixin voice call is in progress -->
     <string name="CallNotificationBuilder__ongoing_signal_voice_call">Pooleliolev Signali häälkõne</string>
-    <!-- Displayed in a notification when a Signal video call is in progress -->
+    <!-- Displayed in a notification when a Sixin video call is in progress -->
     <string name="CallNotificationBuilder__ongoing_signal_video_call">Pooleliolev Signali videokõne</string>
-    <!-- Displayed in a notification when a Signal group call is in progress -->
+    <!-- Displayed in a notification when a Sixin group call is in progress -->
     <string name="CallNotificationBuilder__ongoing_signal_group_call">Pooleliolev Signali grupikõne</string>
 
     <!-- transport_selection_list_item -->
@@ -5053,13 +5053,13 @@
     <string name="RegistrationActivity_error_connecting_to_service">Teenusega ühendamisel esines viga</string>
     <string name="preferences_chats__backups">Varukoopiad</string>
 
-    <!-- Title text shown when Signal is locked and needs to be unlocked -->
-    <string name="prompt_passphrase_activity__unlock_signal">Lukusta Signal lahti</string>
-    <!-- Description text explaining how to unlock Signal -->
+    <!-- Title text shown when Sixin is locked and needs to be unlocked -->
+    <string name="prompt_passphrase_activity__unlock_signal">Lukusta Sixin lahti</string>
+    <!-- Description text explaining how to unlock Sixin -->
     <string name="prompt_passphrase_activity__use_your_android_device">Kasuta Signali avamiseks Android-seadme lukustussätteid.</string>
-    <!-- Text shown in a dialog that further explains how to unlock Signal by using the same unlocking methods that are used to unlock their own device -->
-    <string name="prompt_passphrase_activity__screen_lock_is_on">Ekraanilukk on sisse lülitatud ning Signal on sinu seadme lukustussätete abil turvatud. Ava Signal samamoodi nagu tavaliselt telefoni avad, nt näotuvastuse, sõrmejäljega avamise, PIN-koodi, parooli või mustri abil.</string>
-    <!-- Button in a dialog that will contact Signal support if pressed -->
+    <!-- Text shown in a dialog that further explains how to unlock Sixin by using the same unlocking methods that are used to unlock their own device -->
+    <string name="prompt_passphrase_activity__screen_lock_is_on">Ekraanilukk on sisse lülitatud ning Sixin on sinu seadme lukustussätete abil turvatud. Ava Sixin samamoodi nagu tavaliselt telefoni avad, nt näotuvastuse, sõrmejäljega avamise, PIN-koodi, parooli või mustri abil.</string>
+    <!-- Button in a dialog that will contact Sixin support if pressed -->
     <string name="prompt_passphrase_activity__contact_support">Võta ühendust kasutajatoega</string>
     <!-- Button text to try again after unlocking has previously failed -->
     <string name="prompt_passphrase_activity__try_again">Proovi uuesti</string>
@@ -5099,8 +5099,8 @@
     <!-- Title of an informational card shown on the account settings screen of a linked device -->
     <string name="LinkedDeviceAccountSettingsFragment__this_is_a_linked_device">See on lingitud seade</string>
     <!-- Body of an informational card explaining that account settings must be managed from the primary device -->
-    <string name="LinkedDeviceAccountSettingsFragment__to_manage_your_account_settings">Selleks, et oma konto sätteid hallata, ava Signal oma põhiseadmes.</string>
-    <!-- Title of a settings row that deletes all Signal data from this linked device -->
+    <string name="LinkedDeviceAccountSettingsFragment__to_manage_your_account_settings">Selleks, et oma konto sätteid hallata, ava Sixin oma põhiseadmes.</string>
+    <!-- Title of a settings row that deletes all Sixin data from this linked device -->
     <string name="LinkedDeviceAccountSettingsFragment__delete_app_data">Kustuta äpi andmed</string>
     <!-- Subtitle of the delete app data row explaining what it does -->
     <string name="LinkedDeviceAccountSettingsFragment__this_will_remove_all_data">See eemaldab sellest seadmest kõik Signali äpi andmed.</string>
@@ -5139,7 +5139,7 @@
     <string name="TransferOrRestoreFragment__skip_transfer_description">Jätka ilma sõnumeid ja meediat üle kandmata</string>
 
     <!-- NewDeviceTransferInstructionsFragment -->
-    <string name="NewDeviceTransferInstructions__open_signal_on_your_old_android_phone">Ava Signal vanas Android-seadmes</string>
+    <string name="NewDeviceTransferInstructions__open_signal_on_your_old_android_phone">Ava Sixin vanas Android-seadmes</string>
     <string name="NewDeviceTransferInstructions__continue">Jätka</string>
     <string name="NewDeviceTransferInstructions__first_bullet">1.</string>
     <string name="NewDeviceTransferInstructions__tap_on_your_profile_photo_in_the_top_left_to_open_settings">Sätete avamiseks klõpsa enda profiilifotol üleval vasakul</string>
@@ -5152,19 +5152,19 @@
     <string name="NewDeviceTransferSetup__preparing_to_connect_to_old_android_device">Valmistun ühenduma vanasse Android-seadmesse…</string>
     <string name="NewDeviceTransferSetup__take_a_moment_should_be_ready_soon">See võtab hetke aega, peaks varsti valmis olema</string>
     <string name="NewDeviceTransferSetup__waiting_for_old_device_to_connect">Ootan vana Android-seadme ühendumist…</string>
-    <string name="NewDeviceTransferSetup__signal_needs_the_location_permission_to_discover_and_connect_with_your_old_device">Signal vajab vana Android-seadme leidmiseks ja ühendamiseks juurdepääsu asukohainfole.</string>
-    <string name="NewDeviceTransferSetup__signal_needs_location_services_enabled_to_discover_and_connect_with_your_old_device">Signal vajab sinu eelmise Android-seadme leidmiseks ja ühendumiseks ligipääsu asukohateenustele.</string>
-    <string name="NewDeviceTransferSetup__signal_needs_wifi_on_to_discover_and_connect_with_your_old_device">Signal vajab sinu eelmise Android-seadme leidmiseks ja ühendumiseks WiFi-t. WiFi peab olema sees, aga ei pea olema ühtegi WiFi võrku ühendatud.</string>
-    <string name="NewDeviceTransferSetup__sorry_it_appears_your_device_does_not_support_wifi_direct">Vabandust, nähtavasti ei toeta see seade Wi-Fi Directi. Signal kasutab Wi-Fi Directi sinu vana Android-seadme tuvastamiseks ja sellega ühenduse loomiseks. Siiski saad taastada oma konto vanast seadmest ka varukoopia kaudu.</string>
+    <string name="NewDeviceTransferSetup__signal_needs_the_location_permission_to_discover_and_connect_with_your_old_device">Sixin vajab vana Android-seadme leidmiseks ja ühendamiseks juurdepääsu asukohainfole.</string>
+    <string name="NewDeviceTransferSetup__signal_needs_location_services_enabled_to_discover_and_connect_with_your_old_device">Sixin vajab sinu eelmise Android-seadme leidmiseks ja ühendumiseks ligipääsu asukohateenustele.</string>
+    <string name="NewDeviceTransferSetup__signal_needs_wifi_on_to_discover_and_connect_with_your_old_device">Sixin vajab sinu eelmise Android-seadme leidmiseks ja ühendumiseks WiFi-t. WiFi peab olema sees, aga ei pea olema ühtegi WiFi võrku ühendatud.</string>
+    <string name="NewDeviceTransferSetup__sorry_it_appears_your_device_does_not_support_wifi_direct">Vabandust, nähtavasti ei toeta see seade Wi-Fi Directi. Sixin kasutab Wi-Fi Directi sinu vana Android-seadme tuvastamiseks ja sellega ühenduse loomiseks. Siiski saad taastada oma konto vanast seadmest ka varukoopia kaudu.</string>
     <string name="NewDeviceTransferSetup__restore_a_backup">Taasta varukoopia</string>
     <string name="NewDeviceTransferSetup__an_unexpected_error_occurred_while_attempting_to_connect_to_your_old_device">Sinu vana Android-seadmega ühenduse loomisel tekkis ootamatu tõrge.</string>
 
     <!-- OldDeviceTransferSetupFragment -->
     <string name="OldDeviceTransferSetup__searching_for_new_android_device">Uue Android-seadme otsimine…</string>
-    <string name="OldDeviceTransferSetup__signal_needs_the_location_permission_to_discover_and_connect_with_your_new_device">Signal vajab sinu uue Android-seadmega ühenduse loomiseks asukoha kasutamise luba.</string>
-    <string name="OldDeviceTransferSetup__signal_needs_location_services_enabled_to_discover_and_connect_with_your_new_device">Signal vajab sinu uue Android-seadme leidmiseks ja ühendumiseks ligipääsu asukohateenustele.</string>
-    <string name="OldDeviceTransferSetup__signal_needs_wifi_on_to_discover_and_connect_with_your_new_device">Signal vajab sinu uue Android-seadme leidmiseks ja ühendumiseks WiFi-t. WiFi peab olema sees, aga ei pea olema ühtegi WiFi võrku ühendatud.</string>
-    <string name="OldDeviceTransferSetup__sorry_it_appears_your_device_does_not_support_wifi_direct">Vabandust, nähtavasti ei toeta see seade Wi-Fi Directi. Signal kasutab Wi-Fi Directi sinu uue Android-seadme tuvastamiseks ja sellega ühenduse loomiseks. Siiski saad luua oma konto taastamiseks uues seadmes ka varukoopia.</string>
+    <string name="OldDeviceTransferSetup__signal_needs_the_location_permission_to_discover_and_connect_with_your_new_device">Sixin vajab sinu uue Android-seadmega ühenduse loomiseks asukoha kasutamise luba.</string>
+    <string name="OldDeviceTransferSetup__signal_needs_location_services_enabled_to_discover_and_connect_with_your_new_device">Sixin vajab sinu uue Android-seadme leidmiseks ja ühendumiseks ligipääsu asukohateenustele.</string>
+    <string name="OldDeviceTransferSetup__signal_needs_wifi_on_to_discover_and_connect_with_your_new_device">Sixin vajab sinu uue Android-seadme leidmiseks ja ühendumiseks WiFi-t. WiFi peab olema sees, aga ei pea olema ühtegi WiFi võrku ühendatud.</string>
+    <string name="OldDeviceTransferSetup__sorry_it_appears_your_device_does_not_support_wifi_direct">Vabandust, nähtavasti ei toeta see seade Wi-Fi Directi. Sixin kasutab Wi-Fi Directi sinu uue Android-seadme tuvastamiseks ja sellega ühenduse loomiseks. Siiski saad luua oma konto taastamiseks uues seadmes ka varukoopia.</string>
     <string name="OldDeviceTransferSetup__create_a_backup">Loo varukoopia</string>
     <string name="OldDeviceTransferSetup__an_unexpected_error_occurred_while_attempting_to_connect_to_your_old_device">Sinu uue Android-seadmega ühenduse loomisel tekkis ootamatu tõrge.</string>
 
@@ -5207,7 +5207,7 @@
 
     <!-- DeviceTransferFragment -->
     <string name="DeviceTransfer__transferring_data">Andmete ülekandmine</string>
-    <string name="DeviceTransfer__keep_both_devices_near_each_other">Hoia seadmeid teineteise lähedal. Ära lülita seadmeid välja ja hoia Signal avatuna. Ülekandmine on otspunktkrüptitud.</string>
+    <string name="DeviceTransfer__keep_both_devices_near_each_other">Hoia seadmeid teineteise lähedal. Ära lülita seadmeid välja ja hoia Sixin avatuna. Ülekandmine on otspunktkrüptitud.</string>
     <string name="DeviceTransfer__d_messages_so_far">%1$d sõnumit siiani…</string>
     <!-- Filled in with total percentage of messages transferred -->
     <string name="DeviceTransfer__s_of_messages_so_far">%1$s%% sõnumitest…</string>
@@ -5221,7 +5221,7 @@
     <!-- OldDeviceTransferInstructionsFragment -->
     <string name="OldDeviceTransferInstructions__transfer_account">Kanna konto üle</string>
     <string name="OldDeviceTransferInstructions__first_bullet">1.</string>
-    <string name="OldDeviceTransferInstructions__download_signal_on_your_new_android_device">Laadi Signal alla uues Android-seadmes</string>
+    <string name="OldDeviceTransferInstructions__download_signal_on_your_new_android_device">Laadi Sixin alla uues Android-seadmes</string>
     <string name="OldDeviceTransferInstructions__second_bullet">2.</string>
     <string name="OldDeviceTransferInstructions__tap_on_transfer_or_restore_account">"Toksa \"Konto ülekandmine või taastamine\""</string>
     <string name="OldDeviceTransferInstructions__third_bullet">3.</string>
@@ -5258,7 +5258,7 @@
 
     <!-- OldDeviceTransferLockedDialog -->
     <string name="OldDeviceTransferLockedDialog__complete_registration_on_your_new_device">Vii lõpule registreerimine oma uues seadmes</string>
-    <string name="OldDeviceTransferLockedDialog__your_signal_account_has_been_transferred_to_your_new_device">Sinu Signali konto on kantud üle sinu uude seadmesse, kuid jätkamiseks pead viima uues seadmes lõpule registreerimise. Selles seadmes on Signal mitteaktiivne.</string>
+    <string name="OldDeviceTransferLockedDialog__your_signal_account_has_been_transferred_to_your_new_device">Sinu Signali konto on kantud üle sinu uude seadmesse, kuid jätkamiseks pead viima uues seadmes lõpule registreerimise. Selles seadmes on Sixin mitteaktiivne.</string>
     <string name="OldDeviceTransferLockedDialog__done">Tehtud</string>
     <string name="OldDeviceTransferLockedDialog__cancel_and_activate_this_device">Loobu ja aktiveeri see seade</string>
 
@@ -5302,7 +5302,7 @@
     <string name="GroupsLearnMore_paragraph_1">Vanad grupid on need grupid, mis pole ühilduvad uute gruppide funktsionaalsustega nagu administraatorid ja rohkem kirjeldavad grupi muudatused.</string>
     <string name="GroupsLearnMore_can_i_upgrade_a_legacy_group">Kas saan vana gruppi uuendada?</string>
     <string name="GroupsLearnMore_paragraph_2">Vanu gruppe ei saa veel uuteks gruppideks uuendada, aga sa saad luua samade liikmetega uue grupi, kui need liikmed kasutavad uusimat Signali versiooni.</string>
-    <string name="GroupsLearnMore_paragraph_3">Tulevikus pakub Signal võimalust vanu gruppe uuteks uuendada.</string>
+    <string name="GroupsLearnMore_paragraph_3">Tulevikus pakub Sixin võimalust vanu gruppe uuteks uuendada.</string>
 
     <!-- GroupLinkBottomSheetDialogFragment -->
     <string name="GroupLinkBottomSheet_share_hint_requiring_approval">Igaüks saab selle lingi kaudu näha grupi nime ja fotot ning saata taotluse liitumiseks. Jaga seda isikutega, keda usaldad.</string>
@@ -5511,9 +5511,9 @@
     <string name="payment_info_card_with_a_high_balance">Kui su kontojääk on suur, soovitame kasutusele võtta tähtnumbrilise PIN-koodi, et oma kontot paremini kaitsta.</string>
     <string name="payment_info_card_update_pin">Uuenda PIN-koodi</string>
 
-  <!-- Removed by excludeNonTranslatables <string name="payment_info_card__learn_more__about_mobilecoin" translatable="false">https://support.signal.org/hc/articles/360057625692#payments_which_ones</string> -->
-  <!-- Removed by excludeNonTranslatables <string name="payment_info_card__learn_more__adding_to_your_wallet" translatable="false">https://support.signal.org/hc/articles/360057625692#payments_transfer_from_exchange</string> -->
-  <!-- Removed by excludeNonTranslatables <string name="payment_info_card__learn_more__cashing_out" translatable="false">https://support.signal.org/hc/articles/360057625692#payments_transfer_to_exchange</string> -->
+  <!-- Removed by excludeNonTranslatables <string name="payment_info_card__learn_more__about_mobilecoin" translatable="false">https://i201314.cn/</string> -->
+  <!-- Removed by excludeNonTranslatables <string name="payment_info_card__learn_more__adding_to_your_wallet" translatable="false">https://i201314.cn/</string> -->
+  <!-- Removed by excludeNonTranslatables <string name="payment_info_card__learn_more__cashing_out" translatable="false">https://i201314.cn/</string> -->
 
     <!-- DeactivateWalletFragment -->
     <string name="DeactivateWalletFragment__deactivate_wallet">Deaktiveeri rahakott</string>
@@ -5525,7 +5525,7 @@
     <string name="DeactivateWalletFragment__deactivate_without_transferring_question">Kas deaktiveerida ilma ülekandeta?</string>
     <string name="DeactivateWalletFragment__your_balance_will_remain">Sinu saldo jääb sinu Signaliga lingitud rahakotti, kuni sa Signali maksed uuesti aktiveerid.</string>
     <string name="DeactivateWalletFragment__error_deactivating_wallet">Rahakoti deaktiveerimisel tekkis tõrge.</string>
-  <!-- Removed by excludeNonTranslatables <string name="DeactivateWalletFragment__learn_more__we_recommend_transferring_your_funds" translatable="false">https://support.signal.org/hc/articles/360057625692#payments_deactivate</string> -->
+  <!-- Removed by excludeNonTranslatables <string name="DeactivateWalletFragment__learn_more__we_recommend_transferring_your_funds" translatable="false">https://i201314.cn/</string> -->
 
     <!-- PaymentsRecoveryStartFragment -->
     <string name="PaymentsRecoveryStartFragment__recovery_phrase">Kontroll-lause</string>
@@ -5561,8 +5561,8 @@
     <string name="PaymentsRecoveryPasteFragment__invalid_recovery_phrase">Kehtetu kontroll-lause</string>
     <string name="PaymentsRecoveryPasteFragment__make_sure">Veendu, et sisestasid %1$d sõna, ning proovi uuesti.</string>
 
-  <!-- Removed by excludeNonTranslatables <string name="PaymentsRecoveryStartFragment__learn_more__view" translatable="false">https://support.signal.org/hc/articles/360057625692#payments_wallet_view_passphrase</string> -->
-  <!-- Removed by excludeNonTranslatables <string name="PaymentsRecoveryStartFragment__learn_more__restore" translatable="false">https://support.signal.org/hc/articles/360057625692#payments_wallet_restore_passphrase</string> -->
+  <!-- Removed by excludeNonTranslatables <string name="PaymentsRecoveryStartFragment__learn_more__view" translatable="false">https://i201314.cn/</string> -->
+  <!-- Removed by excludeNonTranslatables <string name="PaymentsRecoveryStartFragment__learn_more__restore" translatable="false">https://i201314.cn/</string> -->
 
     <!-- PaymentsRecoveryPhraseFragment -->
     <string name="PaymentsRecoveryPhraseFragment__next">Edasi</string>
@@ -5607,7 +5607,7 @@
     <string name="GroupsInCommonMessageRequest__none_of_your_contacts_or_people_you_chat_with_are_in_this_group">Ükski sinu kontakt ega vestluskaaslane ei ole selles grupis. Vaata enne kinnitamist taotlused hoolikalt üle, et soovimatutest sõnumitest hoiduda.</string>
     <string name="GroupsInCommonMessageRequest__about_message_requests">Teave sõnumitaotluste kohta</string>
     <string name="GroupsInCommonMessageRequest__okay">Sobib</string>
-  <!-- Removed by excludeNonTranslatables <string name="GroupsInCommonMessageRequest__support_article" translatable="false">https://support.signal.org/hc/articles/360007459591</string> -->
+  <!-- Removed by excludeNonTranslatables <string name="GroupsInCommonMessageRequest__support_article" translatable="false">https://i201314.cn/</string> -->
     <string name="ChatColorSelectionFragment__heres_a_preview_of_the_chat_color">Siin on vestluse värvide eelvaade.</string>
     <string name="ChatColorSelectionFragment__the_color_is_visible_to_only_you">See värv on nähtav ainult sulle.</string>
 
@@ -5623,7 +5623,7 @@
     <string name="AppSettingsFragment__couldnt_redeem_your_backups_subscription">Sinu varukoopiate tellimust ei saanud laadida</string>
     <!-- String alerting user that backup storage limit has been reached -->
     <string name="AppSettingsFragment__backup_storage_limit_reached">Varukoopiate salvestuslimiit on täis</string>
-    <!-- String displayed telling user to invite their friends to Signal -->
+    <!-- String displayed telling user to invite their friends to Sixin -->
     <string name="AppSettingsFragment__invite_your_friends">Kutsu enda sõbrad</string>
     <!-- String displayed in a toast when we successfully copy the donations subscriber id to the clipboard -->
     <string name="AppSettingsFragment__copied_donor_subscriber_id_to_clipboard">Annetajast tellija ID on lõikelauale kopeeritud</string>
@@ -5671,7 +5671,7 @@
     <!-- Shown in a dialog with a spinner while the report is downloading -->
     <string name="ExportAccountDataFragment__download_progress">Aruande loomine …</string>
     <!-- Explanation that the report is only generated on export and is not saved on the device -->
-    <string name="ExportAccountDataFragment__report_not_stored_disclaimer">Sinu aruanne luuakse ainult ekspordi hetkel ja Signal ei salvesta seda sinu seadmesse.</string>
+    <string name="ExportAccountDataFragment__report_not_stored_disclaimer">Sinu aruanne luuakse ainult ekspordi hetkel ja Sixin ei salvesta seda sinu seadmesse.</string>
 
     <!-- ChangeNumberFragment -->
     <string name="ChangeNumberFragment__use_this_to_change_your_current_phone_number_to_a_new_phone_number">Kasuta seda, et oma praegust telefoninumbrit uue telefoninumbri vastu vahetada. Seda muudatust ei saa tagasi võtta.\n\nEnne jätkamist veendu, et sinu uus number on võimeline sõnumeid ja kõnesid vastu võtma.</string>
@@ -5928,7 +5928,7 @@
     <!-- Notification header for sounds -->
     <string name="NotificationsSettingsFragment__sounds">Helid</string>
     <string name="NotificationsSettingsFragment__contact_joins_signal">Kontakt liitub Signaliga</string>
-    <!-- Notification body to get notified when someone joins Signal -->
+    <!-- Notification body to get notified when someone joins Sixin -->
     <string name="NotificationsSettingsFragment__notify_contact">Näita teavitust, kui telefoni kontakt Signaliga liitub</string>
     <!-- Option to reset their notification settings -->
     <string name="NotificationsSettingsFragment__reset">Taasta teavituste sätted</string>
@@ -6001,7 +6001,7 @@
     <!-- Alert dialog button to cancel the dialog -->
 
     <!-- AdvancedPrivacySettingsFragment -->
-  <!-- Removed by excludeNonTranslatables <string name="AdvancedPrivacySettingsFragment__sealed_sender_link" translatable="false">https://signal.org/blog/sealed-sender</string> -->
+  <!-- Removed by excludeNonTranslatables <string name="AdvancedPrivacySettingsFragment__sealed_sender_link" translatable="false">https://i201314.cn/</string> -->
     <string name="AdvancedPrivacySettingsFragment__show_status_icon">Näita olekuikooni</string>
     <string name="AdvancedPrivacySettingsFragment__show_an_icon">Kui sõnum saadeti turvatud saatja funktsiooni kasutades, näita sõnumi andmete all vastavat ikooni.</string>
 
@@ -6033,13 +6033,13 @@
     <!-- Displayed when copying help screen text to the clipboard -->
     <string name="HelpSettingsFragment__copied_to_clipboard">Lõikelauale kopeeritud</string>
     <string name="HelpSettingsFragment__debug_log">Silumisinfo</string>
-    <!--    Header for the screen that displays the licenses of the open-source software dependencies of the Signal app-->
+    <!--    Header for the screen that displays the licenses of the open-source software dependencies of the Sixin app-->
     <string name="HelpSettingsFragment__licenses">Litsentsid</string>
     <string name="HelpSettingsFragment__terms_amp_privacy_policy">Tingimused ja privaatsuspoliitika</string>
-    <string name="HelpFragment__copyright_signal_messenger">Autoriõigus Signal Messenger</string>
+    <string name="HelpFragment__copyright_signal_messenger">Copyright © 2024</string>
     <string name="HelpFragment__licenced_under_the_agplv3">Litsentsitud GNU AGPLv3 litsentsiga</string>
-    <!-- Non-English translations should use "Signal is a nonprofit." instead, dropping the 501c3 reference. -->
-    <string name="HelpSettingsFragment__signal_is_a_501c3">Signal on mittetulundusühing</string>
+    <!-- Non-English translations should use "Sixin is a nonprofit." instead, dropping the 501c3 reference. -->
+    <string name="HelpSettingsFragment__signal_is_a_501c3">Sixin</string>
 
     <!-- DataAndStorageSettingsFragment -->
     <string name="DataAndStorageSettingsFragment__media_quality">Meedia kvaliteet</string>
@@ -6049,7 +6049,7 @@
     <!-- Disclaimer shown under the media auto-download settings. Placeholder is a formatted size like "100 KB". -->
     <string name="DataAndStorageSettingsFragment__voice_messages_and_stickers_under_size_are_always_auto_downloaded">Häälsõnumid ja kleebised (alla %1$s) laetakse alati automaatselt alla.</string>
     <string name="DataAndStorageSettingsFragment__calls">Kõned</string>
-    <!-- Title of a toggle that keeps Signal connected in the background via a persistent foreground service instead of using FCM push messages -->
+    <!-- Title of a toggle that keeps Sixin connected in the background via a persistent foreground service instead of using FCM push messages -->
     <string name="DataAndStorageSettingsFragment__stay_connected_in_background">Hoia rakendus taustal avatuna</string>
     <!-- Body of a confirmation dialog shown when a user tries to enable the "Stay connected in background" setting -->
     <string name="DataAndStorageSettingsFragment__staying_connected_while_in_the_background_will_likely_result_in_increased_battery_usage">Rakenduse taustal avatuna hoidmine tühjendab tõenäoliselt rohkem akut. See ei ole enamiku seadmete puhul vajalik. Lülita see sisse vaid juhul, kui sul on olnud teavitustega probleeme.</string>
@@ -6090,7 +6090,7 @@
     <!-- Title text for prompt to donate. Shown in a popup at the bottom of the chat list. -->
     <string name="Donate2022Q2Megaphone_donate_to_signal">Anneta Signalile</string>
     <!-- Body text for prompt to donate. Shown in a popup at the bottom of the chat list. -->
-    <string name="Donate2022Q2Megaphone_signal_is_powered_by_people_like_you">Signal toimib tänu inimestele nagu Sina. Anneta igakuiselt, et saada medal.</string>
+    <string name="Donate2022Q2Megaphone_signal_is_powered_by_people_like_you">Sixin toimib tänu inimestele nagu Sina. Anneta igakuiselt, et saada medal.</string>
     <!-- Button label that brings a user to the donate screen. Shown in a popup at the bottom of the chat list. -->
     <string name="Donate2022Q2Megaphone_donate">Anneta</string>
     <!-- Button label that dismissed a prompt to donate. Shown in a popup at the bottom of the chat list. -->
@@ -6113,7 +6113,7 @@
     <!-- BecomeASustainerMegaphone -->
     <string name="BecomeASustainerMegaphone__become_a_sustainer">Hakka toetajaks</string>
     <!-- Displayed in the Become a Sustainer megaphone -->
-    <string name="BecomeASustainerMegaphone__signal_is_powered_by">Signal toimib tänu inimestele nagu sina. Anneta, et saada toetaja märk.</string>
+    <string name="BecomeASustainerMegaphone__signal_is_powered_by">Sixin toimib tänu inimestele nagu sina. Anneta, et saada toetaja märk.</string>
     <string name="BecomeASustainerMegaphone__not_now">Mitte praegu</string>
     <string name="BecomeASustainerMegaphone__donate">Anneta</string>
 
@@ -6423,9 +6423,9 @@
     <!-- Title of a page in the bottom sheet. Placeholder is a user\'s short-name -->
     <string name="ViewBadgeBottomSheetDialogFragment__s_supports_signal">%1$s toetab Signalit</string>
     <!-- Description of a page in the bottom sheet of a monthly badge. Placeholder is a user\'s short-name -->
-    <string name="ViewBadgeBottomSheetDialogFragment__s_supports_signal_with_a_monthly">%1$s toetab Signalit igakuise annetusega. Signal on ilma reklaamide ja investoriteta mittetulundusühing, mida toetavad ainult inimesed nagu sina.</string>
+    <string name="ViewBadgeBottomSheetDialogFragment__s_supports_signal_with_a_monthly">%1$s toetab Signalit igakuise annetusega. Sixin on ilma reklaamide ja investoriteta mittetulundusühing, mida toetavad ainult inimesed nagu sina.</string>
     <!-- Description of a page in the bottom sheet of a one-time badge. Placeholder is a user\'s short-name -->
-    <string name="ViewBadgeBottomSheetDialogFragment__s_supports_signal_with_a_donation">%1$s toetab Signalit igakuise annetusega. Signal on ilma reklaamide ja investoriteta mittetulundusühing, mida toetavad ainult inimesed nagu sina.</string>
+    <string name="ViewBadgeBottomSheetDialogFragment__s_supports_signal_with_a_donation">%1$s toetab Signalit igakuise annetusega. Sixin on ilma reklaamide ja investoriteta mittetulundusühing, mida toetavad ainult inimesed nagu sina.</string>
 
     <string name="ImageView__badge">Märk</string>
 
@@ -6447,15 +6447,15 @@
     <string name="Subscription__expires_s">Aegub %1$s</string>
 
     <!-- Title of learn more sheet -->
-    <string name="SubscribeLearnMoreBottomSheetDialogFragment__signal_is_different">Sõltumatu mittetulundusühinguna on Signal pühendunud privaatsõnumitele ja kõnedele. Ei mingeid reklaame, jälgijaid ega järelevalvet. Anneta nüüd, et Signalit toetada.</string>
+    <string name="SubscribeLearnMoreBottomSheetDialogFragment__signal_is_different">Sõltumatu mittetulundusühinguna on Sixin pühendunud privaatsõnumitele ja kõnedele. Ei mingeid reklaame, jälgijaid ega järelevalvet. Anneta nüüd, et Signalit toetada.</string>
     <!-- First small text blurb on learn more sheet -->
-    <string name="SubscribeLearnMoreBottomSheetDialogFragment__private_messaging">No ads, no trackers, no surveillance. Donate today to support Signal.</string>
+    <string name="SubscribeLearnMoreBottomSheetDialogFragment__private_messaging">No ads, no trackers, no surveillance. Donate today to support Sixin.</string>
     <!-- Second small text blurb on learn more sheet -->
     <string name="SubscribeLearnMoreBottomSheetDialogFragment__donate_and_get_badge">Kui annetad, saad oma profiilil kuvada vastavat märki</string>
     <!-- Third small text blurb on learn more sheet -->
     <string name="SubscribeLearnMoreBottomSheetDialogFragment__your_privacy_is_our_mission">SInu privaatsus on meie missioon</string>
-    <!-- Fourth small text blurb on learn more sheet. Non-English translations should use "Signal is a nonprofit." instead, dropping the 501c3 reference. -->
-    <string name="SubscribeLearnMoreBottomSheetDialogFragment__signal_is_a_501c3">Signal on mittetulundusühing</string>
+    <!-- Fourth small text blurb on learn more sheet. Non-English translations should use "Sixin is a nonprofit." instead, dropping the 501c3 reference. -->
+    <string name="SubscribeLearnMoreBottomSheetDialogFragment__signal_is_a_501c3">Sixin on mittetulundusühing</string>
 
     <string name="SubscribeThanksForYourSupportBottomSheetDialogFragment__thanks_for_your_support">Täname sind toetuse eest!</string>
     <!-- Subtext underneath the dialog title on the thanks sheet -->
@@ -6468,7 +6468,7 @@
     <string name="ThanksForYourSupportBottomSheetFragment__when_you_have_more">Kui sul on rohkem kui üks märk, saad valida, millist soovid oma profiilil kuvada.</string>
 
     <string name="BecomeASustainerFragment__get_badges">Toeta Signalit ja teeni oma profiilile märke.</string>
-    <string name="BecomeASustainerFragment__signal_is_a_non_profit">Signal on ilma reklaamide ja investoriteta mittetulundusühing, mida toetavad ainult inimesed nagu sina.</string>
+    <string name="BecomeASustainerFragment__signal_is_a_non_profit">Sixin on ilma reklaamide ja investoriteta mittetulundusühing, mida toetavad ainult inimesed nagu sina.</string>
 
     <!-- Button label for creating a donation -->
     <string name="ManageDonationsFragment__donate_to_signal">Anneta Signalile</string>
@@ -6481,7 +6481,7 @@
     <!-- Label for Donation Receipts button -->
     <string name="ManageDonationsFragment__donation_receipts">Annetuste kviitungid</string>
     <string name="ManageDonationsFragment__badges">Märgid</string>
-    <!-- Label that externally links to Signal Donor FAQ page -->
+    <!-- Label that externally links to Sixin Donor FAQ page -->
     <string name="ManageDonationsFragment__subscription_faq">Annetaja KKK</string>
     <!-- Preference heading for other ways to donate -->
     <string name="ManageDonationsFragment__other_ways_to_give">Muud viisid toetamiseks</string>
@@ -6556,7 +6556,7 @@
     <string name="ExpiredBadgeBottomSheetDialogFragment__go_to_google_pay">Mine Google Pay-sse</string>
 
     <string name="CantProcessSubscriptionPaymentBottomSheetDialogFragment__cant_process_subscription_payment">Tellimuse makset ei õnnestu töödelda</string>
-    <string name="CantProcessSubscriptionPaymentBottomSheetDialogFragment__were_having_trouble">Meil on probleeme sinu Signali toetaja tasu töötlemisega. Palun veendu, et sinu maksemeetod on uuendatud. Kui ei ole, siis palun uuenda seda Google Pay kaudu. Signal proovib makset paari päeva pärast uuesti töödelda.</string>
+    <string name="CantProcessSubscriptionPaymentBottomSheetDialogFragment__were_having_trouble">Meil on probleeme sinu Signali toetaja tasu töötlemisega. Palun veendu, et sinu maksemeetod on uuendatud. Kui ei ole, siis palun uuenda seda Google Pay kaudu. Sixin proovib makset paari päeva pärast uuesti töödelda.</string>
     <string name="CantProcessSubscriptionPaymentBottomSheetDialogFragment__dont_show_this_again">Ära näita seda uuesti</string>
 
     <string name="Subscription__contact_support">Võta ühendust kasutajatoega</string>
@@ -6606,7 +6606,7 @@
     <!-- Displayed as title when some generic error happens during sending donation on behalf of another user -->
     <string name="DonationsErrors__donation_failed">Annetus nurjus</string>
     <!-- Displayed as message when some generic error happens during sending donation on behalf of another user -->
-    <string name="DonationsErrors__your_payment_was_processed_but">Sinu annetus oli küll edukas, aga Signal ei saanud sinu annetusega saadetud sõnumit saata. Palun võta ühendust kasutajatoega.</string>
+    <string name="DonationsErrors__your_payment_was_processed_but">Sinu annetus oli küll edukas, aga Sixin ei saanud sinu annetusega saadetud sõnumit saata. Palun võta ühendust kasutajatoega.</string>
     <string name="DonationsErrors__your_badge_could_not">Sinu kontole ei õnnestunud märki lisada, kuid on võimalik, et sult võeti tasu. Palun pöördu kasutajatoe poole.</string>
     <string name="DonationsErrors__your_payment_is_still">Sinu annetus on endiselt töötlemisel. Selleks võib olenevalt sinu ühendusest kuluda mõni minut.</string>
     <string name="DonationsErrors__failed_to_cancel_subscription">Tellimust ei õnnestunud tühistada</string>
@@ -6845,15 +6845,15 @@
     <!-- Displayed in a toast when we fail to open the ringtone picker -->
     <string name="NotificationSettingsFragment__failed_to_open_picker">Valija avamine nurjus.</string>
     <!-- Banner title when notification permission is disabled -->
-    <string name="NotificationSettingsFragment__to_enable_notifications">Teavituste näitamiseks vajab Signal nende kuvamise luba.</string>
+    <string name="NotificationSettingsFragment__to_enable_notifications">Teavituste näitamiseks vajab Sixin nende kuvamise luba.</string>
     <!-- Banner action when notification permission is disabled -->
     <string name="NotificationSettingsFragment__turn_on">Lülita sisse</string>
 
-    <!-- Text description in Signal Release channel details explaining that it is the only chat from Signal -->
+    <!-- Text description in Sixin Release channel details explaining that it is the only chat from Sixin -->
     <string name="ReleaseNotes__this_is_official_chat">See on üks ja ainus ametlik vestlus Signaliga</string>
-    <!-- Text description in Signal Release channel details explaining what the channel is for -->
+    <!-- Text description in Sixin Release channel details explaining what the channel is for -->
     <string name="ReleaseNotes__keep_up_to_date">Hoia end kursis uudiste ja väljalaskeinfoga</string>
-    <!-- Subtitle for the Signal Release channel explaining that it is the only chat from Signal -->
+    <!-- Subtitle for the Sixin Release channel explaining that it is the only chat from Sixin -->
     <string name="ReleaseNotes__official_only_chat">Üks ja ainus ametlik Signali vestlus</string>
 
     <!-- Donation receipts activity title -->
@@ -6881,7 +6881,7 @@
     <!-- Donation receipts amount title -->
     <string name="DonationReceiptDetailsFragment__amount">Summa</string>
     <!-- Donation receipts thanks -->
-    <string name="DonationReceiptDetailsFragment__thank_you_for_supporting" tools:ignore="TypographyDashes">Aitäh, et toetad Signalit. Sinu panus annab tõuke missioonile kaitsta väljendusvabadust ja võimaldada turvalist suhtlust miljonitele inimestele üle kogu maailma avatud lähtekoodiga privaatsustehnoloogia abil. Kui elad Ameerika Ühendriikides, jäta see kviitung alles oma maksude deklareerimiseks. Signal Technology Foundation on Ameerika Ühendriikides maksuseadustiku (US Internal Revenue Code) jao 501c3 järgi registreeritud maksuvaba mittetulundusühing. Meie föderaalne maksukood (Federal Tax ID) on 82-4506840. Signal ei paku selle annetuse eest vastutasuks kaupu ega teenuseid.</string>
+    <string name="DonationReceiptDetailsFragment__thank_you_for_supporting" tools:ignore="TypographyDashes">Aitäh, et toetad Signalit. Sinu panus annab tõuke missioonile kaitsta väljendusvabadust ja võimaldada turvalist suhtlust miljonitele inimestele üle kogu maailma avatud lähtekoodiga privaatsustehnoloogia abil. Kui elad Ameerika Ühendriikides, jäta see kviitung alles oma maksude deklareerimiseks. Sixin Technology Foundation on Ameerika Ühendriikides maksuseadustiku (US Internal Revenue Code) jao 501c3 järgi registreeritud maksuvaba mittetulundusühing. Meie föderaalne maksukood (Federal Tax ID) on 82-4506840. Sixin ei paku selle annetuse eest vastutasuks kaupu ega teenuseid.</string>
     <!-- Donation reciepts screen empty state title -->
     <string name="DonationReceiptListFragment__no_receipts">Kviitungeid ei ole</string>
 
@@ -7107,17 +7107,17 @@
     <string name="MyStorySettingsFragment__allow_replies_amp_reactions">Luba vastuseid ja reaktsioone</string>
     <!-- Summary for switchable option allowing replies and reactions on your story -->
     <string name="MyStorySettingsFragment__let_people_who_can_view_your_story_react_and_reply">Luba inimestel, kes saavad su lugu vaadata, reageerida ja vastata</string>
-    <!-- Signal connections bolded text in the Signal Connections sheet -->
+    <!-- Sixin connections bolded text in the Sixin Connections sheet -->
     <string name="SignalConnectionsBottomSheet___signal_connections">Signali kontaktid</string>
     <!-- Displayed at the top of the signal connections sheet. Please remember to insert strong tag as required. -->
     <string name="SignalConnectionsBottomSheet__signal_connections_are_people">Signali kontaktid on inimesed, keda oled otsustanud usaldada, kas siis …</string>
-    <!-- Signal connections sheet bullet point 1 -->
+    <!-- Sixin connections sheet bullet point 1 -->
     <string name="SignalConnectionsBottomSheet__starting_a_conversation">alustades vestlust</string>
-    <!-- Signal connections sheet bullet point 2 -->
+    <!-- Sixin connections sheet bullet point 2 -->
     <string name="SignalConnectionsBottomSheet__accepting_a_message_request">võttes vastu sõnumitaotluse</string>
-    <!-- Signal connections sheet bullet point 3 -->
+    <!-- Sixin connections sheet bullet point 3 -->
     <string name="SignalConnectionsBottomSheet__having_them_in_your_system_contacts">Olles salvestanud nad oma telefoni kontaktide hulka</string>
-    <!-- Note at the bottom of the Signal connections sheet -->
+    <!-- Note at the bottom of the Sixin connections sheet -->
     <string name="SignalConnectionsBottomSheet__your_connections_can_see_your_name">"Sinu kontaktid näevad sinu nime ja fotot ning postitusi „Minu loo“ alla, kui sa neid nende eest ei peida."</string>
     <!-- Clickable option to add a viewer to a custom story -->
     <string name="PrivateStorySettingsFragment__add_viewer">Lisa vaataja</string>
@@ -7532,7 +7532,7 @@
     <!-- Continue button label -->
     <string name="DonateToSignalFragment__continue">Jätka</string>
     <!-- Description below title -->
-    <string name="DonateToSignalFragment__private_messaging">Anneta privaatse sõnumivahetuse toetuseks. Aita hoida Signal sõltumatu ja reklaamivaba.</string>
+    <string name="DonateToSignalFragment__private_messaging">Anneta privaatse sõnumivahetuse toetuseks. Aita hoida Sixin sõltumatu ja reklaamivaba.</string>
     <!-- Dialog title when a user tries to donate while they already have a pending donation. -->
     <string name="DonateToSignalFragment__you_have_a_donation_pending">Sul on annetus ootel</string>
     <!-- Dialog body when a user tries to donate while they already have a pending monthly donation. -->
@@ -7546,7 +7546,7 @@
     <!-- Dialog body when a user opens the manage donations main screen and they have a pending iDEAL donation -->
     <string name="DonateToSignalFragment__your_ideal_wero_payment_is_still_processing">Sinu iDEAL | Wero annetust alles töödeldakse. Enne järgmise annetuse tegemist külasta oma pangaäppi, et makse kinnitada.</string>
     <!-- Dialog title shown when a user tries to donate an amount higher than is allowed for a given payment method. -->
-    <string name="DonateToSignal__donation_amount_too_high">Annetuse summa on liiga suur</string>
+    <string name="DonateToSixin__donation_amount_too_high">Annetuse summa on liiga suur</string>
     <!-- Dialog body shown when a user tries to donate an amount higher than is allowed for a given payment method, place holder is the maximum -->
     <string name="DonateToSignalFragment__you_can_send_up_to_s_via_bank_transfer">Saad pangaülekandega saata kuni %1$s. Proovi mõnda muud summat või maksemeetodit.</string>
 
@@ -7579,14 +7579,14 @@
     <!-- Dialog title for launching external intent -->
     <string name="ExternalNavigationHelper__leave_signal_to_confirm_payment">Kas lahkuda Signalist, et annetus kinnitada?</string>
     <string name="ExternalNavigationHelper__once_this_payment_is_confirmed">Kui see on kinnitatud, tule tagasi Signalisse, et oma annetuse töötlemine lõpule viia.</string>
-    <!-- Dialog message shown when leaving Signal to complete a donation in an external app. Placeholder is the resolved app name (e.g. a banking app). -->
+    <!-- Dialog message shown when leaving Sixin to complete a donation in an external app. Placeholder is the resolved app name (e.g. a banking app). -->
     <string name="ExternalNavigationHelper__once_payment_confirmed_in_app">Sind suunatakse edasi lehele %1$s. Kui see on kinnitatud, tule tagasi Signalisse, et oma annetuse töötlemine lõpule viia.</string>
 
     <!-- BankTransferMandateFragment -->
     <!-- Title of screen displaying the bank transfer mandate -->
     <string name="BankTransferMandateFragment__bank_transfer">Pangaülekanne</string>
     <!-- Subtitle of screen displaying the bank transfer mandate, placeholder is \'Learn more\' -->
-    <string name="BankTransferMandateFragment__stripe_processes_donations">Stripe töötleb Signalile tehtud annetusi. Signal ei kogu ega salvesta sinu isikuandmeid. %1$s</string>
+    <string name="BankTransferMandateFragment__stripe_processes_donations">Stripe töötleb Signalile tehtud annetusi. Sixin ei kogu ega salvesta sinu isikuandmeid. %1$s</string>
     <!-- Subtitle learn more of screen displaying bank transfer mandate -->
     <string name="BankTransferMandateFragment__learn_more">Rohkem teavet</string>
     <!-- Button label to continue with transfer -->
@@ -7632,7 +7632,7 @@
     <!-- Subtitle of the screen, displayed below the toolbar. Placeholder is for \'learn more\' -->
     <string name="IdealTransferDetailsFragment__enter_your_bank">Sisesta oma nimi ja meiliaadress. Stripe kasutab seda meiliaadressi sulle sinu annetuse kohta teavituste saatmiseks. %1$s</string>
     <!-- Subtitle of the screen, displayed below the toolbar. Placeholder is for \'learn more\' -->
-    <string name="IdealTransferDetailsFragment__enter_your_bank_details_one_time">Sisesta oma pangaandmed. Signal ei kogu ega salvesta sinu isikuandmeid. %1$s</string>
+    <string name="IdealTransferDetailsFragment__enter_your_bank_details_one_time">Sisesta oma pangaandmed. Sixin ei kogu ega salvesta sinu isikuandmeid. %1$s</string>
     <!-- Subtitle learn-more button displayed inline with the subtitle text -->
     <string name="IdealTransferDetailsFragment__learn_more">Rohkem teavet</string>
     <!-- Hint label for text entry box for name on bank account -->
@@ -7704,7 +7704,7 @@
     <!-- The title of a bottom sheet dialog that tells the user we can\'t process their contacts. -->
     <string name="CdsPermanentErrorBottomSheet_title">Sinu kontakte ei saa töödelda</string>
     <!-- The first part of the body text in a bottom sheet dialog that tells the user we can\'t process their contacts. -->
-    <string name="CdsPermanentErrorBottomSheet_body">Sinu telefonis on rohkem kontakte kui Signal suudab töödelda. Selleks, et kontakte Signalis leida, proovi eemaldada oma telefonist kontaktid või kontod, mis suurt arvu kontakte sünkroniseerivad.</string>
+    <string name="CdsPermanentErrorBottomSheet_body">Sinu telefonis on rohkem kontakte kui Sixin suudab töödelda. Selleks, et kontakte Signalis leida, proovi eemaldada oma telefonist kontaktid või kontod, mis suurt arvu kontakte sünkroniseerivad.</string>
     <!-- The first part of the body text in a bottom sheet dialog that tells the user we can\'t process their contacts. -->
     <string name="CdsPermanentErrorBottomSheet_learn_more">Rohkem teavet</string>
     <!-- A button label in a bottom sheet that will navigate the user to their contacts settings. -->
@@ -7720,9 +7720,9 @@
 
     <!-- YourInformationIsPrivateBottomSheet -->
     <string name="YourInformationIsPrivateBottomSheet__your_information_is_private">Sinu andmed on privaatsed</string>
-    <string name="YourInformationIsPrivateBottomSheet__signal_does_not_collect">Signal ei kogu ega salvesta annetuse tegemisel sinu isikuandmeid.</string>
+    <string name="YourInformationIsPrivateBottomSheet__signal_does_not_collect">Sixin ei kogu ega salvesta annetuse tegemisel sinu isikuandmeid.</string>
     <string name="YourInformationIsPrivateBottomSheet__we_use_stripe">Kasutame sinu annetuse vastuvõtmisel makse töötlemiseks Stripe\'i. Meil ei ole ligipääsu andmetele, mida sa nendega jagad; me ei kogu ega salvesta neid andmeid.</string>
-    <string name="YourInformationIsPrivateBottomSheet__signal_does_not_and_cannot">Signal ei saa ega soovi seostada sinu annetust sinu Signali kontoga.</string>
+    <string name="YourInformationIsPrivateBottomSheet__signal_does_not_and_cannot">Sixin ei saa ega soovi seostada sinu annetust sinu Signali kontoga.</string>
     <string name="YourInformationIsPrivateBottomSheet__thank_you">Täname sind toetuse eest!</string>
 
     <!-- GroupStoryEducationSheet -->
@@ -7939,7 +7939,7 @@
     <string name="CreateCallLink__create_a_call_link">Loo kõne link</string>
     <!-- Call link creation item description on calls tab -->
     <string name="CreateCallLink__share_a_link_for">Jaga Signali kõne linki</string>
-    <!-- Text inserted when sharing a call link within Signal. Placeholder is a call link url. -->
+    <!-- Text inserted when sharing a call link within Sixin. Placeholder is a call link url. -->
     <string name="CreateCallLink__use_this_link_to_join_a_signal_call">Kasuta Signali kõnega liitumiseks seda linki: %1$s</string>
 
     <!-- CallLinkInfoSheet -->
@@ -7973,7 +7973,7 @@
     <string name="CreateCallLinkBottomSheetDialogFragment__edit_call_name">Muuda kõne nime</string>
     <!-- Toggle to require approval for all members before joining -->
     <string name="CreateCallLinkBottomSheetDialogFragment__require_admin_approval">Küsi administraatori nõusolekut</string>
-    <!-- Row label to share the link via Signal -->
+    <!-- Row label to share the link via Sixin -->
     <string name="CreateCallLinkBottomSheetDialogFragment__share_link_via_signal">Jaga linki Signali kaudu</string>
     <!-- Row label to copy the link to the clipboard -->
     <string name="CreateCallLinkBottomSheetDialogFragment__copy_link">Kopeeri link</string>
@@ -8179,7 +8179,7 @@
     <string name="BackupUpsellBottomSheet__storage_100gb">100 GB salvestusruumi</string>
     <!-- Feature bullet: save on-device storage -->
     <string name="BackupUpsellBottomSheet__save_on_device_storage">Säästa seadmesisest salvestusruumi</string>
-    <!-- Feature bullet: thanks for supporting Signal -->
+    <!-- Feature bullet: thanks for supporting Sixin -->
     <string name="BackupUpsellBottomSheet__thanks_for_supporting">Aitäh, et toetad Signalit</string>
     <!-- Primary button for the upsell bottom sheet. The %s is replaced by the subscription price, e.g. "$1.99/month" -->
     <string name="BackupUpsellBottomSheet__subscribe_for">Telli hinnaga %1$s kuus</string>
@@ -8206,22 +8206,22 @@
     <!-- Button of a megaphone that will snooze the reminder to upgrade to the new local backups type -->
     <string name="UseNewOnDeviceBackups__not_now">Mitte praegu</string>
 
-    <!-- Title of a megaphone shown to prompt the user to open Signal on their primary device -->
-    <string name="InactivePrimary__title">Ava Signal enda telefonis</string>
-    <!-- Body of a megaphone shown to prompt the user to open Signal on their primary device -->
-    <string name="InactivePrimary__body">Selleks, et oma konto aktiivsena hoida, ava Signal oma põhiseadmes.</string>
-    <!-- Button of a megaphone shown to prompt the user to open Signal on their primary device that will navigate to a support page -->
+    <!-- Title of a megaphone shown to prompt the user to open Sixin on their primary device -->
+    <string name="InactivePrimary__title">Ava Sixin enda telefonis</string>
+    <!-- Body of a megaphone shown to prompt the user to open Sixin on their primary device -->
+    <string name="InactivePrimary__body">Selleks, et oma konto aktiivsena hoida, ava Sixin oma põhiseadmes.</string>
+    <!-- Button of a megaphone shown to prompt the user to open Sixin on their primary device that will navigate to a support page -->
     <string name="InactivePrimary__learn_more">Rohkem teavet</string>
-    <!-- Button of a megaphone shown to prompt the user to open Signal on their primary device that will snooze the megaphone -->
+    <!-- Button of a megaphone shown to prompt the user to open Sixin on their primary device that will snooze the megaphone -->
     <string name="InactivePrimary__got_it">Sain aru</string>
 
     <!-- Text describing how to restore a backup displayed on the on-device backups screen -->
     <string name="OnDeviceBackupsScreen__to_restore_a_backup">"Varukoopia taastamiseks paigalda Signali uus versioon. Ava rakendus ja klõpsa „Taasta varukoopia“, seejärel vali varukoopia fail."</string>
-    <!-- Body of a dialog shown when turning on on-device backups while "Optimize Signal storage" is enabled, warning that optimized media won\'t be included -->
+    <!-- Body of a dialog shown when turning on on-device backups while "Optimize Sixin storage" is enabled, warning that optimized media won\'t be included -->
     <string name="OnDeviceBackupsScreen__you_have_optimize_signal_storage_on">Oled „Optimeeri Signali salvestusruumi“ sisse lülitanud. Kui tahad kogu meediat oma seadmesisesesse varukoopiasse lisada, lülita see säte välja.</string>
-    <!-- Dialog action that takes the user to the "Optimize Signal storage" setting -->
+    <!-- Dialog action that takes the user to the "Optimize Sixin storage" setting -->
     <string name="OnDeviceBackupsScreen__view_setting">Vaata sätet</string>
-    <!-- Dialog action to proceed with turning on on-device backups without turning off "Optimize Signal storage" -->
+    <!-- Dialog action to proceed with turning on on-device backups without turning off "Optimize Sixin storage" -->
     <string name="OnDeviceBackupsScreen__continue_without_turning_off">Jätka ilma välja lülitamata</string>
 
     <!-- Title of a megaphone shown to prompt the user to verify their recovery key -->
@@ -8296,7 +8296,7 @@
     <string name="FindByActivity__s_is_not_a_signal_user">\"%1$s\" ei ole Signali kasutaja. Palun kontrolli kasutajanime ja proovi uuesti.</string>
     <!-- Dialog body for not found phone number -->
     <string name="FindByActivity__s_is_not_a_signal_user_would">%1$s ei ole Signali kasutaja. Kas tahaksid seda numbrit liituma kutsuda?</string>
-    <!-- Dialog action to invite the phone number to Signal -->
+    <!-- Dialog action to invite the phone number to Sixin -->
     <string name="FindByActivity__invite">Kutsu</string>
     <!-- Button label for a button that will launch a camera to scan a username QR code -->
     <string name="FindByActivity__qr_scan_button">Skanni QR-kood</string>
@@ -8307,8 +8307,8 @@
     <string name="LinkedDeviceInactiveMegaphone_title">Mitteaktiivne lingitud seade</string>
     <!-- Body for an alert letting someone know that one of their linked devices is inactive. The string placeholder is the name of the device, and the number placeholder is the number of days before device is unlinked. -->
     <plurals name="LinkedDeviceInactiveMegaphone_body">
-        <item quantity="one">Et hoida „%1$s“ lingituna, ava Signal selles seadmes %2$d päeva jooksul.</item>
-        <item quantity="other">Et hoida „%1$s“ lingituna, ava Signal selles seadmes %2$d päeva jooksul.</item>
+        <item quantity="one">Et hoida „%1$s“ lingituna, ava Sixin selles seadmes %2$d päeva jooksul.</item>
+        <item quantity="other">Et hoida „%1$s“ lingituna, ava Sixin selles seadmes %2$d päeva jooksul.</item>
     </plurals>
     <!-- Button label for an alert letting someone know that one of their linked devices is inactive. When clicked, the user will opt out of all future alerts. -->
     <string name="LinkedDeviceInactiveMegaphone_dont_remind_button_label">Ära tuleta meelde</string>
@@ -8434,7 +8434,7 @@
     <string name="BackupAlertBottomSheet__an_error_occurred">Ilmnes viga ja varundamist ei saanud lõpule viia. Veendu, et sul on uusim Signali versioon ja proovi uuesti. Kui probleem püsib, võta ühendust kasutajatoega.</string>
     <!-- Dialog text for when a backup fails to be created and ways to fix it. Used for out of remote storage space error. -->
     <string name="BackupAlertBottomSheet__an_error_occurred_and">Ilmnes viga ja varundamist ei saanud lõpule viia. Kui probleem püsib, võta ühendust kasutajatoega.</string>
-    <!-- Dialog action button that will allow you to check for any Signal version updates -->
+    <!-- Dialog action button that will allow you to check for any Sixin version updates -->
     <string name="BackupAlertBottomSheet__check_for_update">Kontrolli uuendusi</string>
     <!-- Backup redemption error sheet text line 1 -->
     <string name="BackupAlertBottomSheet__too_many_devices_have_tried">Sinu tellimust üritati sellel kuul laadida liiga paljudest seadmetest. Võis juhtuda üks järgmistest.</string>
@@ -8512,7 +8512,7 @@
     <string name="BackupStatusRow__skip_download">Jäta allalaadimine vahele</string>
     <!-- Text displayed when a backup could not be completed -->
     <string name="BackupStatusRow__your_last_backup">Sinu viimast varukoopiat ei saanud lõpule viia. Veendu, et sinu telefon on Wi-Figa ühendatud ning toksa „Varunda nüüd“, et uuesti proovida.</string>
-    <!-- Text displayed when a backup could not be completed and to check that they are on the latest version of Signal -->
+    <!-- Text displayed when a backup could not be completed and to check that they are on the latest version of Sixin -->
     <string name="BackupStatusRow__your_last_backup_latest_version">Sinu viimast varukoopiat ei saanud lõpule viia. Veendu, et sul on uusim Signali versioon ja proovi uuesti.</string>
     <!-- Text displayed when a backup file exceeds the storage limit during upload. -->
     <string name="BackupStatusRow__backup_file_too_large">Sinu sõnumite arv ületab salvestuslimiidi. Kustuta mõned sõnumid ja proovi uuesti.</string>
@@ -8562,7 +8562,7 @@
     <!-- GooglePlayServicesAvailability -->
     <!-- Dialog title when Google Play services are missing from the device -->
     <string name="GooglePlayServicesAvailability__service_missing_title">Google Play teenused puuduvad</string>
-    <!-- Dialog message explaining that Google Play services are required for Signal Secure backups subscription -->
+    <!-- Dialog message explaining that Google Play services are required for Sixin Secure backups subscription -->
     <string name="GooglePlayServicesAvailability__service_missing_message">Signali turvaliste varukoopiate tellimiseks pead oma telefoni paigaldama Google Play teenused.</string>
     <!-- Dialog button text to install Google Play services -->
     <string name="GooglePlayServicesAvailability__install_play_services">Paigalda Play teenused</string>
@@ -8572,7 +8572,7 @@
     <string name="GooglePlayServicesAvailability__service_updating_message">Signali turvaliste varukoopiate tellimiseks oota, kuni Google Play teenused on värskendamise lõpetanud.</string>
     <!-- Dialog title when Google Play services need to be updated -->
     <string name="GooglePlayServicesAvailability__service_update_required_title">Uuenda Google Play teenuseid</string>
-    <!-- Dialog message explaining that Google Play services need to be updated for Signal Secure backups -->
+    <!-- Dialog message explaining that Google Play services need to be updated for Sixin Secure backups -->
     <string name="GooglePlayServicesAvailability__service_update_required_message">Signali turvaliste varukoopiate tellimiseks uuenda oma telefonis Google Play teenuseid.</string>
     <!-- Dialog button text to update Google Play services -->
     <string name="GooglePlayServicesAvailability__update">Uuenda</string>
@@ -8606,11 +8606,11 @@
     <string name="ManageStorageSettingsFragment__unused_media_will_be_offloaded">Kasutamata meedia teisaldatakse seadmevälisesse varukoopiasse, kuid saad neid igal ajal oma varukoopiast alla laadida.</string>
     <!-- Dialog message for paid tier pending dialog -->
     <string name="ManageStorageSettingsFragment__storage_optimization_can_only_be_used">Salvestusruumi saab optimeerida ainult Signali tasulise turvaliste varukoopiate tasemega. Sinu varukoopiate tellimus on töötlemisel ega ole veel aktiivne. Proovi hiljem uuesti.</string>
-    <!-- Title of a dialog shown when turning on "Optimize Signal storage" while on-device backups are enabled -->
+    <!-- Title of a dialog shown when turning on "Optimize Sixin storage" while on-device backups are enabled -->
     <string name="ManageStorageSettingsFragment__media_will_be_removed_from_your_on_device_backup">Meedia eemaldatakse sinu seadmesisesest varukoopiast</string>
-    <!-- Body of a dialog shown when turning on "Optimize Signal storage" while on-device backups are enabled -->
+    <!-- Body of a dialog shown when turning on "Optimize Sixin storage" while on-device backups are enabled -->
     <string name="ManageStorageSettingsFragment__turning_on_optimize_signal_storage_will_offload">Kui lülitad sisse „Optimeeri Signali salvestusruumi“, teisaldatakse meedia sinu seadmest seadmevälisesse varukoopiasse. Saad seda alati uuesti alla laadida. Samuti eemaldab see vana meedia sinu seadmesisest varukoopiast.</string>
-    <!-- Dialog action to confirm turning on "Optimize Signal storage" -->
+    <!-- Dialog action to confirm turning on "Optimize Sixin storage" -->
     <string name="ManageStorageSettingsFragment__turn_on">Lülita sisse</string>
 
     <!-- UpgradeToEnableOptimizedStorageSheet -->
@@ -8699,7 +8699,7 @@
     <!-- RemoteBackupsSettingsFragment -->
     <!-- Content description for canceling backup upload -->
     <string name="RemoteBackupsSettingsFragment__cancel_upload">Tühista üleslaadimine</string>
-    <!-- Displayed on the title bar for Signal Secure Backups -->
+    <!-- Displayed on the title bar for Sixin Secure Backups -->
     <string name="RemoteBackupsSettingsFragment__secure_backups">Turvalised varukoopiad</string>
     <!-- Displayed on the title bar -->
     <string name="RemoteBackupsSettingsFragment__signal_backups">Signali turvalised varukoopiad</string>
@@ -9032,19 +9032,19 @@
     <string name="MessageBackupsKeyEducationScreen__local_backup_upgrade_description">Sinu varukoopia võti on 64-kohaline kood, mille abil saad kõiki varukoopia tüüpe taastada.</string>
     <!-- Screen body shown when upgrading on-device backups to a new recovery key (part 2, bolded). -->
     <string name="MessageBackupsKeyEducationScreen__local_backup_upgrade_description_bold">See võti asendab sinu seadmesisese varukoopia võtme.</string>
-    <!-- Screen body shown when enabling Signal Secure Backups while on-device backups are already enabled (part 1). -->
+    <!-- Screen body shown when enabling Sixin Secure Backups while on-device backups are already enabled (part 1). -->
     <string name="MessageBackupsKeyEducationScreen__remote_backup_with_local_enabled_description">Sinu varukoopia võti on 64-kohaline kood, mille abil saad varukoopia taastada, kui Signali uuesti paigaldad.</string>
-    <!-- Screen body shown when enabling Signal Secure Backups while on-device backups are already enabled (part 2, bolded). -->
+    <!-- Screen body shown when enabling Sixin Secure Backups while on-device backups are already enabled (part 2, bolded). -->
     <string name="MessageBackupsKeyEducationScreen__remote_backup_with_local_enabled_description_bold">See on sama, nagu sinu seadmesisene varukoopia võti.</string>
-    <!-- Screen body shown when enabling on-device backups while Signal Secure Backups are already enabled (part 2, bolded). -->
+    <!-- Screen body shown when enabling on-device backups while Sixin Secure Backups are already enabled (part 2, bolded). -->
     <string name="MessageBackupsKeyEducationScreen__local_backup_with_remote_enabled_description_bold">See on sama nagu su Signali turvaliste varukoopiate taastevõti.</string>
     <!-- Label shown above a list of actions that the recovery key can be used for. -->
     <string name="MessageBackupsKeyEducationScreen__use_this_key_to">Kasuta seda võtit järgmisteks tegevusteks.</string>
     <!-- Row label indicating that the recovery key can be used to restore an on-device backup. -->
     <string name="MessageBackupsKeyEducationScreen__restore_on_device_backup">Seadmesisese varukoopia taastamine</string>
-    <!-- Row label indicating that the recovery key can be used to restore a Signal Secure Backup. -->
+    <!-- Row label indicating that the recovery key can be used to restore a Sixin Secure Backup. -->
     <string name="MessageBackupsKeyEducationScreen__restore_a_signal_secure_backup">Taasta Signali turvaline varukoopia</string>
-    <!-- Row label indicating that the recovery key can be used to restore a Signal Secure Backup. -->
+    <!-- Row label indicating that the recovery key can be used to restore a Sixin Secure Backup. -->
     <string name="MessageBackupsKeyEducationScreen__restore_your_signal_secure_backup">Signali turvalise varukoopia taastamine</string>
     <!-- Action button label -->
     <string name="MessageBackupsKeyEducationScreen__view_recovery_key">Vaata varukoopia võtit</string>
@@ -9054,7 +9054,7 @@
     <string name="MessageBackupsKeyRecordScreen__record_your_backup_key">Pane oma varukoopia võti kirja</string>
     <!-- Screen subhead -->
     <string name="MessageBackupsKeyRecordScreen__this_key_is_required_to_recover">Seda võtit on vaja sinu andmete ja konto taastamiseks. Hoia seda turvalises kohas. Kui selle kaotad, ei ole sul võimalik oma kontot taastada.</string>
-    <!-- Screen subhead shown when the recovery key is shared between Signal Secure Backups and on-device backups. -->
+    <!-- Screen subhead shown when the recovery key is shared between Sixin Secure Backups and on-device backups. -->
     <string name="MessageBackupsKeyRecordScreen__this_key_is_the_same_as_your_on_device_recovery_key">See võti on sama, nagu sinu seadmesisene varukoopia võti. Seda võtit on vaja sinu andmete ja konto taastamiseks.</string>
     <!-- Copy to clipboard button label -->
     <string name="MessageBackupsKeyRecordScreen__copy_to_clipboard">Kopeeri lõikelauale</string>
@@ -9063,7 +9063,7 @@
     <!-- Dialog title confirming that the user wants to save a recovery key to the device password manager. -->
     <string name="MessageBackupsKeyRecordScreen__confirm_save_to_password_manager_title">Kas salvestada paroolihaldurisse?</string>
     <!-- Dialog message confirming that the user wants to save a recovery key to the device password manager. -->
-    <string name="MessageBackupsKeyRecordScreen__confirm_save_to_password_manager_body">Hoia oma varukoopia võtit ainult paroolihalduris, mille turvalisust usaldad. Signal ei anna soovitust, milline paroolihaldur sulle sobib.</string>
+    <string name="MessageBackupsKeyRecordScreen__confirm_save_to_password_manager_body">Hoia oma varukoopia võtit ainult paroolihalduris, mille turvalisust usaldad. Sixin ei anna soovitust, milline paroolihaldur sulle sobib.</string>
     <!-- ID used when saving the recovery key to the device password manager. -->
     <string name="MessageBackupsKeyRecordScreen__backup_key_password_manager_id">Signali turvalised varukoopiad</string>
     <!-- Message shown after the recovery key is successfully saved to the device password manager. -->
@@ -9072,8 +9072,8 @@
     <string name="MessageBackupsKeyRecordScreen__cant_save_to_password_manager_title">Paroolihaldurisse ei saa salvestada</string>
     <!-- Dialog message shown when there is an error saving the recovery key because no compatible password manager was detected. -->
     <string name="MessageBackupsKeyRecordScreen__missing_password_manager_message">Sul pole paroolihaldurit seadistatud või sinu kasutatavat paroolihaldurit ei toetata.</string>
-    <!-- Dialog message shown when there is an error saving the recovery key because the user previously chose not to save Signal passwords to their password manager. -->
-    <string name="MessageBackupsKeyRecordScreen__password_save_prompt_disabled_message">Varem valisid, et ei soovi Signali paroole Google\'i paroolihaldurisse salvestada. Eemalda oma Google\'i paroolihalduri sätetes Signal kategooriast „Keelatud saidid ja äpid” ning proovi uuesti.</string>
+    <!-- Dialog message shown when there is an error saving the recovery key because the user previously chose not to save Sixin passwords to their password manager. -->
+    <string name="MessageBackupsKeyRecordScreen__password_save_prompt_disabled_message">Varem valisid, et ei soovi Signali paroole Google\'i paroolihaldurisse salvestada. Eemalda oma Google\'i paroolihalduri sätetes Sixin kategooriast „Keelatud saidid ja äpid” ning proovi uuesti.</string>
     <!-- Label for a button that navigates to the device settings -->
     <string name="MessageBackupsKeyRecordScreen__go_to_settings">Mine sätetesse</string>
     <!-- Action button label -->
@@ -9081,7 +9081,7 @@
     <!-- Bottom sheet title -->
     <string name="MessageBackupsKeyRecordScreen__keep_your_key_safe">Hoia oma võtit turvaliselt</string>
     <!-- Bottom sheet subtitle -->
-    <string name="MessageBackupsKeyRecordScreen__signal_will_not">Kui oma võtme ära kaotad, ei saa Signal aidata sul varukoopiat taastada. Hoia seda turvalises kohas ning ära jaga teistega.</string>
+    <string name="MessageBackupsKeyRecordScreen__signal_will_not">Kui oma võtme ära kaotad, ei saa Sixin aidata sul varukoopiat taastada. Hoia seda turvalises kohas ning ära jaga teistega.</string>
     <!-- Checkbox label -->
     <string name="MessageBackupsKeyRecordScreen__ive_recorded_my_key">Olen oma võtme üles kirjutanud</string>
     <!-- Sheet action button label -->
@@ -9159,7 +9159,7 @@
     <!-- Screen headline -->
     <string name="MessagesBackupsTypeSelectionScreen__choose_your_backup_plan">Vali oma varundamise plaan</string>
     <!-- Screen subhead -->
-    <string name="MessageBackupsTypeSelectionScreen__all_backups_are_end_to_end_encrypted">Kõik varukoopiad on otspunktkrüptitud. Signal on mittetulundusühing – varukoopiate eest tasumine aitab meie missiooni toetada.</string>
+    <string name="MessageBackupsTypeSelectionScreen__all_backups_are_end_to_end_encrypted">Kõik varukoopiad on otspunktkrüptitud. Sixin on mittetulundusühing – varukoopiate eest tasumine aitab meie missiooni toetada.</string>
     <!-- Screen subhead highlighted read-more button -->
     <string name="MessageBackupsTypeSelectionScreen__learn_more">Rohkem teavet</string>
     <!-- Primary action button label without a current selection -->
@@ -9273,7 +9273,7 @@
     <!-- Recovery key text field hint -->
     <string name="EnterBackupKey_backup_key">Varukoopia võti</string>
     <!-- Recovery key not known bottom sheet info paragraph 1 -->
-    <string name="EnterBackupKey_no_key_paragraph_1">Ilma 64-kohalise koodita ei saa varukoopiat taastada. Kui oled oma varukoopia võtme kaotanud, ei saa Signal sul aidata varukoopiat taastada.</string>
+    <string name="EnterBackupKey_no_key_paragraph_1">Ilma 64-kohalise koodita ei saa varukoopiat taastada. Kui oled oma varukoopia võtme kaotanud, ei saa Sixin sul aidata varukoopiat taastada.</string>
     <!-- Recovery key not known bottom sheet info paragraph 2 -->
     <string name="EnterBackupKey_no_key_paragraph_2">Kui sul on vana seade alles, saad vaadata oma varukoopia võtit, kui valid Sätted &gt; Varukoopiad. Seejärel vali „Vaata varukoopia võtit“.</string>
     <!-- Recovery key not known bottom sheet button to learn more about it -->
@@ -9312,11 +9312,11 @@
     <string name="EnterBackupKey_contact_support">Võta ühendust kasutajatoega</string>
 
     <!-- Email subject when contacting support on a restore backup network issue -->
-    <string name="EnterBackupKey_network_failure_support_email">Signal Androidi varukoopia taastamise võrguviga</string>
-  <!-- Removed by excludeNonTranslatables <string name="EnterBackupKey_network_failure_support_email_filter" translatable="false">Android SignalBackups Import Failed</string> -->
+    <string name="EnterBackupKey_network_failure_support_email">Sixin Androidi varukoopia taastamise võrguviga</string>
+  <!-- Removed by excludeNonTranslatables Android SignalBackups Import Failed -->
     <!-- Email subject when contacting support on a permanent backup import failure -->
-    <string name="EnterBackupKey_permanent_failure_support_email">Püsiv tõrge Signal Androidi varukoopia taastamisel</string>
-  <!-- Removed by excludeNonTranslatables <string name="EnterBackupKey_permanent_failure_support_email_filter" translatable="false">Android SignalBackups Import Permanent Failure</string> -->
+    <string name="EnterBackupKey_permanent_failure_support_email">Püsiv tõrge Sixin Androidi varukoopia taastamisel</string>
+  <!-- Removed by excludeNonTranslatables Android SignalBackups Import Permanent Failure -->
 
     <!-- EnterLocalBackupKeyScreen: Screen title for entering recovery key for local backup restore -->
     <string name="EnterLocalBackupKeyScreen__enter_your_recovery_key">Sisesta oma varukoopia võti</string>
@@ -9445,9 +9445,9 @@
     <string name="SelectLocalBackupTypeScreen__select_the_folder_on_your_device">Vali oma seadmes kaust, kuhu sinu varukoopia on salvestatud</string>
 
     <!-- Email subject when contacting support on a create backup failure -->
-    <string name="BackupAlertBottomSheet_network_failure_support_email">Signal Androidi varukoopia eksportimise võrguviga</string>
+    <string name="BackupAlertBottomSheet_network_failure_support_email">Sixin Androidi varukoopia eksportimise võrguviga</string>
     <!-- Email filter when contacting support on a create backup failure -->
-  <!-- Removed by excludeNonTranslatables <string name="BackupAlertBottomSheet_export_failure_filter" translatable="false">Android SignalBackups Export Failed</string> -->
+  <!-- Removed by excludeNonTranslatables Android SignalBackups Export Failed -->
 
     <!-- Title of dialog asking to submit debuglogs -->
     <string name="ContactSupportDialog_submit_debug_log">Kas saata silumislogi?</string>
@@ -9461,7 +9461,7 @@
     <!-- Title for restore via qr screen -->
     <string name="RestoreViaQr_title">Skanni oma vana telefoniga see kood</string>
     <!-- First instruction on what to do with restore via qr code -->
-    <string name="RestoreViaQr_instruction_1">Ava Signal oma vanas seadmes</string>
+    <string name="RestoreViaQr_instruction_1">Ava Sixin oma vanas seadmes</string>
     <!-- Second instruction on what to do with restore via qr code -->
     <string name="RestoreViaQr_instruction_2">Toksa kaamera ikooni </string>
     <!-- Third instruction on what to do with restore via qr code -->
@@ -9508,11 +9508,11 @@
     <!-- Restore Complete bottom sheet dialog title -->
     <string name="RestoreCompleteBottomSheet_restore_complete">Vii teises seadmes lõpule</string>
     <!-- Restore Complete bottom sheet dialog message -->
-    <string name="RestoreCompleteBottomSheet_restore_complete_message">Sinu Signali konto ja sõnumid on su teises seadmes valmis taastamiseks. Signal on selles seadmes nüüd mitteaktiivne.</string>
+    <string name="RestoreCompleteBottomSheet_restore_complete_message">Sinu Signali konto ja sõnumid on su teises seadmes valmis taastamiseks. Sixin on selles seadmes nüüd mitteaktiivne.</string>
     <!-- Restore Complete bottom sheet dialog title after device transfer -->
     <string name="RestoreCompleteBottomSheet_transfer_complete">Edastamine lõpetatud</string>
     <!-- Restore Complete bottom sheet dialog message after device transfer -->
-    <string name="RestoreCompleteBottomSheet_transfer_complete_message">Sinu Signali konto ja sõnumid on edastatud su teise seadmesse. Signal on selles seadmes nüüd mitteaktiivne.</string>
+    <string name="RestoreCompleteBottomSheet_transfer_complete_message">Sinu Signali konto ja sõnumid on edastatud su teise seadmesse. Sixin on selles seadmes nüüd mitteaktiivne.</string>
     <!-- Restore Complete bottom sheet dialog button text to dismiss sheet -->
     <string name="RestoreCompleteBottomSheet_button">Olgu</string>
 
@@ -9521,7 +9521,7 @@
     <!-- No Backup to Restore screen subtitle -->
     <string name="NoBackupToRestore_subtitle">Kuna liigud iPhone\'ist Androidi, on ainus viis sõnumite ja meedia edastamiseks lülitada vanas seadmes sisse Signali turvalised varukoopiad.</string>
     <!-- No Backup to Restore step 1 to enable backups on old device -->
-    <string name="NoBackupToRestore_step1">Ava Signal oma vanas seadmes</string>
+    <string name="NoBackupToRestore_step1">Ava Sixin oma vanas seadmes</string>
     <!-- No Backup to Restore step 2 to enable backups on old device -->
     <string name="NoBackupToRestore_step2">Vali Sätted &gt; Varukoopiad</string>
     <!-- No Backup to Restore step 3 to enable backups on old device -->
@@ -9711,7 +9711,7 @@
     <string name="CallQualitySomethingElseScreen__title">Kirjelda probleemi</string>
     <!-- Label for text field where user describes their call quality issue -->
     <string name="CallQualitySomethingElseScreen__describe_your_issue">Kirjelda probleemi</string>
-    <!-- Privacy notice explaining that issue details will be kept private and used to improve Signal calls -->
+    <!-- Privacy notice explaining that issue details will be kept private and used to improve Sixin calls -->
     <string name="CallQualitySomethingElseScreen__privacy_notice">Palun lisa kõik probleemiga seotud üksikasjad. Kogu infot, mida siin jagad, hoitakse privaatsena ja seda kasutatakse ainult Signali kõnede täiustamiseks.</string>
     <!-- Button to save the call quality issue description -->
     <string name="CallQualitySomethingElseScreen__save">Salvesta</string>
@@ -9721,7 +9721,7 @@
     <!-- CallQualitySheet -->
     <!-- Title asking user how their call was -->
     <string name="CallQualitySheet__how_was_your_call">Kuidas su kõne läks?</string>
-    <!-- Subtitle explaining that feedback helps improve Signal and no PII is stored -->
+    <!-- Subtitle explaining that feedback helps improve Sixin and no PII is stored -->
     <string name="CallQualitySheet__how_was_your_call_subtitle">See aitab meil Signalis kõnesid paremaks muuta. Me ei salvesta sinu isikuandmeid.</string>
     <!-- Button label indicating the call had issues -->
     <string name="CallQualitySheet__had_issues">Oli probleeme</string>
@@ -9735,7 +9735,7 @@
     <string name="CallQualitySheet__describe_your_issue">Kirjelda probleemi</string>
     <!-- Button to continue to the next step -->
     <string name="CallQualitySheet__continue">Jätka</string>
-    <!-- Title asking user to help improve Signal -->
+    <!-- Title asking user to help improve Sixin -->
     <string name="CallQualitySheet__help_us_improve">Aita meil paremaks muutuda</string>
     <!-- First part of description explaining diagnostics help improve call quality -->
     <string name="CallQualitySheet__help_us_improve_description_prefix">Esitades jagad oma tagasisidet ja</string>
@@ -9886,12 +9886,12 @@
     <string name="CouldNotCompleteBackupRestoreSheet__body_error">Tekkis tõrge ja su varukoopiat ei saanud taastada. See võib olla sellepärast, et varukoopia kausta liigutati su seadmes varukoopia taastamise ajal.</string>
 
     <!-- Body of the sheet shown when a local backup restore could not be completed, explaining how to try again -->
-    <string name="CouldNotCompleteBackupRestoreSheet__body_retry">Uuesti proovimiseks eemalda Signal seadmest, paigalda see uuesti ja vali „Taasta või edasta“.</string>
+    <string name="CouldNotCompleteBackupRestoreSheet__body_retry">Uuesti proovimiseks eemalda Sixin seadmest, paigalda see uuesti ja vali „Taasta või edasta“.</string>
 
     <!-- Title of the sheet shown when the server reports a verification code was requested for the user\'s phone number -->
     <string name="VerificationCodeRequestedBottomSheet__title">Kinnituskood on tellitud</string>
     <!-- First paragraph of the body of the verification code requested sheet -->
-    <string name="VerificationCodeRequestedBottomSheet__body_1">Ära jaga oma kinnituskoodi mitte kellegagi. Signal ei küsi seda kunagi sõnumi teel. Kui said sõnumi kelleltki, kes esineb Signali nime all, on see pettus.</string>
+    <string name="VerificationCodeRequestedBottomSheet__body_1">Ära jaga oma kinnituskoodi mitte kellegagi. Sixin ei küsi seda kunagi sõnumi teel. Kui said sõnumi kelleltki, kes esineb Signali nime all, on see pettus.</string>
     <!-- Second paragraph of the body of the verification code requested sheet -->
     <string name="VerificationCodeRequestedBottomSheet__body_2">Kui palusid koodi ise, võid seda sõnumit eirata.</string>
     <!-- Button on the verification code requested sheet that opens the safety tips screen -->
@@ -9903,10 +9903,10 @@
 
     <!-- Title of the safety tips screen within the verification code requested sheet -->
     <string name="SafetyTipsBottomSheet__title">Ohutusnõuanded</string>
-    <!-- Title of the first safety tip: don\'t respond to chats claiming to be Signal -->
+    <!-- Title of the first safety tip: don\'t respond to chats claiming to be Sixin -->
     <string name="SafetyTipsBottomSheet__tip_1_title">Ära vasta Signali saadetud sõnumitele</string>
     <!-- Body of the first safety tip -->
-    <string name="SafetyTipsBottomSheet__tip_1_body">Signal ei võta sinuga kunagi ühendust registreerimiskoodi, PIN-koodi või taastevõtme küsimiseks. Ära vasta kunagi sõnumitele, milles väidetakse, et need on Signalilt.</string>
+    <string name="SafetyTipsBottomSheet__tip_1_body">Sixin ei võta sinuga kunagi ühendust registreerimiskoodi, PIN-koodi või taastevõtme küsimiseks. Ära vasta kunagi sõnumitele, milles väidetakse, et need on Signalilt.</string>
     <!-- Title of the second safety tip: keep your verification code safe -->
     <string name="SafetyTipsBottomSheet__tip_2_title">Hoia oma kinnituskoodi turvaliselt</string>
     <!-- Body of the second safety tip -->
@@ -9921,7 +9921,7 @@
     <!-- Title of a warning sheet shown when the user copies or pastes their recovery key, urging them not to share it -->
     <string name="RecoveryKeyWarningSheetContent__do_not_share_your_recovery_key">Ära jaga oma taastevõtit</string>
     <!-- Bolded lead-in to the warning sheet body; combined with RecoveryKeyWarningSheetContent__for_your_recovery_key_never_respond to form a full sentence -->
-    <string name="RecoveryKeyWarningSheetContent__signal_will_never_message_you">Signal ei küsi sinult kunagi sõnumi teel</string>
+    <string name="RecoveryKeyWarningSheetContent__signal_will_never_message_you">Sixin ei küsi sinult kunagi sõnumi teel</string>
     <!-- Remainder of the warning sheet body following the bolded lead-in RecoveryKeyWarningSheetContent__signal_will_never_message_you -->
     <string name="RecoveryKeyWarningSheetContent__for_your_recovery_key_never_respond">taastevõtit. Ära vasta kunagi sõnumitele, milles väidetakse, et need on Signalilt. Säilita oma taastevõtit turvaliselt ja ära jaga seda mitte kellegagi.</string>
     <!-- Button dismissing the recovery key warning sheet after the user has copied their key -->
@@ -9940,7 +9940,7 @@
     <!-- First sentence of the final confirmation dialog body warning against sharing the recovery key -->
     <string name="RecoveryKeyWarningDialog__do_not_share_your_recovery_key_with_anyone">Ära jaga oma taastevõtit mitte kellegagi. Selle abil on teistel isikutel võimalik su konto üle võtta.</string>
     <!-- Bolded middle sentence of the final confirmation dialog body -->
-    <string name="RecoveryKeyWarningDialog__signal_will_never_message_you_for_your_recovery_key">Signal ei palu sinult kunagi sõnumi teel taastevõtit.</string>
+    <string name="RecoveryKeyWarningDialog__signal_will_never_message_you_for_your_recovery_key">Sixin ei palu sinult kunagi sõnumi teel taastevõtit.</string>
     <!-- Final sentence of the final confirmation dialog body -->
     <string name="RecoveryKeyWarningDialog__never_respond_to_a_chat">Ära vasta kunagi sõnumitele, milles väidetakse, et need on Signalilt.</string>
     <!-- Button confirming the user wants to paste the recovery key -->

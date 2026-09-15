@@ -155,7 +155,7 @@ fun RecipientTable.restoreReleaseNotes(): RecipientId {
   val releaseChannelId: RecipientId = insertReleaseChannelRecipient()
   SignalStore.releaseChannel.setReleaseChannelRecipientId(releaseChannelId)
 
-  setProfileName(releaseChannelId, ProfileName.asGiven("Signal"))
+  setProfileName(releaseChannelId, ProfileName.asGiven("Sixin"))
   setMuted(releaseChannelId, Long.MAX_VALUE)
   return releaseChannelId
 }

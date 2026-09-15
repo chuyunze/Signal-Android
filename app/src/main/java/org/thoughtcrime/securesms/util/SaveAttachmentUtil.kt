@@ -160,10 +160,10 @@ object SaveAttachmentUtil {
 
     if (Build.VERSION.SDK_INT > 28) {
       val relativePath = when {
-        contentType.startsWith("image/") -> Environment.DIRECTORY_PICTURES + "/Signal"
-        contentType.startsWith("video/") -> Environment.DIRECTORY_MOVIES + "/Signal"
-        contentType.startsWith("audio/") -> Environment.DIRECTORY_MUSIC + "/Signal"
-        else -> Environment.DIRECTORY_DOWNLOADS + "/Signal"
+        contentType.startsWith("image/") -> Environment.DIRECTORY_PICTURES + "/Sixin"
+        contentType.startsWith("video/") -> Environment.DIRECTORY_MOVIES + "/Sixin"
+        contentType.startsWith("audio/") -> Environment.DIRECTORY_MUSIC + "/Sixin"
+        else -> Environment.DIRECTORY_DOWNLOADS + "/Sixin"
       }
       contentValues.put(MediaStore.MediaColumns.RELATIVE_PATH, relativePath)
     }
@@ -217,7 +217,7 @@ object SaveAttachmentUtil {
       if (e is IllegalArgumentException || e.cause is IllegalArgumentException) {
         Log.w(TAG, "Unable to create uri in $outputUri with mimeType [$mimeType]")
         if (Build.VERSION.SDK_INT > 28) {
-          contentValues.put(MediaStore.MediaColumns.RELATIVE_PATH, Environment.DIRECTORY_DOWNLOADS + "/Signal")
+          contentValues.put(MediaStore.MediaColumns.RELATIVE_PATH, Environment.DIRECTORY_DOWNLOADS + "/Sixin")
         }
         CreateMediaUriResult(StorageUtil.getDownloadUri(), AppDependencies.application.contentResolver.insert(StorageUtil.getDownloadUri(), contentValues))
       } else {

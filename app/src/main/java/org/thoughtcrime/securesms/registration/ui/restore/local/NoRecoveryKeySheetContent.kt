@@ -58,7 +58,7 @@ fun NoRecoveryKeySheetContent(
     )
 
     Text(
-      text = "Backups can’t be recovered without their 64-character recovery key. If you’ve lost your recovery key Signal can’t help restore your backup.",
+      text = "Backups can’t be recovered without their 64-character recovery key. If you’ve lost your recovery key Sixin can’t help restore your backup.",
       style = MaterialTheme.typography.bodyMedium,
       color = MaterialTheme.colorScheme.onSurfaceVariant,
       textAlign = TextAlign.Center,

@@ -161,8 +161,8 @@ class ApkUpdateJob private constructor(parameters: Parameters) : BaseJob(paramet
 
     val downloadRequest = DownloadManager.Request(Uri.parse(uri)).apply {
       setAllowedNetworkTypes(DownloadManager.Request.NETWORK_WIFI)
-      setTitle("Downloading Signal update")
-      setDescription("Downloading Signal $versionName")
+      setTitle("Downloading Sixin update")
+      setDescription("Downloading Sixin $versionName")
       setDestinationInExternalFilesDir(context, null, "signal-update.apk")
       setNotificationVisibility(DownloadManager.Request.VISIBILITY_HIDDEN)
     }

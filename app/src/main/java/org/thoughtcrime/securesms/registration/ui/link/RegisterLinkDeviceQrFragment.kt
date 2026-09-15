@@ -236,7 +236,7 @@ private fun RegisterLinkDeviceQrScreen(
       ) {
         InstructionRow(
           icon = SignalIcons.Settings.painter,
-          instruction = "Open Signal Settings on your device"
+          instruction = "Open Sixin Settings on your device"
         )
 
         InstructionRow(

@@ -405,7 +405,7 @@ object PlaintextExportRepository {
       message.isProfileChange -> "$timestamp Profile updated"
       message.isChangeNumber -> "$timestamp Phone number changed"
       message.isCallLog -> formatCallMessage(context, message, timestamp)
-      message.isJoined -> "$timestamp ${getSenderName(context, message)} joined Signal"
+      message.isJoined -> "$timestamp ${getSenderName(context, message)} joined Sixin"
       message.isGroupV1MigrationEvent -> "$timestamp Group upgraded to new group type"
       message.isPaymentNotification -> "$timestamp Payment sent/received"
       else -> "$timestamp System message"
