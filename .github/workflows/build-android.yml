@@ -2,7 +2,7 @@ name: Build Self-host APK
 
 on:
   push:
-    branches: [ selfhost-patch ]
+    branches: [ selfhost-patch, jack-patch ]
   workflow_dispatch:
 
 permissions:
