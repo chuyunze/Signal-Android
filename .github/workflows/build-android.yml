@@ -93,7 +93,7 @@ jobs:
     - name: Upload APK
       uses: actions/upload-artifact@v4
       with:
-        name: Signal-selfhost-arm64-spinner
+        name: Sixin-selfhost-arm64-spinner
         path: android/app/build/outputs/apk/websiteProd/spinner/*.apk
         if-no-files-found: error
 

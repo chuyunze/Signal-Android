@@ -254,7 +254,7 @@ android {
     targetSdk = libs.versions.targetSdk.get().toInt()
 
     vectorDrawables.useSupportLibrary = true
-    project.ext.set("archivesBaseName", "Signal")
+    project.ext.set("archivesBaseName", "Sixin")
 
     manifestPlaceholders["mapsKey"] = "AIzaSyCSx9xea86GwDKGznCAULE9Y5a8b-TfN9U"
 
@@ -288,7 +288,7 @@ android {
     buildConfigField("String", "SVR2_MRENCLAVE", "\"ced8217b26228e4b210c985786999d095c4958a94faf37b14acaf25c4cbb02a4\"")
     buildConfigField("String[]", "UNIDENTIFIED_SENDER_TRUST_ROOTS", "new String[]{ \"BXu6QIKVz5MA8gstzfOgRQGqyLqOwNKHL6INkv3IHWMF\", \"BUkY0I+9+oPgDCn4+Ac6Iu813yvqkDr/ga8DzLxFxuk6\", \"BS/lfaNHzWJDFSjarF+7KQcw//aEr8TPwu2QmV9Yyzt0\"}")
     buildConfigField("String", "ZKGROUP_SERVER_PUBLIC_PARAMS", "\"APLtDznymhWijXmeJ8LriWEAtBICoswycr1Epq/jmuoylNaEa3wU+LLu3fSysLY0FBLpn5vtKWKC00GV+WuXQj10ZNqZlaSxn6P5XZ65lYXwtOvYmXkdAgrn7GTB9zdtKNSqVGNX2SA+CspDohZlbOo7pce1QNLSNt2Ms7i+FZ803rMFb3700LL5VEeQg+4jpjamT4/ktWDV3V4y+lmjOHXsj2KONOVgwrEXpydjOs/RIZjk5yHnS14fDlaUFC7WQRJVj+gA1tdLkEcaeLZfOKZG57+IhZ9BfMAGFWHgCVED7BQnut1yWBp0t2IiKSuhbo0jS/ByRg0FSD+cjVzA+2ZYqnC7IR6py092HvhdZwmP2RgpEHZHCf/RWSBvsCTyWM70IDRlNmFYq/vLp+aXJuyNt7sw8ei4Hwfm6hRSxmFJ7iUaltHEi7QiWLhAHVzGi+kiEiG2yK6RYYwczB3BQSJWa22q7x6BVjzBlkn75WH+rIs/6XV7y9BTWH+2cDv0JmbvVjORZplmQmXNjRSaa2xr6W4eJoFAQnN51rZX1fo5EokvdDjf/gxWKIFJAwqWqgs9HpelfDg/ld6qg+h+7lH68Yfn/LrLx2N3f6iiuB1zrwrZVWQVbYYgrGYUz5luZLwJTMjilfCFXwbU1pIjb9So2BtEGv09kkAGLdJj1St93AFQrMjpYuDBUMHBaQJ5BJz/5UA7nAA02YOc6EEQZycWBNkIAdSzacXHFjD2kc4jTQg38iaTwFAwg5oB3XmXdgwyt5pDT7Lq2LDhT6SvEiOifaMypF/H51ofWAFJlkkAMuTdPghSxllwwisywXAwWkhNP/mVQokhH35Gywez0xdQFjJKFsq36LMUmUz3IOZJ9CMW/Z1q1f68sDl/5AcIFg==\"")
-    buildConfigField("String", "GENERIC_SERVER_PUBLIC_PARAMS", "\"AByD873dTilmOSG0TjKrvpeaKEsUmIO8Vx9BeMmftwUs9v7ikPwM8P3OHyT0+X3EUMZrSe9VUp26Wai51Q9I8mdk0hX/yo7CeFGJyzoOqn8e/i4Ygbn5HoAyXJx5eXfIbqpc0bIxzju4H/HOQeOpt6h742qii5u/cbwOhFZCsMIbElZTaeU+BWMBQiZHIGHT5IE0qCordQKZ5iPZom0HeFa8Yq0ShuEyAl0WINBiY6xE3H/9WnvzXBbMuuk//eRxXgzO8ieCeK8FwQNxbfXqZm6Ro1cMhCOF3u7xoX83QhpN\"")
+    buildConfigField("String", "GENERIC_SERVER_PUBLIC_PARAMS", "\"ALoKAbEewsHkdQkAwBFpqUON96t/uGr2ei196YEznt8kIoJjY+nS0bvsZ8TA7iS6UGJKZmniyYnVrUW7S8pC03G+PMsUojjiFFkVpjcneRrrut9Py4YreKM99FZqgE7MK2BIKx1pZ+eGOPUpoKCK+g1BIkShxvuDNeM0c8YKEo5rZlL/t8Ry33kXKX6uhcRK2KPWGliz2pBkccUQ7l76/neA70xyO30abiV3iiYA0+3k74XbFfNF2DqVBf8VLDI/AH6ks5DArKjWMGB+uRiFkeKqJotfeQMxHUt8ccj1SJIo\"")
     buildConfigField("String", "BACKUP_SERVER_PUBLIC_PARAMS", "\"AJwNSU55fsFCbgaxGRD11wO1juAs8Yr5GF8FPlGzzvdJJIKH5/4CC7ZJSOe3yL2vturVaRU2Cx0n751Vt8wkj1bozK3CBV1UokxV09GWf+hdVImLGjXGYLLhnI1J2TWEe7iWHyb553EEnRb5oxr9n3lUbNAJuRmFM7hrr0Al0F0wrDD4S8lo2mGaXe0MJCOM166F8oYRQqpFeEHfiLnxA1O8ZLh7vMdv4g9jI5phpRBTsJ5IjiJrWeP0zdIGHEssUeprDZ9OUJ14m0v61eYJMKsf59Bn+mAT2a7YfB+Don9O\"")
     buildConfigField("String[]", "LANGUAGES", "new String[]{ ${languagesForBuildConfigProvider.get()} }")
     buildConfigField("int", "CANONICAL_VERSION_CODE", "$canonicalVersionCode")
