@@ -64,8 +64,8 @@ object DeleteDialog {
 
       if (MessageConstraintsUtil.isValidRemoteDeleteSend(messageRecords, System.currentTimeMillis()) && !isNoteToSelfDelete) {
         builder.setNeutralButton(R.string.ConversationFragment_delete_for_everyone) { _, _ -> handleDeleteForEveryone(context = context, messageRecords = messageRecords, emitter = emitter) }
-      } else if (MessageConstraintsUtil.isValidAdminDeleteSend(messageRecords, System.currentTimeMillis(), isAdmin) && !isNoteToSelfDelete) {
-        builder.setNeutralButton(R.string.ConversationFragment_delete_for_everyone) { _, _ -> handleAdminDeleteForEveryone(context, messageRecords, emitter) }
+      } else if (MessageConstraintsUtil.isValidParticipantDeleteSend(messageRecords, System.currentTimeMillis()) && !isNoteToSelfDelete) {
+        builder.setNeutralButton(R.string.ConversationFragment_delete_for_everyone) { _, _ -> handleParticipantDeleteForEveryone(context = context, messageRecords = messageRecords, emitter = emitter) }
       }
     }
 
@@ -121,11 +121,29 @@ object DeleteDialog {
         if (MessageConstraintsUtil.isValidRemoteDeleteSend(message, System.currentTimeMillis())) {
           MessageSender.sendRemoteDelete(message.id)
         } else {
-          MessageSender.sendAdminDelete(message.id)
+          // Cooperative participant-delete: works for both incoming (non-admin) and
+          // outgoing messages that have exceeded the server-side remote-delete window.
+          MessageSender.sendParticipantDelete(message.id)
         }
       }
 
       emitter.onSuccess(Pair(true, false))
+    }
+  }
+
+  private fun handleParticipantDeleteForEveryone(context: Context, messageRecords: Set<MessageRecord>, emitter: SingleEmitter<Pair<Boolean, Boolean>>) {
+    if (SignalStore.uiHints.hasConfirmedDeleteForEveryoneOnce()) {
+      deleteForEveryone(messageRecords, emitter)
+    } else {
+      MaterialAlertDialogBuilder(context)
+        .setMessage(R.string.ConversationFragment_this_message_will_be_deleted_for_everyone_in_the_conversation)
+        .setPositiveButton(R.string.ConversationFragment_delete_for_everyone) { _, _ ->
+          SignalStore.uiHints.markHasConfirmedDeleteForEveryoneOnce()
+          deleteForEveryone(messageRecords, emitter)
+        }
+        .setNegativeButton(android.R.string.cancel) { _, _ -> emitter.onSuccess(Pair(false, false)) }
+        .setOnCancelListener { emitter.onSuccess(Pair(false, false)) }
+        .show()
     }
   }
 

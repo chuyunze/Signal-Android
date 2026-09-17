@@ -128,6 +128,33 @@ object MessageConstraintsUtil {
       (currentTime - message.dateSent < ADMIN_SEND_THRESHOLD)
   }
 
+  /**
+   * Whether one or more message records can be deleted via the cooperative participant-delete
+   * protocol. Unlike remote-delete (self-originated + narrow time window) and admin-delete
+   * (admin-only + narrow time window), participant-delete is open to ANY current conversation
+   * member and has no time window. It only requires that the conversation still exists as an
+   * active V2 group or direct chat.
+   *
+   * Mirrors iOS `ParticipantDeleteManager.canParticipantDelete`.
+   */
+  @JvmStatic
+  fun isValidParticipantDeleteSend(targetMessages: Collection<MessageRecord>, currentTime: Long): Boolean {
+    return targetMessages.all {
+      !it.isUpdate &&
+        it.isPush &&
+        !it.isRemoteDelete &&
+        !it.hasGiftBadge() &&
+        !it.isPaymentNotification &&
+        !it.isPaymentTombstone &&
+        (!it.toRecipient.isGroup || it.toRecipient.isActiveGroup)
+    }
+  }
+
+  @JvmStatic
+  fun isValidParticipantDeleteSend(message: MessageRecord, currentTime: Long): Boolean {
+    return isValidParticipantDeleteSend(listOf(message), currentTime)
+  }
+
   private fun isSelf(recipientId: RecipientId): Boolean {
     return Recipient.isSelfSet && Recipient.self().id == recipientId
   }
