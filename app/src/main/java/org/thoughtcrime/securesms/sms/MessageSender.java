@@ -572,7 +572,11 @@ public class MessageSender {
       byte[] requestId = UuidUtil.toByteArray(requestIdUuid);
 
       long threadId = message.getThreadId();
-      long threadRecipientId = SignalDatabase.threads().getRecipientIdForThreadId(threadId);
+      RecipientId threadRecipientId = SignalDatabase.threads().getRecipientIdForThreadId(threadId);
+      if (threadRecipientId == null) {
+        Log.w(TAG, "[sendParticipantDelete] No recipient for thread " + threadId + ", ignoring.");
+        return;
+      }
       RecipientRecord threadRecipient = SignalDatabase.recipients().getRecord(threadRecipientId);
       GroupId groupId = threadRecipient.getGroupId();
 
