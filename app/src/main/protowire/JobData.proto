@@ -292,6 +292,15 @@ message OutgoingParticipantDeleteReceiptJobData {
   uint32 resultRaw   = 3;
 }
 
+// Serialized payload for ParticipantDeleteSendJob — fan-out a user-initiated ParticipantDelete
+// proto to all current members of a group (or the single peer in a direct chat).
+message ParticipantDeleteSendJobData {
+  uint64 messageId            = 1;
+  bytes  requestId            = 2;
+  repeated uint64 recipientIds = 3;
+  uint32 initialRecipientCount = 4;
+}
+
 message IndividualSendJobV2Data {
   uint64 messageId = 1;
 }

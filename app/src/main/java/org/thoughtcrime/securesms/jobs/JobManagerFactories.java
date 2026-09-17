@@ -242,12 +242,14 @@ public final class JobManagerFactories {
       put(NullMessageSendJob.KEY,                      new NullMessageSendJob.Factory());
       put(OptimizeMediaJob.KEY,                        new OptimizeMediaJob.Factory());
       put(OptimizeMessageSearchIndexJob.KEY,           new OptimizeMessageSearchIndexJob.Factory());
+      put(OutgoingParticipantDeleteReceiptJob.KEY,     new OutgoingParticipantDeleteReceiptJob.Factory());
       put(PaymentLedgerUpdateJob.KEY,                  new PaymentLedgerUpdateJob.Factory());
       put(PaymentNotificationSendJob.KEY,              new PaymentNotificationSendJob.Factory());
       put(PaymentNotificationSendJobV2.KEY,            new PaymentNotificationSendJobV2.Factory());
       put(PaymentSendJob.KEY,                          new PaymentSendJob.Factory());
       put(PaymentTransactionCheckJob.KEY,              new PaymentTransactionCheckJob.Factory());
       put(PollVoteJob.KEY,                             new PollVoteJob.Factory());
+      put(ParticipantDeleteSendJob.KEY,                 new ParticipantDeleteSendJob.Factory());
       put(PreKeysSyncJob.KEY,                          new PreKeysSyncJob.Factory());
       put(ProfileKeySendJob.KEY,                       new ProfileKeySendJob.Factory());
       put(ProfileUploadJob.KEY,                        new ProfileUploadJob.Factory());

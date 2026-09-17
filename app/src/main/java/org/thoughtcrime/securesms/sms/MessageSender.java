@@ -43,6 +43,7 @@ import org.thoughtcrime.securesms.database.model.MessageId;
 import org.thoughtcrime.securesms.database.model.MessageRecord;
 import org.thoughtcrime.securesms.database.model.MmsMessageRecord;
 import org.thoughtcrime.securesms.database.model.ReactionRecord;
+import org.thoughtcrime.securesms.database.model.RecipientRecord;
 import org.thoughtcrime.securesms.database.model.StoryType;
 import org.thoughtcrime.securesms.dependencies.AppDependencies;
 import org.thoughtcrime.securesms.jobmanager.Job;
@@ -60,12 +61,17 @@ import org.thoughtcrime.securesms.jobs.ReactionSendJob;
 import org.thoughtcrime.securesms.jobs.RemoteDeleteSendJob;
 import org.thoughtcrime.securesms.keyvalue.SignalStore;
 import org.signal.core.models.media.Media;
+import org.thoughtcrime.securesms.groups.GroupId;
 import org.thoughtcrime.securesms.mms.MmsException;
 import org.thoughtcrime.securesms.mms.OutgoingMessage;
 import org.thoughtcrime.securesms.recipients.Recipient;
 import org.thoughtcrime.securesms.recipients.RecipientId;
 import org.thoughtcrime.securesms.recipients.RecipientUtil;
 import org.signal.core.util.ParcelUtil;
+import org.signal.core.util.UuidUtil;
+import org.thoughtcrime.securesms.database.participantdelete.ParticipantDeleteConfig;
+import org.thoughtcrime.securesms.database.participantdelete.ParticipantDeleteManager;
+import org.thoughtcrime.securesms.jobs.ParticipantDeleteSendJob;
 import org.thoughtcrime.securesms.util.SignalLocalMetrics;
 import org.whispersystems.signalservice.api.push.DistributionId;
 import org.signal.network.util.Preconditions;
@@ -79,6 +85,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
 import java.util.Set;
+import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
@@ -537,6 +544,71 @@ public class MessageSender {
       AppDependencies.getJobManager().add(job);
     } else {
       Log.w(TAG, "[resendAdminDelete] Could not resend the admin delete job.");
+    }
+  }
+
+  /**
+   * Entry point for a user-initiated "delete for everyone" via the cooperative Participant-Delete
+   * protocol. Unlike {@link #sendAdminDelete(long)} (which is immediate and admin-only), this
+   * method:
+   *
+   * <ol>
+   *   <li>Generates a 16-byte requestId (UUID).</li>
+   *   <li>Calls {@link ParticipantDeleteManager#processLocalInitiation} to write local state
+   *       (request row, pending row) — no local message is deleted yet; deletion only happens
+   *       after every current member ACKs.</li>
+   *   <li>Enqueues a {@link ParticipantDeleteSendJob} to fan the ParticipantDelete proto out to
+   *       every conversation member (both direct-chat and group-v2 are supported).</li>
+   * </ol>
+   *
+   * @param messageId  Row ID of the target message.
+   */
+  @WorkerThread
+  public static void sendParticipantDelete(long messageId) {
+    try {
+      MessageRecord message = SignalDatabase.messages().getMessageRecord(messageId);
+
+      UUID requestIdUuid = UUID.randomUUID();
+      byte[] requestId = UuidUtil.toByteArray(requestIdUuid);
+
+      long threadId = message.getThreadId();
+      long threadRecipientId = SignalDatabase.threads().getRecipientIdForThreadId(threadId);
+      RecipientRecord threadRecipient = SignalDatabase.recipients().getRecord(threadRecipientId);
+      GroupId groupId = threadRecipient.getGroupId();
+
+      int scope;
+      Integer groupRevision = null;
+      if (groupId != null && groupId.isV2()) {
+        scope = ParticipantDeleteConfig.SCOPE_GROUP_ALL_CURRENT_MEMBERS;
+        java.util.Optional<org.thoughtcrime.securesms.database.model.GroupRecord> groupOpt = SignalDatabase.groups().getGroup(groupId);
+        if (groupOpt.isPresent()) {
+          groupRevision = groupOpt.get().requireV2GroupProperties().getRevision();
+        }
+      } else {
+        scope = ParticipantDeleteConfig.SCOPE_DIRECT_CHAT_BOTH_ACCOUNTS;
+      }
+
+      UUID targetAuthor = UuidUtil.uuidFromByteArray(message.getFromRecipient().requireServiceId().toByteArray());
+
+      new ParticipantDeleteManager().processLocalInitiation(
+        requestId,
+        targetAuthor,
+        message.getDateSent(),
+        scope,
+        groupRevision,
+        threadId
+      );
+
+      ParticipantDeleteSendJob job = ParticipantDeleteSendJob.create(messageId, requestId);
+      if (job != null) {
+        AppDependencies.getJobManager().add(job);
+      } else {
+        Log.w(TAG, "[sendParticipantDelete] Could not create send job.");
+      }
+    } catch (NoSuchMessageException e) {
+      Log.w(TAG, "[sendParticipantDelete] Could not find message! Ignoring.");
+    } catch (Throwable t) {
+      Log.e(TAG, "[sendParticipantDelete] Failed", t);
     }
   }
 

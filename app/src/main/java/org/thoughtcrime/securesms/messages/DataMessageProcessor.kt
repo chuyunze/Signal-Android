@@ -196,6 +196,17 @@ object DataMessageProcessor {
     messageId = messageId ?: insertResult?.messageId?.let { MessageId(it) }
     if (messageId != null) {
       log(envelope.clientTimestamp!!, "Inserted as messageId $messageId")
+
+      // --- Participant delete: apply any pending tombstone that matches this newly-arrived message ---
+      // Mirrors iOS MessageReceiver.applyPendingDeleteIfNecessary. Runs BEFORE profile key / delivery
+      // receipt processing so a tombstoned message is never shown as "normal" and then swapped out.
+      val record = SignalDatabase.messages.getMessageRecordOrNull(messageId.id)
+      if (record != null) {
+        runCatching {
+          org.thoughtcrime.securesms.database.participantdelete.ParticipantDeleteManager()
+            .applyPendingDeleteIfNecessary(record)
+        }
+      }
     }
 
     if (groupId != null) {
