@@ -54,7 +54,9 @@ class SignalServiceDataMessage private constructor(
   val pollTerminate: Optional<PollTerminate>,
   val pinnedMessage: Optional<PinnedMessage>,
   val unpinnedMessage: Optional<UnpinnedMessage>,
-  val adminDelete: Optional<AdminDelete>
+  val adminDelete: Optional<AdminDelete>,
+  val participantDelete: Optional<ParticipantDelete>,
+  val participantDeleteReceipt: Optional<ParticipantDeleteReceipt>
 ) {
   val isActivatePaymentsRequest: Boolean = payment.map { it.isActivationRequest }.orElse(false)
   val isPaymentsActivated: Boolean = payment.map { it.isActivation }.orElse(false)
@@ -111,6 +113,8 @@ class SignalServiceDataMessage private constructor(
     private var pinnedMessage: PinnedMessage? = null
     private var unpinnedMessage: UnpinnedMessage? = null
     private var adminDelete: AdminDelete? = null
+    private var participantDelete: ParticipantDelete? = null
+    private var participantDeleteReceipt: ParticipantDeleteReceipt? = null
 
     fun withTimestamp(timestamp: Long): Builder {
       this.timestamp = timestamp
@@ -258,6 +262,16 @@ class SignalServiceDataMessage private constructor(
       return this
     }
 
+    fun withParticipantDelete(participantDelete: ParticipantDelete?): Builder {
+      this.participantDelete = participantDelete
+      return this
+    }
+
+    fun withParticipantDeleteReceipt(participantDeleteReceipt: ParticipantDeleteReceipt?): Builder {
+      this.participantDeleteReceipt = participantDeleteReceipt
+      return this
+    }
+
     fun build(): SignalServiceDataMessage {
       if (timestamp == 0L) {
         timestamp = System.currentTimeMillis()
@@ -291,7 +305,9 @@ class SignalServiceDataMessage private constructor(
         pollTerminate = pollTerminate.asOptional(),
         pinnedMessage = pinnedMessage.asOptional(),
         unpinnedMessage = unpinnedMessage.asOptional(),
-        adminDelete = adminDelete.asOptional()
+        adminDelete = adminDelete.asOptional(),
+        participantDelete = participantDelete.asOptional(),
+        participantDeleteReceipt = participantDeleteReceipt.asOptional()
       )
     }
   }
@@ -341,6 +357,88 @@ class SignalServiceDataMessage private constructor(
   data class PinnedMessage(val targetAuthor: ServiceId, val targetSentTimestamp: Long, val pinDurationInSeconds: Int?, val forever: Boolean?)
   data class UnpinnedMessage(val targetAuthor: ServiceId, val targetSentTimestamp: Long)
   data class AdminDelete(val targetAuthor: ServiceId, val targetSentTimestamp: Long)
+
+  /** Mirrors SignalService.proto DataMessage.ParticipantDelete (field 30). */
+  data class ParticipantDelete(
+    val version: Int,
+    val targetAuthor: ServiceId,
+    val targetSentTimestamp: Long,
+    val requestId: ByteArray,
+    val clientRequestedAt: Long,
+    val scope: Int,
+    val groupRevision: Int?
+  ) {
+    enum class Scope(val protoValue: Int) {
+      UNKNOWN(0),
+      DIRECT_CHAT_BOTH_ACCOUNTS(1),
+      GROUP_ALL_CURRENT_MEMBERS(2);
+
+      companion object {
+        @JvmStatic
+        fun fromProto(protoValue: Int): Scope = entries.firstOrNull { it.protoValue == protoValue } ?: UNKNOWN
+      }
+    }
+
+    override fun equals(other: Any?): Boolean {
+      if (this === other) return true
+      if (other !is ParticipantDelete) return false
+      return version == other.version &&
+        targetAuthor == other.targetAuthor &&
+        targetSentTimestamp == other.targetSentTimestamp &&
+        requestId.contentEquals(other.requestId) &&
+        clientRequestedAt == other.clientRequestedAt &&
+        scope == other.scope &&
+        groupRevision == other.groupRevision
+    }
+
+    override fun hashCode(): Int {
+      var result = version
+      result = 31 * result + targetAuthor.hashCode()
+      result = 31 * result + targetSentTimestamp.hashCode()
+      result = 31 * result + requestId.contentHashCode()
+      result = 31 * result + clientRequestedAt.hashCode()
+      result = 31 * result + scope
+      result = 31 * result + (groupRevision ?: 0)
+      return result
+    }
+  }
+
+  /** Mirrors SignalService.proto DataMessage.ParticipantDeleteReceipt (field 31). */
+  data class ParticipantDeleteReceipt(
+    val version: Int,
+    val requestId: ByteArray,
+    val result: Int
+  ) {
+    enum class Result(val protoValue: Int) {
+      UNKNOWN(0),
+      APPLIED(1),
+      ALREADY_APPLIED(2),
+      TARGET_PENDING(3),
+      REJECTED_NOT_CURRENT_MEMBER(4),
+      REJECTED_NOT_SUPPORTED(5),
+      REJECTED_INVALID_TARGET(6);
+
+      companion object {
+        @JvmStatic
+        fun fromProto(protoValue: Int): Result = entries.firstOrNull { it.protoValue == protoValue } ?: UNKNOWN
+      }
+    }
+
+    override fun equals(other: Any?): Boolean {
+      if (this === other) return true
+      if (other !is ParticipantDeleteReceipt) return false
+      return version == other.version &&
+        requestId.contentEquals(other.requestId) &&
+        result == other.result
+    }
+
+    override fun hashCode(): Int {
+      var result = version
+      result = 31 * result + requestId.contentHashCode()
+      result = 31 * result + this.result
+      return result
+    }
+  }
 
   companion object {
     @JvmStatic

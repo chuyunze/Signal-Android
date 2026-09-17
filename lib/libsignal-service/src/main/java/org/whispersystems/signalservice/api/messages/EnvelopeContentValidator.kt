@@ -202,6 +202,24 @@ object EnvelopeContentValidator {
       return Result.Invalid("[DataMessage] Invalid admin delete message!")
     }
 
+    if (dataMessage.participantDelete != null && (
+        dataMessage.participantDelete.requestId == null || dataMessage.participantDelete.requestId!!.size != 16 ||
+        dataMessage.participantDelete.targetAuthorAciBinary.isNullOrInvalidAci() ||
+        dataMessage.participantDelete.targetSentTimestamp == null ||
+        dataMessage.participantDelete.scope == DataMessage.ParticipantDelete.Scope.UNKNOWN
+      )
+    ) {
+      return Result.Invalid("[DataMessage] Invalid participant delete message!")
+    }
+
+    if (dataMessage.participantDeleteReceipt != null && (
+        dataMessage.participantDeleteReceipt.requestId == null || dataMessage.participantDeleteReceipt.requestId!!.size != 16 ||
+        dataMessage.participantDeleteReceipt.result == DataMessage.ParticipantDeleteReceipt.Result.UNKNOWN
+      )
+    ) {
+      return Result.Invalid("[DataMessage] Invalid participant delete receipt!")
+    }
+
     return Result.Valid
   }
 

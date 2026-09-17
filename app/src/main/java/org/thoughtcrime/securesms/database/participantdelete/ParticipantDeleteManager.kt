@@ -326,11 +326,13 @@ class ParticipantDeleteManager {
       return if (message.isOutgoing) localAci else Recipient.resolved(message.recipient.id).aci.orNull()
     }
 
-    /** Mirrors iOS `queueReceipt` — queue an OutgoingParticipantDeleteReceiptMessage. */
+    /** Mirrors iOS `queueReceipt` — enqueue a job to send our receipt back to the requester. */
     fun queueReceipt(requestId: ByteArray, resultRaw: Int, recipientAci: UUID) {
-      // TODO(participant-delete): write OutgoingParticipantDeleteReceiptMessage + job
-      //  For now just log; once the send pipeline exists this call is replaced.
-      Log.i(TAG, "queueReceipt stub: requestId=${UuidUtil.uuidFromByteArray(requestId)}, result=$resultRaw → $recipientAci")
+      org.thoughtcrime.securesms.jobs.OutgoingParticipantDeleteReceiptJob.enqueue(
+        recipientAci = org.signal.core.models.ServiceId.parseOrThrow(recipientAci.toString()),
+        requestId = requestId,
+        resultRaw = resultRaw
+      )
     }
   }
 
