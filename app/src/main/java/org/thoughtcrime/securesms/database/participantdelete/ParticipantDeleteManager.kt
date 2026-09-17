@@ -1,4 +1,4 @@
-﻿package org.thoughtcrime.securesms.database.participantdelete
+package org.thoughtcrime.securesms.database.participantdelete
 
 import android.database.Cursor
 import org.signal.core.models.ServiceId
@@ -71,6 +71,13 @@ data class ParticipantDeleteOrigin(
 }
 
 // =============================================================================
+// Extension helpers
+// =============================================================================
+
+/** Convert ServiceId (what Signal's .aci returns) to UUID. */
+private fun ServiceId?.toUuid(): UUID? = this?.let { UuidUtil.parseOrThrow(it.toByteArray()) }
+
+// =============================================================================
 // DAO helpers — raw SQL. All blob columns are queried via HEX(col) = ? with
 // Hex.toStringCondensed() arg, because Android SQLite selectionArgs is Array<String>.
 // =============================================================================
@@ -80,7 +87,7 @@ private object DAO {
   // --- participant_delete_request -----------------------------------------------------------
 
   fun requestByRequestId(requestId: ByteArray): Cursor {
-    return SignalDatabase.rawWritableDatabase.query(
+    return SignalDatabase.rawDatabase.query(
       "participant_delete_request", null,
       "HEX(request_id) = UPPER(?)", arrayOf(Hex.toStringCondensed(requestId)),
       null, null, null
@@ -88,16 +95,16 @@ private object DAO {
   }
 
   fun insertRequest(values: android.content.ContentValues) {
-    SignalDatabase.rawWritableDatabase.insert("participant_delete_request", null, values)
+    SignalDatabase.rawDatabase.insert("participant_delete_request", null, values)
   }
 
   fun updateProcessingResult(requestId: ByteArray, resultRaw: Int) {
     val cv = android.content.ContentValues().apply { put("processing_result", resultRaw) }
-    SignalDatabase.rawWritableDatabase.update("participant_delete_request", cv, "HEX(request_id) = UPPER(?)", arrayOf(Hex.toStringCondensed(requestId)))
+    SignalDatabase.rawDatabase.update("participant_delete_request", cv, "HEX(request_id) = UPPER(?)", arrayOf(Hex.toStringCondensed(requestId)))
   }
 
   fun requestsByTarget(stableConvId: ByteArray, targetAuthorAci: ByteArray, targetTimestamp: Long): Cursor {
-    return SignalDatabase.rawWritableDatabase.query(
+    return SignalDatabase.rawDatabase.query(
       "participant_delete_request", null,
       "HEX(stable_conversation_id) = UPPER(?) AND HEX(target_author_aci) = UPPER(?) AND target_sent_dateSent = ?",
       arrayOf(Hex.toStringCondensed(stableConvId), Hex.toStringCondensed(targetAuthorAci), targetTimestamp.toString()),
@@ -108,7 +115,7 @@ private object DAO {
   // --- participant_delete_tombstone ----------------------------------------------------------
 
   fun tombstoneExists(stableConvId: ByteArray, targetAuthorAci: ByteArray, targetTimestamp: Long): Boolean {
-    SignalDatabase.rawWritableDatabase.rawQuery(
+    SignalDatabase.rawDatabase.rawQuery(
       "SELECT 1 FROM participant_delete_tombstone " +
         "WHERE HEX(stable_conversation_id) = UPPER(?) AND HEX(target_author_aci) = UPPER(?) AND target_sent_dateSent = ? LIMIT 1",
       arrayOf(Hex.toStringCondensed(stableConvId), Hex.toStringCondensed(targetAuthorAci), targetTimestamp.toString())
@@ -116,7 +123,7 @@ private object DAO {
   }
 
   fun insertTombstone(values: android.content.ContentValues) {
-    SignalDatabase.rawWritableDatabase.insert("participant_delete_tombstone", null, values)
+    SignalDatabase.rawDatabase.insert("participant_delete_tombstone", null, values)
   }
 
   fun updateTombstoneInteractionId(stableConvId: ByteArray, targetAuthorAci: ByteArray, targetTimestamp: Long, interactionId: Long, localThreadUniqueId: String) {
@@ -124,7 +131,7 @@ private object DAO {
       put("interaction_id", interactionId)
       put("local_thread_unique_id", localThreadUniqueId)
     }
-    SignalDatabase.rawWritableDatabase.update(
+    SignalDatabase.rawDatabase.update(
       "participant_delete_tombstone", cv,
       "HEX(stable_conversation_id) = UPPER(?) AND HEX(target_author_aci) = UPPER(?) AND target_sent_dateSent = ?",
       arrayOf(Hex.toStringCondensed(stableConvId), Hex.toStringCondensed(targetAuthorAci), targetTimestamp.toString())
@@ -132,7 +139,7 @@ private object DAO {
   }
 
   fun tombstoneByTarget(stableConvId: ByteArray, targetAuthorAci: ByteArray, targetTimestamp: Long): Cursor {
-    return SignalDatabase.rawWritableDatabase.query(
+    return SignalDatabase.rawDatabase.query(
       "participant_delete_tombstone", null,
       "HEX(stable_conversation_id) = UPPER(?) AND HEX(target_author_aci) = UPPER(?) AND target_sent_dateSent = ?",
       arrayOf(Hex.toStringCondensed(stableConvId), Hex.toStringCondensed(targetAuthorAci), targetTimestamp.toString()),
@@ -143,11 +150,11 @@ private object DAO {
   // --- pending_participant_delete ------------------------------------------------------------
 
   fun pruneExpiredPending(nowMs: Long) {
-    SignalDatabase.rawWritableDatabase.delete("pending_participant_delete", "expires_at <= ?", arrayOf(nowMs.toString()))
+    SignalDatabase.rawDatabase.delete("pending_participant_delete", "expires_at <= ?", arrayOf(nowMs.toString()))
   }
 
   fun pendingByTarget(stableConvId: ByteArray, targetAuthorAci: ByteArray, targetTimestamp: Long): Cursor {
-    return SignalDatabase.rawWritableDatabase.query(
+    return SignalDatabase.rawDatabase.query(
       "pending_participant_delete", null,
       "HEX(stable_conversation_id) = UPPER(?) AND HEX(target_author_aci) = UPPER(?) AND target_sent_dateSent = ?",
       arrayOf(Hex.toStringCondensed(stableConvId), Hex.toStringCondensed(targetAuthorAci), targetTimestamp.toString()),
@@ -156,30 +163,30 @@ private object DAO {
   }
 
   fun countPendingByRequester(requesterAci: ByteArray): Int {
-    SignalDatabase.rawWritableDatabase.rawQuery(
+    SignalDatabase.rawDatabase.rawQuery(
       "SELECT COUNT(*) FROM pending_participant_delete WHERE HEX(requester_aci) = UPPER(?)",
       arrayOf(Hex.toStringCondensed(requesterAci))
     ).use { c -> c.moveToFirst(); return c.getInt(0) }
   }
 
   fun countPendingByConversation(stableConvId: ByteArray): Int {
-    SignalDatabase.rawWritableDatabase.rawQuery(
+    SignalDatabase.rawDatabase.rawQuery(
       "SELECT COUNT(*) FROM pending_participant_delete WHERE HEX(stable_conversation_id) = UPPER(?)",
       arrayOf(Hex.toStringCondensed(stableConvId))
     ).use { c -> c.moveToFirst(); return c.getInt(0) }
   }
 
   fun countPendingGlobal(): Int {
-    SignalDatabase.rawWritableDatabase.rawQuery("SELECT COUNT(*) FROM pending_participant_delete", null)
+    SignalDatabase.rawDatabase.rawQuery("SELECT COUNT(*) FROM pending_participant_delete", null)
       .use { c -> c.moveToFirst(); return c.getInt(0) }
   }
 
   fun insertPending(values: android.content.ContentValues) {
-    SignalDatabase.rawWritableDatabase.insert("pending_participant_delete", null, values)
+    SignalDatabase.rawDatabase.insert("pending_participant_delete", null, values)
   }
 
   fun deletePendingByTarget(stableConvId: ByteArray, targetAuthorAci: ByteArray, targetTimestamp: Long) {
-    SignalDatabase.rawWritableDatabase.delete(
+    SignalDatabase.rawDatabase.delete(
       "pending_participant_delete",
       "HEX(stable_conversation_id) = UPPER(?) AND HEX(target_author_aci) = UPPER(?) AND target_sent_dateSent = ?",
       arrayOf(Hex.toStringCondensed(stableConvId), Hex.toStringCondensed(targetAuthorAci), targetTimestamp.toString())
@@ -190,15 +197,15 @@ private object DAO {
 
   fun pruneOldReceipts(nowMs: Long, receiptLifetimeMs: Long) {
     val cutoff = nowMs - receiptLifetimeMs
-    SignalDatabase.rawWritableDatabase.delete("participant_delete_device_receipt", "received_at <= ?", arrayOf(cutoff.toString()))
+    SignalDatabase.rawDatabase.delete("participant_delete_device_receipt", "received_at <= ?", arrayOf(cutoff.toString()))
   }
 
   fun insertDeviceReceipt(values: android.content.ContentValues) {
-    SignalDatabase.rawWritableDatabase.insert("participant_delete_device_receipt", null, values)
+    SignalDatabase.rawDatabase.insert("participant_delete_device_receipt", null, values)
   }
 
   fun receiptsForRequest(requestId: ByteArray): Cursor {
-    return SignalDatabase.rawWritableDatabase.query(
+    return SignalDatabase.rawDatabase.query(
       "participant_delete_device_receipt", null,
       "HEX(request_id) = UPPER(?)", arrayOf(Hex.toStringCondensed(requestId)),
       null, null, null
@@ -206,7 +213,7 @@ private object DAO {
   }
 
   fun orphanReceiptCount(): Int {
-    SignalDatabase.rawWritableDatabase.rawQuery(
+    SignalDatabase.rawDatabase.rawQuery(
       """
         SELECT COUNT(*) FROM participant_delete_device_receipt AS r
         WHERE NOT EXISTS (SELECT 1 FROM participant_delete_request AS q WHERE HEX(q.request_id) = HEX(r.request_id))
@@ -215,7 +222,7 @@ private object DAO {
   }
 
   fun deleteDeviceReceipt(requestId: ByteArray, responderAci: ByteArray, responderDeviceId: Long) {
-    SignalDatabase.rawWritableDatabase.delete(
+    SignalDatabase.rawDatabase.delete(
       "participant_delete_device_receipt",
       "HEX(request_id) = UPPER(?) AND HEX(responder_aci) = UPPER(?) AND responder_device_id = ?",
       arrayOf(Hex.toStringCondensed(requestId), Hex.toStringCondensed(responderAci), responderDeviceId.toString())
@@ -229,11 +236,11 @@ private object DAO {
       put("interaction_id", interactionId)
       put("requester_aci", requesterAci)
     }
-    SignalDatabase.rawWritableDatabase.insert("participant_delete_author", null, cv)
+    SignalDatabase.rawDatabase.insert("participant_delete_author", null, cv)
   }
 
   fun authorByInteractionId(interactionId: Long): Cursor {
-    return SignalDatabase.rawWritableDatabase.query(
+    return SignalDatabase.rawDatabase.query(
       "participant_delete_author", null,
       "interaction_id = ?", arrayOf(interactionId.toString()),
       null, null, null
@@ -252,9 +259,6 @@ class ParticipantDeleteManager {
 
     const val SCOPE_DIRECT_CHAT_BOTH_ACCOUNTS = 1
     const val SCOPE_GROUP_ALL_CURRENT_MEMBERS = 2
-
-    /** Convert ServiceId.ACI? (what Signal's .aci returns) to UUID? */
-    private fun ServiceId?.toUuid(): UUID? = this?.let { UuidUtil.parseOrThrow(it.toByteArray()) }
 
     fun directConversationId(localAci: ByteArray, contactAci: ByteArray): ByteArray {
       val prefix = byteArrayOf(0x01)
@@ -390,7 +394,7 @@ class ParticipantDeleteManager {
       return
     }
 
-    SignalDatabase.rawWritableDatabase.beginTransaction()
+    SignalDatabase.rawDatabase.beginTransaction()
     try {
       DAO.pruneOldReceipts(nowMs, ParticipantDeleteConfig.RECEIPT_LIFETIME_MS)
 
@@ -423,9 +427,9 @@ class ParticipantDeleteManager {
         tryResolvePending(row!!)
       }
 
-      SignalDatabase.rawWritableDatabase.setTransactionSuccessful()
+      SignalDatabase.rawDatabase.setTransactionSuccessful()
     } finally {
-      SignalDatabase.rawWritableDatabase.endTransaction()
+      SignalDatabase.rawDatabase.endTransaction()
     }
   }
 
@@ -436,7 +440,7 @@ class ParticipantDeleteManager {
       val stableConvId = stableConversationIdForThread(message.threadId, localAci) ?: return
       if (!isSupportedTarget(message)) return
 
-      SignalDatabase.rawWritableDatabase.beginTransaction()
+      SignalDatabase.rawDatabase.beginTransaction()
       try {
         if (DAO.tombstoneExists(stableConvId, UuidUtil.toByteArray(authorAci), message.dateSent)) {
           DAO.tombstoneByTarget(stableConvId, UuidUtil.toByteArray(authorAci), message.dateSent).use { c ->
@@ -450,7 +454,7 @@ class ParticipantDeleteManager {
             }
           }
           markMessageAsRemoteDelete(message.id)
-          SignalDatabase.rawWritableDatabase.setTransactionSuccessful()
+          SignalDatabase.rawDatabase.setTransactionSuccessful()
           return
         }
 
@@ -480,9 +484,9 @@ class ParticipantDeleteManager {
           }
         }
 
-        SignalDatabase.rawWritableDatabase.setTransactionSuccessful()
+        SignalDatabase.rawDatabase.setTransactionSuccessful()
       } finally {
-        SignalDatabase.rawWritableDatabase.endTransaction()
+        SignalDatabase.rawDatabase.endTransaction()
       }
     } catch (e: Exception) {
       Log.e(TAG, "applyPendingDeleteIfNecessary failed", e)
@@ -553,7 +557,7 @@ class ParticipantDeleteManager {
     val requesterAciBytes = UuidUtil.toByteArray(requesterAci)
     val localThreadUniqueId = threadUniqueIdOf(threadId)
 
-    SignalDatabase.rawWritableDatabase.beginTransaction()
+    SignalDatabase.rawDatabase.beginTransaction()
     try {
       // Dedupe
       DAO.requestByRequestId(requestId).use { c ->
@@ -562,7 +566,7 @@ class ParticipantDeleteManager {
           if (originShouldSendReceipt) {
             queueReceipt(requestId, existingResult, requesterAci)
           }
-          SignalDatabase.rawWritableDatabase.setTransactionSuccessful()
+          SignalDatabase.rawDatabase.setTransactionSuccessful()
           return ParticipantDeleteReceiptResult.fromRaw(existingResult)
         }
       }
@@ -583,7 +587,7 @@ class ParticipantDeleteManager {
           put("created_at", System.currentTimeMillis())
         })
         if (originShouldSendReceipt) queueReceipt(requestId, ParticipantDeleteReceiptResult.ALREADY_APPLIED.rawValue, requesterAci)
-        SignalDatabase.rawWritableDatabase.setTransactionSuccessful()
+        SignalDatabase.rawDatabase.setTransactionSuccessful()
         return ParticipantDeleteReceiptResult.ALREADY_APPLIED
       }
 
@@ -635,7 +639,7 @@ class ParticipantDeleteManager {
           put("created_at", System.currentTimeMillis())
         })
         if (originShouldSendReceipt) queueReceipt(requestId, ParticipantDeleteReceiptResult.TARGET_PENDING.rawValue, requesterAci)
-        SignalDatabase.rawWritableDatabase.setTransactionSuccessful()
+        SignalDatabase.rawDatabase.setTransactionSuccessful()
         return ParticipantDeleteReceiptResult.TARGET_PENDING
       }
 
@@ -675,7 +679,7 @@ class ParticipantDeleteManager {
         put("created_at", System.currentTimeMillis())
       })
       if (originShouldSendReceipt) queueReceipt(requestId, ParticipantDeleteReceiptResult.APPLIED.rawValue, requesterAci)
-      SignalDatabase.rawWritableDatabase.setTransactionSuccessful()
+      SignalDatabase.rawDatabase.setTransactionSuccessful()
       return ParticipantDeleteReceiptResult.APPLIED
     } catch (pe: ParticipantDeleteException) {
       val fallback = when (pe) {
@@ -686,7 +690,7 @@ class ParticipantDeleteManager {
       try { queueReceipt(requestId, fallback.rawValue, requesterAci) } catch (_: Throwable) { }
       throw pe
     } finally {
-      try { SignalDatabase.rawWritableDatabase.endTransaction() } catch (_: Throwable) { }
+      try { SignalDatabase.rawDatabase.endTransaction() } catch (_: Throwable) { }
     }
   }
 
@@ -813,7 +817,7 @@ class ParticipantDeleteManager {
 
   private fun markMessageAsRemoteDelete(messageId: Long) {
     runCatching {
-      SignalDatabase.rawWritableDatabase.execSQL("UPDATE message SET remote_deleted = 1 WHERE _id = ?", arrayOf(messageId))
+      SignalDatabase.rawDatabase.execSQL("UPDATE message SET remote_deleted = 1 WHERE _id = ?", arrayOf(messageId))
     }
   }
 
