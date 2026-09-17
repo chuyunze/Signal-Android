@@ -2,11 +2,11 @@
 
 import android.database.Cursor
 import org.signal.core.models.ServiceId
+import org.signal.core.util.Hex
 import org.signal.core.util.UuidUtil
 import org.signal.core.util.logging.Log
 import org.signal.core.util.orNull
 import org.thoughtcrime.securesms.database.SignalDatabase
-import org.thoughtcrime.securesms.database.model.GroupRecord
 import org.thoughtcrime.securesms.database.model.MessageRecord
 import org.thoughtcrime.securesms.recipients.Recipient
 import org.thoughtcrime.securesms.recipients.RecipientId
@@ -14,39 +14,20 @@ import java.util.UUID
 
 /**
  * Participant-delete protocol configuration. Mirrors iOS `ParticipantDeleteConfiguration`.
- *
- * See iOS commit 69077f4 `AdminDeleteManager.swift` companion constants block.
  */
 object ParticipantDeleteConfig {
-  /** Currently shipped protocol version. iOS matches exactly. */
   const val PROTOCOL_VERSION: Int = 1
-
-  /** Receipts older than this are pruned on every `processReceipt` call (45 days). */
   const val RECEIPT_LIFETIME_MS: Long = 45L * 24 * 60 * 60 * 1000
-
-  /** Pending rows expire after this window if the message never arrives locally (45 days). */
   const val PENDING_LIFETIME_MS: Long = 45L * 24 * 60 * 60 * 1000
-
-  /** Max pending rows across the whole DB. Protects against DoS via forged requests. */
   const val MAX_PENDING_GLOBALLY: Int = 1000
-
-  /** Max pending rows initiated by a single requester ACI. */
   const val MAX_PENDING_PER_REQUESTER: Int = 50
-
-  /** Max pending rows per conversation (thread). */
   const val MAX_PENDING_PER_CONVERSATION: Int = 100
-
-  /** Guard on orphan-receipt flood — receipts with no matching Request row beyond this count are dropped. */
   const val MAX_ORPHAN_RECEIPTS: Int = 2000
-
-  /** Master kill-switch. Keep on for self-host — the iOS fork has it true, we mirror that. */
   const val FEATURE_ENABLED: Boolean = true
 }
 
 /**
- * Mirror of iOS `SSKProtoDataMessageParticipantDeleteReceipt.Result`. We define our own so the
- * manager layer does not require the proto-generated enum (which has a slightly different name
- * between Wire versions). Values MUST match proto.rawValue exactly (also 0=UNKNOWN through 6).
+ * Mirror of iOS `SSKProtoDataMessageParticipantDeleteReceipt.Result`.
  */
 enum class ParticipantDeleteReceiptResult(val rawValue: Int) {
   UNKNOWN(0),
@@ -62,10 +43,7 @@ enum class ParticipantDeleteReceiptResult(val rawValue: Int) {
   }
 }
 
-/**
- * Why a `process` / `processLocalInitiation` call may short-circuit. Mirrors iOS
- * `ParticipantDeleteError` — we fold into a sealed type so call-sites don't have to catch.
- */
+/** Why a process() / processLocalInitiation() call may short-circuit. */
 sealed class ParticipantDeleteException(message: String) : Exception(message) {
   data object UnsupportedVersion : ParticipantDeleteException("protocol version mismatch")
   data object InvalidRequestId : ParticipantDeleteException("requestId must be 16 bytes")
@@ -78,17 +56,11 @@ sealed class ParticipantDeleteException(message: String) : Exception(message) {
 }
 
 /**
- * Where a `ParticipantDelete` request originated.
- *
- * - REMOTE_ENVELOPE       : arrived from the network, requester is whoever signed the envelope.
- * - LOCAL_SENT_TRANSCRIPT : we see *our own* outgoing delete via SyncMessage (sent-transcript),
- *                           requester is ourselves; deviceId identifies which of our devices sent it.
- * - LOCAL_INITIATION      : *we* are initiating a delete from the UI (this device). deviceId = null.
+ * Where a ParticipantDelete request originated.
  */
 data class ParticipantDeleteOrigin(
   val requesterAci: UUID,
   val sourceDeviceId: Int?,
-  /** True for REMOTE_ENVELOPE and LOCAL_SENT_TRANSCRIPT — we should ACK the requester with a receipt. */
   val shouldSendReceipt: Boolean
 ) {
   companion object {
@@ -99,15 +71,18 @@ data class ParticipantDeleteOrigin(
 }
 
 // =============================================================================
-// DAO helpers — raw SQL against the 5 new tables created in V327 migration.
+// DAO helpers — raw SQL. All blob columns are queried via HEX(col) = ? with
+// Hex.toStringCondensed() arg, because Android SQLite selectionArgs is Array<String>.
 // =============================================================================
 
 private object DAO {
+
   // --- participant_delete_request -----------------------------------------------------------
+
   fun requestByRequestId(requestId: ByteArray): Cursor {
     return SignalDatabase.rawDatabase.query(
       "participant_delete_request", null,
-      "request_id = ?", arrayOf(requestId),
+      "HEX(request_id) = UPPER(?)", arrayOf(Hex.toStringCondensed(requestId)),
       null, null, null
     )
   }
@@ -118,24 +93,25 @@ private object DAO {
 
   fun updateProcessingResult(requestId: ByteArray, resultRaw: Int) {
     val cv = android.content.ContentValues().apply { put("processing_result", resultRaw) }
-    SignalDatabase.rawDatabase.update("participant_delete_request", cv, "request_id = ?", arrayOf(requestId))
+    SignalDatabase.rawDatabase.update("participant_delete_request", cv, "HEX(request_id) = UPPER(?)", arrayOf(Hex.toStringCondensed(requestId)))
   }
 
   fun requestsByTarget(stableConvId: ByteArray, targetAuthorAci: ByteArray, targetTimestamp: Long): Cursor {
     return SignalDatabase.rawDatabase.query(
       "participant_delete_request", null,
-      "stable_conversation_id = ? AND target_author_aci = ? AND target_sent_timestamp = ?",
-      arrayOf(stableConvId, targetAuthorAci, targetTimestamp.toString()),
+      "HEX(stable_conversation_id) = UPPER(?) AND HEX(target_author_aci) = UPPER(?) AND target_sent_timestamp = ?",
+      arrayOf(Hex.toStringCondensed(stableConvId), Hex.toStringCondensed(targetAuthorAci), targetTimestamp.toString()),
       null, null, null
     )
   }
 
   // --- participant_delete_tombstone ----------------------------------------------------------
+
   fun tombstoneExists(stableConvId: ByteArray, targetAuthorAci: ByteArray, targetTimestamp: Long): Boolean {
     SignalDatabase.rawDatabase.rawQuery(
       "SELECT 1 FROM participant_delete_tombstone " +
-        "WHERE stable_conversation_id = ? AND target_author_aci = ? AND target_sent_timestamp = ? LIMIT 1",
-      arrayOf(stableConvId, targetAuthorAci, targetTimestamp.toString())
+        "WHERE HEX(stable_conversation_id) = UPPER(?) AND HEX(target_author_aci) = UPPER(?) AND target_sent_timestamp = ? LIMIT 1",
+      arrayOf(Hex.toStringCondensed(stableConvId), Hex.toStringCondensed(targetAuthorAci), targetTimestamp.toString())
     ).use { c -> return c.moveToFirst() }
   }
 
@@ -150,21 +126,22 @@ private object DAO {
     }
     SignalDatabase.rawDatabase.update(
       "participant_delete_tombstone", cv,
-      "stable_conversation_id = ? AND target_author_aci = ? AND target_sent_timestamp = ?",
-      arrayOf(stableConvId, targetAuthorAci, targetTimestamp.toString())
+      "HEX(stable_conversation_id) = UPPER(?) AND HEX(target_author_aci) = UPPER(?) AND target_sent_timestamp = ?",
+      arrayOf(Hex.toStringCondensed(stableConvId), Hex.toStringCondensed(targetAuthorAci), targetTimestamp.toString())
     )
   }
 
   fun tombstoneByTarget(stableConvId: ByteArray, targetAuthorAci: ByteArray, targetTimestamp: Long): Cursor {
     return SignalDatabase.rawDatabase.query(
       "participant_delete_tombstone", null,
-      "stable_conversation_id = ? AND target_author_aci = ? AND target_sent_timestamp = ?",
-      arrayOf(stableConvId, targetAuthorAci, targetTimestamp.toString()),
+      "HEX(stable_conversation_id) = UPPER(?) AND HEX(target_author_aci) = UPPER(?) AND target_sent_timestamp = ?",
+      arrayOf(Hex.toStringCondensed(stableConvId), Hex.toStringCondensed(targetAuthorAci), targetTimestamp.toString()),
       null, null, null
     )
   }
 
   // --- pending_participant_delete ------------------------------------------------------------
+
   fun pruneExpiredPending(nowMs: Long) {
     SignalDatabase.rawDatabase.delete("pending_participant_delete", "expires_at <= ?", arrayOf(nowMs.toString()))
   }
@@ -172,23 +149,23 @@ private object DAO {
   fun pendingByTarget(stableConvId: ByteArray, targetAuthorAci: ByteArray, targetTimestamp: Long): Cursor {
     return SignalDatabase.rawDatabase.query(
       "pending_participant_delete", null,
-      "stable_conversation_id = ? AND target_author_aci = ? AND target_sent_timestamp = ?",
-      arrayOf(stableConvId, targetAuthorAci, targetTimestamp.toString()),
+      "HEX(stable_conversation_id) = UPPER(?) AND HEX(target_author_aci) = UPPER(?) AND target_sent_timestamp = ?",
+      arrayOf(Hex.toStringCondensed(stableConvId), Hex.toStringCondensed(targetAuthorAci), targetTimestamp.toString()),
       null, null, null
     )
   }
 
   fun countPendingByRequester(requesterAci: ByteArray): Int {
     SignalDatabase.rawDatabase.rawQuery(
-      "SELECT COUNT(*) FROM pending_participant_delete WHERE requester_aci = ?",
-      arrayOf(requesterAci)
+      "SELECT COUNT(*) FROM pending_participant_delete WHERE HEX(requester_aci) = UPPER(?)",
+      arrayOf(Hex.toStringCondensed(requesterAci))
     ).use { c -> c.moveToFirst(); return c.getInt(0) }
   }
 
   fun countPendingByConversation(stableConvId: ByteArray): Int {
     SignalDatabase.rawDatabase.rawQuery(
-      "SELECT COUNT(*) FROM pending_participant_delete WHERE stable_conversation_id = ?",
-      arrayOf(stableConvId)
+      "SELECT COUNT(*) FROM pending_participant_delete WHERE HEX(stable_conversation_id) = UPPER(?)",
+      arrayOf(Hex.toStringCondensed(stableConvId))
     ).use { c -> c.moveToFirst(); return c.getInt(0) }
   }
 
@@ -204,12 +181,13 @@ private object DAO {
   fun deletePendingByTarget(stableConvId: ByteArray, targetAuthorAci: ByteArray, targetTimestamp: Long) {
     SignalDatabase.rawDatabase.delete(
       "pending_participant_delete",
-      "stable_conversation_id = ? AND target_author_aci = ? AND target_sent_timestamp = ?",
-      arrayOf(stableConvId, targetAuthorAci, targetTimestamp.toString())
+      "HEX(stable_conversation_id) = UPPER(?) AND HEX(target_author_aci) = UPPER(?) AND target_sent_timestamp = ?",
+      arrayOf(Hex.toStringCondensed(stableConvId), Hex.toStringCondensed(targetAuthorAci), targetTimestamp.toString())
     )
   }
 
   // --- participant_delete_device_receipt -----------------------------------------------------
+
   fun pruneOldReceipts(nowMs: Long, receiptLifetimeMs: Long) {
     val cutoff = nowMs - receiptLifetimeMs
     SignalDatabase.rawDatabase.delete("participant_delete_device_receipt", "received_at <= ?", arrayOf(cutoff.toString()))
@@ -222,7 +200,7 @@ private object DAO {
   fun receiptsForRequest(requestId: ByteArray): Cursor {
     return SignalDatabase.rawDatabase.query(
       "participant_delete_device_receipt", null,
-      "request_id = ?", arrayOf(requestId),
+      "HEX(request_id) = UPPER(?)", arrayOf(Hex.toStringCondensed(requestId)),
       null, null, null
     )
   }
@@ -231,7 +209,7 @@ private object DAO {
     SignalDatabase.rawDatabase.rawQuery(
       """
         SELECT COUNT(*) FROM participant_delete_device_receipt AS r
-        WHERE NOT EXISTS (SELECT 1 FROM participant_delete_request AS q WHERE q.request_id = r.request_id)
+        WHERE NOT EXISTS (SELECT 1 FROM participant_delete_request AS q WHERE HEX(q.request_id) = HEX(r.request_id))
       """.trimIndent(), null
     ).use { c -> c.moveToFirst(); return c.getInt(0) }
   }
@@ -239,12 +217,13 @@ private object DAO {
   fun deleteDeviceReceipt(requestId: ByteArray, responderAci: ByteArray, responderDeviceId: Long) {
     SignalDatabase.rawDatabase.delete(
       "participant_delete_device_receipt",
-      "request_id = ? AND responder_aci = ? AND responder_device_id = ?",
-      arrayOf(requestId, responderAci, responderDeviceId.toString())
+      "HEX(request_id) = UPPER(?) AND HEX(responder_aci) = UPPER(?) AND responder_device_id = ?",
+      arrayOf(Hex.toStringCondensed(requestId), Hex.toStringCondensed(responderAci), responderDeviceId.toString())
     )
   }
 
   // --- participant_delete_author -------------------------------------------------------------
+
   fun insertAuthor(interactionId: Long, requesterAci: ByteArray) {
     val cv = android.content.ContentValues().apply {
       put("interaction_id", interactionId)
@@ -263,7 +242,7 @@ private object DAO {
 }
 
 // =============================================================================
-// Public manager — 1:1 port of iOS AdminDeleteManager.ParticipantDeleteManager.
+// Public manager
 // =============================================================================
 
 class ParticipantDeleteManager {
@@ -271,24 +250,18 @@ class ParticipantDeleteManager {
   companion object {
     private val TAG = Log.tag(ParticipantDeleteManager::class.java)
 
-    /** Scope values mirror [SignalServiceDataMessage.ParticipantDelete.Scope]. */
     const val SCOPE_DIRECT_CHAT_BOTH_ACCOUNTS = 1
     const val SCOPE_GROUP_ALL_CURRENT_MEMBERS = 2
 
-    // ---- stable conversation id helpers ----
+    /** Convert ServiceId.ACI? (what Signal's .aci returns) to UUID? */
+    private fun ServiceId?.toUuid(): UUID? = this?.let { UuidUtil.parseOrThrow(it.toByteArray()) }
 
-    /**
-     * Mirrors iOS `directConversationId(localAci, contactAci)`:
-     * `[0x01] + lexicographically(sort(local, contact))`.
-     * Consistent ordering means both ends compute the same bytes.
-     */
     fun directConversationId(localAci: ByteArray, contactAci: ByteArray): ByteArray {
       val prefix = byteArrayOf(0x01)
       val (lo, hi) = if (byteArrayCompare(localAci, contactAci) <= 0) localAci to contactAci else contactAci to localAci
       return prefix + lo + hi
     }
 
-    /** Mirrors iOS `Data([0x02]) + groupModel.groupId`. */
     fun groupConversationId(groupId: ByteArray): ByteArray = byteArrayOf(0x02) + groupId
 
     private fun byteArrayCompare(a: ByteArray, b: ByteArray): Int {
@@ -300,31 +273,19 @@ class ParticipantDeleteManager {
       return a.size - b.size
     }
 
-    /**
-     * Mirrors iOS `isSupportedTarget`. We avoid participant-deleting messages that have
-     * no stable identity or are tied to features the delete must not traverse.
-     */
     fun isSupportedTarget(message: MessageRecord): Boolean {
-      if (message.isViewOnce || message.isStoryReply) return false
-      // Payment + gift badge are handled by field checks iOS-side; Android MessageRecord
-      // exposes fewer fields — we approximate by rejecting any outgoing / sync-only markers.
-      // Polls are checked on iOS via OWSMessagePoll; Android via isPoll() which we don't have
-      // as a stable public check from this layer — conservatively skip.
+      if (message.isViewOnce) return false
       return true
     }
 
-    /**
-     * Mirrors iOS `authorAci(for:localAci)`. For outgoing messages the author is us.
-     * For incoming messages we use `message.recipient` (the sender).
-     */
     fun authorAci(message: MessageRecord, localAci: UUID): UUID? {
-      return if (message.isOutgoing) localAci else Recipient.resolved(message.recipient.id).aci.orNull()
+      return if (message.isOutgoing) localAci else Recipient.resolved(message.fromRecipient.id).aci.toUuid()
     }
 
-    /** Mirrors iOS `queueReceipt` — enqueue a job to send our receipt back to the requester. */
+    /** Mirrors iOS queueReceipt — enqueue a job to send our receipt back to the requester. */
     fun queueReceipt(requestId: ByteArray, resultRaw: Int, recipientAci: UUID) {
       org.thoughtcrime.securesms.jobs.OutgoingParticipantDeleteReceiptJob.enqueue(
-        recipientAci = org.signal.core.models.ServiceId.parseOrThrow(recipientAci.toString()),
+        recipientAci = ServiceId.ACI.from(recipientAci),
         requestId = requestId,
         resultRaw = resultRaw
       )
@@ -332,40 +293,31 @@ class ParticipantDeleteManager {
   }
 
   // ---------------------------------------------------------------------------
-  // Public API (mirrors iOS exactly)
+  // Public API
   // ---------------------------------------------------------------------------
 
-  /** Returns true if a local user-initiated delete of `message` through `threadId` is allowed. */
   fun canParticipantDelete(message: MessageRecord, threadId: Long): Boolean {
     if (!ParticipantDeleteConfig.FEATURE_ENABLED) return false
-    if (!message.isOutgoing && !message.isIncoming) return false
     if (message.isRemoteDelete) return false
     if (message.timestamp <= 0) return false
     if (!isSupportedTarget(message)) return false
 
-    val localAci = Recipient.self().aci.orNull() ?: return false
+    val localAci = Recipient.self().aci.toUuid() ?: return false
     val authorAci = authorAci(message, localAci) ?: return false
 
-    // thread = self → no
     if (threadId <= 0) return false
 
-    // Determine if our thread is contact or group and whether we are a current full member.
     val threadRecipientId: RecipientId = SignalDatabase.threads.getRecipientIdForThreadId(threadId) ?: return false
     val threadRecipient = Recipient.resolved(threadRecipientId)
     return if (threadRecipient.isGroup) {
-      val group: GroupRecord = SignalDatabase.groups.getGroup(threadRecipientId).orNull() ?: return false
+      val group = SignalDatabase.groups.getGroup(threadRecipientId).orNull() ?: return false
       group.members.contains(Recipient.self().id)
     } else {
-      // contact thread — valid only if the target author is either us or the contact
-      val contactAci = threadRecipient.aci.orNull() ?: return false
+      val contactAci = threadRecipient.aci.toUuid() ?: return false
       authorAci == localAci || authorAci == contactAci
     }
   }
 
-  /**
-   * Processes an incoming `ParticipantDelete` envelope. Returns the result that should be
-   * sent back as our own receipt (the caller is responsible for enqueuing it — see Step 5).
-   */
   fun process(
     proto: org.whispersystems.signalservice.internal.push.DataMessage.ParticipantDelete,
     origin: ParticipantDeleteOrigin,
@@ -387,10 +339,6 @@ class ParticipantDeleteManager {
     )
   }
 
-  /**
-   * Entry point for user-initiated local deletes (from Step 6 UI). Builds a validated request
-   * and processes it as if we'd received it from the wire.
-   */
   fun processLocalInitiation(
     requestId: ByteArray,
     targetAuthor: UUID,
@@ -404,7 +352,7 @@ class ParticipantDeleteManager {
     if (scope != SCOPE_DIRECT_CHAT_BOTH_ACCOUNTS && scope != SCOPE_GROUP_ALL_CURRENT_MEMBERS) {
       throw ParticipantDeleteException.InvalidTarget
     }
-    val localAci = Recipient.self().aci.orNull() ?: throw ParticipantDeleteException.InvalidThread
+    val localAci = Recipient.self().aci.toUuid() ?: throw ParticipantDeleteException.InvalidThread
     processValidated(
       targetAuthorAci = targetAuthor,
       targetSentTimestamp = targetSentTimestamp,
@@ -419,11 +367,6 @@ class ParticipantDeleteManager {
     )
   }
 
-  /**
-   * Handles an incoming `ParticipantDeleteReceipt` envelope. Stores the ACK row and runs the
-   * aggregation step — if every current conversation member has now responded, we resolve the
-   * pending row into a tombstone and delete the message locally.
-   */
   fun processReceipt(
     proto: org.whispersystems.signalservice.internal.push.DataMessage.ParticipantDeleteReceipt,
     responderAci: UUID,
@@ -438,7 +381,7 @@ class ParticipantDeleteManager {
       Log.w(TAG, "Ignoring invalid receipt: missing requestId")
       return
     }
-    val resultRaw = proto.result?.number ?: run {
+    val resultRaw = proto.result?.value ?: run {
       Log.w(TAG, "Ignoring invalid receipt: missing result")
       return
     }
@@ -451,7 +394,6 @@ class ParticipantDeleteManager {
     try {
       DAO.pruneOldReceipts(nowMs, ParticipantDeleteConfig.RECEIPT_LIFETIME_MS)
 
-      // Does the Request row exist? If yes, sanity-check the responder is a member of that thread.
       var row: ParticipantDeleteRequestRow? = null
       DAO.requestByRequestId(requestId).use { c ->
         if (c.moveToFirst()) row = ParticipantDeleteRequestRow.fromCursor(c)
@@ -463,7 +405,6 @@ class ParticipantDeleteManager {
           return
         }
       } else {
-        // Orphan receipt — no matching Request row. Guard against flood.
         if (DAO.orphanReceiptCount() >= ParticipantDeleteConfig.MAX_ORPHAN_RECEIPTS) {
           Log.w(TAG, "Ignoring orphan receipt above capacity limit")
           return
@@ -478,7 +419,6 @@ class ParticipantDeleteManager {
         put("received_at", nowMs)
       })
 
-      // If there is a matching pending row, check whether it is now fully acknowledged.
       if (row != null) {
         tryResolvePending(row!!)
       }
@@ -489,21 +429,15 @@ class ParticipantDeleteManager {
     }
   }
 
-  /**
-   * Called from the message-insert pipeline (analogous to iOS `applyPendingDeleteIfNecessary`
-   * in MessageReceiver). If a tombstone or pending row matches [message], it is turned into a
-   * "deleted by participant" remote-delete and metadata is recorded.
-   */
   fun applyPendingDeleteIfNecessary(message: MessageRecord) {
     try {
-      val localAci = Recipient.self().aci.orNull() ?: return
+      val localAci = Recipient.self().aci.toUuid() ?: return
       val authorAci = authorAci(message, localAci) ?: return
       val stableConvId = stableConversationIdForThread(message.threadId, localAci) ?: return
       if (!isSupportedTarget(message)) return
 
       SignalDatabase.rawDatabase.beginTransaction()
       try {
-        // 1. Check tombstone first — if one exists, just link this message row and bail out.
         if (DAO.tombstoneExists(stableConvId, UuidUtil.toByteArray(authorAci), message.timestamp)) {
           DAO.tombstoneByTarget(stableConvId, UuidUtil.toByteArray(authorAci), message.timestamp).use { c ->
             if (c.moveToFirst()) {
@@ -520,7 +454,6 @@ class ParticipantDeleteManager {
           return
         }
 
-        // 2. Then check pending — apply pending → tombstone + delete.
         DAO.pendingByTarget(stableConvId, UuidUtil.toByteArray(authorAci), message.timestamp).use { c ->
           if (c.moveToFirst()) {
             val pendingRow = PendingParticipantDeleteRow.fromCursor(c)
@@ -537,7 +470,6 @@ class ParticipantDeleteManager {
             })
             DAO.deletePendingByTarget(stableConvId, pendingRow.targetAuthorAci, message.timestamp)
             DAO.insertAuthor(message.id, pendingRow.requesterAci)
-            // Update all matching Request rows → APPLIED
             DAO.requestsByTarget(stableConvId, pendingRow.targetAuthorAci, message.timestamp).use { rc ->
               while (rc.moveToNext()) {
                 val reqId = rc.getBlob(rc.getColumnIndexOrThrow("request_id"))
@@ -557,7 +489,6 @@ class ParticipantDeleteManager {
     }
   }
 
-  /** Resolve the "who deleted this message?" metadata row for a given local interaction id. */
   fun requesterAciOf(interactionId: Long): UUID? {
     DAO.authorByInteractionId(interactionId).use { c ->
       if (c.moveToFirst()) {
@@ -569,7 +500,7 @@ class ParticipantDeleteManager {
   }
 
   // ---------------------------------------------------------------------------
-  // Private — the core state machine (mirrors iOS `private process(request:,origin:,...)`)
+  // Core state machine
   // ---------------------------------------------------------------------------
 
   private fun processValidated(
@@ -584,9 +515,8 @@ class ParticipantDeleteManager {
     threadId: Long,
     trustedServerTimestamp: Long?
   ): ParticipantDeleteReceiptResult {
-    val localAci = Recipient.self().aci.orNull() ?: throw ParticipantDeleteException.InvalidThread
+    val localAci = Recipient.self().aci.toUuid() ?: throw ParticipantDeleteException.InvalidThread
 
-    // ---- Step 1: validate thread scope and requester membership ----
     val stableConvId: ByteArray
     val threadRecipientId = SignalDatabase.threads.getRecipientIdForThreadId(threadId)
       ?: throw ParticipantDeleteException.InvalidThread
@@ -599,13 +529,14 @@ class ParticipantDeleteManager {
       val group = SignalDatabase.groups.getGroup(threadRecipientId).orNull()
         ?: throw ParticipantDeleteException.InvalidThread
       if (!group.members.contains(Recipient.self().id)) throw ParticipantDeleteException.InvalidThread
-      if (!group.members.contains(RecipientId.from(ServiceId.ACI.from(requesterAci)))) {
+      val requesterRecipientId = RecipientId.from(ServiceId.ACI.from(requesterAci))
+      if (!group.members.contains(requesterRecipientId)) {
         throw ParticipantDeleteException.RequesterNotCurrentMember
       }
       stableConvId = groupConversationId(group.id.toByteArray())
     } else {
       if (scope != SCOPE_DIRECT_CHAT_BOTH_ACCOUNTS) throw ParticipantDeleteException.ScopeMismatch
-      val contactAci = threadRecipient.aci.orNull() ?: throw ParticipantDeleteException.InvalidThread
+      val contactAci = threadRecipient.aci.toUuid() ?: throw ParticipantDeleteException.InvalidThread
       if (targetAuthorAci != localAci && targetAuthorAci != contactAci) {
         throw ParticipantDeleteException.InvalidTarget
       }
@@ -619,13 +550,12 @@ class ParticipantDeleteManager {
       throw ParticipantDeleteException.FutureTarget
     }
 
-    // ---- Step 2: request dedupe / tombstone shortcut / queue-pending / apply ----
     val requesterAciBytes = UuidUtil.toByteArray(requesterAci)
     val localThreadUniqueId = threadUniqueIdOf(threadId)
 
     SignalDatabase.rawDatabase.beginTransaction()
     try {
-      // Dedupe: if we already saw this requestId, return its recorded result.
+      // Dedupe
       DAO.requestByRequestId(requestId).use { c ->
         if (c.moveToFirst()) {
           val existingResult = c.getInt(c.getColumnIndexOrThrow("processing_result"))
@@ -637,7 +567,7 @@ class ParticipantDeleteManager {
         }
       }
 
-      // Tombstone shortcut: already-applied → record + ALREADY_APPLIED.
+      // Tombstone shortcut
       val targetAuthorAciBytes = UuidUtil.toByteArray(targetAuthorAci)
       if (DAO.tombstoneExists(stableConvId, targetAuthorAciBytes, targetSentTimestamp)) {
         DAO.insertRequest(android.content.ContentValues().apply {
@@ -657,19 +587,18 @@ class ParticipantDeleteManager {
         return ParticipantDeleteReceiptResult.ALREADY_APPLIED
       }
 
-      // Try to find the target message locally.
+      // Try to find target message locally
       val targetMessage: MessageRecord? = try {
         SignalDatabase.messages.getMessageFor(targetSentTimestamp, RecipientId.from(ServiceId.ACI.from(targetAuthorAci)))
       } catch (t: Throwable) { null }
 
       if (targetMessage == null) {
-        // Message not yet in DB → enqueue pending so we apply later when it arrives.
+        // Enqueue pending
         val nowMs = System.currentTimeMillis()
         DAO.pruneExpiredPending(nowMs)
 
         DAO.pendingByTarget(stableConvId, targetAuthorAciBytes, targetSentTimestamp).use { c ->
           if (!c.moveToFirst()) {
-            // Cap checks.
             if (DAO.countPendingGlobal() >= ParticipantDeleteConfig.MAX_PENDING_GLOBALLY
               || DAO.countPendingByRequester(requesterAciBytes) >= ParticipantDeleteConfig.MAX_PENDING_PER_REQUESTER
               || DAO.countPendingByConversation(stableConvId) >= ParticipantDeleteConfig.MAX_PENDING_PER_CONVERSATION
@@ -710,7 +639,7 @@ class ParticipantDeleteManager {
         return ParticipantDeleteReceiptResult.TARGET_PENDING
       }
 
-      // Target message is in our DB → apply delete now.
+      // Target message exists → apply
       if (!isSupportedTarget(targetMessage)) {
         throw ParticipantDeleteException.InvalidTarget
       }
@@ -754,7 +683,6 @@ class ParticipantDeleteManager {
         is ParticipantDeleteException.UnsupportedVersion -> ParticipantDeleteReceiptResult.REJECTED_NOT_SUPPORTED
         else -> ParticipantDeleteReceiptResult.REJECTED_INVALID_TARGET
       }
-      // Best-effort enqueue a receipt so the requester knows why.
       try { queueReceipt(requestId, fallback.rawValue, requesterAci) } catch (_: Throwable) { }
       throw pe
     } finally {
@@ -762,7 +690,7 @@ class ParticipantDeleteManager {
     }
   }
 
-  /** Mirrors iOS `tryResolvePending`. If every current conversation member has ACKed the pending row, apply it. */
+  /** If every current conversation member has ACKed the pending row, apply it. */
   private fun tryResolvePending(requestRow: ParticipantDeleteRequestRow) {
     val nowMs = System.currentTimeMillis()
     DAO.pruneExpiredPending(nowMs)
@@ -775,20 +703,17 @@ class ParticipantDeleteManager {
       val threadRecipientId = SignalDatabase.threads.getRecipientIdForThreadId(threadId) ?: return
       val threadRecipient = Recipient.resolved(threadRecipientId)
 
-      // Gather current full member set.
       val fullMemberAcis: List<UUID> = if (threadRecipient.isGroup) {
         val group = SignalDatabase.groups.getGroup(threadRecipientId).orNull() ?: return
-        group.members
-          .filter { it.isGroupMember }
-          .mapNotNull { it.aci.orNull() }
+        val members = group.members.map { Recipient.resolved(it) }
+        members.mapNotNull { it.aci.toUuid() }
       } else {
         listOfNotNull(
-          Recipient.self().aci.orNull(),
-          threadRecipient.aci.orNull()
+          Recipient.self().aci.toUuid(),
+          threadRecipient.aci.toUuid()
         )
       }
 
-      // Collect unique responders from all device receipts for this pending's firstRequestId.
       val respondedAcis = mutableSetOf<ByteArray>()
       DAO.receiptsForRequest(requestRow.requestId).use { rc ->
         while (rc.moveToNext()) {
@@ -802,7 +727,6 @@ class ParticipantDeleteManager {
 
       if (!allResponded) return
 
-      // All in → apply tombstone + delete message.
       val targetMessage = try {
         SignalDatabase.messages.getMessageFor(pending.targetSentTimestamp, RecipientId.from(ServiceId.ACI.from(UuidUtil.parseOrThrow(pending.targetAuthorAci))))
       } catch (t: Throwable) { null }
@@ -823,14 +747,14 @@ class ParticipantDeleteManager {
       DAO.insertAuthor(targetMessage.id, pending.requesterAci)
       DAO.deletePendingByTarget(pending.stableConversationId, pending.targetAuthorAci, pending.targetSentTimestamp)
 
-      // Mark all Request rows for this target → APPLIED and fire receipts to other requesters.
       DAO.requestsByTarget(pending.stableConversationId, pending.targetAuthorAci, pending.targetSentTimestamp).use { rc ->
         while (rc.moveToNext()) {
           val reqId = rc.getBlob(rc.getColumnIndexOrThrow("request_id"))
           val requesterAciBytes = rc.getBlob(rc.getColumnIndexOrThrow("requester_aci"))
           DAO.updateProcessingResult(reqId, ParticipantDeleteReceiptResult.APPLIED.rawValue)
           val requestingAci = runCatching { UuidUtil.parseOrThrow(requesterAciBytes) }.getOrNull()
-          if (requestingAci != null && requestingAci != Recipient.self().aci.orNull()) {
+          val selfAci = Recipient.self().aci.toUuid()
+          if (requestingAci != null && requestingAci != selfAci) {
             queueReceipt(reqId, ParticipantDeleteReceiptResult.APPLIED.rawValue, requestingAci)
           }
         }
@@ -848,9 +772,12 @@ class ParticipantDeleteManager {
     val threadRecipient = Recipient.resolved(threadRecipientId)
     return if (threadRecipient.isGroup) {
       val group = SignalDatabase.groups.getGroup(threadRecipientId).orNull() ?: return false
-      group.members.any { it.aci.orNull() == responderAci }
+      val members = group.members.map { Recipient.resolved(it) }
+      members.any { it.aci.toUuid() == responderAci }
     } else {
-      threadRecipient.aci.orNull() == responderAci || Recipient.self().aci.orNull() == responderAci
+      val selfAci = Recipient.self().aci.toUuid()
+      val contactAci = threadRecipient.aci.toUuid()
+      contactAci == responderAci || selfAci == responderAci
     }
   }
 
@@ -874,10 +801,9 @@ class ParticipantDeleteManager {
     val threadRecipientId = SignalDatabase.threads.getRecipientIdForThreadId(threadId) ?: return null
     val threadRecipient = Recipient.resolved(threadRecipientId)
     return if (threadRecipient.isGroup) {
-      val group = SignalDatabase.groups.getGroup(threadRecipientId).orNull() ?: return null
-      groupConversationId(group.id.toByteArray())
+      groupConversationId(threadRecipient.requireGroupId().toByteArray())
     } else {
-      val contactAci = threadRecipient.aci.orNull() ?: return null
+      val contactAci = threadRecipient.aci.toUuid() ?: return null
       directConversationId(UuidUtil.toByteArray(localAci), UuidUtil.toByteArray(contactAci))
     }
   }
@@ -887,17 +813,12 @@ class ParticipantDeleteManager {
 
   private fun markMessageAsRemoteDelete(messageId: Long) {
     runCatching {
-      // SignalDatabase.messages.markAsRemoteDelete takes a MessageRecord + sender — approximate
-      // with raw DELETE operation on the message row so it looks like a local tombstone.
-      // This matches what iOS `applyAuthorizedRemoteDelete` does under the hood.
-      //
-      // Android uses column "remote_delete" INTEGER=1 or simply deletes the row; prefer
-      // the explicit API if it exists.
       SignalDatabase.rawDatabase.execSQL("UPDATE message SET remote_delete = 1 WHERE _id = ?", arrayOf(messageId))
     }
   }
 
   // ---- cursor → row models -------------------------------------------------------
+
   private data class ParsedRequest(
     val targetAuthorAci: UUID,
     val targetSentTimestamp: Long,
