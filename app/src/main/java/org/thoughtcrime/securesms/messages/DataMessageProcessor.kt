@@ -1513,23 +1513,40 @@ object DataMessageProcessor {
       return null
     }
 
-    log(envelope.clientTimestamp!!, "Participant delete request received for timestamp=${participantDelete.targetSentTimestamp} from sender=${senderRecipient.id}")
+    log(envelope.clientTimestamp!!, "Participant delete request from sender=${senderRecipient.id}")
 
-    // TODO(participant-delete): delegate to ParticipantDeleteManager.process()
-    //  - Validate request (sender is current conversation member, scope matches thread type)
-    //  - Insert into pending_participant_delete table
-    //  - If the target message is in our local DB, mark for eventual tombstone
-    //  - Send back APPLIED / ALREADY_APPLIED / REJECTED_* receipt
-    return null
+    val senderAci = senderRecipient.aci.orNull()
+    if (senderAci == null) {
+      warn(envelope.clientTimestamp!!, "[handleParticipantDelete] Sender has no ACI, ignoring.")
+      return null
+    }
+
+    val threadId = SignalDatabase.threads.getThreadIdIfExistsFor(threadRecipient.id)
+    if (threadId <= 0) {
+      warn(envelope.clientTimestamp!!, "[handleParticipantDelete] No thread for recipient ${threadRecipient.id}")
+      return null
+    }
+
+    val manager = org.thoughtcrime.securesms.database.participantdelete.ParticipantDeleteManager()
+    val origin = org.thoughtcrime.securesms.database.participantdelete.ParticipantDeleteOrigin.remote(
+      requesterAci = senderAci,
+      sourceDeviceId = envelope.sourceDeviceId ?: 0
+    )
+
+    return try {
+      manager.process(
+        proto = participantDelete,
+        origin = origin,
+        threadId = threadId,
+        trustedServerTimestamp = envelope.serverTimestamp
+      )
+      null
+    } catch (e: Exception) {
+      warn(envelope.clientTimestamp!!, "[handleParticipantDelete] process failed: ${e.message}")
+      null
+    }
   }
 
-  /**
-   * Handles an incoming `ParticipantDeleteReceipt` (proto field 31).
-   *
-   * One receipt device → ACK row in `participant_delete_device_receipt`. When all current
-   * members' devices have reported in, the pending row is resolved into a tombstone and the
-   * target message is deleted client-side.
-   */
   fun handleParticipantDeleteReceipt(
     envelope: Envelope,
     message: DataMessage,
@@ -1541,12 +1558,18 @@ object DataMessageProcessor {
       return
     }
 
-    log(envelope.clientTimestamp!!, "Participant delete receipt received: result=${receipt.result} from sender=${senderRecipient.id}")
+    val responderAci = senderRecipient.aci.orNull()
+    if (responderAci == null) {
+      warn(envelope.clientTimestamp!!, "[handleParticipantDeleteReceipt] Sender has no ACI, ignoring.")
+      return
+    }
 
-    // TODO(participant-delete): delegate to ParticipantDeleteManager.processReceipt()
-    //  - Insert row into participant_delete_device_receipt
-    //  - Check if all conversation members have now responded
-    //  - If yes → apply tombstone + delete message locally; clean up pending row
+    val manager = org.thoughtcrime.securesms.database.participantdelete.ParticipantDeleteManager()
+    manager.processReceipt(
+      proto = receipt,
+      responderAci = responderAci,
+      sourceDeviceId = envelope.sourceDeviceId ?: 0
+    )
   }
 
   fun notifyTypingStoppedFromIncomingMessage(context: Context, senderRecipient: Recipient, threadRecipientId: RecipientId, device: Int) {
