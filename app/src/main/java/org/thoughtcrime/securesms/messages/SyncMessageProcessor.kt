@@ -278,6 +278,13 @@ object SyncMessageProcessor {
           DataMessageProcessor.handleUnpinMessage(envelope, dataMessage, senderRecipient, destination, earlyMessageCacheEntry, batchCache)
           threadId = SignalDatabase.threads.getOrCreateThreadIdFor(destination)
         }
+        dataMessage.participantDelete != null -> {
+          DataMessageProcessor.handleParticipantDelete(context, envelope, dataMessage, senderRecipient, threadRecipient, earlyMessageCacheEntry, batchCache)
+          threadId = SignalDatabase.threads.getOrCreateThreadIdFor(getSyncMessageDestination(sent))
+        }
+        dataMessage.participantDeleteReceipt != null -> {
+          DataMessageProcessor.handleParticipantDeleteReceipt(envelope, dataMessage, senderRecipient)
+        }
         dataMessage.adminDelete != null -> {
           DataMessageProcessor.handleAdminRemoteDelete(context, envelope, dataMessage, senderRecipient, threadRecipient, earlyMessageCacheEntry, batchCache)
           threadId = SignalDatabase.threads.getOrCreateThreadIdFor(getSyncMessageDestination(sent))

@@ -57,7 +57,9 @@ object SignalServiceProtoUtil {
         pollTerminate != null ||
         pinMessage != null ||
         unpinMessage != null ||
-        adminDelete != null
+        adminDelete != null ||
+        participantDelete != null ||
+        participantDeleteReceipt != null
     }
 
   val DataMessage.hasDisallowedAnnouncementOnlyContent: Boolean

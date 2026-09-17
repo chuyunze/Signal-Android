@@ -186,6 +186,8 @@ object DataMessageProcessor {
       message.pollVote != null -> messageId = handlePollVote(context, envelope, message, senderRecipient, threadRecipient, earlyMessageCacheEntry, batchCache)
       message.pinMessage != null -> insertResult = handlePinMessage(envelope, metadata, message, senderRecipient, threadRecipient, groupId, receivedTime, earlyMessageCacheEntry, batchCache)
       message.unpinMessage != null -> messageId = handleUnpinMessage(envelope, message, senderRecipient, threadRecipient, earlyMessageCacheEntry, batchCache)
+      message.participantDelete != null -> messageId = handleParticipantDelete(context, envelope, message, senderRecipient, threadRecipient, earlyMessageCacheEntry, batchCache)
+      message.participantDeleteReceipt != null -> handleParticipantDeleteReceipt(envelope, message, senderRecipient)
       message.adminDelete != null -> messageId = handleAdminRemoteDelete(context, envelope, message, senderRecipient, threadRecipient, earlyMessageCacheEntry, batchCache)
     }
     SignalTrace.endSection()
@@ -1478,6 +1480,73 @@ object DataMessageProcessor {
       warn(envelope.clientTimestamp!!, "[handleAdminRemoteDelete] Invalid admin delete! deleteTime: ${envelope.serverTimestamp!!}, targetTime: ${targetMessage.serverTimestamp}, deleteAuthor: ${senderRecipient.id}, targetAuthor: ${targetMessage.fromRecipient.id}, isAdmin: ${groupRecord.isAdmin(senderRecipient)}")
       null
     }
+  }
+
+  // ---------------------------------------------------------------------------
+  // Participant message deletion (protocol port of iOS commit 69077f4)
+  // ---------------------------------------------------------------------------
+
+  /**
+   * Handles an incoming `ParticipantDelete` request (proto field 30).
+   *
+   * Unlike admin delete (instantly applied by the target message owner), participant delete is
+   * a cooperative protocol: the requester is any current conversation member, the request is
+   * stored in `pending_participant_delete`, and the deletion only applies once every current
+   * member has sent back a `ParticipantDeleteReceipt` (proto field 31).
+   *
+   * This stub is intentionally minimal — the full state machine (validation, pending queue,
+   * receipt aggregation, tombstone application, early-message caching) lives in a forthcoming
+   * `ParticipantDeleteManager` port of iOS `AdminDeleteManager.ParticipantDeleteManager`.
+   */
+  fun handleParticipantDelete(
+    context: Context,
+    envelope: Envelope,
+    message: DataMessage,
+    senderRecipient: Recipient,
+    threadRecipient: Recipient,
+    earlyMessageCacheEntry: EarlyMessageCacheEntry?,
+    batchCache: BatchCache
+  ): MessageId? {
+    val participantDelete = message.participantDelete
+    if (participantDelete == null) {
+      warn(envelope.clientTimestamp!!, "[handleParticipantDelete] Received null participant delete, ignoring.")
+      return null
+    }
+
+    log(envelope.clientTimestamp!!, "Participant delete request received for timestamp=${participantDelete.targetSentTimestamp} from sender=${senderRecipient.id}")
+
+    // TODO(participant-delete): delegate to ParticipantDeleteManager.process()
+    //  - Validate request (sender is current conversation member, scope matches thread type)
+    //  - Insert into pending_participant_delete table
+    //  - If the target message is in our local DB, mark for eventual tombstone
+    //  - Send back APPLIED / ALREADY_APPLIED / REJECTED_* receipt
+    return null
+  }
+
+  /**
+   * Handles an incoming `ParticipantDeleteReceipt` (proto field 31).
+   *
+   * One receipt device → ACK row in `participant_delete_device_receipt`. When all current
+   * members' devices have reported in, the pending row is resolved into a tombstone and the
+   * target message is deleted client-side.
+   */
+  fun handleParticipantDeleteReceipt(
+    envelope: Envelope,
+    message: DataMessage,
+    senderRecipient: Recipient
+  ) {
+    val receipt = message.participantDeleteReceipt
+    if (receipt == null) {
+      warn(envelope.clientTimestamp!!, "[handleParticipantDeleteReceipt] Received null receipt, ignoring.")
+      return
+    }
+
+    log(envelope.clientTimestamp!!, "Participant delete receipt received: result=${receipt.result} from sender=${senderRecipient.id}")
+
+    // TODO(participant-delete): delegate to ParticipantDeleteManager.processReceipt()
+    //  - Insert row into participant_delete_device_receipt
+    //  - Check if all conversation members have now responded
+    //  - If yes → apply tombstone + delete message locally; clean up pending row
   }
 
   fun notifyTypingStoppedFromIncomingMessage(context: Context, senderRecipient: Recipient, threadRecipientId: RecipientId, device: Int) {
