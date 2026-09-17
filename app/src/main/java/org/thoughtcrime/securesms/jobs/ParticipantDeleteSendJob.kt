@@ -4,9 +4,12 @@ import org.signal.core.models.ServiceId
 import org.signal.core.util.logging.Log
 import org.thoughtcrime.securesms.database.GroupTable
 import org.thoughtcrime.securesms.database.SignalDatabase
+import org.thoughtcrime.securesms.database.documents.IdentityKeyMismatch
 import org.thoughtcrime.securesms.database.documents.NetworkFailure
+import org.thoughtcrime.securesms.database.model.MessageId
 import org.thoughtcrime.securesms.database.model.RecipientRecord
 import org.thoughtcrime.securesms.database.participantdelete.ParticipantDeleteConfig
+import org.thoughtcrime.securesms.database.participantdelete.ParticipantDeleteManager
 import org.thoughtcrime.securesms.dependencies.AppDependencies
 import org.thoughtcrime.securesms.jobmanager.Job
 import org.thoughtcrime.securesms.jobmanager.impl.NetworkConstraint
@@ -30,8 +33,8 @@ import kotlin.time.Duration.Companion.days
  * and group-v2 (scope=GROUP_ALL_CURRENT_MEMBERS) contexts, because participant-delete is a
  * cooperative protocol open to ANY current member — not just admins.
  *
- * A companion [OutgoingParticipantDeleteReceiptJob] is sent by each member after they apply the
- * delete; this Job is only responsible for delivering the initial delete request.
+ * A companion [OutgoingParticipantDeleteReceiptJob] is enqueued by each member after they apply
+ * the delete; this Job is only responsible for delivering the initial delete request.
  */
 class ParticipantDeleteSendJob private constructor(
   private val messageId: Long,
@@ -75,12 +78,10 @@ class ParticipantDeleteSendJob private constructor(
       val groupId = conversationRecipient.groupId
 
       val recipientIds: List<Long> = if (groupId != null && groupId.isV2) {
-        // Group v2: fan out to ALL members
         SignalDatabase.groups
           .getGroupMemberIds(groupId, GroupTable.MemberSet.FULL_MEMBERS_INCLUDING_SELF)
           .map { it.toLong() }
       } else {
-        // Direct chat: fan out to the peer only (not self — self is handled via sendSyncMessage)
         listOf(conversationRecipient.id.toLong())
       }
 
@@ -103,7 +104,7 @@ class ParticipantDeleteSendJob private constructor(
   override fun serialize(): ByteArray? {
     return ParticipantDeleteSendJobData(
       messageId = messageId,
-      requestId = requestId,
+      requestId = okio.ByteString.of(*requestId),
       recipientIds = recipientIds,
       initialRecipientCount = initialRecipientCount
     ).encode()
@@ -142,15 +143,14 @@ class ParticipantDeleteSendJob private constructor(
         Log.w(TAG, "Group terminated, aborting.")
         return Result.failure()
       }
-      ParticipantDeleteConfig.SCOPE_GROUP_ALL_CURRENT_MEMBERS to record.get().requireV2GroupProperties().revision
+      ParticipantDeleteManager.SCOPE_GROUP_ALL_CURRENT_MEMBERS to record.get().requireV2GroupProperties().groupRevision
     } else {
-      ParticipantDeleteConfig.SCOPE_DIRECT_CHAT_BOTH_ACCOUNTS to null
+      ParticipantDeleteManager.SCOPE_DIRECT_CHAT_BOTH_ACCOUNTS to null
     }
 
     val targetSentTimestamp = message.dateSent
     val targetAuthor = message.fromRecipient.requireServiceId()
 
-    // Build the proto message body
     val participantDelete = SignalServiceDataMessage.ParticipantDelete(
       version = ParticipantDeleteConfig.PROTOCOL_VERSION,
       targetAuthor = targetAuthor,
@@ -165,101 +165,76 @@ class ParticipantDeleteSendJob private constructor(
       .withTimestamp(System.currentTimeMillis())
       .withParticipantDelete(participantDelete)
 
-    if (groupId != null && groupId.isV2) {
-      GroupUtil.setDataMessageGroupContext(org.thoughtcrime.securesms.ApplicationContext.getInstance(), builder, groupId.requirePush())
+    val groupV2Id = groupId?.takeIf { it.isV2 }
+
+    if (groupV2Id != null) {
+      GroupUtil.setDataMessageGroupContext(context, builder, groupV2Id.requirePush())
     }
 
     val dataMessage = builder.build()
 
-    // --- Deliver ---
+    // --- fan out (mirrors AdminDeleteSendJob exactly) ---
     val existingNetworkFailures = message.networkFailures.toMutableSet()
     val existingIdentityMismatches = message.identityKeyMismatches.toMutableSet()
-
     val targets = (recipientIds +
       existingIdentityMismatches.map { it.recipientId.toLong() } +
       existingNetworkFailures.map { it.recipientId.toLong() }
       ).toSet()
 
-    val recipients = targets.map { Recipient.resolved(RecipientId.from(it)) }.toMutableList()
-    val eligible = RecipientUtil.getEligibleForSending(recipients.filter { it.hasServiceId })
-    val ineligible = recipients - eligible
+    val destinations = targets.map { Recipient.resolved(RecipientId.from(it)) }.toMutableList()
+    val nonSelfDestinations = destinations.filterNot { it.isSelf }
+    val includeSelf = destinations.size != nonSelfDestinations.size
 
-    // Dispatch via individual (direct chat) or bulk (group v2)
-    val completed = mutableSetOf<RecipientId>()
-    val unregistered = mutableListOf<Recipient>()
-    val identityMismatch = mutableListOf<RecipientId>()
-    val skipped = mutableListOf<Recipient>()
+    val results = GroupSendUtil.sendResendableDataMessage(
+      context,
+      groupV2Id,
+      null,
+      nonSelfDestinations,
+      false,
+      ContentHint.RESENDABLE,
+      MessageId(messageId),
+      dataMessage,
+      true,
+      false,
+      null,
+      null
+    ).toMutableList()
 
-    if (groupId != null && groupId.isV2) {
-      // Group v2: use bulk send
-      val results = GroupSendUtil.sendResendableDataMessage(
-        context = org.thoughtcrime.securesms.ApplicationContext.getInstance(),
-        groupId = groupId.requireV2(),
-        null,
-        eligible.filterNot { it.isSelf },
-        false,
-        ContentHint.RESENDABLE,
-        org.thoughtcrime.securesms.database.model.MessageId(messageId),
-        dataMessage,
-        true,
-        false,
-        null,
-        null
-      )
-      for (result in results) {
-        when (result) {
-          is org.thoughtcrime.securesms.messages.GroupSendJobHelper.SendResult.Success -> completed.add(result.recipient.id)
-          is org.thoughtcrime.securesms.messages.GroupSendJobHelper.SendResult.Unregistered -> unregistered.add(result.recipient)
-          is org.thoughtcrime.securesms.messages.GroupSendJobHelper.SendResult.IdentityMismatch -> identityMismatch.add(result.recipient.id)
-          is org.thoughtcrime.securesms.messages.GroupSendJobHelper.SendResult.Skipped -> skipped.add(result.recipient)
-          is org.thoughtcrime.securesms.messages.GroupSendJobHelper.SendResult.Failure -> { /* network failure, tracked below */ }
-        }
-      }
-      // sendSyncMessage for other devices on this account
-      runCatching { AppDependencies.signalServiceMessageSender.sendSyncMessage(dataMessage) }
-    } else {
-      // Direct chat: one peer at a time
-      for (r in eligible) {
-        if (r.isSelf) {
-          runCatching { AppDependencies.signalServiceMessageSender.sendSyncMessage(dataMessage) }
-          continue
-        }
-        try {
-          AppDependencies.signalServiceMessageSender.sendIndividualMessage(
-            SignalServiceDataMessage.Companion.toContent(dataMessage),
-            r.requireServiceId(),
-            GroupUtil.DEFAULT_GROUPS_V2,
-            emptyList()
-          )
-          completed.add(r.id)
-        } catch (_: Exception) {
-          // treated as network failure → will be retried by the job manager
-        }
+    if (includeSelf) {
+      results.add(AppDependencies.signalServiceMessageSender.sendSyncMessage(dataMessage))
+    }
+
+    val sendResult = GroupSendJobHelper.getCompletedSends(destinations, results)
+
+    // --- bookkeeping (mirrors AdminDeleteSendJob) ---
+    val completedIds = sendResult.completed.map { it.id }.toSet()
+
+    existingNetworkFailures.removeAll { completedIds.contains(it.recipientId) }
+    existingIdentityMismatches.removeAll { completedIds.contains(it.recipientId) }
+
+    // sendResult.unregistered is List<RecipientId>
+    sendResult.unregistered.forEach { unregId ->
+      val recipient = Recipient.resolved(unregId)
+      SignalDatabase.recipients.markUnregistered(recipient)
+      recipientIds.remove(unregId.toLong())
+      existingNetworkFailures.removeAll { it.recipientId == unregId }
+      existingIdentityMismatches.removeAll { it.recipientId == unregId }
+    }
+
+    // sendResult.identityMismatch is List<IdentityKeyMismatch> — correct type for setMismatchedIdentities
+    for (mismatch in sendResult.identityMismatch) {
+      if (!existingIdentityMismatches.any { it.recipientId == mismatch.recipientId }) {
+        existingIdentityMismatches.add(mismatch)
       }
     }
 
-    // --- Update bookkeeping ---
-    existingNetworkFailures.removeAll { completed.contains(it.recipientId) }
-    existingIdentityMismatches.removeAll { completed.contains(it.recipientId) }
-
-    val ineligibleIds = (ineligible.map { it.id } + unregistered.map { it.id }).toSet()
-    existingNetworkFailures.removeAll { ineligibleIds.contains(it.recipientId) }
-    existingIdentityMismatches.removeAll { ineligibleIds.contains(it.recipientId) }
-
-    existingIdentityMismatches.addAll(identityMismatch)
-
-    // Remove completed + permanently ineligible from our working list
-    for (c in completed) recipientIds.remove(c.toLong())
-    for (u in unregistered) {
-      SignalDatabase.recipients.markUnregistered(u)
-      recipientIds.remove(u.id.toLong())
-    }
-    for (inelig in ineligible) recipientIds.remove(inelig.id.toLong())
+    // Remove all completed recipients from our retry list
+    for (c in sendResult.completed) recipientIds.remove(c.id.toLong())
 
     SignalDatabase.messages.setNetworkFailures(messageId, existingNetworkFailures)
     SignalDatabase.messages.setMismatchedIdentities(messageId, existingIdentityMismatches)
 
-    Log.i(TAG, "Completed now: ${completed.size} Skipped: ${ineligible.size + skipped.size} Remaining: ${recipientIds.size}")
+    Log.i(TAG, "Completed now: ${sendResult.completed.size} Remaining: ${recipientIds.size}")
 
     return if (existingNetworkFailures.isEmpty() && existingIdentityMismatches.isEmpty() && recipientIds.isEmpty()) {
       Result.success()
@@ -274,9 +249,6 @@ class ParticipantDeleteSendJob private constructor(
 
   override fun onFailure() {
     Log.w(TAG, "Participant delete send failed. ${initialRecipientCount - recipientIds.size}/$initialRecipientCount reached.")
-    // Unlike admin-delete we do NOT have a "mark as failed" state in the messages table —
-    // participant-delete failures are tracked in the Manager's request/pending rows and
-    // retried by this Job's own retry loop. Nothing more to do here.
   }
 
   class Factory : Job.Factory<ParticipantDeleteSendJob> {
@@ -284,7 +256,7 @@ class ParticipantDeleteSendJob private constructor(
       val data = ParticipantDeleteSendJobData.ADAPTER.decode(serializedData!!)
       return ParticipantDeleteSendJob(
         messageId = data.messageId,
-        requestId = data.requestId,
+        requestId = data.requestId.toByteArray(),
         recipientIds = data.recipientIds.toMutableList(),
         initialRecipientCount = data.initialRecipientCount,
         parameters = parameters

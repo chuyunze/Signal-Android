@@ -1526,7 +1526,9 @@ object DataMessageProcessor {
 
     log(envelope.clientTimestamp!!, "Participant delete request from sender=${senderRecipient.id}")
 
-    val senderAci = senderRecipient.aci.orNull()
+    val senderAci = senderRecipient.aci.orNull()?.let {
+      UuidUtil.uuidFromByteArray(it.toByteArray())
+    }
     if (senderAci == null) {
       warn(envelope.clientTimestamp!!, "[handleParticipantDelete] Sender has no ACI, ignoring.")
       return null
@@ -1569,7 +1571,9 @@ object DataMessageProcessor {
       return
     }
 
-    val responderAci = senderRecipient.aci.orNull()
+    val responderAci = senderRecipient.aci.orNull()?.let {
+      UuidUtil.uuidFromByteArray(it.toByteArray())
+    }
     if (responderAci == null) {
       warn(envelope.clientTimestamp!!, "[handleParticipantDeleteReceipt] Sender has no ACI, ignoring.")
       return

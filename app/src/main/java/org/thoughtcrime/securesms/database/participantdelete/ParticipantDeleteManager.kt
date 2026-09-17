@@ -372,7 +372,7 @@ class ParticipantDeleteManager {
    * sent back as our own receipt (the caller is responsible for enqueuing it — see Step 5).
    */
   fun process(
-    proto: SignalServiceDataMessage.ParticipantDelete,
+    proto: org.whispersystems.signalservice.internal.push.DataMessage.ParticipantDelete,
     origin: ParticipantDeleteOrigin,
     threadId: Long,
     trustedServerTimestamp: Long?
@@ -430,7 +430,7 @@ class ParticipantDeleteManager {
    * pending row into a tombstone and delete the message locally.
    */
   fun processReceipt(
-    proto: SignalServiceDataMessage.ParticipantDeleteReceipt,
+    proto: org.whispersystems.signalservice.internal.push.DataMessage.ParticipantDeleteReceipt,
     responderAci: UUID,
     sourceDeviceId: Int
   ) {
@@ -439,7 +439,7 @@ class ParticipantDeleteManager {
       Log.w(TAG, "Ignoring invalid receipt: protocol version ${proto.version}")
       return
     }
-    val requestId = proto.requestId ?: run {
+    val requestId = proto.requestId?.toByteArray() ?: run {
       Log.w(TAG, "Ignoring invalid receipt: missing requestId")
       return
     }
@@ -857,17 +857,17 @@ class ParticipantDeleteManager {
     }
   }
 
-  private fun parse(proto: SignalServiceDataMessage.ParticipantDelete): ParsedRequest? {
+  private fun parse(proto: org.whispersystems.signalservice.internal.push.DataMessage.ParticipantDelete): ParsedRequest? {
     if (proto.version != ParticipantDeleteConfig.PROTOCOL_VERSION) return null
-    val requestId = proto.requestId ?: return null
-    if (requestId.size != 16) return null
-    val targetAuthorAci = proto.targetAuthorAciBinary?.let { runCatching { UuidUtil.uuidFromByteArray(it) }.getOrNull() } ?: return null
+    val requestIdBytes = proto.requestId?.toByteArray() ?: return null
+    if (requestIdBytes.size != 16) return null
+    val targetAuthorAci = proto.targetAuthorAciBinary?.toByteArray()?.let { runCatching { UuidUtil.uuidFromByteArray(it) }.getOrNull() } ?: return null
     val targetSentTimestamp = proto.targetSentTimestamp?.takeIf { it > 0 } ?: return null
     val scopeRaw = proto.scope?.number?.takeIf { it != 0 } ?: return null
     return ParsedRequest(
       targetAuthorAci = targetAuthorAci,
       targetSentTimestamp = targetSentTimestamp,
-      requestId = requestId,
+      requestId = requestIdBytes,
       scope = scopeRaw,
       groupRevision = proto.groupRevision
     )

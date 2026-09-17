@@ -3,16 +3,18 @@ package org.thoughtcrime.securesms.jobs
 import org.signal.core.models.ServiceId
 import org.signal.core.util.logging.Log
 import org.thoughtcrime.securesms.database.SignalDatabase
+import org.thoughtcrime.securesms.database.model.MessageId
+import org.thoughtcrime.securesms.database.participantdelete.ParticipantDeleteConfig
 import org.thoughtcrime.securesms.dependencies.AppDependencies
 import org.thoughtcrime.securesms.jobmanager.Job
 import org.thoughtcrime.securesms.jobmanager.impl.NetworkConstraint
 import org.thoughtcrime.securesms.jobmanager.impl.SealedSenderConstraint
+import org.thoughtcrime.securesms.jobs.protos.OutgoingParticipantDeleteReceiptJobData
 import org.thoughtcrime.securesms.keyvalue.SignalStore
 import org.thoughtcrime.securesms.messages.GroupSendUtil
 import org.thoughtcrime.securesms.recipients.Recipient
 import org.thoughtcrime.securesms.recipients.RecipientId
 import org.thoughtcrime.securesms.recipients.RecipientUtil
-import org.thoughtcrime.securesms.util.GroupUtil
 import org.whispersystems.signalservice.api.crypto.ContentHint
 import org.whispersystems.signalservice.api.messages.SignalServiceDataMessage
 import org.whispersystems.signalservice.api.messages.SignalServiceDataMessage.Companion.newBuilder
@@ -22,8 +24,8 @@ import kotlin.time.Duration.Companion.days
  * Sends a single [SignalServiceDataMessage.ParticipantDeleteReceipt] to one specific member.
  *
  * Receipts are always 1-to-1 (group members ACK each delete independently), so we always send
- * to exactly one recipient. AdminDeleteSendJob handles multi-recipient fan-out because the
- * delete itself goes to every group member; receipts are point-to-point replies.
+ * to exactly one recipient. Uses [GroupSendUtil.sendResendableDataMessage] with groupId=null
+ * for direct-chat delivery (same pattern as [ParticipantDeleteSendJob]).
  */
 class OutgoingParticipantDeleteReceiptJob private constructor(
   private val recipientId: Long,
@@ -61,7 +63,7 @@ class OutgoingParticipantDeleteReceiptJob private constructor(
   override fun serialize(): ByteArray? {
     return OutgoingParticipantDeleteReceiptJobData(
       recipientId = recipientId,
-      requestId = requestId,
+      requestId = okio.ByteString.of(*requestId),
       resultRaw = resultRaw
     ).encode()
   }
@@ -90,7 +92,7 @@ class OutgoingParticipantDeleteReceiptJob private constructor(
       .withTimestamp(System.currentTimeMillis())
       .withParticipantDeleteReceipt(
         SignalServiceDataMessage.ParticipantDeleteReceipt(
-          version = org.thoughtcrime.securesms.database.participantdelete.ParticipantDeleteConfig.PROTOCOL_VERSION,
+          version = ParticipantDeleteConfig.PROTOCOL_VERSION,
           requestId = requestId,
           result = resultRaw
         )
@@ -98,11 +100,19 @@ class OutgoingParticipantDeleteReceiptJob private constructor(
       .build()
 
     return try {
-      AppDependencies.signalServiceMessageSender.sendIndividualMessage(
-        SignalServiceDataMessage.Companion.toContent(dataMessage),
-        eligible.first().requireServiceId(),
-        GroupUtil.DEFAULT_GROUPS_V2,
-        emptyList()
+      GroupSendUtil.sendResendableDataMessage(
+        context,
+        null,
+        null,
+        eligible,
+        false,
+        ContentHint.RESENDABLE,
+        MessageId(-1),
+        dataMessage,
+        true,
+        false,
+        null,
+        null
       )
       Result.success()
     } catch (e: Exception) {
@@ -111,12 +121,12 @@ class OutgoingParticipantDeleteReceiptJob private constructor(
     }
   }
 
-  class Factory : Job.Factory<OutgoingParticipantDeleteReceiptJob?> {
+  class Factory : Job.Factory<OutgoingParticipantDeleteReceiptJob> {
     override fun create(parameters: Parameters, serializedData: ByteArray?): OutgoingParticipantDeleteReceiptJob {
       val data = OutgoingParticipantDeleteReceiptJobData.ADAPTER.decode(serializedData!!)
       return OutgoingParticipantDeleteReceiptJob(
         recipientId = data.recipientId,
-        requestId = data.requestId,
+        requestId = data.requestId.toByteArray(),
         resultRaw = data.resultRaw,
         parameters = parameters
       )

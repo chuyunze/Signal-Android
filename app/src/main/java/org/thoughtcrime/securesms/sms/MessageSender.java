@@ -579,13 +579,13 @@ public class MessageSender {
       int scope;
       Integer groupRevision = null;
       if (groupId != null && groupId.isV2()) {
-        scope = ParticipantDeleteConfig.SCOPE_GROUP_ALL_CURRENT_MEMBERS;
+        scope = ParticipantDeleteManager.SCOPE_GROUP_ALL_CURRENT_MEMBERS;
         java.util.Optional<org.thoughtcrime.securesms.database.model.GroupRecord> groupOpt = SignalDatabase.groups().getGroup(groupId);
         if (groupOpt.isPresent()) {
-          groupRevision = groupOpt.get().requireV2GroupProperties().getRevision();
+          groupRevision = groupOpt.get().requireV2GroupProperties().getGroupRevision();
         }
       } else {
-        scope = ParticipantDeleteConfig.SCOPE_DIRECT_CHAT_BOTH_ACCOUNTS;
+        scope = ParticipantDeleteManager.SCOPE_DIRECT_CHAT_BOTH_ACCOUNTS;
       }
 
       UUID targetAuthor = UuidUtil.uuidFromByteArray(message.getFromRecipient().requireServiceId().toByteArray());
