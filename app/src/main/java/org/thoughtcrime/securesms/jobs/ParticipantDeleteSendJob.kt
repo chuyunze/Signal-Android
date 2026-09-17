@@ -165,7 +165,7 @@ class ParticipantDeleteSendJob private constructor(
       .withTimestamp(System.currentTimeMillis())
       .withParticipantDelete(participantDelete)
 
-    val groupV2Id = groupId?.takeIf { it.isV2 }
+    val groupV2Id = groupId?.requireV2()
 
     if (groupV2Id != null) {
       GroupUtil.setDataMessageGroupContext(context, builder, groupV2Id.requirePush())
@@ -214,8 +214,7 @@ class ParticipantDeleteSendJob private constructor(
 
     // sendResult.unregistered is List<RecipientId>
     sendResult.unregistered.forEach { unregId ->
-      val recipient = Recipient.resolved(unregId)
-      SignalDatabase.recipients.markUnregistered(recipient)
+      SignalDatabase.recipients.markUnregistered(unregId)
       recipientIds.remove(unregId.toLong())
       existingNetworkFailures.removeAll { it.recipientId == unregId }
       existingIdentityMismatches.removeAll { it.recipientId == unregId }

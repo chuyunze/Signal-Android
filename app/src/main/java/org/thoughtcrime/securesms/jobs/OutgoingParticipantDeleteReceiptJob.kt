@@ -43,7 +43,7 @@ class OutgoingParticipantDeleteReceiptJob private constructor(
     @JvmStatic
     fun enqueue(recipientAci: ServiceId, requestId: ByteArray, resultRaw: Int) {
       val recipientId = RecipientId.from(recipientAci)
-      AppDependencies.getJobManager().add(
+      AppDependencies.jobManager.add(
         OutgoingParticipantDeleteReceiptJob(
           recipientId = recipientId.toLong(),
           requestId = requestId,
@@ -119,6 +119,10 @@ class OutgoingParticipantDeleteReceiptJob private constructor(
       Log.w(TAG, "send failed", e)
       Result.retry(defaultBackoff())
     }
+  }
+
+  override fun onFailure() {
+    Log.w(TAG, "Receipt send failed.")
   }
 
   class Factory : Job.Factory<OutgoingParticipantDeleteReceiptJob> {

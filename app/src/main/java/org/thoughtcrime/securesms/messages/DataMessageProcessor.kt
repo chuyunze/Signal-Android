@@ -1,4 +1,4 @@
-package org.thoughtcrime.securesms.messages
+﻿package org.thoughtcrime.securesms.messages
 
 import android.content.Context
 import android.text.TextUtils
@@ -1527,7 +1527,7 @@ object DataMessageProcessor {
     log(envelope.clientTimestamp!!, "Participant delete request from sender=${senderRecipient.id}")
 
     val senderAci = senderRecipient.aci.orNull()?.let {
-      UuidUtil.uuidFromByteArray(it.toByteArray())
+      UuidUtil.parseOrThrow(it.toByteArray())
     }
     if (senderAci == null) {
       warn(envelope.clientTimestamp!!, "[handleParticipantDelete] Sender has no ACI, ignoring.")
@@ -1572,7 +1572,7 @@ object DataMessageProcessor {
     }
 
     val responderAci = senderRecipient.aci.orNull()?.let {
-      UuidUtil.uuidFromByteArray(it.toByteArray())
+      UuidUtil.parseOrThrow(it.toByteArray())
     }
     if (responderAci == null) {
       warn(envelope.clientTimestamp!!, "[handleParticipantDeleteReceipt] Sender has no ACI, ignoring.")

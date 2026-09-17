@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright (C) 2011 Whisper Systems
  *
  * This program is free software: you can redistribute it and/or modify
@@ -588,7 +588,7 @@ public class MessageSender {
         scope = ParticipantDeleteManager.SCOPE_DIRECT_CHAT_BOTH_ACCOUNTS;
       }
 
-      UUID targetAuthor = UuidUtil.uuidFromByteArray(message.getFromRecipient().requireServiceId().toByteArray());
+      UUID targetAuthor = UuidUtil.parseOrThrow(message.getFromRecipient().requireServiceId().toByteArray());
 
       new ParticipantDeleteManager().processLocalInitiation(
         requestId,

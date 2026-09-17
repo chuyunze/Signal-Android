@@ -1,20 +1,15 @@
-package org.thoughtcrime.securesms.database.participantdelete
+﻿package org.thoughtcrime.securesms.database.participantdelete
 
 import android.database.Cursor
-import org.signal.core.util.ByteArraySet
+import org.signal.core.models.ServiceId
+import org.signal.core.util.UuidUtil
 import org.signal.core.util.logging.Log
-import org.thoughtcrime.securesms.contacts.ContactRepository
-import org.thoughtcrime.securesms.database.GroupTable
-import org.thoughtcrime.securesms.database.MessageTable
-import org.thoughtcrime.securesms.database.RecipientTable
+import org.signal.core.util.orNull
 import org.thoughtcrime.securesms.database.SignalDatabase
-import org.thoughtcrime.securesms.database.ThreadTable
 import org.thoughtcrime.securesms.database.model.GroupRecord
 import org.thoughtcrime.securesms.database.model.MessageRecord
 import org.thoughtcrime.securesms.recipients.Recipient
 import org.thoughtcrime.securesms.recipients.RecipientId
-import org.whispersystems.signalservice.api.messages.SignalServiceDataMessage
-import org.whispersystems.signalservice.api.util.UuidUtil
 import java.util.UUID
 
 /**
@@ -567,7 +562,7 @@ class ParticipantDeleteManager {
     DAO.authorByInteractionId(interactionId).use { c ->
       if (c.moveToFirst()) {
         val bytes = c.getBlob(c.getColumnIndexOrThrow("requester_aci"))
-        return runCatching { UuidUtil.uuidFromByteArray(bytes) }.getOrNull()
+        return runCatching { UuidUtil.parseOrThrow(bytes) }.getOrNull()
       }
     }
     return null
@@ -597,14 +592,14 @@ class ParticipantDeleteManager {
       ?: throw ParticipantDeleteException.InvalidThread
     val threadRecipient = Recipient.resolved(threadRecipientId)
 
-    if (threadRecipient.isLocalNumber) throw ParticipantDeleteException.InvalidThread
+    if (threadRecipient.isSelf) throw ParticipantDeleteException.InvalidThread
 
     if (threadRecipient.isGroup) {
       if (scope != SCOPE_GROUP_ALL_CURRENT_MEMBERS) throw ParticipantDeleteException.ScopeMismatch
       val group = SignalDatabase.groups.getGroup(threadRecipientId).orNull()
         ?: throw ParticipantDeleteException.InvalidThread
       if (!group.members.contains(Recipient.self().id)) throw ParticipantDeleteException.InvalidThread
-      if (!group.members.contains(RecipientId.from(requesterAci))) {
+      if (!group.members.contains(RecipientId.from(ServiceId.ACI.from(requesterAci)))) {
         throw ParticipantDeleteException.RequesterNotCurrentMember
       }
       stableConvId = groupConversationId(group.id.toByteArray())
@@ -664,7 +659,7 @@ class ParticipantDeleteManager {
 
       // Try to find the target message locally.
       val targetMessage: MessageRecord? = try {
-        SignalDatabase.messages.getMessageFor(targetSentTimestamp, RecipientId.from(targetAuthorAci))
+        SignalDatabase.messages.getMessageFor(targetSentTimestamp, RecipientId.from(ServiceId.ACI.from(targetAuthorAci)))
       } catch (t: Throwable) { null }
 
       if (targetMessage == null) {
@@ -776,7 +771,8 @@ class ParticipantDeleteManager {
       if (!c.moveToFirst()) return
       val pending = PendingParticipantDeleteRow.fromCursor(c)
 
-      val threadRecipientId = threadIdFromUniqueId(pending.localThreadUniqueId) ?: return
+      val threadId = threadIdFromUniqueId(pending.localThreadUniqueId) ?: return
+      val threadRecipientId = SignalDatabase.threads.getRecipientIdForThreadId(threadId) ?: return
       val threadRecipient = Recipient.resolved(threadRecipientId)
 
       // Gather current full member set.
@@ -793,7 +789,7 @@ class ParticipantDeleteManager {
       }
 
       // Collect unique responders from all device receipts for this pending's firstRequestId.
-      val respondedAcis = ByteArraySet()
+      val respondedAcis = mutableSetOf<ByteArray>()
       DAO.receiptsForRequest(requestRow.requestId).use { rc ->
         while (rc.moveToNext()) {
           respondedAcis.add(rc.getBlob(rc.getColumnIndexOrThrow("responder_aci")))
@@ -808,7 +804,7 @@ class ParticipantDeleteManager {
 
       // All in → apply tombstone + delete message.
       val targetMessage = try {
-        SignalDatabase.messages.getMessageFor(pending.targetSentTimestamp, RecipientId.from(UuidUtil.uuidFromByteArray(pending.targetAuthorAci)))
+        SignalDatabase.messages.getMessageFor(pending.targetSentTimestamp, RecipientId.from(ServiceId.ACI.from(UuidUtil.parseOrThrow(pending.targetAuthorAci))))
       } catch (t: Throwable) { null }
       if (targetMessage == null) return
 
@@ -833,7 +829,7 @@ class ParticipantDeleteManager {
           val reqId = rc.getBlob(rc.getColumnIndexOrThrow("request_id"))
           val requesterAciBytes = rc.getBlob(rc.getColumnIndexOrThrow("requester_aci"))
           DAO.updateProcessingResult(reqId, ParticipantDeleteReceiptResult.APPLIED.rawValue)
-          val requestingAci = runCatching { UuidUtil.uuidFromByteArray(requesterAciBytes) }.getOrNull()
+          val requestingAci = runCatching { UuidUtil.parseOrThrow(requesterAciBytes) }.getOrNull()
           if (requestingAci != null && requestingAci != Recipient.self().aci.orNull()) {
             queueReceipt(reqId, ParticipantDeleteReceiptResult.APPLIED.rawValue, requestingAci)
           }
@@ -847,7 +843,8 @@ class ParticipantDeleteManager {
   // ---------------------------------------------------------------------------
 
   private fun isValidReceiptResponder(responderAci: UUID, requestRow: ParticipantDeleteRequestRow): Boolean {
-    val threadRecipientId = threadIdFromUniqueId(requestRow.localThreadUniqueId) ?: return false
+    val threadId = threadIdFromUniqueId(requestRow.localThreadUniqueId) ?: return false
+    val threadRecipientId = SignalDatabase.threads.getRecipientIdForThreadId(threadId) ?: return false
     val threadRecipient = Recipient.resolved(threadRecipientId)
     return if (threadRecipient.isGroup) {
       val group = SignalDatabase.groups.getGroup(threadRecipientId).orNull() ?: return false
@@ -861,9 +858,9 @@ class ParticipantDeleteManager {
     if (proto.version != ParticipantDeleteConfig.PROTOCOL_VERSION) return null
     val requestIdBytes = proto.requestId?.toByteArray() ?: return null
     if (requestIdBytes.size != 16) return null
-    val targetAuthorAci = proto.targetAuthorAciBinary?.toByteArray()?.let { runCatching { UuidUtil.uuidFromByteArray(it) }.getOrNull() } ?: return null
+    val targetAuthorAci = proto.targetAuthorAciBinary?.toByteArray()?.let { runCatching { UuidUtil.parseOrThrow(it) }.getOrNull() } ?: return null
     val targetSentTimestamp = proto.targetSentTimestamp?.takeIf { it > 0 } ?: return null
-    val scopeRaw = proto.scope?.number?.takeIf { it != 0 } ?: return null
+    val scopeRaw = proto.scope?.value?.takeIf { it != 0 } ?: return null
     return ParsedRequest(
       targetAuthorAci = targetAuthorAci,
       targetSentTimestamp = targetSentTimestamp,
