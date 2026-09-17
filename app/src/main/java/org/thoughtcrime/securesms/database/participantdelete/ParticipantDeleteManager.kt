@@ -74,8 +74,11 @@ data class ParticipantDeleteOrigin(
 // Extension helpers
 // =============================================================================
 
-/** Convert ServiceId (what Signal's .aci returns) to UUID. */
-private fun ServiceId?.toUuid(): UUID? = this?.let { UuidUtil.parseOrThrow(it.toByteArray()) }
+/** Convert whatever Signal's .aci returns (Optional<ACI>.orNull() -> ACI?, which is a ServiceId subclass) to UUID. */
+private fun Any?.toUuid(): UUID? = when (val v = this) {
+  is ServiceId -> runCatching { UuidUtil.parseOrThrow(v.toByteArray()) }.getOrNull()
+  else -> null
+}
 
 // =============================================================================
 // DAO helpers — raw SQL. All blob columns are queried via HEX(col) = ? with
@@ -537,7 +540,7 @@ class ParticipantDeleteManager {
       if (!group.members.contains(requesterRecipientId)) {
         throw ParticipantDeleteException.RequesterNotCurrentMember
       }
-      stableConvId = groupConversationId(group.id.toByteArray())
+      stableConvId = groupConversationId(group.id.decodedId)
     } else {
       if (scope != SCOPE_DIRECT_CHAT_BOTH_ACCOUNTS) throw ParticipantDeleteException.ScopeMismatch
       val contactAci = threadRecipient.aci.toUuid() ?: throw ParticipantDeleteException.InvalidThread
