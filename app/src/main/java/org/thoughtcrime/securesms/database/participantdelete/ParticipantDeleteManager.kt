@@ -80,7 +80,7 @@ private object DAO {
   // --- participant_delete_request -----------------------------------------------------------
 
   fun requestByRequestId(requestId: ByteArray): Cursor {
-    return SignalDatabase.rawDatabase.query(
+    return SignalDatabase.rawWritableDatabase.query(
       "participant_delete_request", null,
       "HEX(request_id) = UPPER(?)", arrayOf(Hex.toStringCondensed(requestId)),
       null, null, null
@@ -88,18 +88,18 @@ private object DAO {
   }
 
   fun insertRequest(values: android.content.ContentValues) {
-    SignalDatabase.rawDatabase.insert("participant_delete_request", null, values)
+    SignalDatabase.rawWritableDatabase.insert("participant_delete_request", null, values)
   }
 
   fun updateProcessingResult(requestId: ByteArray, resultRaw: Int) {
     val cv = android.content.ContentValues().apply { put("processing_result", resultRaw) }
-    SignalDatabase.rawDatabase.update("participant_delete_request", cv, "HEX(request_id) = UPPER(?)", arrayOf(Hex.toStringCondensed(requestId)))
+    SignalDatabase.rawWritableDatabase.update("participant_delete_request", cv, "HEX(request_id) = UPPER(?)", arrayOf(Hex.toStringCondensed(requestId)))
   }
 
   fun requestsByTarget(stableConvId: ByteArray, targetAuthorAci: ByteArray, targetTimestamp: Long): Cursor {
-    return SignalDatabase.rawDatabase.query(
+    return SignalDatabase.rawWritableDatabase.query(
       "participant_delete_request", null,
-      "HEX(stable_conversation_id) = UPPER(?) AND HEX(target_author_aci) = UPPER(?) AND target_sent_timestamp = ?",
+      "HEX(stable_conversation_id) = UPPER(?) AND HEX(target_author_aci) = UPPER(?) AND target_sent_dateSent = ?",
       arrayOf(Hex.toStringCondensed(stableConvId), Hex.toStringCondensed(targetAuthorAci), targetTimestamp.toString()),
       null, null, null
     )
@@ -108,15 +108,15 @@ private object DAO {
   // --- participant_delete_tombstone ----------------------------------------------------------
 
   fun tombstoneExists(stableConvId: ByteArray, targetAuthorAci: ByteArray, targetTimestamp: Long): Boolean {
-    SignalDatabase.rawDatabase.rawQuery(
+    SignalDatabase.rawWritableDatabase.rawQuery(
       "SELECT 1 FROM participant_delete_tombstone " +
-        "WHERE HEX(stable_conversation_id) = UPPER(?) AND HEX(target_author_aci) = UPPER(?) AND target_sent_timestamp = ? LIMIT 1",
+        "WHERE HEX(stable_conversation_id) = UPPER(?) AND HEX(target_author_aci) = UPPER(?) AND target_sent_dateSent = ? LIMIT 1",
       arrayOf(Hex.toStringCondensed(stableConvId), Hex.toStringCondensed(targetAuthorAci), targetTimestamp.toString())
     ).use { c -> return c.moveToFirst() }
   }
 
   fun insertTombstone(values: android.content.ContentValues) {
-    SignalDatabase.rawDatabase.insert("participant_delete_tombstone", null, values)
+    SignalDatabase.rawWritableDatabase.insert("participant_delete_tombstone", null, values)
   }
 
   fun updateTombstoneInteractionId(stableConvId: ByteArray, targetAuthorAci: ByteArray, targetTimestamp: Long, interactionId: Long, localThreadUniqueId: String) {
@@ -124,17 +124,17 @@ private object DAO {
       put("interaction_id", interactionId)
       put("local_thread_unique_id", localThreadUniqueId)
     }
-    SignalDatabase.rawDatabase.update(
+    SignalDatabase.rawWritableDatabase.update(
       "participant_delete_tombstone", cv,
-      "HEX(stable_conversation_id) = UPPER(?) AND HEX(target_author_aci) = UPPER(?) AND target_sent_timestamp = ?",
+      "HEX(stable_conversation_id) = UPPER(?) AND HEX(target_author_aci) = UPPER(?) AND target_sent_dateSent = ?",
       arrayOf(Hex.toStringCondensed(stableConvId), Hex.toStringCondensed(targetAuthorAci), targetTimestamp.toString())
     )
   }
 
   fun tombstoneByTarget(stableConvId: ByteArray, targetAuthorAci: ByteArray, targetTimestamp: Long): Cursor {
-    return SignalDatabase.rawDatabase.query(
+    return SignalDatabase.rawWritableDatabase.query(
       "participant_delete_tombstone", null,
-      "HEX(stable_conversation_id) = UPPER(?) AND HEX(target_author_aci) = UPPER(?) AND target_sent_timestamp = ?",
+      "HEX(stable_conversation_id) = UPPER(?) AND HEX(target_author_aci) = UPPER(?) AND target_sent_dateSent = ?",
       arrayOf(Hex.toStringCondensed(stableConvId), Hex.toStringCondensed(targetAuthorAci), targetTimestamp.toString()),
       null, null, null
     )
@@ -143,45 +143,45 @@ private object DAO {
   // --- pending_participant_delete ------------------------------------------------------------
 
   fun pruneExpiredPending(nowMs: Long) {
-    SignalDatabase.rawDatabase.delete("pending_participant_delete", "expires_at <= ?", arrayOf(nowMs.toString()))
+    SignalDatabase.rawWritableDatabase.delete("pending_participant_delete", "expires_at <= ?", arrayOf(nowMs.toString()))
   }
 
   fun pendingByTarget(stableConvId: ByteArray, targetAuthorAci: ByteArray, targetTimestamp: Long): Cursor {
-    return SignalDatabase.rawDatabase.query(
+    return SignalDatabase.rawWritableDatabase.query(
       "pending_participant_delete", null,
-      "HEX(stable_conversation_id) = UPPER(?) AND HEX(target_author_aci) = UPPER(?) AND target_sent_timestamp = ?",
+      "HEX(stable_conversation_id) = UPPER(?) AND HEX(target_author_aci) = UPPER(?) AND target_sent_dateSent = ?",
       arrayOf(Hex.toStringCondensed(stableConvId), Hex.toStringCondensed(targetAuthorAci), targetTimestamp.toString()),
       null, null, null
     )
   }
 
   fun countPendingByRequester(requesterAci: ByteArray): Int {
-    SignalDatabase.rawDatabase.rawQuery(
+    SignalDatabase.rawWritableDatabase.rawQuery(
       "SELECT COUNT(*) FROM pending_participant_delete WHERE HEX(requester_aci) = UPPER(?)",
       arrayOf(Hex.toStringCondensed(requesterAci))
     ).use { c -> c.moveToFirst(); return c.getInt(0) }
   }
 
   fun countPendingByConversation(stableConvId: ByteArray): Int {
-    SignalDatabase.rawDatabase.rawQuery(
+    SignalDatabase.rawWritableDatabase.rawQuery(
       "SELECT COUNT(*) FROM pending_participant_delete WHERE HEX(stable_conversation_id) = UPPER(?)",
       arrayOf(Hex.toStringCondensed(stableConvId))
     ).use { c -> c.moveToFirst(); return c.getInt(0) }
   }
 
   fun countPendingGlobal(): Int {
-    SignalDatabase.rawDatabase.rawQuery("SELECT COUNT(*) FROM pending_participant_delete", null)
+    SignalDatabase.rawWritableDatabase.rawQuery("SELECT COUNT(*) FROM pending_participant_delete", null)
       .use { c -> c.moveToFirst(); return c.getInt(0) }
   }
 
   fun insertPending(values: android.content.ContentValues) {
-    SignalDatabase.rawDatabase.insert("pending_participant_delete", null, values)
+    SignalDatabase.rawWritableDatabase.insert("pending_participant_delete", null, values)
   }
 
   fun deletePendingByTarget(stableConvId: ByteArray, targetAuthorAci: ByteArray, targetTimestamp: Long) {
-    SignalDatabase.rawDatabase.delete(
+    SignalDatabase.rawWritableDatabase.delete(
       "pending_participant_delete",
-      "HEX(stable_conversation_id) = UPPER(?) AND HEX(target_author_aci) = UPPER(?) AND target_sent_timestamp = ?",
+      "HEX(stable_conversation_id) = UPPER(?) AND HEX(target_author_aci) = UPPER(?) AND target_sent_dateSent = ?",
       arrayOf(Hex.toStringCondensed(stableConvId), Hex.toStringCondensed(targetAuthorAci), targetTimestamp.toString())
     )
   }
@@ -190,15 +190,15 @@ private object DAO {
 
   fun pruneOldReceipts(nowMs: Long, receiptLifetimeMs: Long) {
     val cutoff = nowMs - receiptLifetimeMs
-    SignalDatabase.rawDatabase.delete("participant_delete_device_receipt", "received_at <= ?", arrayOf(cutoff.toString()))
+    SignalDatabase.rawWritableDatabase.delete("participant_delete_device_receipt", "received_at <= ?", arrayOf(cutoff.toString()))
   }
 
   fun insertDeviceReceipt(values: android.content.ContentValues) {
-    SignalDatabase.rawDatabase.insert("participant_delete_device_receipt", null, values)
+    SignalDatabase.rawWritableDatabase.insert("participant_delete_device_receipt", null, values)
   }
 
   fun receiptsForRequest(requestId: ByteArray): Cursor {
-    return SignalDatabase.rawDatabase.query(
+    return SignalDatabase.rawWritableDatabase.query(
       "participant_delete_device_receipt", null,
       "HEX(request_id) = UPPER(?)", arrayOf(Hex.toStringCondensed(requestId)),
       null, null, null
@@ -206,7 +206,7 @@ private object DAO {
   }
 
   fun orphanReceiptCount(): Int {
-    SignalDatabase.rawDatabase.rawQuery(
+    SignalDatabase.rawWritableDatabase.rawQuery(
       """
         SELECT COUNT(*) FROM participant_delete_device_receipt AS r
         WHERE NOT EXISTS (SELECT 1 FROM participant_delete_request AS q WHERE HEX(q.request_id) = HEX(r.request_id))
@@ -215,7 +215,7 @@ private object DAO {
   }
 
   fun deleteDeviceReceipt(requestId: ByteArray, responderAci: ByteArray, responderDeviceId: Long) {
-    SignalDatabase.rawDatabase.delete(
+    SignalDatabase.rawWritableDatabase.delete(
       "participant_delete_device_receipt",
       "HEX(request_id) = UPPER(?) AND HEX(responder_aci) = UPPER(?) AND responder_device_id = ?",
       arrayOf(Hex.toStringCondensed(requestId), Hex.toStringCondensed(responderAci), responderDeviceId.toString())
@@ -229,11 +229,11 @@ private object DAO {
       put("interaction_id", interactionId)
       put("requester_aci", requesterAci)
     }
-    SignalDatabase.rawDatabase.insert("participant_delete_author", null, cv)
+    SignalDatabase.rawWritableDatabase.insert("participant_delete_author", null, cv)
   }
 
   fun authorByInteractionId(interactionId: Long): Cursor {
-    return SignalDatabase.rawDatabase.query(
+    return SignalDatabase.rawWritableDatabase.query(
       "participant_delete_author", null,
       "interaction_id = ?", arrayOf(interactionId.toString()),
       null, null, null
@@ -299,7 +299,7 @@ class ParticipantDeleteManager {
   fun canParticipantDelete(message: MessageRecord, threadId: Long): Boolean {
     if (!ParticipantDeleteConfig.FEATURE_ENABLED) return false
     if (message.isRemoteDelete) return false
-    if (message.timestamp <= 0) return false
+    if (message.dateSent <= 0) return false
     if (!isSupportedTarget(message)) return false
 
     val localAci = Recipient.self().aci.toUuid() ?: return false
@@ -390,7 +390,7 @@ class ParticipantDeleteManager {
       return
     }
 
-    SignalDatabase.rawDatabase.beginTransaction()
+    SignalDatabase.rawWritableDatabase.beginTransaction()
     try {
       DAO.pruneOldReceipts(nowMs, ParticipantDeleteConfig.RECEIPT_LIFETIME_MS)
 
@@ -423,9 +423,9 @@ class ParticipantDeleteManager {
         tryResolvePending(row!!)
       }
 
-      SignalDatabase.rawDatabase.setTransactionSuccessful()
+      SignalDatabase.rawWritableDatabase.setTransactionSuccessful()
     } finally {
-      SignalDatabase.rawDatabase.endTransaction()
+      SignalDatabase.rawWritableDatabase.endTransaction()
     }
   }
 
@@ -436,41 +436,41 @@ class ParticipantDeleteManager {
       val stableConvId = stableConversationIdForThread(message.threadId, localAci) ?: return
       if (!isSupportedTarget(message)) return
 
-      SignalDatabase.rawDatabase.beginTransaction()
+      SignalDatabase.rawWritableDatabase.beginTransaction()
       try {
-        if (DAO.tombstoneExists(stableConvId, UuidUtil.toByteArray(authorAci), message.timestamp)) {
-          DAO.tombstoneByTarget(stableConvId, UuidUtil.toByteArray(authorAci), message.timestamp).use { c ->
+        if (DAO.tombstoneExists(stableConvId, UuidUtil.toByteArray(authorAci), message.dateSent)) {
+          DAO.tombstoneByTarget(stableConvId, UuidUtil.toByteArray(authorAci), message.dateSent).use { c ->
             if (c.moveToFirst()) {
               val tombstoneAciBytes = c.getBlob(c.getColumnIndexOrThrow("requester_aci"))
               DAO.updateTombstoneInteractionId(
-                stableConvId, UuidUtil.toByteArray(authorAci), message.timestamp,
+                stableConvId, UuidUtil.toByteArray(authorAci), message.dateSent,
                 message.id, threadUniqueIdOf(message.threadId)
               )
               DAO.insertAuthor(message.id, tombstoneAciBytes)
             }
           }
           markMessageAsRemoteDelete(message.id)
-          SignalDatabase.rawDatabase.setTransactionSuccessful()
+          SignalDatabase.rawWritableDatabase.setTransactionSuccessful()
           return
         }
 
-        DAO.pendingByTarget(stableConvId, UuidUtil.toByteArray(authorAci), message.timestamp).use { c ->
+        DAO.pendingByTarget(stableConvId, UuidUtil.toByteArray(authorAci), message.dateSent).use { c ->
           if (c.moveToFirst()) {
             val pendingRow = PendingParticipantDeleteRow.fromCursor(c)
             DAO.insertTombstone(android.content.ContentValues().apply {
               put("stable_conversation_id", pendingRow.stableConversationId)
               put("local_thread_unique_id", threadUniqueIdOf(message.threadId))
               put("target_author_aci", pendingRow.targetAuthorAci)
-              put("target_sent_timestamp", message.timestamp)
+              put("target_sent_dateSent", message.dateSent)
               put("interaction_id", message.id)
               put("first_request_id", pendingRow.firstRequestId)
               put("requester_aci", pendingRow.requesterAci)
               put("applied_at", System.currentTimeMillis())
               put("protocol_version", pendingRow.protocolVersion)
             })
-            DAO.deletePendingByTarget(stableConvId, pendingRow.targetAuthorAci, message.timestamp)
+            DAO.deletePendingByTarget(stableConvId, pendingRow.targetAuthorAci, message.dateSent)
             DAO.insertAuthor(message.id, pendingRow.requesterAci)
-            DAO.requestsByTarget(stableConvId, pendingRow.targetAuthorAci, message.timestamp).use { rc ->
+            DAO.requestsByTarget(stableConvId, pendingRow.targetAuthorAci, message.dateSent).use { rc ->
               while (rc.moveToNext()) {
                 val reqId = rc.getBlob(rc.getColumnIndexOrThrow("request_id"))
                 DAO.updateProcessingResult(reqId, ParticipantDeleteReceiptResult.APPLIED.rawValue)
@@ -480,9 +480,9 @@ class ParticipantDeleteManager {
           }
         }
 
-        SignalDatabase.rawDatabase.setTransactionSuccessful()
+        SignalDatabase.rawWritableDatabase.setTransactionSuccessful()
       } finally {
-        SignalDatabase.rawDatabase.endTransaction()
+        SignalDatabase.rawWritableDatabase.endTransaction()
       }
     } catch (e: Exception) {
       Log.e(TAG, "applyPendingDeleteIfNecessary failed", e)
@@ -553,7 +553,7 @@ class ParticipantDeleteManager {
     val requesterAciBytes = UuidUtil.toByteArray(requesterAci)
     val localThreadUniqueId = threadUniqueIdOf(threadId)
 
-    SignalDatabase.rawDatabase.beginTransaction()
+    SignalDatabase.rawWritableDatabase.beginTransaction()
     try {
       // Dedupe
       DAO.requestByRequestId(requestId).use { c ->
@@ -562,7 +562,7 @@ class ParticipantDeleteManager {
           if (originShouldSendReceipt) {
             queueReceipt(requestId, existingResult, requesterAci)
           }
-          SignalDatabase.rawDatabase.setTransactionSuccessful()
+          SignalDatabase.rawWritableDatabase.setTransactionSuccessful()
           return ParticipantDeleteReceiptResult.fromRaw(existingResult)
         }
       }
@@ -577,13 +577,13 @@ class ParticipantDeleteManager {
           put("stable_conversation_id", stableConvId)
           put("local_thread_unique_id", localThreadUniqueId)
           put("target_author_aci", targetAuthorAciBytes)
-          put("target_sent_timestamp", targetSentTimestamp)
+          put("target_sent_dateSent", targetSentTimestamp)
           put("protocol_version", ParticipantDeleteConfig.PROTOCOL_VERSION)
           put("processing_result", ParticipantDeleteReceiptResult.ALREADY_APPLIED.rawValue)
           put("created_at", System.currentTimeMillis())
         })
         if (originShouldSendReceipt) queueReceipt(requestId, ParticipantDeleteReceiptResult.ALREADY_APPLIED.rawValue, requesterAci)
-        SignalDatabase.rawDatabase.setTransactionSuccessful()
+        SignalDatabase.rawWritableDatabase.setTransactionSuccessful()
         return ParticipantDeleteReceiptResult.ALREADY_APPLIED
       }
 
@@ -610,10 +610,10 @@ class ParticipantDeleteManager {
               put("stable_conversation_id", stableConvId)
               put("local_thread_unique_id", localThreadUniqueId)
               put("target_author_aci", targetAuthorAciBytes)
-              put("target_sent_timestamp", targetSentTimestamp)
+              put("target_sent_dateSent", targetSentTimestamp)
               put("requester_aci", requesterAciBytes)
               requesterDeviceId?.let { put("requester_device_id", it.toLong()) }
-              put("request_server_timestamp", trustedServerTimestamp ?: nowMs)
+              put("request_server_dateSent", trustedServerTimestamp ?: nowMs)
               put("conversation_scope", scope)
               groupRevision?.let { put("group_revision", it.toLong()) }
               put("expires_at", nowMs + ParticipantDeleteConfig.PENDING_LIFETIME_MS)
@@ -629,13 +629,13 @@ class ParticipantDeleteManager {
           put("stable_conversation_id", stableConvId)
           put("local_thread_unique_id", localThreadUniqueId)
           put("target_author_aci", targetAuthorAciBytes)
-          put("target_sent_timestamp", targetSentTimestamp)
+          put("target_sent_dateSent", targetSentTimestamp)
           put("protocol_version", ParticipantDeleteConfig.PROTOCOL_VERSION)
           put("processing_result", ParticipantDeleteReceiptResult.TARGET_PENDING.rawValue)
           put("created_at", System.currentTimeMillis())
         })
         if (originShouldSendReceipt) queueReceipt(requestId, ParticipantDeleteReceiptResult.TARGET_PENDING.rawValue, requesterAci)
-        SignalDatabase.rawDatabase.setTransactionSuccessful()
+        SignalDatabase.rawWritableDatabase.setTransactionSuccessful()
         return ParticipantDeleteReceiptResult.TARGET_PENDING
       }
 
@@ -643,7 +643,7 @@ class ParticipantDeleteManager {
       if (!isSupportedTarget(targetMessage)) {
         throw ParticipantDeleteException.InvalidTarget
       }
-      if (targetMessage.threadId != threadId || targetMessage.timestamp != targetSentTimestamp) {
+      if (targetMessage.threadId != threadId || targetMessage.dateSent != targetSentTimestamp) {
         throw ParticipantDeleteException.InvalidTarget
       }
 
@@ -654,7 +654,7 @@ class ParticipantDeleteManager {
         put("stable_conversation_id", stableConvId)
         put("local_thread_unique_id", localThreadUniqueId)
         put("target_author_aci", targetAuthorAciBytes)
-        put("target_sent_timestamp", targetSentTimestamp)
+        put("target_sent_dateSent", targetSentTimestamp)
         put("interaction_id", targetMessage.id)
         put("first_request_id", requestId)
         put("requester_aci", requesterAciBytes)
@@ -669,13 +669,13 @@ class ParticipantDeleteManager {
         put("stable_conversation_id", stableConvId)
         put("local_thread_unique_id", localThreadUniqueId)
         put("target_author_aci", targetAuthorAciBytes)
-        put("target_sent_timestamp", targetSentTimestamp)
+        put("target_sent_dateSent", targetSentTimestamp)
         put("protocol_version", ParticipantDeleteConfig.PROTOCOL_VERSION)
         put("processing_result", ParticipantDeleteReceiptResult.APPLIED.rawValue)
         put("created_at", System.currentTimeMillis())
       })
       if (originShouldSendReceipt) queueReceipt(requestId, ParticipantDeleteReceiptResult.APPLIED.rawValue, requesterAci)
-      SignalDatabase.rawDatabase.setTransactionSuccessful()
+      SignalDatabase.rawWritableDatabase.setTransactionSuccessful()
       return ParticipantDeleteReceiptResult.APPLIED
     } catch (pe: ParticipantDeleteException) {
       val fallback = when (pe) {
@@ -686,7 +686,7 @@ class ParticipantDeleteManager {
       try { queueReceipt(requestId, fallback.rawValue, requesterAci) } catch (_: Throwable) { }
       throw pe
     } finally {
-      try { SignalDatabase.rawDatabase.endTransaction() } catch (_: Throwable) { }
+      try { SignalDatabase.rawWritableDatabase.endTransaction() } catch (_: Throwable) { }
     }
   }
 
@@ -737,7 +737,7 @@ class ParticipantDeleteManager {
         put("stable_conversation_id", pending.stableConversationId)
         put("local_thread_unique_id", pending.localThreadUniqueId)
         put("target_author_aci", pending.targetAuthorAci)
-        put("target_sent_timestamp", pending.targetSentTimestamp)
+        put("target_sent_dateSent", pending.targetSentTimestamp)
         put("interaction_id", targetMessage.id)
         put("first_request_id", pending.firstRequestId)
         put("requester_aci", pending.requesterAci)
@@ -813,7 +813,7 @@ class ParticipantDeleteManager {
 
   private fun markMessageAsRemoteDelete(messageId: Long) {
     runCatching {
-      SignalDatabase.rawDatabase.execSQL("UPDATE message SET remote_delete = 1 WHERE _id = ?", arrayOf(messageId))
+      SignalDatabase.rawWritableDatabase.execSQL("UPDATE message SET remote_deleted = 1 WHERE _id = ?", arrayOf(messageId))
     }
   }
 
@@ -845,7 +845,7 @@ class ParticipantDeleteManager {
           requesterAci = c.getBlob(c.getColumnIndexOrThrow("requester_aci")),
           stableConversationId = c.getBlob(c.getColumnIndexOrThrow("stable_conversation_id")),
           targetAuthorAci = c.getBlob(c.getColumnIndexOrThrow("target_author_aci")),
-          targetSentTimestamp = c.getLong(c.getColumnIndexOrThrow("target_sent_timestamp")),
+          targetSentTimestamp = c.getLong(c.getColumnIndexOrThrow("target_sent_dateSent")),
           localThreadUniqueId = c.getString(c.getColumnIndexOrThrow("local_thread_unique_id"))
         )
       }
@@ -871,7 +871,7 @@ class ParticipantDeleteManager {
           stableConversationId = c.getBlob(c.getColumnIndexOrThrow("stable_conversation_id")),
           localThreadUniqueId = c.getString(c.getColumnIndexOrThrow("local_thread_unique_id")),
           targetAuthorAci = c.getBlob(c.getColumnIndexOrThrow("target_author_aci")),
-          targetSentTimestamp = c.getLong(c.getColumnIndexOrThrow("target_sent_timestamp")),
+          targetSentTimestamp = c.getLong(c.getColumnIndexOrThrow("target_sent_dateSent")),
           requesterAci = c.getBlob(c.getColumnIndexOrThrow("requester_aci")),
           protocolVersion = c.getInt(c.getColumnIndexOrThrow("protocol_version"))
         )
