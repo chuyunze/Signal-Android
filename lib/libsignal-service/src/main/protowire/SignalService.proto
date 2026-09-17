@@ -413,6 +413,41 @@ message DataMessage {
     optional uint64 targetSentTimestamp = 2;
   }
 
+  // A cooperative delete request sent by any current conversation member.
+  // The requester identity is always taken from the authenticated envelope (or
+  // the trusted local sent-transcript context), never from this payload.
+  message ParticipantDelete {
+    enum Scope {
+      UNKNOWN = 0;
+      DIRECT_CHAT_BOTH_ACCOUNTS = 1;
+      GROUP_ALL_CURRENT_MEMBERS = 2;
+    }
+
+    optional uint32 version = 1;
+    optional bytes targetAuthorAciBinary = 2; // 16-byte UUID
+    optional uint64 targetSentTimestamp = 3;
+    optional bytes requestId = 4; // 16-byte UUID
+    optional uint64 clientRequestedAt = 5;
+    optional Scope scope = 6;
+    optional uint32 groupRevision = 7;
+  }
+
+  message ParticipantDeleteReceipt {
+    enum Result {
+      UNKNOWN = 0;
+      APPLIED = 1;
+      ALREADY_APPLIED = 2;
+      TARGET_PENDING = 3;
+      REJECTED_NOT_CURRENT_MEMBER = 4;
+      REJECTED_NOT_SUPPORTED = 5;
+      REJECTED_INVALID_TARGET = 6;
+    }
+
+    optional uint32 version = 1;
+    optional bytes requestId = 2; // 16-byte UUID
+    optional Result result = 3;
+  }
+
   optional string body = 1;
   repeated AttachmentPointer attachments = 2;
   reserved /*groupV1*/ 3;
@@ -441,7 +476,9 @@ message DataMessage {
   optional PinMessage pinMessage = 27;
   optional UnpinMessage unpinMessage = 28;
   optional AdminDelete adminDelete = 29;
-  // NEXT ID: 30
+  optional ParticipantDelete participantDelete = 30;
+  optional ParticipantDeleteReceipt participantDeleteReceipt = 31;
+  // NEXT ID: 32
 }
 
 message NullMessage {
