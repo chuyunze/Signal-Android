@@ -1,4 +1,4 @@
-﻿package org.thoughtcrime.securesms.messages
+package org.thoughtcrime.securesms.messages
 
 import android.content.Context
 import android.text.TextUtils
