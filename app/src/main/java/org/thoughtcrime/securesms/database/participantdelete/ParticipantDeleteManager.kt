@@ -808,7 +808,7 @@ class ParticipantDeleteManager {
     val threadRecipientId = SignalDatabase.threads.getRecipientIdForThreadId(threadId) ?: return null
     val threadRecipient = Recipient.resolved(threadRecipientId)
     return if (threadRecipient.isGroup) {
-      groupConversationId(threadRecipient.requireGroupId().toByteArray())
+      groupConversationId(threadRecipient.requireGroupId().decodedId)
     } else {
       val contactAci = threadRecipient.aci.toUuid() ?: return null
       directConversationId(UuidUtil.toByteArray(localAci), UuidUtil.toByteArray(contactAci))
